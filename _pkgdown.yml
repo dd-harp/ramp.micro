@@ -1,0 +1,37 @@
+url: https://dd-harp.github.io/motrap.micro/
+template:
+  bootstrap: 5
+navbar:
+  left:
+  - text: Functions
+    href: reference/index.html
+  - text: Articles
+    menu:
+    - text: Making Point Sets
+      href: articles/point_sets.html
+  right:
+  - icon: fa-github
+    href: https://github.com/dd-harp/motrap.micro/
+home:
+  sidebar:
+    structure:
+    - links
+    - license
+    - community
+    - citation
+    - authors
+    - dev
+    - custom_news
+    components:
+      custom_news:
+        title: Changelog
+        text: <a href="news/index.html">News</a>
+reference:
+- title: Point Sets
+  desc: |
+    Dynamics of MoI, AoI
+  contents:
+  - unif_xy
+  - lattice
+  - clusters_xy
+  - clusters_nm

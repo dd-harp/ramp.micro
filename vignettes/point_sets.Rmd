@@ -1,0 +1,29 @@
+---
+title: "Making Point Sets"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Making Point Sets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, suppressMessages=T}
+suppressMessages(library(motrap.micro))
+#devtools::load_all() 
+```
+
+```{r suppressMessages=T}
+library(viridisLite)
+library(knitr)
+library(viridis)
+```
+
+## Introduction 
+
+This
+```{r, fig.height=5, fig.width=5}
+par(bty = "o")
+xy = runif(50, -5, 5)
+plot(xy, xaxt = "n", yaxt = "n", xlab = "", ylab="")
+```
+
