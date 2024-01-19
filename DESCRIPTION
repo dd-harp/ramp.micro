@@ -1,0 +1,10 @@
+Package: motrap.micro
+Type: Package
+Title: Microsimulation for mosquito-transmitted pathogens 
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: A set of algorithms to setup, simulate, and analyze systems of equations describing mosquito population dynamics and pathogen transmission on point sets. 
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
