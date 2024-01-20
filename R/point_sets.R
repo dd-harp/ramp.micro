@@ -60,7 +60,7 @@ clusters_xy = function(xy, nc=1, vr=1){
 clusters_nm = function(n, m, vr, mn, mx){
   xy = unif_xy(n, mn, mx)
   for(i in 1:n){
-    clust = 1+rpois(1,m-1)
+    clust = 1+stats::rpois(1,m-1)
     xi = xy[i,1] + stats::rnorm(clust, 0, vr)
     yi = xy[i,2] + stats::rnorm(clust, 0, vr)
     xyi = cbind(xi,yi)

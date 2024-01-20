@@ -29,7 +29,7 @@ home:
 reference:
 - title: Point Sets
   desc: |
-    Dynamics of MoI, AoI
+    Generate point sets
   contents:
   - unif_xy
   - lattice

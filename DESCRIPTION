@@ -1,9 +1,12 @@
 Package: motrap.micro
 Type: Package
-Title: Microsimulation for mosquito-transmitted pathogens 
+Title: Behavioral State Microsimulation Modeling for Mosquito-Transmitted Pathogens
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Authors@R: c(
+      person("David L.", "Smith", email = "smitdave@uw.edu", role = c("aut","cre"), comment = c(ORCID = "0000-0003-4367-3849")),
+      person("Héctor M. Sánchez C", email = "sanchez.hmsc@berkeley.edu", role = "aut", comment = c(ORCID = "0000-0001-7378-8853"))
+    )
+Maintainer: David L Smith <smitdave@uw.edu>
 Description: A set of algorithms to setup, simulate, and analyze systems of equations describing mosquito population dynamics and pathogen transmission on point sets. 
 License: GPL-3 
 Encoding: UTF-8
@@ -11,9 +14,14 @@ LazyData: true
 RoxygenNote: 7.2.3
 URL: https://dd-harp.github.io/motrap.micro/
 Imports: 
-  stats
+  stats, 
+  deldir,
+  igraph, 
+  av, 
+  diagram
 Suggests: 
   knitr, 
   graphics, 
   viridis,
   viridisLite
+VignetteBuilder: knitr
