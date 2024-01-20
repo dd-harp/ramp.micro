@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   point_sets: point_sets.html
-last_built: 2024-01-19T20:29Z
+last_built: 2024-01-20T03:50Z
 urls:
   reference: https://dd-harp.github.io/motrap.micro/reference
   article: https://dd-harp.github.io/motrap.micro/articles
