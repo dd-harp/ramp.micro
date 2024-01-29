@@ -5,12 +5,16 @@ The idea of micro-simulation was described by the late Richard Carter (Carter, 2
 
 *Behavioral state* models are a natural complement to micro-simulation models. The basic premise is that mosquitoes are not wandering around aimlessly. 
 Instead, a mosquito is typically *searching* for a resource. 
-Over their lives, mosquito behaviors are determined by a physiological state that guides them towards accomplishing a task that increases their fitness: mosquitoes search for vertebrate hosts to blood feed; for aquatic habitats to lay eggs; for sugar sources; for mates; and for other resources they need to maximize their fitness. 
+The point sets in these micro-simulation models thus represent the locations of different resources that mosquitoes need. 
+The first paper to combine *micro-simulation* with *behavioral state modeling* was an agent based model published by Weidong Gu and Robert J Novak (2009 a,^[Gu W,  Novak RJ (2009). Agent-based modelling of mosquito foraging behaviour for malaria control, Trans R Soc Trop Med Hyg 103: 1105–1112, https://doi.org/10.1016/j.trstmh.2009.01.006] b^[Gu W, Novak RJ (2009). Predicting the impact of insecticide-treated bed nets on malaria transmission: the devil is in the detail. Malar J 8:256, https://doi.org/10.1186/1475-2875-8-256]).
+
+Over their lives, mosquito behaviors are determined by a physiological state that determines their behavior. 
+The behavioral algorithms have evolved to accomplish a task that increases a mosquito's fitness: mosquitoes search for vertebrate hosts to blood feed; for aquatic habitats to lay eggs; for sugar sources; for mates; and for other resources they need to survive and lay egg.
 Behavioral state models for mosquitoes are a kind of compartmental model where mosquitoes are sub-divided by their current physiological state, and changes in behavioral states reflect successful blood feeding, egg laying, sugar feeding, mating, or something else. 
 These behavioral states are different than states representing infection status and parasite transmission dynamics -- uninfected, infected but not yet infective, and infective --
 in the Ross-Macdonald model. By considering *both* the physiological/behavioral state and infection states, it might be possible to understand some local features of malaria transmission as a result of the heterogeneous distribution of resources, an idea pioneered by Arnaud Le Menach, *et al.* (2005)^[Le Menach A, McKenzie FE, Flahault A, Smith DL (2005) The unexpected importance of mosquito oviposition behaviour for malaria: Non-productive larval habitats can be sources for malaria transmission. Malar J. 4: 23, doi:10.1186/1475-2875-4-23].
 
-The first paper to combine *micro-simulation* with *behavioral state modeling* was an agent based model published by Weidong Gu and Robert J Novak (2009 a,^[Gu W,  Novak RJ (2009). Agent-based modelling of mosquito foraging behaviour for malaria control, Trans R Soc Trop Med Hyg 103: 1105–1112, https://doi.org/10.1016/j.trstmh.2009.01.006] b^[Gu W, Novak RJ (2009). Predicting the impact of insecticide-treated bed nets on malaria transmission: the devil is in the detail. Malar J 8:256, https://doi.org/10.1186/1475-2875-8-256]). A rigorous mathematical framework to describe mosquito behavioral state micro-simulation was developed by Alex Perkins, *et al.*, (2013)^[Perkins TA, Scott TW, Le Menach A, Smith DL (2013). Heterogeneity, mixing, and the spatial scales of mosquito-borne pathogen transmission. PLoS Comput Biol 9:e1003327, https://doi.org/10.1371/journal.pcbi.1003540]. An individual-based model, 
+ A rigorous mathematical framework to describe mosquito behavioral state micro-simulation was developed by Alex Perkins, *et al.*, (2013)^[Perkins TA, Scott TW, Le Menach A, Smith DL (2013). Heterogeneity, mixing, and the spatial scales of mosquito-borne pathogen transmission. PLoS Comput Biol 9:e1003327, https://doi.org/10.1371/journal.pcbi.1003540]. An individual-based model, 
 called MBITES (Mosquito Bout-based and Individual-based Transmission Ecology Simulator), 
 was developed by Sean Wu, *et al.* (2020)^[Wu SL, Sánchez C HM, Henry JM, Citron DT, ... (2020). Vector bionomics and vectorial capacity as emergent properties of mosquito behaviors and ecology. PLoS Comput Biol 16:e1007446, doi:10.1371/journal.pcbi.1007446]. A systematic review of this literature is badly needed.
 
@@ -21,8 +25,10 @@ While searching, mosquitoes move around until they find a resource and accomplis
 The physiological state then changes, and the mosquitoes must find a different resource.
 In searching for resources, the wind speed and direction are major concerns that could affect mosquito searching efficiency and the distance traveled during a single flight.
 Mosquito movement and mosquito population dynamics are thus determined by wind, behavior, and the distribution of resources.
-Mosquitoes are moving among resource point sets distributed on landscapes, so while *diffusion* and *advection* might seem to be reasonable ways of understanding movement, the underlying mathematics are basically wrong.
-This is not to say that such models are not *useful,* but that we might learn something new by describing and analyzing mosquito movement in models that are highly realistic. 
+Mosquitoes are moving among resource point sets distributed on landscapes, so while *diffusion* and *advection* might seem to be reasonable ways of understanding movement (for example, see Lutambi ML, *et al*, 2013)^[Lutambi ML, *et al.* (2013).
+Mathematical modelling of mosquito dispersal in a heterogeneous environment.
+Mathematical Biosciences 241:198-216, https://doi.org/10.1016/j.mbs.2012.11.013], the underlying mathematics governing aggregate movement patterns of mosquito populations are related to something else.
+This is not to say that diffusion-based models are not *useful,* but that we might learn something new by describing and analyzing mosquito movement in models that are highly realistic. 
 *Spatial Dynamics of Malaria Transmission,* for example, introduces a model for mosquito spatial ecology that is motivated by the ideas of *search* and heterogeneous resource availability (Wu SL, *et al.*, 2023)^[Wu SL, *et al.* (2023) Spatial dynamics of malaria transmission. PLoS Comput Biol 19(6): e1010684. https://doi.org/10.1371/journal.pcbi.1010684].
 
 
