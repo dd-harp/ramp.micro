@@ -13,6 +13,8 @@ navbar:
       href: articles/visualizing_dispersal.html
     - text: On Dispersal Matrices
       href: articles/basic_dispersal.html
+    - text: Simulation
+      href: articles/simulation.html
   right:
   - icon: fa-github
     href: https://github.com/dd-harp/motrap.micro/

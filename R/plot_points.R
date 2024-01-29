@@ -14,7 +14,7 @@
 plot_points = function(model,
                       bwts=1, qwts=1, swts=1,
                       pw=1, max_pt_sz=1, mtl=""){
-  UseMethod("plot_points", model)
+  UseMethod("plot_points", model$Mpar)
 }
 
 #' Plot point sets for a model for a BQ model

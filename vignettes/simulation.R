@@ -2,8 +2,8 @@
 library(viridisLite)
 library(knitr)
 library(viridis)
-library(motrap.micro)
-#devtools::load_all()
+#library(motrap.micro)
+devtools::load_all()
 
 ## -----------------------------------------------------------------------------
 set.seed(24328)
@@ -32,9 +32,6 @@ Psi_qq = make_Psi_xx(qq, kFq)
 par(mfcol = c(2,2), mar = c(1,2,1,2))
 plot_Psi_BQ(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq)
 
-## ----eval=F-------------------------------------------------------------------
-#  #devtools::load_all()
-
 ## -----------------------------------------------------------------------------
 opts_d = list(kFb = kFb, kFq = kFq)
 model = setup_model(bb, qq, dispersal_opts=opts_d)
@@ -47,4 +44,13 @@ names(model$Mpar)
 
 ## -----------------------------------------------------------------------------
 names(model$Lpar)
+
+## -----------------------------------------------------------------------------
+model <- SIM(model)
+
+## ----eval=F, echo=F-----------------------------------------------------------
+#  devtools::load_all()
+
+## ----fig.height=6, fig.width=6, echo=F----------------------------------------
+plot_points(model, bwts = model$states$M$B_t[[201]], qwts= model$states$M$B_t[[201]])
 

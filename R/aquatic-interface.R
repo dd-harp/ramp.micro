@@ -50,7 +50,7 @@ compute_diffs_L = function(Lvars1, Lvars2){
 #' @return the model, a compound [list]
 #' @export
 init_states_L = function(model){
-  UseMethod("save_states_L", model$Lpar)
+  UseMethod("init_states_L", model$Lpar)
 }
 
 #' Setup an aquatic model

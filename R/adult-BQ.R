@@ -7,7 +7,7 @@
 #' @export
 adult_dynamics.BQ = function(t, model){
   with(model,
-    with(c(Mpar, Mvars), {
+    with(c(Mpar, Mvars, terms), {
       # compute variables
       eggs_t = ova*psiQ*Q
       B_t = Mbb %*% B + Mbq %*% Q + Mlb %*% Lambda
@@ -15,7 +15,7 @@ adult_dynamics.BQ = function(t, model){
       # update variables
       model$Mvars$B = B_t
       model$Mvars$Q = Q_t
-      model$Mvars$eggs = eggs_t
+      model$terms$eggs = eggs_t
       # return the model
       return(model)
 }))}
@@ -82,9 +82,9 @@ init_adult_model.BQ = function(model, M0_opts){
 #' @return model, a compound [list]
 #' @export
 init_adult_model_BQ = function(model, opts=list(), B0=10, Q0=10){with(opts,{
-  model$Mvars$B = c(B0, model$nb, 1)
-  model$Mvars$Q = c(Q0, model$nq, 1)
-  model$Mvars$eggs = c(0, model$nq, 1)
+  model$Mvars$B = rep(B0, model$nb)[1:model$nb]
+  model$Mvars$Q = rep(Q0, model$nq)[1:model$nq]
+  model$Mvars$eggs = rep(0, model$nq)[1:model$nq]
   return(model)
 })}
 

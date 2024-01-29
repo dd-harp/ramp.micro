@@ -7,9 +7,9 @@
 #' @export
 adult_dynamics.BQS = function(t, model){
   with(model,{
-    with(c(Mpars, vars$M), {
-      # compute variables
+    with(c(Mpars, Mvars, terms), {
       eggs_t = ova*psiQ*Q
+      # compute variables
       B_t = Mbb %*% B + Mbq %*% Q + Mbs %*% S + Mbl %*% Lambda
       Q_t = Mqb %*% B + Mqq %*% Q + Mqs %*% S
       S_t = Msb %*% B + Msq %*% Q + Mss %*% S + Msl %*% Lambda
@@ -17,7 +17,7 @@ adult_dynamics.BQS = function(t, model){
       model$Mvars$B = B_t
       model$Mvars$Q = Q_t
       model$Mvars$S = S_t
-      model$Mvars$eggs = eggs_t
+      model$terms$eggs = eggs_t
     return(model)
   })})
 }

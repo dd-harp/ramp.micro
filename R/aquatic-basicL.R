@@ -5,15 +5,15 @@
 #'
 #' @return the model, a compound [list]
 #' @export
-aquatic_dynamics.basicL = function(t, model){ with(model,{
-  survive = pL*exp(-zeta*L)
-  mature = theta*exp(-xi*L)
-  model$Lambda = mature*survive*L
-  Lt = (1-mature)*survive*L
-  Lt = Lt + eggs
-  model$L= Lt
-  return(model)
-})}
+aquatic_dynamics.basicL = function(t, model){ with(model,
+  with(c(Lpar, Lvars),{
+    survive = pL*exp(-zeta*L)
+    mature = theta*exp(-xi*L)
+    L_t = (1-mature)*survive*L
+    model$Lvars$L= L_t + model$terms$eggs
+    model$terms$Lambda = mature*survive*L
+    return(model)
+}))}
 
 #' Set initial values for the BQ model
 #'
@@ -35,8 +35,8 @@ init_aquatic_model.basicL= function(model, L0_opts){
 #' @return the model, a compound [list]
 #' @export
 init_aquatic_model_basicL = function(model, opts=list(), L0=10){with(opts,{
-  model$Lvars$L = matrix(L0, model$nq, 1)
-  model$Lvars$Lambda = matrix(0, model$nq, 1)
+  model$Lvars$L = rep(L0, model$nq)[1:model$nq]
+  model$terms$Lambda = rep(0, model$nq)[1:model$nq]
   return(model)
 })}
 

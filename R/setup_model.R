@@ -44,6 +44,7 @@ setup_model = function(b, q, s=c(),
 
   model$Mvars = list()
   model = init_adult_model(model, M0_opts)
+  model$terms = list()
 
   Lpar = list()
   class(Lpar) <- Lname
