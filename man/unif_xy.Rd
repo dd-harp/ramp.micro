@@ -2,7 +2,7 @@
 % Please edit documentation in R/point_sets.R
 \name{unif_xy}
 \alias{unif_xy}
-\title{Make a random xy point set}
+\title{Make a random point set, xy}
 \usage{
 unif_xy(n, mn, mx)
 }
@@ -17,5 +17,5 @@ unif_xy(n, mn, mx)
 a set of xy locations
 }
 \description{
-Make a random xy point set
+Make a random point set, xy
 }

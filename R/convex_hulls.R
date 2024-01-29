@@ -1,52 +1,90 @@
+# Visualize communities as convex hulls
 
-getConvexHull.i = function(i, memix, xy){
-  ixj = which(memix == i)
-  hpts <- chull(xy[ixj,])
-  ixk = c(hpts, hpts[1])
-  return(xy[ixj[ixk],])
-}
-
-modConvexHulls.i = function(mod, i, cut=NULL, clr_scheme=turbo, stretch=0.1, lwd=2){
-  net = getNet.i(mod, i)
-  modConvexHulls(mod, net, cut, clr_scheme, stretch, lwd)
-}
-
-modConvexHulls = function(mod, net, cut=NULL, clrP=turbo, stretch=0.1, lwd=2, clrs=NULL){
+#' Make a set of convex hulls to visualize the community
+#'
+#' @param model a model defined as a compound [list]
+#' @param net a network object
+#' @param cut if !null, the number of communities for igraph::cut_at
+#' @param f_color a function that returns a list of colors (e.g. viridis::turbo)
+#'
+#' @return the network object with convex hulls attached
+#' @export
+make_convex_hulls = function(model, net, cut=NULL, f_color = viridis::turbo){
   clusters = net$clusters_walktrap
   memix = if(is.null(cut)){
-    membership(clusters)
+    igraph::membership(clusters)
   } else {
-    cut_at(clusters, cut)
+    igraph::cut_at(clusters, cut)
   }
   if(net$type == "b"){
-    xy = mod$b
+    xy = model$b
   }
   if(net$type == "q"){
-    xy = mod$q
+    xy = model$q
   }
   if(net$type == "bq"){
-    xy = with(mod,rbind(b, q))
+    xy = with(model,rbind(b, q))
   }
-  if(is.null(clrs)) clrs = clrP(max(memix))
-  addConvexHulls(memix, xy, clrs, stretch, lwd)
-}
-
-addConvexHulls = function(memix, xy, clrs, stretch=0.1, lwd=2){
+  net$convex_hulls = list()
+  clrs = f_color(max(memix))
   for(i in 1:max(memix)){
-    hxy = getConvexHull.i(i, memix, xy)
-    sxy = stretchHull(hxy, 1+stretch)
-    polygon(sxy[,1], sxy[,2], border=clrs[i], lwd=lwd)
+    net$convex_hulls[[i]] = list()
+    net$convex_hulls[[i]]$xy = make_convex_hull_i(i, memix, xy)
+    net$convex_hulls[[i]]$clr = clrs[i]
   }
+  return(net)
 }
 
-stretchHull = function(xy, fac){
+#' Make the convex hull for the i^th community
+#'
+#' @param i the i^th community
+#' @param memix the community membership indices
+#' @param xy the point set
+#'
+#' @return the xy points that define a convex hull
+#'
+#' @return a [list] with a hull
+#' @export
+make_convex_hull_i = function(i, memix, xy){
+  ixj = which(memix == i)
+  hpts <- grDevices::chull(xy[ixj,])
+  ixk = c(hpts, hpts[1])
+  hxy = xy[ixj[ixk],]
+  return(hxy)
+}
+
+#' Add the convex hulls to a framed plot
+#'
+#' @param net a network object
+#' @param stretch make the hull slightly larger or slightly smaller
+#' @param lwd hull line width
+#'
+#' @return invisible(NULL)
+#' @export
+plot_convex_hulls = function(net, stretch=1.1, lwd=2){
+  n = length(net$convex_hulls)
+  for(i in 1:n){
+    with(net$convex_hulls[[i]],{
+      sxy = stretchHull(xy, stretch)
+      polygon(sxy[,1], sxy[,2], border=clr, lwd=lwd)
+    })
+  }
+  return(invisible())
+}
+
+#' Stretch (or shrink) the convex hull for plotting
+#'
+#' @param xy a convex hull
+#' @param fac a factor to stretch (>1) or shrink (<1) the hull for plotting
+#'
+#' @return a new point set
+#' @export
+stretch_convex_hull = function(xy, fac){
   cx = mean(xy[,1])
   cy = mean(xy[,2])
   xn = xy[,1] - cx
   yn = xy[,2] - cy
 
-  #x = r*cos(theta)
-  #y = r*sin(theta)
   r = sqrt(xn^2 + yn^2)
   theta = atan2(yn,xn)
   sxy =  cbind(
@@ -55,5 +93,4 @@ stretchHull = function(xy, fac){
   )
   return(sxy)
 }
-
 

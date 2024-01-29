@@ -1,4 +1,4 @@
-#' Make a random xy point set
+#' Make a random point set, xy
 #'
 #' @param n the number of points
 #' @param mn the lower limit for location values
@@ -12,7 +12,7 @@ unif_xy = function(n, mn, mx){
   cbind(x,y)
 }
 
-#' Title
+#' Set up a lattice with n x n points
 #'
 #' @param n the number of points
 #' @param mn the lower limit for location values
@@ -47,7 +47,7 @@ clusters_xy = function(xy, nc=1, vr=1){
   xy
 }
 
-#' Title
+#' Setup n clusters with m points per cluster
 #'
 #' @param n the number of seed points points
 #' @param m the number of points per cluster

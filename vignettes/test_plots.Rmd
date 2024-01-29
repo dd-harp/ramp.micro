@@ -1,0 +1,80 @@
+---
+title: "On Dispersal Matrices" 
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{On Dispersal Matrices}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r suppressMessages=T}
+library(viridisLite)
+library(knitr)
+library(viridis)
+library(motrap.micro)
+#suppressWarnings(devtools::load_all() )
+set.seed(25)
+```
+
+## Introduction
+
+In behavioral state micro-simulation, mosquito movement is defined by a *search* for a resource, and all resources are located at points in space, $(x,y).$  Micro-dispersal is defined herein as dispersal among point sets representing the locations of resources.
+
+Micro-dispersal models in this software implementation follow a common notation: 
+
++ A search originates in one point set, $P_v$, with $|v|$ locations; and the destination is another, $P_w$ with $|w|$ locations. 
+
++ A dispersal model is instantiated as a matrix $M_{w \leftarrow v},$ where the element $M_{i,j} \in M$ is the fraction of mosquitoes moving from $(x_j, y_j) \in P_v$ to $(x_i, y_i) \in P_w$. 
+
++ If we had a vector, $m_v$, of mosquito abundances at the origin of a search, and if we want to compute a vector, $m_w$,  describing the number arriving at a destination, then we write $$m_w = M \cdot m_v,$$ where
+
+    + $\mbox{dim}(M) = |w| \times |v|,$ 
+    
+    + and $|m_v| = |v|,$ 
+    
+    + so $|m_w| = |w|.$ 
+
+
+By convention, we constrain model so that, $$\sum_i M_{i,j}=1.$$  
+
+If we want to model failed dispersal, then we will often want to handle the case where the origin and destination are the same point set. 
+
+In the following, we discuss the challenge of visualizing micro-dispersal matrices using functions in `motrap.micro` where either $P_v \neq P_w$  or where $P_v = P_w.$ 
+
+##  Dispersal from $P_v \neq P_w$ 
+
+To illustrate, we generate two point sets:
+
+```{r}
+nPv = 15 
+nPw = 7
+dd = 10
+Pv = unif_xy(nPv,-dd, dd) 
+Pw = unif_xy(nPw,-dd, dd) 
+```
+
+Now, we can define a dispersal matrix from $S$ to $D$:
+
+```{r}
+M_wv = make_Psi_xy(Pv, Pw)
+```
+
+The generic function `plot_Mxy` was developed to plot dispersal from $P_v$ to $P_w.$ 
+
+```{r, fig.height=5, fig.width=5, echo=F}
+par(mar = c(1,1,1,1))
+plot_matrix_xy(Pv, Pw, M_wv, r=0.25) -> wts
+```
+
+```{r}
+M_vw = make_Psi_xy(Pw, Pv)
+Mvv = M_vw %*% M_wv
+Mww = M_wv %*% M_vw
+```
+
+
+```{r, fig.height=5, fig.width=10, echo=F}
+par(mar = c(1,1,1,1), mfcol = c(1,2))
+plot_matrix_xx(Pv, Mvv, min_edge_frac=1e-3, lwd=23, r=0.25) -> wts
+plot_matrix_xx(Pw, Mww, min_edge_frac=1e-3, lwd=23, r=0.25) -> wts
+```

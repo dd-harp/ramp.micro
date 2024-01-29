@@ -2,7 +2,7 @@
 % Please edit documentation in R/point_sets.R
 \name{clusters_nm}
 \alias{clusters_nm}
-\title{Title}
+\title{Setup n clusters with m points per cluster}
 \usage{
 clusters_nm(n, m, vr, mn, mx)
 }
@@ -21,5 +21,5 @@ clusters_nm(n, m, vr, mn, mx)
 a set of xy locations
 }
 \description{
-Title
+Setup n clusters with m points per cluster
 }

@@ -1,0 +1,109 @@
+---
+title: "Mosquito Behavioral State - Microsimulation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Mosquito Behavioral State - Microsimulation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r suppressMessages=T, echo=F}
+library(viridisLite)
+library(knitr)
+library(viridis)
+library(motrap.micro)
+#devtools::load_all()
+```
+
+## Introduction
+
+If we want to target vector interventions for malaria spatially, fine-grained spatial simulations can be useful. Fine-grained models are difficult to formulate, but they make it possible to conduct thought experiments to test ideas about measuring mosquito populations, good approximating models describing population regulation, and vector control coverage and effect sizes, particularly in a spatial context.  
+
+This software was designed to implement *microsimulation* models where mosquitoes move among *point sets.* To model mosquito movement, we are interested in mosquito searching behavior for resources. Searching for a resource -- a blood host, or a habitat -- is linked to a *behavioral state* and the end of searching is at a point in space where the resources exist. The software implements a set of models that combine these two ideas that represent important departures from the standard theoretical approach to malaria. 
+
+First, the idea of microsimulation was described by the late Richard Carter (Carter, 2002)^[Carter R (2002) Spatial simulation of malaria transmission and its control by malaria transmission blocking vaccination. International Journal for Parasitology 32: 1617–1624. doi:10.1016/S0020-7519(02)00190-X].  
+
+Second, a new model of malaria transmission was developed by Arnaud Le Menach, *et al.* (2005)^[Le Menach A, McKenzie FE, Flahault A, Smith DL (2005) The unexpected importance of mosquito oviposition behaviour for malaria: Non-productive larval habitats can be sources for malaria transmission. Malar J. 4: 23, doi:10.1186/1475-2875-4-23]; they formulated a compartmental model that split mosquito populations into both **behavioral states** and **infected states.** The split makes more sense if we think of mosquito dispersal in terms of mosquito behaviors during the blood feeding and egg-laying cycle: mosquitoes are not must moving around at random, they are searching for resources. If mosquitoes must *search* for habitats to lay eggs, and then *search* for a blood host, then the resources on those landscapes will tend to structure movement.  
+
+The first paper to combine these two ideas together was in an agent based model published by Weidong Gu and Robert J Novak (2009 a,^[Gu W,  Novak RJ (2009). Agent-based modelling of mosquito foraging behaviour for malaria control, Trans R Soc Trop Med Hyg 103: 1105–1112, https://doi.org/10.1016/j.trstmh.2009.01.006] b^[Gu W, Novak RJ (2009). Predicting the impact of insecticide-treated bed nets on malaria transmission: the devil is in the detail. Malar J 8:256, https://doi.org/10.1186/1475-2875-8-256]). A few years later, a rigorous mathematical framework to describe mosquito behavioral state micro-simulation was developed by Alex Perkins, *et al.*, (2013)^[Perkins TA, Scott TW, Le Menach A, Smith DL (2013). Heterogeneity, mixing, and the spatial scales of mosquito-borne pathogen transmission. PLoS Comput Biol 9:e1003327, https://doi.org/10.1371/journal.pcbi.1003540], and an individual-based model, 
+called MBITES (Mosquito Bout-based and Individual-based Transmission Ecology Simulator), 
+was developed by Sean Wu, *et al.* (2020)^[Wu SL, Sánchez C HM, Henry JM, Citron DT, ... (2020). Vector bionomics and vectorial capacity as emergent properties of mosquito behaviors and ecology. PLoS Comput Biol 16:e1007446, doi:10.1371/journal.pcbi.1007446]
+
+***
+
+![**Figure 1:** In microsimulation models, mosquitoes move among point sets. Blood feeding on hosts occurs at a fixed set of locations. Also see Perkins, *et al.* (2013). This figure illustrates some of the key elements: a set of points where mosquitoes feed, *{f},*  and habitats where they lay eggs *{l)*. Dispersal among those point sets is determined by two matrices, one that describes dispersal to blood feed, $F$, and another to lay eggs, $L$. The framework also describes exposure to infection by a human population.](DynamicsOnPoints.png)
+
+***
+
+## Demo
+
+### Resource Landscape 
+
+To get started, we need to set up a **microsimulation landscape,** which includes point sets and matrices describing dispersal among those point sets:
+
+```{r}
+set.seed(24328)
+bb = unif_xy(256, -17, 17) 
+qq = unif_xy(289, -17, 17) 
+```
+
+```{r, fig.height=7, fig.width=7}
+plot_points_bq(bb, qq)
+```
+
+### Dispersal 
+
+```{r}
+kFb = make_kF_exp(k=2, s=1, gamma=1.5)
+kFq = make_kF_exp(k=2, s=2, gamma=2)
+```
+
+```{r, fig.height=4, fig.width=6}
+dd = seq(0, 5, by = 0.01)
+plot(dd, kFb(dd), type = "l", col = "darkred", xlab = "Distance", ylab = "Weight")
+lines(dd, kFq(dd), type = "l", col = "darkblue")
+```
+
+```{r}
+Psi_bb = make_Psi_xx(bb, kFb)
+Psi_qb = make_Psi_xy(bb, qq, kFq)
+Psi_bq = make_Psi_xy(qq, bb, kFb)
+Psi_qq = make_Psi_xx(qq, kFq)
+```
+
+
+```{r, fig.height=8, fig.width=8}
+par(mfcol = c(2,2), mar = c(1,2,1,2))
+plot_Psi_BQ(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq)
+```
+
+
+### Setting up the `model`  
+
+To simulate mosquito population dynamics, we need to set up an object that stores all the information. In R, we set up the model as a list. To simulate, each model must fully define a set of parameters and initial values.  To streamline the process, we developed a function called `setup_model` that accepts some basic arguments and that returns a fully defined model:
+
+
+```{r, eval=F}
+#devtools::load_all()
+```
+
+
+```{r}
+opts_d = list(kFb = kFb, kFq = kFq)
+model = setup_model(bb, qq, dispersal_opts=opts_d)
+```
+
+```{r}
+names(model)
+```
+
+```{r}
+names(model$Mpar)
+```
+
+```{r}
+names(model$Lpar)
+```
+
+
+

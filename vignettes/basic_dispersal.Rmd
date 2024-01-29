@@ -1,0 +1,42 @@
+---
+title: "Dispersal in One Gonotrophic Cycle"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Dispersal in One Gonotrophic Cycle}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+makeKbq_BQS = function(Pbb, Pqb, Psb,
+                       Pbq, Pqq, Psq,
+                       Pbs, Pqs, Pss,
+                       sigf = 0.5, sigq = 0.5, sigb = 0.5,
+                       pB =.98, pS = 0.99, pQ = 0.98,
+                       psiB =.8, psiQ = 0.9, psiS = 0.98){
+  nb = dim(b)[1]
+  nq = dim(q)[1]
+  ns = dim(s)[1]
+
+  Mbb = pB*(1-sigb)*(1-psiB)*Pbb
+  Mbq = pB*psiB*Pbq
+  Mbs = pB*sigb*psiB*Pbs
+  Mqb = pQ*(1-sigf)*psiQ*Pqb
+  Mqq = pQ*(1-sigq)*(1-psiQ)*Pqq
+  Mqs = pQ*(sigf*psiQ + sigq*(1-psiQ))*Pqs
+  Msb = pS*psiS*Psb
+  Msq = 0*t(Mqs)
+  Mss = (1-psiS)*Pss
+
+  M1 = cbind(Mbb, 0*Mqb, Msb, 0*Mqb)
+  M2 = cbind(Mbq, Mqq, Msq, 0*Mqq)
+  M3 = cbind(Mbs, 0*Mqs, Mss, 0*Mqs)
+  M4 = cbind(0*Mbq, diag(1,nq), 0*Msq, diag(1,nq))
+  M = rbind(M1, M2, M3, M4)
+
+  Kt = rbind(0*Mbb, Mbq %*% diag(1,nb), 0*Mbs, 0*Mbq)
+  for(i in 1:100) Kt = M%*%Kt
+  Kt[-c(1:(nb+nq+ns)),]
+}
+```
+

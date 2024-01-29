@@ -2,7 +2,7 @@
 % Please edit documentation in R/point_sets.R
 \name{lattice}
 \alias{lattice}
-\title{Title}
+\title{Set up a lattice with n x n points}
 \usage{
 lattice(n, mn, mx)
 }
@@ -17,5 +17,5 @@ lattice(n, mn, mx)
 a set of xy locations
 }
 \description{
-Title
+Set up a lattice with n x n points
 }

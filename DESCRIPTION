@@ -18,6 +18,7 @@ Imports:
   deldir,
   igraph, 
   av, 
+  grDevices, 
   diagram
 Suggests: 
   knitr, 
