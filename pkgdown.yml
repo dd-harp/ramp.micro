@@ -2,8 +2,13 @@ pandoc: 2.19.2
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
+  basic_dispersal: basic_dispersal.html
+  landscapes: landscapes.html
   point_sets: point_sets.html
-last_built: 2024-01-20T03:50Z
+  simulation: simulation.html
+  test_plots: test_plots.html
+  visualizing_dispersal: visualizing_dispersal.html
+last_built: 2024-01-29T06:35Z
 urls:
   reference: https://dd-harp.github.io/motrap.micro/reference
   article: https://dd-harp.github.io/motrap.micro/articles

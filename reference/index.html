@@ -25,6 +25,8 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/point_sets.html">Making Point Sets</a>
+    <a class="dropdown-item" href="../articles/visualizing_dispersal.html">Visualizing Micro-Dispersal</a>
+    <a class="dropdown-item" href="../articles/basic_dispersal.html">On Dispersal Matrices</a>
   </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
@@ -49,7 +51,13 @@
     <div class="section level2">
       <h2 id="point-sets">Point Sets<a class="anchor" aria-label="anchor" href="#point-sets"></a></h2>
       
-      <p class="section-desc"></p><p>Generate point sets</p>
+      <p class="section-desc"></p><p>Utilities for generating and visualizing resource point sets</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="make-point-sets">Make Point Sets<a class="anchor" aria-label="anchor" href="#make-point-sets"></a></h3>
+      <p class="section-desc"></p><p>Utilities to generate point sets</p>
 
       
     </div><div id="" class="section level2">
@@ -61,12 +69,12 @@
           
           <code><a href="unif_xy.html">unif_xy()</a></code> 
         </dt>
-        <dd>Make a random xy point set</dd>
+        <dd>Make a random point set, xy</dd>
       </dl><dl><dt>
           
           <code><a href="lattice.html">lattice()</a></code> 
         </dt>
-        <dd>Title</dd>
+        <dd>Set up a lattice with n x n points</dd>
       </dl><dl><dt>
           
           <code><a href="clusters_xy.html">clusters_xy()</a></code> 
@@ -76,9 +84,856 @@
           
           <code><a href="clusters_nm.html">clusters_nm()</a></code> 
         </dt>
+        <dd>Setup n clusters with m points per cluster</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="visualize-point-sets">Visualize Point Sets<a class="anchor" aria-label="anchor" href="#visualize-point-sets"></a></h3>
+      <p class="section-desc"></p><p>Utilities to visualize point sets</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="plot_points.html">plot_points()</a></code> 
+        </dt>
+        <dd>Plot point sets for a model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_points.BQ.html">plot_points(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Plot point sets for a model for a BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_points.BQS.html">plot_points(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Plot point sets for a model for a BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_points_bq.html">plot_points_bq()</a></code> 
+        </dt>
+        <dd>Plot point sets for a bq model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_points_bqs.html">plot_points_bqs()</a></code> 
+        </dt>
+        <dd>Plot point sets for a model for a BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="frame_bq.html">frame_bq()</a></code> 
+        </dt>
+        <dd>Set up a frame to plot points for a model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="frame_bqs.html">frame_bqs()</a></code> 
+        </dt>
+        <dd>Set up a frame to plot points for a BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_points_b.html">add_points_b()</a></code> 
+        </dt>
+        <dd>Add blood feeding points to a frame</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_points_bb.html">add_points_bb()</a></code> 
+        </dt>
+        <dd>Add blood feeding sites with and without the self loop</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_points_q.html">add_points_q()</a></code> 
+        </dt>
+        <dd>Add habitats to a frame</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_points_qq.html">add_points_qq()</a></code> 
+        </dt>
+        <dd>Add habitats with and without the self loop</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_points_s.html">add_points_s()</a></code> 
+        </dt>
+        <dd>Add sugar feeding sites to a frame</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_points_ss.html">add_points_ss()</a></code> 
+        </dt>
+        <dd>Add sugar feeding sites with and without the self loop</dd>
+      </dl></div><div class="section level2">
+      <h2 id="dispersal-and-demographic-matrices">Dispersal and Demographic Matrices<a class="anchor" aria-label="anchor" href="#dispersal-and-demographic-matrices"></a></h2>
+      
+      <p class="section-desc"></p><p>Utilities for dispersal and demographic matrices</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="kernels">Kernels<a class="anchor" aria-label="anchor" href="#kernels"></a></h3>
+      <p class="section-desc"></p><p>Functions to compute search weights by distance</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="make_kF_exp.html">make_kF_exp()</a></code> 
+        </dt>
+        <dd>Make an exponential function to weight points by distance</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_kF_pwr.html">make_kF_pwr()</a></code> 
+        </dt>
+        <dd>Make an power function to weight points by distance</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_kF_mix.html">make_kF_mix()</a></code> 
+        </dt>
+        <dd>Make an power function that combines an exponential and power function</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="make-psi">Make Psi<a class="anchor" aria-label="anchor" href="#make-psi"></a></h3>
+      <p class="section-desc"></p><p>Generate the single bout dispersal matrices</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="make_Psi_xy.html">make_Psi_xy()</a></code> 
+        </dt>
+        <dd>Make Psi from a source point set to a destination point set</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_Psi_xx.html">make_Psi_xx()</a></code> 
+        </dt>
+        <dd>Make Psi from a source point set to a destination point set</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="visualize-a-dispersal-matrix">Visualize a Dispersal matrix<a class="anchor" aria-label="anchor" href="#visualize-a-dispersal-matrix"></a></h3>
+      <p class="section-desc"></p><p>Visualize a generic dispersal matrix</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="plot_matrix_xy.html">plot_matrix_xy()</a></code> 
+        </dt>
+        <dd>Visualize a dispersal matrix among two point sets</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_matrix_xx.html">plot_matrix_xx()</a></code> 
+        </dt>
+        <dd>Visualize a dispersal matrix from one point set to itself</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_arrows_xy.html">add_arrows_xy()</a></code> 
+        </dt>
+        <dd>Draw arrows from one point set to another</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_arrows_xx.html">add_arrows_xx()</a></code> 
+        </dt>
+        <dd>Draw arrows from a point set to itself</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_one_arrow.html">add_one_arrow()</a></code> 
+        </dt>
+        <dd>Draw an arrow from (x_i, y_i) to (x_j, y_j)</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_nth_arrow_xy.html">add_nth_arrow_xy()</a></code> 
+        </dt>
+        <dd>Add the nth arrow from a list of locations and indices</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_nth_arrow_xx.html">add_nth_arrow_xx()</a></code> 
+        </dt>
+        <dd>Plot the n^th arrow</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_nth_segment.html">add_nth_segment()</a></code> 
+        </dt>
+        <dd>Add the nth segment</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_bent_arrows_xy.html">add_bent_arrows_xy()</a></code> 
+        </dt>
+        <dd>Draw bent arrows from one point set to another</dd>
+      </dl><dl><dt>
+          
+          <code><a href="add_bent_arrows_xx.html">add_bent_arrows_xx()</a></code> 
+        </dt>
         <dd>Title</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="plot-psi">Plot Psi<a class="anchor" aria-label="anchor" href="#plot-psi"></a></h3>
+      <p class="section-desc"></p><p>Plot the single bout dispersal matrices</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="plot_Psi.html">plot_Psi()</a></code> 
+        </dt>
+        <dd>Visualize the one-bout dispersal matrices</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_Psi.BQ.html">plot_Psi(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Visualize the one-bout dispersal matrices for a BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_Psi_BQ.html">plot_Psi_BQ()</a></code> 
+        </dt>
+        <dd>Visualize the one-bout dispersal matrices for a BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_Psi.BQS.html">plot_Psi(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Visualize the one-bout dispersal matrices for a BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_Psi_BQS.html">plot_Psi_BQS()</a></code> 
+        </dt>
+        <dd>Visualize the one-bout dispersal matrices for a BQS model</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="make-k">Make K<a class="anchor" aria-label="anchor" href="#make-k"></a></h3>
+      <p class="section-desc"></p><p>Generate matrices describing feeding or egg laying within a single feeding cycle</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="make_Kqb.html">make_Kqb()</a></code> 
+        </dt>
+        <dd>Compute dispersal matrix to lay eggs within one feeding cycle</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_Kqb.BQ.html">make_Kqb(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Compute dispersal matrix to lay eggs within one feeding cycle</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_Kqb.BQS.html">make_Kqb(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Compute dispersal to lay eggs within one feeding cycle</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_Kbq.html">make_Kbq()</a></code> 
+        </dt>
+        <dd>Compute dispersal matrix to blood feed within one feeding cycle</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_Kbq.BQ.html">make_Kbq(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Compute net dispersal matrix to blood feed within one feeding cycle</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_Kbq.BQS.html">make_Kbq(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Compute net dispersal matrix to blood feed within one feeding cycle</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_Kbb.html">make_Kbb()</a></code> 
+        </dt>
+        <dd>Compute dispersal matrix to lay eggs within one feeding cycle</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_Kqq.html">make_Kqq()</a></code> 
+        </dt>
+        <dd>Compute dispersal matrix to lay eggs within one feeding cycle</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="plot-k">Plot K<a class="anchor" aria-label="anchor" href="#plot-k"></a></h3>
+      <p class="section-desc"></p><p>Plot matrices describing feeding or egg laying within a single feeding cycle</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="plot_Kbb.html">plot_Kbb()</a></code> 
+        </dt>
+        <dd>Plot the matrix Kbb</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_Kqq.html">plot_Kqq()</a></code> 
+        </dt>
+        <dd>Plot the matrix Kqq</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_Kbq.html">plot_Kbq()</a></code> 
+        </dt>
+        <dd>Plot the matrix Kbq: dispersal from q to b</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_Kqb.html">plot_Kqb()</a></code> 
+        </dt>
+        <dd>Plot the matrix Kqb: dispersal from b to q</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="egg-laying">Egg Laying<a class="anchor" aria-label="anchor" href="#egg-laying"></a></h3>
+      <p class="section-desc"></p><p>Methods to compute and visualize egg dispersal across a mosquito generation</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="compute_G.html">compute_G()</a></code> 
+        </dt>
+        <dd>Compute the dispersion of eggs after one feeding cycle</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_G.BQ.html">compute_G(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Compute the dispersion of eggs after one feeding cycle for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_G.BQS.html">compute_G(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Compute the dispersion of eggs after one feeding cycle for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_GG.html">compute_GG()</a></code> 
+        </dt>
+        <dd>Compute the dispersion of eggs after one feeding cycle for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_dispersal_G.html">plot_dispersal_G()</a></code> 
+        </dt>
+        <dd>Plot lifetime egg dispersal, per mosquito</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_dispersal_GG.html">plot_dispersal_GG()</a></code> 
+        </dt>
+        <dd>Plot lifetime egg dispersal by a mosquito population</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="parasite-transmission-potential">Parasite transmission potential<a class="anchor" aria-label="anchor" href="#parasite-transmission-potential"></a></h3>
+      <p class="section-desc"></p><p>Methods to compute and visualize parasite transmission potential</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="compute_V.html">compute_V()</a></code> 
+        </dt>
+        <dd>Compute the potential dispersion of parasites after one feeding cycle</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_V.BQ.html">compute_V(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Compute the potential dispersion of parasites after one feeding cycle for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_V.BQS.html">compute_V(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Compute the potential dispersion of parasites after one feeding cycle for the BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_VC.html">compute_VC()</a></code> 
+        </dt>
+        <dd>Compute the potential dispersion of parasites after one feeding cycle for the BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_dispersal_V.html">plot_dispersal_V()</a></code> 
+        </dt>
+        <dd>Visualize lifetime transmission from a site, per mosquito</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_dispersal_VV.html">plot_dispersal_VV()</a></code> 
+        </dt>
+        <dd>Visualize lifetime transmission from a site by mosquito populations</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="utilites-for-matrices">Utilites for matrices<a class="anchor" aria-label="anchor" href="#utilites-for-matrices"></a></h3>
+      <p class="section-desc"></p><p>Methods to help streamline matrix visualization</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="decompM.html">decompM()</a></code> 
+        </dt>
+        <dd>Decompose Matrix</dd>
+      </dl><dl><dt>
+          
+          <code><a href="cutoffValue.html">cutoffValue()</a></code> 
+        </dt>
+        <dd>Define a cutoff that includes a fraction of the total mass (e.g. 90 percent)</dd>
+      </dl><dl><dt>
+          
+          <code><a href="edgeSubset_fracMass.html">edgeSubset_fracMass()</a></code> 
+        </dt>
+        <dd>Subset Edges</dd>
+      </dl><dl><dt>
+          
+          <code><a href="edgeSubset.html">edgeSubset()</a></code> 
+        </dt>
+        <dd>Subset Edges</dd>
+      </dl><dl><dt>
+          
+          <code><a href="getM_i.html">getM_i()</a></code> 
+        </dt>
+        <dd>Choose one of the matrices describing movement</dd>
+      </dl><dl><dt>
+          
+          <code><a href="getNet_i.html">getNet_i()</a></code> 
+        </dt>
+        <dd>Choose one of the networks describing dispersion</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="compute-distances-dispersed">Compute distances dispersed<a class="anchor" aria-label="anchor" href="#compute-distances-dispersed"></a></h3>
+      <p class="section-desc"></p><p>Methods to compute the PMF and CMF for distances dispersed</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="dispersal_PMF.html">dispersal_PMF()</a></code> 
+        </dt>
+        <dd>Compute distances dispersed</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plotDDpmf.html">plotDDpmf()</a></code> 
+        </dt>
+        <dd>Plot the PMF for distances dispersed</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plotDDcmf.html">plotDDcmf()</a></code> 
+        </dt>
+        <dd>Plot the CMF for distances dispersed</dd>
+      </dl></div><div class="section level2">
+      <h2 id="adult-mosquito-models">Adult Mosquito Models<a class="anchor" aria-label="anchor" href="#adult-mosquito-models"></a></h2>
+      
+      <p class="section-desc"></p><p>Methods to set up and compute adult mosquito models</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="adult_dynamics.html">adult_dynamics()</a></code> 
+        </dt>
+        <dd>Adult dynamics</dd>
+      </dl><dl><dt>
+          
+          <code><a href="save_states_M.html">save_states_M()</a></code> 
+        </dt>
+        <dd>Save state variables</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_states_M.html">init_states_M()</a></code> 
+        </dt>
+        <dd>Save state variables</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_adult_model.html">init_adult_model()</a></code> 
+        </dt>
+        <dd>Set initial values for</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_diffs_M.html">compute_diffs_M()</a></code> 
+        </dt>
+        <dd>The some of squared differences between two sets of variables</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_adult_model.html">setup_adult_model()</a></code> 
+        </dt>
+        <dd>Setup an adult model</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="bq">BQ<a class="anchor" aria-label="anchor" href="#bq"></a></h3>
+      <p class="section-desc"></p><p>Methods to setup and compute the BQ model</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="adult_dynamics.BQ.html">adult_dynamics(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Simulate adult dynamics for the `BQ` model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="save_states_M.BQ.html">save_states_M(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Save the state variables in a vector</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_states_M.BQ.html">init_states_M(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Save the state variables in a vector</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_adult_model.BQ.html">init_adult_model(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Set initial values for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_adult_model_BQ.html">init_adult_model_BQ()</a></code> 
+        </dt>
+        <dd>Set initial values for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_diffs_M.BQ.html">compute_diffs_M(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>The some of squared differences between two sets of variables</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_dispersal_BQ.html">setup_dispersal_BQ()</a></code> 
+        </dt>
+        <dd>Dispersal parameters for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_Psi_BQ.html">make_Psi_BQ()</a></code> 
+        </dt>
+        <dd>Make dispersal matrices for the BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_bionomics_BQ.html">setup_bionomics_BQ()</a></code> 
+        </dt>
+        <dd>Bionomic parameters set for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_demography_BQ.html">make_demography_BQ()</a></code> 
+        </dt>
+        <dd>Make the demographic matrices for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_adult_model.BQ.html">setup_adult_model(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Setup a BQ model for adult mosquitoes</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="bqs">BQS<a class="anchor" aria-label="anchor" href="#bqs"></a></h3>
+      <p class="section-desc"></p><p>Methods to setup and compute the BQS model</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="adult_dynamics.BQS.html">adult_dynamics(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Simulate adult dynamics for the `BQ` model: one time step</dd>
+      </dl><dl><dt>
+          
+          <code><a href="save_states_M.BQS.html">save_states_M(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Save the state variables in a vector</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_states_M.BQS.html">init_states_M(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Save the state variables in a vector</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_adult_model.BQS.html">init_adult_model(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Set initial values for the BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_adult_model_BQS.html">init_adult_model_BQS()</a></code> 
+        </dt>
+        <dd>Set initial values for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_diffs_M.BQS.html">compute_diffs_M(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>The some of squared differences between two sets of variables</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_dispersal_BQS.html">setup_dispersal_BQS()</a></code> 
+        </dt>
+        <dd>Dispersal parameters for the BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_Psi_BQS.html">make_Psi_BQS()</a></code> 
+        </dt>
+        <dd>Make dispersal matrices for the BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_bionomics_BQS.html">setup_bionomics_BQS()</a></code> 
+        </dt>
+        <dd>Bionomic parameters set for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_demography_BQS.html">make_demography_BQS()</a></code> 
+        </dt>
+        <dd>Make the demographic matrices for the BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_adult_model.BQS.html">setup_adult_model(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Setup a BQS model for adult mosquitoes</dd>
+      </dl></div><div class="section level2">
+      <h2 id="aquatic-mosquito-models">Aquatic Mosquito Models<a class="anchor" aria-label="anchor" href="#aquatic-mosquito-models"></a></h2>
+      
+      <p class="section-desc"></p><p>Methods to set up and compute aquatic mosquito models</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="aquatic_dynamics.html">aquatic_dynamics()</a></code> 
+        </dt>
+        <dd>Aquatic Dynamics</dd>
+      </dl><dl><dt>
+          
+          <code><a href="save_states_L.html">save_states_L()</a></code> 
+        </dt>
+        <dd>Save state variables</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_states_L.html">init_states_L()</a></code> 
+        </dt>
+        <dd>Initialize the Lstates</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_aquatic_model.html">init_aquatic_model()</a></code> 
+        </dt>
+        <dd>Set initial values for</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_diffs_L.html">compute_diffs_L()</a></code> 
+        </dt>
+        <dd>The some of squared differences between two sets of variables</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_aquatic_model.html">setup_aquatic_model()</a></code> 
+        </dt>
+        <dd>Setup an aquatic model</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="the-basicl-model">the basicL model<a class="anchor" aria-label="anchor" href="#the-basicl-model"></a></h3>
+      <p class="section-desc"></p><p>Methods to setup and compute basicL</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="aquatic_dynamics.basicL.html">aquatic_dynamics(<i>&lt;basicL&gt;</i>)</a></code> 
+        </dt>
+        <dd>Aquatic Dynamics</dd>
+      </dl><dl><dt>
+          
+          <code><a href="save_states_L.basicL.html">save_states_L(<i>&lt;basicL&gt;</i>)</a></code> 
+        </dt>
+        <dd>Save state variables</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_states_L.basicL.html">init_states_L(<i>&lt;basicL&gt;</i>)</a></code> 
+        </dt>
+        <dd>Save the state variables in a vector</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_aquatic_model.basicL.html">init_aquatic_model(<i>&lt;basicL&gt;</i>)</a></code> 
+        </dt>
+        <dd>Set initial values for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="init_aquatic_model_basicL.html">init_aquatic_model_basicL()</a></code> 
+        </dt>
+        <dd>Set initial values for</dd>
+      </dl><dl><dt>
+          
+          <code><a href="compute_diffs_L.basicL.html">compute_diffs_L(<i>&lt;basicL&gt;</i>)</a></code> 
+        </dt>
+        <dd>The some of squared differences between two sets of variables</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_aquatic_model.basicL.html">setup_aquatic_model(<i>&lt;basicL&gt;</i>)</a></code> 
+        </dt>
+        <dd>Setup an aquatic model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_aquatic_model_basicL.html">setup_aquatic_model_basicL()</a></code> 
+        </dt>
+        <dd>Set up the aquatic population model of class basicL</dd>
+      </dl></div><div class="section level2">
+      <h2 id="simulation">Simulation<a class="anchor" aria-label="anchor" href="#simulation"></a></h2>
+      
+      <p class="section-desc"></p><p>Methods to set up and simulate models</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="SIM.html">SIM()</a></code> 
+        </dt>
+        <dd>Simulate population dynamics</dd>
+      </dl><dl><dt>
+          
+          <code><a href="steady_state.html">steady_state()</a></code> 
+        </dt>
+        <dd>Run the model until it has reached a steady state</dd>
+      </dl><dl><dt>
+          
+          <code><a href="setup_model.html">setup_model()</a></code> 
+        </dt>
+        <dd>Setup a behavioral state, micro-simulation model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_movie.html">make_movie()</a></code> 
+        </dt>
+        <dd>Make a movie</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_movie.BQ.html">make_movie(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Make a movie of a simulation with a BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_movie.BQS.html">make_movie(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Make a movie of a simulation with a BQS model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="basic_analysis.html">basic_analysis()</a></code> 
+        </dt>
+        <dd>Basic analysis</dd>
+      </dl><dl><dt>
+          
+          <code><a href="makeKGV.html">makeKGV()</a></code> 
+        </dt>
+        <dd>Compute net dispersal matrix to blood feed within one feeding cycle</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_model_squareLattice.html">make_model_squareLattice()</a></code> 
+        </dt>
+        <dd>Setup a square lattice model with one point set offset and nested within the other</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_model_unif.html">make_model_unif()</a></code> 
+        </dt>
+        <dd>Setup a model on a random uniform set of points</dd>
+      </dl></div><div class="section level2">
+      <h2 id="network-analysis">Network Analysis<a class="anchor" aria-label="anchor" href="#network-analysis"></a></h2>
+      
+      <p class="section-desc"></p><p>Methods to set up and analyze communities</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="convex-hulls">Convex Hulls<a class="anchor" aria-label="anchor" href="#convex-hulls"></a></h3>
+      <p class="section-desc"></p><p>Methods to compute and visualize convex hulls around communities</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="make_convex_hulls.html">make_convex_hulls()</a></code> 
+        </dt>
+        <dd>Make a set of convex hulls to visualize the community</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_convex_hull_i.html">make_convex_hull_i()</a></code> 
+        </dt>
+        <dd>Make the convex hull for the i^th community</dd>
+      </dl><dl><dt>
+          
+          <code><a href="plot_convex_hulls.html">plot_convex_hulls()</a></code> 
+        </dt>
+        <dd>Add the convex hulls to a framed plot</dd>
+      </dl><dl><dt>
+          
+          <code><a href="stretch_convex_hull.html">stretch_convex_hull()</a></code> 
+        </dt>
+        <dd>Stretch (or shrink) the convex hull for plotting</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="tesselate">Tesselate<a class="anchor" aria-label="anchor" href="#tesselate"></a></h3>
+      <p class="section-desc"></p><p>Methods to compute and visualize using Delauney / Dirichlet methods</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="make_tiles.html">make_tiles()</a></code> 
+        </dt>
+        <dd>Make a set of tiles that tesselate space</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_tiles.BQ.html">make_tiles(<i>&lt;BQ&gt;</i>)</a></code> 
+        </dt>
+        <dd>Make a set of tiles that tesselate space for the BQ model</dd>
+      </dl><dl><dt>
+          
+          <code><a href="make_tiles.BQS.html">make_tiles(<i>&lt;BQS&gt;</i>)</a></code> 
+        </dt>
+        <dd>Make a set of tiles that tesselate space for the BQS model</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
