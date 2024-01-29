@@ -130,8 +130,9 @@ dispersal among those point sets:</p>
 <span><span class="va">bb</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">256</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span>
 <span><span class="va">qq</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">289</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_points_bq.html">plot_points_bq</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span><span class="op">)</span></span></code></pre></div>
-<p><img src="simulation_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_points_bq.html">plot_points_bq</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span><span class="op">)</span></span></code></pre></div>
+<p><img src="simulation_files/figure-html/unnamed-chunk-3-1.png" width="576"></p>
 </div>
 <div class="section level3">
 <h3 id="dispersal">Dispersal<a class="anchor" aria-label="anchor" href="#dispersal"></a>
@@ -172,7 +173,7 @@ returns a fully defined model:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">Mpar</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##  [1] "setup"  "Psi_bb" "Psi_qb" "Psi_bq" "Psi_qq" "psiQ"   "ova"    "Mbb"   </span></span>
-<span><span class="co">##  [9] "Mqb"    "Mbq"    "Mqq"    "Mlb"    "bigM"   "eip"</span></span></code></pre>
+<span><span class="co">##  [9] "Mqb"    "Mbq"    "Mqq"    "Mbl"    "bigM"   "eip"</span></span></code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">Lpar</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] "pL"    "zeta"  "theta" "xi"</span></span></code></pre>
@@ -186,7 +187,9 @@ returns a fully defined model:</p>
 <code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/SIM.html">SIM</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
 <p>The population densities are highly heterogeneous, even though the
 habitats and blood feeding sites that are all alike in every way except
-location.</p>
+location. Here, the size of each point scales with the density of the
+adult, female mosquito population at that point (red = blood feeding,
+blue = egg laying).</p>
 <p><img src="simulation_files/figure-html/unnamed-chunk-14-1.png" width="576"></p>
 </div>
 </div>
