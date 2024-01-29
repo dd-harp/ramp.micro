@@ -11,8 +11,8 @@ vignette: >
 library(viridisLite)
 library(knitr)
 library(viridis)
-#library(motrap.micro)
-devtools::load_all()
+library(motrap.micro)
+#devtools::load_all()
 ```
 
 ## Introduction
