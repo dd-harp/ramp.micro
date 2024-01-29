@@ -10,7 +10,7 @@ adult_dynamics.BQ = function(t, model){
     with(c(Mpar, Mvars, terms), {
       # compute variables
       eggs_t = ova*psiQ*Q
-      B_t = Mbb %*% B + Mbq %*% Q + Mlb %*% Lambda
+      B_t = Mbb %*% B + Mbq %*% Q + Mbl %*% Lambda
       Q_t = Mqb %*% B + Mqq %*% Q
       # update variables
       model$Mvars$B = B_t
@@ -181,7 +181,7 @@ make_demography_BQ = function(model){
     model$Mpar$Mbq = Psi_bq %*% diag(pQ*psiQ, nq)
     model$Mpar$Mqq = Psi_qq %*% diag(pQ*(1-psiQ), nq)
     # recently emerged adults
-    model$Mpar$Mlb = Psi_bq %*% diag(pQ, nq)
+    model$Mpar$Mbl = Psi_bq %*% diag(pQ, nq)
     # the "hardened adult" mosquito population dispersal matrix
     model$Mpar$bigM = with(model$Mpar,
       rbind(
