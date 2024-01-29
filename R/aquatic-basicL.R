@@ -1,11 +1,11 @@
 
 #' Aquatic Dynamics
 #'
-#' @inheritParams AquaticDynamics
+#' @inheritParams aquatic_dynamics
 #'
 #' @return the model, a compound [list]
 #' @export
-AquaticDynamics.basicL = function(t, model){ with(model,{
+aquatic_dynamics.basicL = function(t, model){ with(model,{
   survive = pL*exp(-zeta*L)
   mature = theta*exp(-xi*L)
   model$Lambda = mature*survive*L
@@ -58,7 +58,7 @@ save_states_L.basicL = function(t, model){
 #'
 #' @return a [numeric] value, the sum of squared differences
 #' @export
-compute_diffs_L.bascL = function(Lvars1, Lvars2){
+compute_diffs_L.basicL = function(Lvars1, Lvars2){
   dfs = sum((Lvars1$L - Lvars2$L)^2)
   return (dfs)
 }

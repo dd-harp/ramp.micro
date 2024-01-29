@@ -60,14 +60,15 @@ setup_model = function(b, q, s=c(),
 
 #' Basic analysis
 #' @param model a model defined as a compound [list]
-#' @param Tx block size argument for [steadyState]
-#' @param tol tolerance for [steadyState]
+#' @param burn the burn argument for [steady_state]
+#' @param Tx block size argument for [steady_state]
+#' @param tol tolerance for [steady_state]
 #' @param Tmax runtime for [makeKGV]
 #'
 #' @return model, a compound [list]
 #' @export
-basic_analysis = function(model, Tx=50, tol =1e-3, Tmax=200){
-  model = steadyState(model, Tx, tol)
+basic_analysis = function(model, burn=200, Tx=50, tol =1e-3, Tmax=200){
+  model = steady_state(model, burn, Tx, tol)
   model = makeKGV(model, Tmax)
   model = make_tiles(model)
   #model = make_all_graphs(model)
@@ -85,10 +86,10 @@ makeKGV = function(model, Tmax=200){
   model = make_Kqb(model, Tmax)
   model = make_Kbb(model)
   model = make_Kqq(model)
-  model = computeG(model, Tmax)
-  model = computeGG(model)
-  model = computeV(model, Tmax)
-  model = computeVC(model)
+  model = compute_G(model, Tmax)
+  model = compute_GG(model)
+  model = compute_V(model, Tmax)
+  model = compute_VC(model)
   return(model)
 }
 
@@ -101,7 +102,7 @@ makeKGV = function(model, Tmax=200){
 #'
 #' @return a model as a compound [list]
 #' @export
-make_model_squareLattice=function(N, kFb, kFq, q_outside=TRUE){
+make_model_squareLattice = function(N, kFb, kFq, q_outside=TRUE){
   x0 = (N-1)/2
   x1 = (N-2)/2
   if(q_outside == TRUE){
@@ -112,11 +113,11 @@ make_model_squareLattice=function(N, kFb, kFq, q_outside=TRUE){
     q0 = lattice(N-1, -x1, x1)
   }
   lattice_mod = setup_model(b0, q0, kFb, kFq, Mname = "BQ")
-  lattice_mod = steadyState(lattice_mod)
-  lattice_mod = steadyState(lattice_mod)
-  lattice_mod$tot = with(lattice_mod$steadyState,c(sum(B), sum(Q)))
-  lattice_mod$means = with(lattice_mod$steadyState,c(mean(B), mean(Q)))
-  lattice_mod$cv = with(lattice_mod$steadyState,c(cv(B), cv(Q)))
+  lattice_mod = steady_state(lattice_mod)
+  lattice_mod = steady_state(lattice_mod)
+  lattice_mod$tot = with(lattice_mod$steady_state,c(sum(B), sum(Q)))
+  lattice_mod$means = with(lattice_mod$steady_state,c(mean(B), mean(Q)))
+  lattice_mod$cv = with(lattice_mod$steady_state,c(cv(B), cv(Q)))
   return(lattice_mod)
 }
 
@@ -140,10 +141,10 @@ make_model_unif=function(N, kFb, kFq, q_outside=TRUE){
     q0 = unif_xy((N-1)^2, -x1, x1)
   }
   unif_mod = setup_model(b0, q0, kFb, kFq, Mname = "BQ")
-  unif_mod = steadyState(unif_mod)
-  unif_mod = steadyState(unif_mod)
-  unif_mod$tot = with(unif_mod$steadyState,c(sum(B), sum(Q)))
-  unif_mod$means = with(unif_mod$steadyState,c(mean(B), mean(Q)))
-  unif_mod$cv = with(unif_mod$steadyState,c(cv(B), cv(Q)))
+  unif_mod = steady_state(unif_mod)
+  unif_mod = steady_state(unif_mod)
+  unif_mod$tot = with(unif_mod$steady_state,c(sum(B), sum(Q)))
+  unif_mod$means = with(unif_mod$steady_state,c(mean(B), mean(Q)))
+  unif_mod$cv = with(unif_mod$steady_state,c(cv(B), cv(Q)))
   return(unif_mod)
 }

@@ -5,8 +5,8 @@
 #' @param t the current time
 #' @return the model, a compound [list]
 #' @export
-AdultDynamics = function(t, model){
-  UseMethod("AdultDynamics", model$Mpar)
+adult_dynamics = function(t, model){
+  UseMethod("adult_dynamics", model$Mpar)
 }
 
 #' Save state variables

@@ -12,8 +12,8 @@ SIM = function(model, Tmax=200){
   model = init_states_L(model)
 
   for(t in 1:Tmax){
-    model = AdultDynamics(t, model)
-    model = AquaticDynamics(t, model)
+    model = adult_dynamics(t, model)
+    model = aquatic_dynamics(t, model)
     model = save_states_M(t, model)
     model = save_states_L(t, model)
   }
@@ -30,11 +30,11 @@ SIM = function(model, Tmax=200){
 #'
 #' @return model
 #' @export
-steadyState = function(model, burn=500, Tx=50, tol=.001){
+steady_state = function(model, burn=500, Tx=50, tol=.001){
 
   for(t in 1:burn){
-    model = AdultDynamics(t, model)
-    model = AquaticDynamics(t, model)
+    model = adult_dynamics(t, model)
+    model = aquatic_dynamics(t, model)
   }
 
   steady=list()
@@ -44,13 +44,13 @@ steadyState = function(model, burn=500, Tx=50, tol=.001){
   err=10*tol
   while(err>tol){
     for(t in 1:Tx){
-      model = AdultDynamics(t, model)
-      model = AquaticDynamics(t, model)
+      model = adult_dynamics(t, model)
+      model = aquatic_dynamics(t, model)
     }
     err = compute_diffs_M(model$Mvars, steady$M)
     err = err + compute_diffs_L(model$Lvars, steady$L)
     steady$M = model$Mvars
-    steady$L = Model$Lvars
+    steady$L = model$Lvars
   }
 
   model$steady = steady

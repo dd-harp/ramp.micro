@@ -5,7 +5,7 @@
 #'
 #' @return model, a compound [list]
 #' @export
-AdultDynamics.BQS = function(t, model){
+adult_dynamics.BQS = function(t, model){
   with(model,{
     with(c(Mpars, vars$M), {
       # compute variables
@@ -43,7 +43,7 @@ save_states_M.BQS = function(t, model){
 #'
 #' @return a [numeric] value, the sum of squared differences
 #' @export
-compute_diffs_M.BQ = function(Mvars1, Mvars2){
+compute_diffs_M.BQS = function(Mvars1, Mvars2){
   dfs = sum((Mvars1$B - Mvars2$B)^2)
   dfs = dfs + sum((Mvars1$Q - Mvars2$Q)^2)
   dfs = dfs + sum((Mvars1$S - Mvars2$S)^2)
@@ -240,7 +240,7 @@ make_demography_BQS = function(model){
 #'
 #' @return a [list] defining a BQ-class adult model
 #' @export
-setup_model.BQS = function(model, b, q, s,
+setup_adult_model.BQS = function(model, b, q, s,
                         dispersal_opts = list(),
                         bionomic_opts =list(),
                         eip=15){

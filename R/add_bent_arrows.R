@@ -12,7 +12,7 @@
 #'
 #' @return invisible(NULL)
 #' @export
-bentArrowsX2Y = function(xy_launch, xy_land, M, mnwd=0.05, bbend=0, endd=0.75, adj=2, clr="red"){
+add_bent_arrows_xy = function(xy_launch, xy_land, M, mnwd=0.05, bbend=0, endd=0.75, adj=2, clr="red"){
   n1 = dim(xy_launch)[1]
   n2 = dim(xy_land)[1]
   if(length(clr == 1)) clr = rep(clr, n1)
@@ -42,7 +42,7 @@ bentArrowsX2Y = function(xy_launch, xy_land, M, mnwd=0.05, bbend=0, endd=0.75, a
 #'
 #' @return invisible(NULL)
 #' @export
-bentArrowsX2X = function(xy, M, mnwd=0.05, bbend=1, adj=2, endd=0.75, clr = "red"){
+add_bent_arrows_xx = function(xy, M, mnwd=0.05, bbend=1, adj=2, endd=0.75, clr = "red"){
   n = dim(xy)[1]
   if(length(clr == 1)) clr = rep(clr, n)
   diag(M) <- 0

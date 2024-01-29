@@ -4,14 +4,16 @@
 \alias{basic_analysis}
 \title{Basic analysis}
 \usage{
-basic_analysis(model, Tx = 50, tol = 0.001, Tmax = 200)
+basic_analysis(model, burn = 200, Tx = 50, tol = 0.001, Tmax = 200)
 }
 \arguments{
 \item{model}{a model defined as a compound [list]}
 
-\item{Tx}{block size argument for [steadyState]}
+\item{burn}{the burn argument for [steady_state]}
 
-\item{tol}{tolerance for [steadyState]}
+\item{Tx}{block size argument for [steady_state]}
+
+\item{tol}{tolerance for [steady_state]}
 
 \item{Tmax}{runtime for [makeKGV]}
 }

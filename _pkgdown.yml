@@ -9,6 +9,10 @@ navbar:
     menu:
     - text: Making Point Sets
       href: articles/point_sets.html
+    - text: Visualizing Micro-Dispersal
+      href: articles/visualizing_dispersal.html
+    - text: On Dispersal Matrices
+      href: articles/basic_dispersal.html
   right:
   - icon: fa-github
     href: https://github.com/dd-harp/motrap.micro/
@@ -29,9 +33,219 @@ home:
 reference:
 - title: Point Sets
   desc: |
-    Generate point sets
+    Utilities for generating and visualizing resource point sets
+- subtitle: Make Point Sets
+  desc: |
+    Utilities to generate point sets
   contents:
   - unif_xy
   - lattice
   - clusters_xy
   - clusters_nm
+- subtitle: Visualize Point Sets
+  desc: |
+    Utilities to visualize point sets
+  contents:
+  - plot_points
+  - plot_points.BQ
+  - plot_points.BQS
+  - plot_points_bq
+  - plot_points_bqs
+  - frame_bq
+  - frame_bqs
+  - add_points_b
+  - add_points_bb
+  - add_points_q
+  - add_points_qq
+  - add_points_s
+  - add_points_ss
+- title: Dispersal and Demographic Matrices
+  desc: |
+    Utilities for dispersal and demographic matrices
+- subtitle: Kernels
+  desc: |
+     Functions to compute search weights by distance
+  contents:
+  - make_kF_exp
+  - make_kF_pwr
+  - make_kF_mix
+- subtitle: Make Psi
+  desc: |
+     Generate the single bout dispersal matrices
+  contents:
+  - make_Psi_xy
+  - make_Psi_xx
+- subtitle: Visualize a Dispersal matrix
+  desc: |
+     Visualize a generic dispersal matrix
+  contents:
+  - plot_matrix_xy
+  - plot_matrix_xx
+  - add_arrows_xy
+  - add_arrows_xx
+  - add_one_arrow
+  - add_nth_arrow_xy
+  - add_nth_arrow_xx
+  - add_nth_segment
+  - add_bent_arrows_xy
+  - add_bent_arrows_xx
+- subtitle: Plot Psi
+  desc: |
+     Plot the single bout dispersal matrices
+  contents:
+  - plot_Psi
+  - plot_Psi.BQ
+  - plot_Psi_BQ
+  - plot_Psi.BQS
+  - plot_Psi_BQS
+- subtitle: Make K
+  desc: |
+     Generate matrices describing feeding or egg laying within a single feeding cycle
+  contents:
+  - make_Kqb
+  - make_Kqb.BQ
+  - make_Kqb.BQS
+  - make_Kbq
+  - make_Kbq.BQ
+  - make_Kbq.BQS
+  - make_Kbb
+  - make_Kqq
+- subtitle: Plot K
+  desc: |
+     Plot matrices describing feeding or egg laying within a single feeding cycle
+  contents:
+  - plot_Kbb
+  - plot_Kqq
+  - plot_Kbq
+  - plot_Kqb
+- subtitle: Egg Laying
+  desc: |
+     Methods to compute and visualize egg dispersal across a mosquito generation
+  contents:
+  - compute_G
+  - compute_G.BQ
+  - compute_G.BQS
+  - compute_GG
+  - plot_dispersal_G
+  - plot_dispersal_GG
+- subtitle: Parasite transmission potential
+  desc: |
+     Methods to compute and visualize parasite transmission potential
+  contents:
+  - compute_V
+  - compute_V.BQ
+  - compute_V.BQS
+  - compute_VC
+  - plot_dispersal_V
+  - plot_dispersal_VV
+- subtitle: Utilites for matrices
+  desc: |
+     Methods to help streamline matrix visualization
+  contents:
+  - decompM
+  - cutoffValue
+  - edgeSubset_fracMass
+  - edgeSubset
+  - getM_i
+  - getNet_i
+- subtitle: Compute distances dispersed
+  desc: |
+     Methods to compute the PMF and CMF for distances dispersed
+  contents:
+  - dispersal_PMF
+  - plotDDpmf
+  - plotDDcmf
+- title: Adult Mosquito Models
+  desc: |
+    Methods to set up and compute adult mosquito models
+  contents:
+  - adult_dynamics
+  - save_states_M
+  - init_states_M
+  - init_adult_model
+  - compute_diffs_M
+  - setup_adult_model
+- subtitle: BQ
+  desc: |
+     Methods to setup and compute the BQ model
+  contents:
+  - adult_dynamics.BQ
+  - save_states_M.BQ
+  - init_states_M.BQ
+  - init_adult_model.BQ
+  - init_adult_model_BQ
+  - compute_diffs_M.BQ
+  - setup_dispersal_BQ
+  - make_Psi_BQ
+  - setup_bionomics_BQ
+  - make_demography_BQ
+  - setup_adult_model.BQ
+- subtitle: BQS
+  desc: |
+     Methods to setup and compute the BQS model
+  contents:
+  - adult_dynamics.BQS
+  - save_states_M.BQS
+  - init_states_M.BQS
+  - init_adult_model.BQS
+  - init_adult_model_BQS
+  - compute_diffs_M.BQS
+  - setup_dispersal_BQS
+  - make_Psi_BQS
+  - setup_bionomics_BQS
+  - make_demography_BQS
+  - setup_adult_model.BQS
+- title: Aquatic Mosquito Models
+  desc: |
+    Methods to set up and compute aquatic mosquito models
+  contents:
+  - aquatic_dynamics
+  - save_states_L
+  - init_states_L
+  - init_aquatic_model
+  - compute_diffs_L
+  - setup_aquatic_model
+- subtitle: the basicL model
+  desc: |
+     Methods to setup and compute basicL
+  contents:
+  - aquatic_dynamics.basicL
+  - save_states_L.basicL
+  - init_states_L.basicL
+  - init_aquatic_model.basicL
+  - init_aquatic_model_basicL
+  - compute_diffs_L.basicL
+  - setup_aquatic_model.basicL
+  - setup_aquatic_model_basicL
+- title: Simulation
+  desc: |
+    Methods to set up and simulate models
+  contents:
+  - SIM
+  - steady_state
+  - setup_model
+  - make_movie
+  - make_movie.BQ
+  - make_movie.BQS
+  - basic_analysis
+  - makeKGV
+  - make_model_squareLattice
+  - make_model_unif
+- title: Network Analysis
+  desc: |
+    Methods to set up and analyze communities
+- subtitle: Convex Hulls
+  desc: |
+    Methods to compute and visualize convex hulls around communities
+  contents:
+  - make_convex_hulls
+  - make_convex_hull_i
+  - plot_convex_hulls
+  - stretch_convex_hull
+- subtitle: Tesselate
+  desc: |
+    Methods to compute and visualize using Delauney / Dirichlet methods
+  contents:
+  - make_tiles
+  - make_tiles.BQ
+  - make_tiles.BQS

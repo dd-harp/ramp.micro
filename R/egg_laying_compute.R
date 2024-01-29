@@ -6,8 +6,8 @@
 #'
 #' @return the model, a compound [list]
 #' @export
-computeG= function(model, Tmax){
-  UseMethod("computeG", model)
+compute_G = function(model, Tmax){
+  UseMethod("compute_G", model)
 }
 
 #' Compute the dispersion of eggs after one feeding cycle for the BQ model
@@ -17,7 +17,7 @@ computeG= function(model, Tmax){
 #'
 #' @return the model, a compound [list]
 #' @export
-computeG.BQ = function(model, Tmax=50){with(model,{
+compute_G.BQ = function(model, Tmax=50){with(model,{
   Q0 = diag(1, nq)
   B = Mqb %*% Q0
   Q = G = 0*Q0
@@ -39,7 +39,7 @@ computeG.BQ = function(model, Tmax=50){with(model,{
 #'
 #' @return the model, a compound [list]
 #' @export
-computeG.BQS = function(model, Tmax=50){with(model,{
+compute_G.BQS = function(model, Tmax=50){with(model,{
   Q0 = diag(1, nq)
   B = Mqb %*% Q0
   S = Mqs %*% Q0
@@ -62,7 +62,7 @@ computeG.BQS = function(model, Tmax=50){with(model,{
 #'
 #' @return the model, a compound [list]
 #' @export
-computeGG = function(model){with(model,{
+compute_GG = function(model){with(model,{
   if(!exists("model$steadyState$Q")) model = steadyState(model)
   model$GG = with(model,G %*% diag(as.vector(steadyState$Q)))
   return(model)

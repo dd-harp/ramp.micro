@@ -81,7 +81,7 @@ getM_i = function(i, model){
 #'
 #' @return a net object
 #' @export
-getNet.i = function(model, i){
+getNet_i = function(model, i){
   if(i==1) net = model$Kbb_net
   if(i==2) net = model$Kqq_net
   if(i==3) net = model$G_net

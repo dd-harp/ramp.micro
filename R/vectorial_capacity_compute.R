@@ -6,8 +6,8 @@
 #'
 #' @return the model, a compound [list]
 #' @export
-computeV = function(model, Tmax){
-  UseMethod("computeV", model)
+compute_V = function(model, Tmax){
+  UseMethod("compute_V", model)
 }
 
 #' Compute the potential dispersion of parasites after one feeding cycle for the BQ model
@@ -17,7 +17,7 @@ computeV = function(model, Tmax){
 #'
 #' @return the model, a compound [list]
 #' @export
-computeV.BQ = function(model, Tmax=100){with(model,{
+compute_V.BQ = function(model, Tmax=100){with(model,{
   Q = Mbq %*% diag(1, nb)
   B = diag(0, nb)
 
@@ -45,7 +45,7 @@ computeV.BQ = function(model, Tmax=100){with(model,{
 #'
 #' @return the model, a compound [list]
 #' @export
-computeV.BQS = function(model, Tmax=100){with(model,{
+compute_V.BQS = function(model, Tmax=100){with(model,{
   Q = Mbq %*% diag(1, nb)
   B = diag(0, nb)
   S = matrix(0, ns, nb)
@@ -75,7 +75,7 @@ computeV.BQS = function(model, Tmax=100){with(model,{
 #'
 #' @return the model, a compound [list]
 #' @export
-computeVC = function(model){with(model,{
+compute_VC = function(model){with(model,{
   if(!exists("model$steadyState$B")) model = steadyState(model)
   model$VC = with(model, V %*% diag(as.vector(steadyState$B)))
   return(model)

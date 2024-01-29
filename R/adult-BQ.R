@@ -1,11 +1,11 @@
 
 #' Simulate adult dynamics for the `BQ` model
 #'
-#' @inheritParams AdultDynamics
+#' @inheritParams adult_dynamics
 #'
 #' @return model, a compound [list]
 #' @export
-AdultDynamics.BQ = function(t, model){
+adult_dynamics.BQ = function(t, model){
   with(model,
     with(c(Mpar, Mvars), {
       # compute variables

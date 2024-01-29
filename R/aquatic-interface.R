@@ -6,8 +6,8 @@
 #'
 #' @return the model, a compound [list]
 #' @export
-AquaticDynamics = function(t, model){
-  UseMethod("AquaticDynamics", model$Lpar)
+aquatic_dynamics = function(t, model){
+  UseMethod("aquatic_dynamics", model$Lpar)
 }
 
 #' Set initial values for
