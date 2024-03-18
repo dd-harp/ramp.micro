@@ -2,7 +2,7 @@
 library(viridisLite)
 library(knitr)
 library(viridis)
-library(motrap.micro)
+library(ramp.micro)
 
 ## -----------------------------------------------------------------------------
 dd = seq(0, 5, by = 0.01)

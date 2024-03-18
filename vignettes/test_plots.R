@@ -2,7 +2,7 @@
 library(viridisLite)
 library(knitr)
 library(viridis)
-library(motrap.micro)
+library(ramp.micro)
 #suppressWarnings(devtools::load_all() )
 set.seed(25)
 

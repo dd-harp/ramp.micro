@@ -2,7 +2,7 @@
 library(viridisLite)
 library(knitr)
 library(viridis)
-library(motrap.micro)
+library(ramp.micro)
 set.seed(25)
 
 ## ----echo=F, eval=F-----------------------------------------------------------

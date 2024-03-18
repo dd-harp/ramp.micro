@@ -2,7 +2,7 @@
 library(viridisLite)
 library(knitr)
 library(viridis)
-library(motrap.micro)
+library(ramp.micro)
 
 ## ----fig.height=5, fig.width=5------------------------------------------------
 par(bty = "o")

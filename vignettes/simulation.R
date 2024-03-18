@@ -2,15 +2,16 @@
 library(viridisLite)
 library(knitr)
 library(viridis)
-#library(motrap.micro)
-devtools::load_all()
+library(ramp.micro)
+#devtools::load_all()
 
 ## -----------------------------------------------------------------------------
 set.seed(24328)
 bb = unif_xy(256, -17, 17) 
 qq = unif_xy(289, -17, 17) 
 
-## ----fig.height=7, fig.width=7------------------------------------------------
+## ----fig.height=6, fig.width=6------------------------------------------------
+par(mar = c(1,1,1,1))
 plot_points_bq(bb, qq)
 
 ## -----------------------------------------------------------------------------
@@ -52,5 +53,11 @@ model <- SIM(model)
 #  devtools::load_all()
 
 ## ----fig.height=6, fig.width=6, echo=F----------------------------------------
-plot_points(model, bwts = model$states$M$B_t[[201]], qwts= model$states$M$B_t[[201]])
+par(mar = c(1,1,1,1))
+plot_points(model, bwts = model$states$M$B_t[[201]], qwts= model$states$M$B_t[[201]], max_pt_sz=2)
+
+## ----eval=F, echo=F-----------------------------------------------------------
+#  model1 <- model
+#  model1$Lpar$xi = .1
+#  model1 <- SIM(model1)
 
