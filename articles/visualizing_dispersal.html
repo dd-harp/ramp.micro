@@ -5,64 +5,47 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="ramp.micro">
 <title>Visualizing Micro-Dispersal • ramp.micro</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Visualizing Micro-Dispersal">
-<meta property="og:description" content="ramp.micro">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Visualizing Micro-Dispersal">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light" data-bs-theme="light"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="../index.html">ramp.micro</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="../reference/index.html">Functions</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Functions</a></li>
 <li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/point_sets.html">Making Point Sets</a>
-    <a class="dropdown-item" href="../articles/visualizing_dispersal.html">Visualizing Micro-Dispersal</a>
-    <a class="dropdown-item" href="../articles/basic_dispersal.html">On Dispersal Matrices</a>
-    <a class="dropdown-item" href="../articles/simulation.html">Simulation</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="../articles/point_sets.html">Making Point Sets</a></li>
+    <li><a class="dropdown-item" href="../articles/visualizing_dispersal.html">Visualizing Micro-Dispersal</a></li>
+    <li><a class="dropdown-item" href="../articles/basic_dispersal.html">On Dispersal Matrices</a></li>
+    <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
+  </ul>
 </li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav">
-<li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/dd-harp/motrap.micro/">
-    <span class="fa fa-github"></span>
-     
-  </a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/dd-harp/motrap.micro/"><span class="fa fa-github"></span></a></li>
       </ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-article">
 
@@ -71,10 +54,11 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>Visualizing Micro-Dispersal</h1>
+
+      <h1>Visualizing Micro-Dispersal</h1>
             
       
-      
+
       <div class="d-none name"><code>visualizing_dispersal.Rmd</code></div>
     </div>
 
@@ -91,44 +75,63 @@
 </h2>
 <p>In behavioral state micro-simulation, mosquito movement is defined by
 a <em>search</em> for a resource, and all resources are located at
-points in space, <span class="math inline">\((x,y).\)</span>
+points in space,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">(x,y).</annotation></semantics></math>
 Micro-dispersal is defined herein as dispersal among point sets
 representing the locations of resources.</p>
 <p>Micro-dispersal models in this software implementation follow a
 common notation:</p>
 <ul>
-<li><p>A search originates in one point set, <span class="math inline">\(P_v\)</span>, with <span class="math inline">\(|v|\)</span> locations; and the destination is
-another, <span class="math inline">\(P_w\)</span> with <span class="math inline">\(|w|\)</span> locations.</p></li>
-<li><p>A dispersal model is instantiated as a matrix <span class="math inline">\(M_{w \leftarrow v},\)</span> where the element
-<span class="math inline">\(M_{i,j} \in M\)</span> is the fraction of
-mosquitoes moving from <span class="math inline">\((x_j, y_j) \in
-P_v\)</span> to <span class="math inline">\((x_i, y_i) \in
-P_w\)</span>.</p></li>
+<li><p>A search originates in one point set,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>v</mi></msub><annotation encoding="application/x-tex">P_v</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">|</mo><mi>v</mi><mo stretchy="true" form="postfix">|</mo></mrow><annotation encoding="application/x-tex">|v|</annotation></semantics></math>
+locations; and the destination is another,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>w</mi></msub><annotation encoding="application/x-tex">P_w</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">|</mo><mi>w</mi><mo stretchy="true" form="postfix">|</mo></mrow><annotation encoding="application/x-tex">|w|</annotation></semantics></math>
+locations.</p></li>
+<li><p>A dispersal model is instantiated as a matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mrow><mi>w</mi><mo>←</mo><mi>v</mi></mrow></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">M_{w \leftarrow v},</annotation></semantics></math>
+where the element
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>∈</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">M_{i,j} \in M</annotation></semantics></math>
+is the fraction of mosquitoes moving from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo>,</mo><msub><mi>y</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>∈</mo><msub><mi>P</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">(x_j, y_j) \in P_v</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>,</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>∈</mo><msub><mi>P</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">(x_i, y_i) \in P_w</annotation></semantics></math>.</p></li>
 <li>
-<p>If we had a vector, <span class="math inline">\(m_v\)</span>, of
-mosquito abundances at the origin of a search, and if we want to compute
-a vector, <span class="math inline">\(m_w\)</span>, describing the
-number arriving at a destination, then we write <span class="math display">\[m_w = M \cdot m_v,\]</span> where</p>
+<p>If we had a vector,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>m</mi><mi>v</mi></msub><annotation encoding="application/x-tex">m_v</annotation></semantics></math>,
+of mosquito abundances at the origin of a search, and if we want to
+compute a vector,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>m</mi><mi>w</mi></msub><annotation encoding="application/x-tex">m_w</annotation></semantics></math>,
+describing the number arriving at a destination, then we write
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>w</mi></msub><mo>=</mo><mi>M</mi><mo>⋅</mo><msub><mi>m</mi><mi>v</mi></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">m_w = M \cdot m_v,</annotation></semantics></math>
+where</p>
 <ul>
-<li><p><span class="math inline">\(\mbox{dim}(M) = |w| \times
-|v|,\)</span></p></li>
-<li><p>and <span class="math inline">\(|m_v| = |v|,\)</span></p></li>
-<li><p>so <span class="math inline">\(|m_w| = |w|.\)</span></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">dim</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>M</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>w</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>×</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>v</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\mbox{dim}(M) = |w| \times |v|,</annotation></semantics></math></p></li>
+<li><p>and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>m</mi><mi>v</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>v</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">|m_v| = |v|,</annotation></semantics></math></p></li>
+<li><p>so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>m</mi><mi>w</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>w</mi><mo stretchy="true" form="postfix">|</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">|m_w| = |w|.</annotation></semantics></math></p></li>
 </ul>
 </li>
 </ul>
-<p>By convention, we constrain model so that, <span class="math display">\[\sum_i M_{i,j}=1.\]</span></p>
+<p>By convention, we constrain model so that,
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>M</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">\sum_i M_{i,j}=1.</annotation></semantics></math></p>
 <p>If we want to model failed dispersal, then we will often want to
 handle the case where the origin and destination are the same point
 set.</p>
 <p>In the following, we discuss the challenge of visualizing
 micro-dispersal matrices using functions in <code>motrap.micro</code>
-where either <span class="math inline">\(P_v \neq P_w\)</span> or where
-<span class="math inline">\(P_v = P_w.\)</span></p>
+where either
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>v</mi></msub><mo>≠</mo><msub><mi>P</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">P_v \neq P_w</annotation></semantics></math>
+or where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>v</mi></msub><mo>=</mo><msub><mi>P</mi><mi>w</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">P_v = P_w.</annotation></semantics></math></p>
 </div>
 <div class="section level2">
-<h2 id="dispersal-from-p_v-neq-p_w">Dispersal from <span class="math inline">\(P_v \neq
-P_w\)</span><a class="anchor" aria-label="anchor" href="#dispersal-from-p_v-neq-p_w"></a>
+<h2 id="dispersal-from-p_v-neq-p_w">Dispersal from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>v</mi></msub><mo>≠</mo><msub><mi>P</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">P_v \neq P_w</annotation></semantics></math><a class="anchor" aria-label="anchor" href="#dispersal-from-p_v-neq-p_w"></a>
 </h2>
 <p>To illustrate, we generate two point sets:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -137,28 +140,42 @@ P_w\)</span><a class="anchor" aria-label="anchor" href="#dispersal-from-p_v-neq-
 <span><span class="va">dd</span> <span class="op">=</span> <span class="fl">10</span></span>
 <span><span class="va">Pv</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="va">nPv</span>,<span class="op">-</span><span class="va">dd</span>, <span class="va">dd</span><span class="op">)</span> </span>
 <span><span class="va">Pw</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="va">nPw</span>,<span class="op">-</span><span class="va">dd</span>, <span class="va">dd</span><span class="op">)</span> </span></code></pre></div>
-<p>Now, we can define a dispersal matrix from <span class="math inline">\(P_v\)</span> to <span class="math inline">\(P_w\)</span>, and <em>vice versa</em>:</p>
+<p>Now, we can define a dispersal matrix from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>v</mi></msub><annotation encoding="application/x-tex">P_v</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>w</mi></msub><annotation encoding="application/x-tex">P_w</annotation></semantics></math>,
+and <em>vice versa</em>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">M_wv</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">Pv</span>, <span class="va">Pw</span>, <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">M_vw</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">Pw</span>, <span class="va">Pv</span>, <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The generic function <code>plot_matrix_xy</code> was developed to
-plot dispersal from <span class="math inline">\(P_v\)</span> to <span class="math inline">\(P_w.\)</span></p>
+plot dispersal from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>v</mi></msub><annotation encoding="application/x-tex">P_v</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>w</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">P_w.</annotation></semantics></math></p>
 <p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-5-1.png" width="768"></p>
 </div>
 <div class="section level2">
 <h2 id="movement">Movement<a class="anchor" aria-label="anchor" href="#movement"></a>
 </h2>
-<p>Because of the arrangement of points, some points in <span class="math inline">\(P_w\)</span> get more mosquitoes. If an equal
-number of mosquitoes left every point in <span class="math inline">\(P_v\)</span>, the number arriving at each point in
-<span class="math inline">\(P_w\)</span> can be found by summing the
-rows of the dispersal matrix, <span class="math inline">\(M\)</span>:</p>
+<p>Because of the arrangement of points, some points in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>w</mi></msub><annotation encoding="application/x-tex">P_w</annotation></semantics></math>
+get more mosquitoes. If an equal number of mosquitoes left every point
+in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>v</mi></msub><annotation encoding="application/x-tex">P_v</annotation></semantics></math>,
+the number arriving at each point in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>w</mi></msub><annotation encoding="application/x-tex">P_w</annotation></semantics></math>
+can be found by summing the rows of the dispersal matrix,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">M_wv</span><span class="op">)</span>, xlab <span class="op">=</span> <span class="st">"Mosquito Density at Destination"</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">j</span>,<span class="va">i</span><span class="op">)</span><span class="op">]</span>, <span class="va">i</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-6-1.png" width="480"></p>
-<p>The matrix <span class="math inline">\(M\)</span> has
-<code>nPv</code><span class="math inline">\(=29
-\times\)</span><code>nPw</code><span class="math inline">\(=43\)</span>
-elements, for a total of <span class="math inline">\(1,161\)</span>.
+<p>The matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+has
+<code>nPv</code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mn>29</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">=29 \times</annotation></semantics></math><code>nPw</code><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mn>43</mn></mrow><annotation encoding="application/x-tex">=43</annotation></semantics></math>
+elements, for a total of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>161</mn></mrow><annotation encoding="application/x-tex">1,161</annotation></semantics></math>.
 This is a reasonably small number of points to consider, but what if we
 increased the number of points in each set by a factor of 10 or 100? The
 size of the objects can grow quite large quite quickly.</p>
@@ -172,8 +189,10 @@ the elements fractions are very small.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/segments.html" class="external-link">segments</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">0</span>, <span class="op">-</span><span class="fl">2</span>, <span class="fl">50</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-7-1.png" width="480"></p>
 <p>In the following, we draw an arrow from the points in the starting
-set (<span class="math inline">\(P_v\)</span>, salmon) to the points in
-the destination set (<span class="math inline">\(P_w\)</span>,
+set
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>v</mi></msub><annotation encoding="application/x-tex">P_v</annotation></semantics></math>,
+salmon) to the points in the destination set
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>w</mi></msub><annotation encoding="application/x-tex">P_w</annotation></semantics></math>,
 lightblue). On the left, all the edges were plotted, but on the right,
 edges were plotted only if the destination got more than 1% of the
 dispersing mosquitoes. We vary the size of the destination point to be
@@ -289,28 +308,26 @@ model, and the importance of understanding how this approach highlights
 real and serious questions about mosquito dispersal – what happens at
 the edges of habitats?</p>
 </div>
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
 
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by David L. Smith, Héctor M. Sánchez C.</p>
+  <p>Developed by David L. Smith, Héctor M. Sánchez C.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.8.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>

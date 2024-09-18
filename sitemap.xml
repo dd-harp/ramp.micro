@@ -1,423 +1,143 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/404.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/articles/basic_dispersal.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/articles/landscapes.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/articles/point_sets.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/articles/simulation.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/articles/test_plots.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/articles/visualizing_dispersal.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/SIM.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_arrows_xx.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_arrows_xy.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_bent_arrows_xx.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_bent_arrows_xy.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_nth_arrow_xx.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_nth_arrow_xy.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_nth_segment.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_one_arrow.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_points_b.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_points_bb.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_points_q.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_points_qq.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_points_s.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/add_points_ss.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/adult_dynamics.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/adult_dynamics.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/adult_dynamics.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/aquatic_dynamics.basicL.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/aquatic_dynamics.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/basic_analysis.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/clusters_nm.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/clusters_xy.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_G.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_G.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_G.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_GG.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_V.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_V.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_V.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_VC.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_diffs_L.basicL.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_diffs_L.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_diffs_M.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_diffs_M.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/compute_diffs_M.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/cutoffValue.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/decompM.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/dispersal_PMF.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/edgeSubset.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/edgeSubset_fracMass.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/frame_bq.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/frame_bqs.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/getM_i.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/getNet_i.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model_BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model_BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_aquatic_model.basicL.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_aquatic_model.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_aquatic_model_basicL.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_states_L.basicL.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_states_L.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_states_M.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_states_M.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/init_states_M.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/lattice.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/makeKGV.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Kbb.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Kbq.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Kbq.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Kbq.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Kqb.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Kqb.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Kqb.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Kqq.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_xx.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_xy.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hull_i.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hulls.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_demography_BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_demography_BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_kF_exp.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_kF_mix.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_kF_pwr.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_model_squareLattice.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_model_unif.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_movie.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_movie.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_movie.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_tiles.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_tiles.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/make_tiles.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plotDDcmf.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plotDDpmf.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kbb.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kbq.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kqb.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kqq.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_convex_hulls.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_G.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_GG.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_V.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_VV.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_matrix_xx.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_matrix_xy.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_points_bq.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/plot_points_bqs.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/save_states_L.basicL.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/save_states_L.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/save_states_M.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/save_states_M.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/save_states_M.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_adult_model.BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_adult_model.BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_adult_model.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_aquatic_model.basicL.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_aquatic_model.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_aquatic_model_basicL.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_bionomics_BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_bionomics_BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_dispersal_BQ.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_dispersal_BQS.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/setup_model.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/steady_state.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/stretch_convex_hull.html</loc>
-  </url>
-  <url>
-    <loc>https://dd-harp.github.io/ramp.micro/reference/unif_xy.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://dd-harp.github.io/ramp.micro/404.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/articles/basic_dispersal.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/articles/index.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/articles/landscapes.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/articles/point_sets.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/articles/simulation.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/articles/test_plots.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/articles/visualizing_dispersal.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/authors.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/index.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/SIM.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_arrows_xx.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_arrows_xy.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_bent_arrows_xx.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_bent_arrows_xy.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_nth_arrow_xx.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_nth_arrow_xy.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_nth_segment.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_one_arrow.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_points_b.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_points_bb.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_points_q.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_points_qq.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_points_s.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_points_ss.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/adult_dynamics.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/adult_dynamics.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/adult_dynamics.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/aquatic_dynamics.basicL.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/aquatic_dynamics.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/basic_analysis.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/clusters_nm.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/clusters_xy.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_G.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_G.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_G.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_GG.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_V.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_V.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_V.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_VC.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_diffs_L.basicL.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_diffs_L.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_diffs_M.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_diffs_M.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/compute_diffs_M.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/cutoffValue.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/decompM.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/dispersal_PMF.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/edgeSubset.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/edgeSubset_fracMass.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/frame_bq.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/frame_bqs.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/getM_i.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/getNet_i.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/index.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model_BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model_BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_aquatic_model.basicL.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_aquatic_model.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_aquatic_model_basicL.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_states_L.basicL.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_states_L.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_states_M.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_states_M.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/init_states_M.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/lattice.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/makeKGV.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Kbb.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Kbq.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Kbq.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Kbq.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Kqb.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Kqb.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Kqb.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Kqq.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_xx.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_xy.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hull_i.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hulls.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_demography_BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_demography_BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_kF_exp.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_kF_mix.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_kF_pwr.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_model_squareLattice.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_model_unif.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_movie.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_movie.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_movie.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_tiles.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_tiles.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_tiles.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plotDDcmf.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plotDDpmf.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kbb.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kbq.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kqb.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kqq.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_convex_hulls.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_G.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_GG.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_V.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_VV.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_matrix_xx.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_matrix_xy.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points_bq.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points_bqs.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/save_states_L.basicL.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/save_states_L.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/save_states_M.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/save_states_M.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/save_states_M.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_adult_model.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_adult_model.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_adult_model.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_aquatic_model.basicL.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_aquatic_model.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_aquatic_model_basicL.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_bionomics_BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_bionomics_BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_dispersal_BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_dispersal_BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/setup_model.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/steady_state.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/stretch_convex_hull.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/unif_xy.html</loc></url>
 </urlset>
+
