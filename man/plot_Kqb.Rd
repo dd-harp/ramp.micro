@@ -2,7 +2,8 @@
 % Please edit documentation in R/K_matrices.R
 \name{plot_Kqb}
 \alias{plot_Kqb}
-\title{Plot the matrix Kqb: dispersal from {b} to {q}}
+\title{Plot the matrix \eqn{K_{q \leftarrow b}}
+dispersal from \eqn{\left\{b\right\}} to \eqn{\left\{q\right\}}}
 \usage{
 plot_Kqb(
   model,
@@ -39,5 +40,6 @@ plot_Kqb(
 invisible(NULL)
 }
 \description{
-Plot the matrix Kqb: dispersal from {b} to {q}
+Plot the matrix \eqn{K_{q \leftarrow b}}
+dispersal from \eqn{\left\{b\right\}} to \eqn{\left\{q\right\}}
 }

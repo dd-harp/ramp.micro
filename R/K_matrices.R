@@ -165,7 +165,8 @@ make_Kbq.BQS = function(model, Tmax = 200){with(model,{
 })}
 
 
-#' Plot the matrix Kqb: dispersal from {b} to {q}
+#' Plot the matrix \eqn{K_{q \leftarrow b}}
+#' dispersal from \eqn{\left\{b\right\}} to \eqn{\left\{q\right\}}
 #'
 #' @param model a model defined as a compound [list]
 #' @param max_pt_sz set the maximum cex for points
@@ -193,7 +194,7 @@ plot_Kqb = function(model, max_pt_sz=2,
   return(invisible())
 }
 
-#' Plot the matrix Kbq: dispersal from {q} to {b}
+#' Plot the matrix \eqn{K_{b \leftarrow q}}: dispersal from \eqn{\left\{q\right\}} to \eqn{\left\{b\right\}}
 #'
 #' @param model a model defined as a compound [list]
 #' @param max_pt_sz set the maximum cex for points
@@ -221,7 +222,7 @@ plot_Kbq = function(model, max_pt_sz=2,
   return(invisible())
 }
 
-#' Plot the matrix Kbb
+#' Plot the matrix \eqn{K_{b \leftarrow b}}
 #'
 #' @param model a model defined as a compound [list]
 #' @param max_pt_sz set the maximum cex for points
@@ -252,7 +253,7 @@ plot_Kbb = function(model, max_pt_sz=2,
   return(invisible())
 }
 
-#' Plot the matrix Kqq
+#' Plot the matrix \eqn{K_{q \leftarrow q}}
 #'
 #' @param model a model defined as a compound [list]
 #' @param max_pt_sz set the maximum cex for points

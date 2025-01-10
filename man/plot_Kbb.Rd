@@ -2,7 +2,7 @@
 % Please edit documentation in R/K_matrices.R
 \name{plot_Kbb}
 \alias{plot_Kbb}
-\title{Plot the matrix Kbb}
+\title{Plot the matrix \eqn{K_{b \leftarrow b}}}
 \usage{
 plot_Kbb(
   model,
@@ -39,5 +39,5 @@ plot_Kbb(
 \item{clr_q}{color for egg laying sites}
 }
 \description{
-Plot the matrix Kbb
+Plot the matrix \eqn{K_{b \leftarrow b}}
 }
