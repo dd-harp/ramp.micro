@@ -2,7 +2,7 @@
 % Please edit documentation in R/K_matrices.R
 \name{plot_Kqq}
 \alias{plot_Kqq}
-\title{Plot the matrix Kqq}
+\title{Plot the matrix \eqn{K_{q \leftarrow q}}}
 \usage{
 plot_Kqq(
   model,
@@ -42,5 +42,5 @@ plot_Kqq(
 invisible(NULL)
 }
 \description{
-Plot the matrix Kqq
+Plot the matrix \eqn{K_{q \leftarrow q}}
 }
