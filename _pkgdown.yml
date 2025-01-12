@@ -3,8 +3,6 @@ template:
   bootstrap: 5
 navbar:
   left:
-  - text: Functions
-    href: reference/index.html
   - text: Articles
     menu:
     - text: Making Point Sets
@@ -15,6 +13,16 @@ navbar:
       href: articles/basic_dispersal.html
     - text: Simulation
       href: articles/simulation.html
+  - text: Modules
+    menu:
+    - text: Adult Mosquitoes - BQ
+      href: articles/BQ.html
+    - text: Adult Mosquitoes - BQS
+      href: articles/BQS.html
+    - text: Immature Mosquitoes - L
+      href: articles/L.html
+  - text: Functions
+    href: reference/index.html
   right:
   - icon: fa-github
     href: https://github.com/dd-harp/motrap.micro/

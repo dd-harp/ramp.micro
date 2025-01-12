@@ -2,7 +2,7 @@
 % Please edit documentation in R/K_matrices.R
 \name{make_Kbq.BQ}
 \alias{make_Kbq.BQ}
-\title{Compute net dispersal matrix to blood feed within one feeding cycle}
+\title{Compute dispersal matrix to lay eggs within one feeding cycle}
 \usage{
 \method{make_Kbq}{BQ}(model, Tmax = 100)
 }
@@ -15,5 +15,5 @@
 the model, a compound [list]
 }
 \description{
-Compute net dispersal matrix to blood feed within one feeding cycle
+Compute dispersal matrix to lay eggs within one feeding cycle
 }

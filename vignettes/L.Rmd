@@ -1,0 +1,41 @@
+---
+title: "Immature Mosquitoes - L"
+subtitle: "A Basic Aquatic Ecology Model"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Immature Mosquitoes - L}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r suppressMessages=T, echo=F}
+library(viridisLite)
+library(knitr)
+library(viridis)
+library(ramp.micro)
+```
+
+## 
+
+For purposes of integrating the effects of movement and aquatic ecology, we assume each female lays $o$ eggs, so the total number of eggs laid each day in each site is: 
+
+\begin{equation} 
+\eta_t = o \psi_q Q_t 
+\label{eq_nut}
+\end{equation}
+
+We assume the number of immature mosquitoes in aquatic habitats, denoted $L_t$, is subject to density dependence, which could delay maturation or increase mortality. The maturating fraction is, $\theta e^{-\xi L_t}$ where $\xi>0$, and surviving fraction is $p_L e^{-\zeta L_t}$ where $\zeta>0$. The parameters are site-specific, so that some habitats can vary in quality. The dynamics are:  
+
+\begin{equation} 
+L_{t+1} = \eta_t +  p_L e^{-\zeta L_t} (1-\theta e^{-\xi L_t}) L_t.
+\label{eq_Lt}
+\end{equation}
+
+The number of adult females emerging each day is half the mosquitoes who both survived and matured: 
+
+\begin{equation} 
+\Lambda_{t+1} = \frac{p_L \theta e^{-(\xi +\zeta) L_t} }{2} L_t
+\label{eq_Lambdat}
+\end{equation}
+
+While this model is adequate for the needs of this study, the model may not robustly capture some relevant features of mosquito ecology or larval source management, such as when larval population structure and delays are important. The software, \verb1ramp.micro1, includes alternative models with stage structure. 

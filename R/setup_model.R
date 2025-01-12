@@ -82,6 +82,7 @@ basic_analysis = function(model, burn=200, Tx=50, tol =1e-3, Tmax=200){
 #' @param Tmax the number of time steps
 #'
 #' @return the model, a compound [list]
+#' @export
 makeKGV = function(model, Tmax=200){
   model = make_Kbq(model, Tmax)
   model = make_Kqb(model, Tmax)

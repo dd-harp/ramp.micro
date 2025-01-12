@@ -156,9 +156,9 @@ setup_bionomics_BQ = function(model, opts=list(),
                               psiB=0.9, psiQ=0.9,
                               ova=20){
   with(opts,{
-    model$Mpar$setup$pB = pB
-    model$Mpar$setup$pQ = pQ
-    model$Mpar$setup$psiB = psiB
+    model$Mpar$pB = pB
+    model$Mpar$pQ = pQ
+    model$Mpar$psiB = psiB
     model$Mpar$psiQ = psiQ
     model$Mpar$ova = ova
     return(model)
