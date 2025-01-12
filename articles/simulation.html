@@ -29,7 +29,6 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../reference/index.html">Functions</a></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
@@ -39,6 +38,15 @@
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
   </ul>
 </li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-modules" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Modules</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-modules">
+<li><a class="dropdown-item" href="../articles/BQ.html">Adult Mosquitoes - BQ</a></li>
+    <li><a class="dropdown-item" href="../articles/BQS.html">Adult Mosquitoes - BQS</a></li>
+    <li><a class="dropdown-item" href="../articles/L.html">Immature Mosquitoes - L</a></li>
+  </ul>
+</li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Functions</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/dd-harp/motrap.micro/"><span class="fa fa-github"></span></a></li>
@@ -160,8 +168,9 @@ returns a fully defined model:</p>
 <pre><code><span><span class="co">## [1] "b"     "q"     "nb"    "nq"    "Mpar"  "Mvars" "terms" "Lpar"  "Lvars"</span></span></code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">Mpar</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##  [1] "setup"  "Psi_bb" "Psi_qb" "Psi_bq" "Psi_qq" "psiQ"   "ova"    "Mbb"   </span></span>
-<span><span class="co">##  [9] "Mqb"    "Mbq"    "Mqq"    "Mbl"    "bigM"   "eip"</span></span></code></pre>
+<pre><code><span><span class="co">##  [1] "setup"  "Psi_bb" "Psi_qb" "Psi_bq" "Psi_qq" "pB"     "pQ"     "psiB"  </span></span>
+<span><span class="co">##  [9] "psiQ"   "ova"    "Mbb"    "Mqb"    "Mbq"    "Mqq"    "Mbl"    "bigM"  </span></span>
+<span><span class="co">## [17] "eip"</span></span></code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">Lpar</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] "pL"    "zeta"  "theta" "xi"</span></span></code></pre>
