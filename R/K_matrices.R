@@ -7,7 +7,7 @@
 #' @return the model, a compound [list]
 #' @export
 make_Kqb = function(model, Tmax){
-  UseMethod("make_Kqb", model)
+  UseMethod("make_Kqb", model$Mpar)
 }
 
 #' Compute dispersal matrix to blood feed within one feeding cycle
@@ -18,7 +18,7 @@ make_Kqb = function(model, Tmax){
 #' @return the model, a compound [list]
 #' @export
 make_Kbq = function(model, Tmax){
-  UseMethod("make_Kbq", model)
+  UseMethod("make_Kbq", model$Mpar)
 }
 
 #' Compute dispersal matrix to lay eggs within one feeding cycle
@@ -28,7 +28,7 @@ make_Kbq = function(model, Tmax){
 #' @return the model, a compound [list]
 #' @export
 make_Kbb = function(model){
-  model$Kbb = with(model, Kqb %*% Kbq)
+  model$Mpar$Kbb = with(model$Mpar, Kqb %*% Kbq)
   return(model)
 }
 
@@ -39,7 +39,7 @@ make_Kbb = function(model){
 #' @return the model, a compound [list]
 #' @export
 make_Kqq = function(model){
-  model$Kqq = with(model, Kbq %*% Kqb)
+  model$Mpar$Kqq = with(model$Mpar, Kbq %*% Kqb)
   return(model)
 }
 
@@ -50,18 +50,19 @@ make_Kqq = function(model){
 #'
 #' @return the model, a compound [list]
 #' @export
-make_Kqb.BQ = function(model, Tmax=100){with(model,{
-  cohort = Psi_qb %*% diag(pQ, nq)
-  Kqb = diag(psiB, nb) %*% cohort  # Success
+make_Kbq.BQ = function(model, Tmax=100){with(model, with(Mpar,{
+  cohort = Psi_bq %*% diag(pQ, nq)
+  Kbq = diag(psiB, nb) %*% cohort  # Success
   Bt = diag(1-psiB, nb) %*% cohort # Failure
 
   for(i in 1:Tmax){
-    Kqb = Kqb + diag(pB*psiB, nb) %*% Psi_bb %*% Bt
+    Kbq = Kbq + diag(pB*psiB, nb) %*% Psi_bb %*% Bt
     Bt = diag(pB*(1-psiB), nb) %*% Psi_bb %*% Bt
   }
-  model$Kqb = Kqb
+  model$Mpar$Kbq = Kbq
   return(model)
-})}
+}))}
+
 
 #' Compute net dispersal matrix to blood feed within one feeding cycle
 #'
@@ -69,17 +70,18 @@ make_Kqb.BQ = function(model, Tmax=100){with(model,{
 #' @param Tmax the number of time steps
 #'
 #' @return the model, a compound [list]
-make_Kbq.BQ = function(model, Tmax=100){with(model,{
-  cohort = Psi_bq %*% diag(pB, nb)
-  Kbq = diag(psiQ, nq) %*% cohort  # Success
+#' @export
+make_Kqb.BQ = function(model, Tmax=100){with(model, with(Mpar,{
+  cohort = Psi_qb %*% diag(pB, nb)
+  Kqb = diag(psiQ, nq) %*% cohort  # Success
   Qt = diag(1-psiQ, nq) %*% cohort # Failure
   for(i in 1:Tmax){
-    Kbq = Kbq + diag(pQ*psiQ, nq) %*% Psi_qq %*% Qt
+    Kqb = Kqb + diag(pQ*psiQ, nq) %*% Psi_qq %*% Qt
     Qt =diag(pQ*(1-psiQ), nq) %*% Psi_qq %*%Qt
   }
-  model$Kbq = Kbq
+  model$Mpar$Kqb = Kqb
   return(model)
-})}
+}))}
 
 
 #' Compute dispersal to lay eggs within one feeding cycle
@@ -89,7 +91,7 @@ make_Kbq.BQ = function(model, Tmax=100){with(model,{
 #'
 #' @return the model, a compound [list]
 #' @export
-make_Kqb.BQS = function(model, Tmax=200){with(model,{
+make_Kqb.BQS = function(model, Tmax=200){with(model,with(Mpar,{
   nb = dim(Psi_bb)[2]
   nq = dim(Psi_qq)[2]
   ns = dim(Psi_ss)[2]
@@ -120,9 +122,9 @@ make_Kqb.BQS = function(model, Tmax=200){with(model,{
   for(i in 1:Tmax) Kt = M%*%Kt
   Kt[-c(1:(nb+nq+ns)),]
 
-  model$Kqb = Kt[nb+nq+ns+c(1:nb),]
+  model$Mpar$Kqb = Kt[nb+nq+ns+c(1:nb),]
   return(model)
-})}
+}))}
 
 #' Compute net dispersal matrix to blood feed within one feeding cycle
 #'
@@ -130,7 +132,8 @@ make_Kqb.BQS = function(model, Tmax=200){with(model,{
 #' @param Tmax the number of time steps
 #'
 #' @return the model, a compound [list]
-make_Kbq.BQS = function(model, Tmax = 200){with(model,{
+#' @export
+make_Kbq.BQS = function(model, Tmax = 200){with(model,with(Mpar,{
 
   nb = dim(b)[1]
   nq = dim(q)[1]
@@ -160,9 +163,9 @@ make_Kbq.BQS = function(model, Tmax = 200){with(model,{
   Kt = rbind(0*Mbb, Cno, 0*Mbs, Cyes)
   for(i in 1:Tmax) Kt = M%*%Kt
   Kt[-c(1:(nb+nq+ns)),]
-  model$Kbq = Kt[nb+nq+ns+c(1:nq),]
+  model$Mpar$Kbq = Kt[nb+nq+ns+c(1:nq),]
   return(model)
-})}
+}))}
 
 
 #' Plot the matrix \eqn{K_{q \leftarrow b}}
@@ -183,14 +186,14 @@ make_Kbq.BQS = function(model, Tmax = 200){with(model,{
 plot_Kqb = function(model, max_pt_sz=2,
                     min_edge_frac=0.01, r=0.02, arw_lng=0.002, lwd=2,
                     clr_K="#4361eeCC", clr_b='red', clr_q ='darkblue'){
-  with(model,{
-    frame_bq(b, q, mtl = expression(K[q%->%b]))
+  with(model,with(Mpar,{
+    frame_bq(b, q, mtl = expression(K[q%<-%b]))
     if(exists("s")) add_points_s(s, max_pt_sz=0.5)
     add_arrows_xy(b, q, Kqb, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, clr=clr_K)
     add_points_b(b, clr=clr_b, max_pt_sz=0.7)
     add_points_qq(q, Kqb, max_pt_sz=max_pt_sz, colA=clr_q)
-  })
+  }))
   return(invisible())
 }
 
@@ -211,14 +214,15 @@ plot_Kqb = function(model, max_pt_sz=2,
 plot_Kbq = function(model, max_pt_sz=2,
                     min_edge_frac=0.01, r=0.02, arw_lng=0.002, lwd=2,
                     clr_K="#fe5f55CC", clr_b='darkred', clr_q="#858ae399"){
-  with(model,{
+  with(model,with(Mpar,{
     frame_bq(b, q, mtl = expression(K[b%<-%q]))
-    add_arrows_xy(b, q, Kbq, min_edge_frac=min_edge_frac,
+    if(exists("s")) add_points_s(s, max_pt_sz=0.5)
+    add_arrows_xy(q, b, Kbq, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, clr=clr_K)
     with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.7))
     add_points_q(q, max_pt_sz=0.7, clr=clr_q)
-    add_points_bb(b, Kbq, pw=pw, max_pt_sz=max_pt_sz, colB=clr_b)
-  })
+    add_points_bb(b, Kbq, max_pt_sz=max_pt_sz, colB=clr_b)
+  }))
   return(invisible())
 }
 
@@ -241,7 +245,7 @@ plot_Kbb = function(model, max_pt_sz=2,
                     arw_clr ="#e2739655", seg_clr = '#00000022',
                     clr_b ="#cc444bCC", clr_q ="#858ae399"
 ){
-  with(model,
+  with(model,with(Mpar,
        {
          frame_bq(b, q, mtl = expression(K[b %<-%b]))
          add_arrows_xx(b, Psi_bb, min_edge_frac=min_edge_frac,
@@ -249,7 +253,7 @@ plot_Kbb = function(model, max_pt_sz=2,
          with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.7))
          add_points_q(q, max_pt_sz=0.7, clr=clr_q)
          add_points_bb(b, Kbb, max_pt_sz=max_pt_sz, colA=arw_clr, colB=clr_b)
-       })
+       }))
   return(invisible())
 }
 
@@ -272,13 +276,13 @@ plot_Kqq = function(model, max_pt_sz=2,
                     min_edge_frac=0.01, r=0.02, arw_lng=0.002, lwd=2,
                     arw_clr = "#abc4ff55", seg_clr ='#00000022',
                     clr_q="#858ae399", clr_b="#cc444bCC"){
-  with(model,{
+  with(model,with(Mpar,{
     frame_bq(b, q, mtl = expression(K[q %<-%q]))
     with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.7))
     add_arrows_xx(q, Psi_qq, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, arw_clr=arw_clr, seg_clr=seg_clr)
     add_points_b(b, max_pt_sz=0.7, clr=clr_b)
     add_points_qq(q, Kqq, max_pt_sz=max_pt_sz2, colA=arw_clr, colB=clr_q)
-  })
+  }))
   return(invisible())
 }
