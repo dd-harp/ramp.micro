@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Making Point Sets • ramp.micro</title>
+<title>Point Sets • ramp.micro</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Making Point Sets">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Point Sets">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -32,7 +32,9 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/point_sets.html">Making Point Sets</a></li>
+<li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
+    <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
+    <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
     <li><a class="dropdown-item" href="../articles/visualizing_dispersal.html">Visualizing Micro-Dispersal</a></li>
     <li><a class="dropdown-item" href="../articles/basic_dispersal.html">On Dispersal Matrices</a></li>
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
@@ -63,7 +65,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Making Point Sets</h1>
+      <h1>Point Sets</h1>
             
       
 
@@ -73,21 +75,84 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://sjmgarnier.github.io/viridisLite/" class="external-link">viridisLite</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/" class="external-link">knitr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://sjmgarnier.github.io/viridis/" class="external-link">viridis</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dd-harp.github.io/ramp.micro/">ramp.micro</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dd-harp.github.io/ramp.micro/">ramp.micro</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>This</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>bty <span class="op">=</span> <span class="st">"o"</span><span class="op">)</span></span>
-<span><span class="va">xy</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">50</span>, <span class="op">-</span><span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">xy</span>, xaxt <span class="op">=</span> <span class="st">"n"</span>, yaxt <span class="op">=</span> <span class="st">"n"</span>, xlab <span class="op">=</span> <span class="st">""</span>, ylab<span class="op">=</span><span class="st">""</span><span class="op">)</span></span></code></pre></div>
-<p><img src="point_sets_files/figure-html/unnamed-chunk-2-1.png" width="480"></p>
+<p>In <code>ramp.micro</code>, resource point sets are stored in two
+columns, and there are utilities for creating point sets for toy models.
+This is a quick guide.</p>
 </div>
-  </main>
+<div class="section level2">
+<h2 id="uniform">Uniform<a class="anchor" aria-label="anchor" href="#uniform"></a>
+</h2>
+<p><code>unif_xy(n, mn, mx)</code> generates random uniform point sets
+on a box:</p>
+<ul>
+<li><p><code>mn</code>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt; x &lt;</annotation></semantics></math><code>mx</code></p></li>
+<li><p><code>mn</code>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mi>y</mi><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt; y &lt;</annotation></semantics></math><code>mx</code></p></li>
+</ul>
+<p>The points are returned as a pair of named vectors – the first column
+is named <code>x</code> and the next one <code>y</code></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">150</span>, <span class="op">-</span><span class="fl">10</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">p1</span>, <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##              x         y</span></span>
+<span><span class="co">## [1,] -8.384997  3.996587</span></span>
+<span><span class="co">## [2,]  6.686661 -5.599993</span></span>
+<span><span class="co">## [3,]  2.015218  4.559819</span></span>
+<span><span class="co">## [4,] -6.855831 -5.658311</span></span></code></pre>
+<p>Note that <code>p1</code> is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>150</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">150 \times 2</annotation></semantics></math></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## [1] 150   2</span></span></code></pre>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, bty <span class="op">=</span> <span class="st">"o"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span></code></pre></div>
+<p><img src="point_sets_files/figure-html/unnamed-chunk-4-1.png" width="480"></p>
+</div>
+<div class="section level2">
+<h2 id="lattice">Lattice<a class="anchor" aria-label="anchor" href="#lattice"></a>
+</h2>
+<p>The function <code>lattice(n, mn, mx)</code> generates an
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n \times n</annotation></semantics></math>
+lattice inside a box:</p>
+<ul>
+<li><p><code>mn</code>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt; x &lt;</annotation></semantics></math><code>mx</code></p></li>
+<li><p><code>mn</code>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mi>y</mi><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt; y &lt;</annotation></semantics></math><code>mx</code></p></li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lattice.html">lattice</a></span><span class="op">(</span><span class="fl">17</span>, <span class="op">-</span><span class="fl">8</span>, <span class="fl">8</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, bty <span class="op">=</span> <span class="st">"o"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span></code></pre></div>
+<p><img src="point_sets_files/figure-html/unnamed-chunk-5-1.png" width="480"></p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## [1] 289   2</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="clusters">Clusters<a class="anchor" aria-label="anchor" href="#clusters"></a>
+</h2>
+<p>Two functions were developed to generate clusters. The first one,
+<code>clusters_xy(xy, nc, vr)</code> generates a poisson number of
+points (mean = <code>nc</code>) around a set of seeds. The distance from
+the center of each seed is a normal variate with variance
+<code>vr.</code></p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">seeds</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">23</span>, <span class="op">-</span><span class="fl">20</span>, <span class="fl">20</span><span class="op">)</span></span>
+<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/clusters_xy.html">clusters_xy</a></span><span class="op">(</span><span class="va">seeds</span>, <span class="fl">8</span>, <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, bty <span class="op">=</span> <span class="st">"o"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">p3</span><span class="op">)</span></span></code></pre></div>
+<p><img src="point_sets_files/figure-html/unnamed-chunk-8-1.png" width="480"></p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
