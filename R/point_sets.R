@@ -26,7 +26,7 @@ lattice = function(n, mn, mx){
   cbind(as.vector(m), as.vector(t(m)))
 }
 
-#' Use the xy values as the seed locations to generate clusters
+#' Use a set of `xy` values as seeds for clusters
 #'
 #' @param xy a set of seeds
 #' @param nc the number of points per cluster
@@ -36,13 +36,14 @@ lattice = function(n, mn, mx){
 #' @export
 clusters_xy = function(xy, nc=1, vr=1){
   np = dim(xy)[1]
-  if(length(nc) < np)
-    nc = 1 + stats::rpois(nc, 1)
+  nc = stats::rpois(np, nc)
   for(i in 1:np){
-    xi = xy[i,1] + stats::rnorm(nc[i], 0, vr)
-    yi = xy[i,2] + stats::rnorm(nc[i], 0, vr)
-    xyi = cbind(xi,yi)
-    xy = rbind(xy, xyi)
+    if(nc[i]>0){
+      xi = xy[i,1] + stats::rnorm(nc[i], 0, vr)
+      yi = xy[i,2] + stats::rnorm(nc[i], 0, vr)
+      xyi = cbind(xi,yi)
+      xy = rbind(xy, xyi)
+    }
   }
   xy
 }

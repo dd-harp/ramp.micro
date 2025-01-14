@@ -1,0 +1,18 @@
+---
+title: "Modularity"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Modularity}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r suppressMessages=T, echo=F}
+library(ramp.micro)
+```
+
+This software has a modular design with two components.   
+
++ The **M** component describes adult mosquitoes
+
++ The **L** component describes aquatic mosquitoes

@@ -1,0 +1,9 @@
+---
+title: "Models"
+subtitle: "Setting Up Models"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Models}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---

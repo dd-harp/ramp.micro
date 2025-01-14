@@ -1,26 +1,73 @@
 ---
-title: "Making Point Sets"
+title: "Point Sets"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Making Point Sets}
+  %\VignetteIndexEntry{Point Sets}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r suppressMessages=T}
-library(viridisLite)
-library(knitr)
-library(viridis)
+```{r}
 library(ramp.micro)
 ```
 
-
 ## Introduction 
 
-This
-```{r, fig.height=5, fig.width=5}
-par(bty = "o")
-xy = runif(50, -5, 5)
-plot(xy, xaxt = "n", yaxt = "n", xlab = "", ylab="")
+In `ramp.micro`, resource point sets are stored in two columns, and there are utilities for creating point sets for toy models. This is a quick guide. 
+
+## Uniform
+
+`unif_xy(n, mn, mx)` generates random uniform point sets on a box: 
+
++ `mn` $< x <$ `mx` 
+
++ `mn` $< y <$ `mx` 
+
+The points are returned as a pair of named vectors -- the first column is named `x` and the next one `y` 
+
+```{r}
+p1 <- unif_xy(150, -10, 10)
+head(p1, 4)
+```
+Note that `p1` is $150 \times 2$ 
+
+```{r}
+dim(p1)
 ```
 
+```{r, fig.height=5, fig.width=5}
+par(mar = c(2,2,1,1), bty = "o")
+plot(p1)
+```
+
+## Lattice 
+
+The function `lattice(n, mn, mx)` generates an $n \times n$ lattice inside a box:
+
++ `mn` $< x <$ `mx` 
+
++ `mn` $< y <$ `mx`  
+
+```{r, fig.height=5, fig.width=5}
+p2 <- lattice(17, -8, 8)
+par(mar = c(2,2,1,1), bty = "o")
+plot(p2)
+```
+
+```{r}
+dim(p2)
+```
+
+## Clusters 
+
+Two functions were developed to generate clusters. The first one, `clusters_xy(xy, nc, vr)` generates a poisson number of points (mean = `nc`) around a set of seeds. The distance from the center of each seed is a normal variate with variance `vr.` 
+
+```{r}
+seeds <- unif_xy(23, -20, 20)
+p3 <- clusters_xy(seeds, 8, 1)
+```
+
+```{r, fig.height=5, fig.width=5}
+par(mar = c(2,2,1,1), bty = "o")
+plot(p3)
+```
