@@ -2,7 +2,7 @@
 % Please edit documentation in R/point_sets.R
 \name{clusters_xy}
 \alias{clusters_xy}
-\title{Use the xy values as the seed locations to generate clusters}
+\title{Use a set of `xy` values as seeds for clusters}
 \usage{
 clusters_xy(xy, nc = 1, vr = 1)
 }
@@ -17,5 +17,5 @@ clusters_xy(xy, nc = 1, vr = 1)
 a set of xy locations
 }
 \description{
-Use the xy values as the seed locations to generate clusters
+Use a set of `xy` values as seeds for clusters
 }

@@ -1,0 +1,6 @@
+---
+title: "Mosquito Dispersal"
+subtitle: "Point Sets & Dispersal Kernels" 
+output: html_document
+---
+

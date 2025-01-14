@@ -5,8 +5,12 @@ navbar:
   left:
   - text: Articles
     menu:
-    - text: Making Point Sets
+    - text: Point Sets
       href: articles/point_sets.html
+    - text: Kernels
+      href: articles/kernels.html
+    - text: Models
+      href: articles/models.html
     - text: Visualizing Micro-Dispersal
       href: articles/visualizing_dispersal.html
     - text: On Dispersal Matrices
