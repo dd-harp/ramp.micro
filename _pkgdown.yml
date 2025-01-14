@@ -3,7 +3,7 @@ template:
   bootstrap: 5
 navbar:
   left:
-  - text: Articles
+  - text: Methods
     menu:
     - text: Point Sets
       href: articles/point_sets.html
@@ -11,20 +11,24 @@ navbar:
       href: articles/kernels.html
     - text: Models
       href: articles/models.html
-    - text: Visualizing Micro-Dispersal
-      href: articles/visualizing_dispersal.html
-    - text: On Dispersal Matrices
-      href: articles/basic_dispersal.html
     - text: Simulation
       href: articles/simulation.html
-  - text: Modules
+  - text: Adults
     menu:
     - text: Adult Mosquitoes - BQ
       href: articles/BQ.html
     - text: Adult Mosquitoes - BQS
       href: articles/BQS.html
+  - text: Immature
+    menu:
     - text: Immature Mosquitoes - L
       href: articles/L.html
+  - text: Articles
+    menu:
+    - text: Mosquito Dispersal
+      href: articles/dispersal.html
+    - text: Communitites
+      href: articles/community.html
   - text: Functions
     href: reference/index.html
   right:

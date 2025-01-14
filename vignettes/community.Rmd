@@ -1,9 +1,11 @@
 ---
-title: "Mosquito Dispersal"
-subtitle: "Describing Mosquito Dispersal"
+title: "Community Analysis"
+subtitle: "Setting Up Models"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Mosquito Dispersal}
+  %\VignetteIndexEntry{Community Analysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+
