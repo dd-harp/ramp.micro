@@ -5,6 +5,7 @@ articles:
   basic_dispersal: basic_dispersal.html
   BQ: BQ.html
   BQS: BQS.html
+  community: community.html
   dispersal: dispersal.html
   kernels: kernels.html
   L: L.html
@@ -15,7 +16,7 @@ articles:
   simulation: simulation.html
   test_plots: test_plots.html
   visualizing_dispersal: visualizing_dispersal.html
-last_built: 2025-01-14T20:32Z
+last_built: 2025-01-14T21:03Z
 urls:
   reference: https://dd-harp.github.io/ramp.micro/reference
   article: https://dd-harp.github.io/ramp.micro/articles
