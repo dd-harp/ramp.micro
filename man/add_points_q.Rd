@@ -4,7 +4,7 @@
 \alias{add_points_q}
 \title{Add habitats to a frame}
 \usage{
-add_points_q(q, wts = 1, pw = 1, max_pt_sz = 1, clr = "#4361eeCC")
+add_points_q(q, wts = 1, pw = 1, max_pt_sz = 1, clr = "skyblue")
 }
 \arguments{
 \item{q}{a point set defining egg laying sites}

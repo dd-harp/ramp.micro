@@ -4,14 +4,7 @@
 \alias{add_points_qq}
 \title{Add habitats with and without the self loop}
 \usage{
-add_points_qq(
-  q,
-  M,
-  pw = 1,
-  max_pt_sz = 2,
-  colA = "#4e148c66",
-  colB = "#4e148cCC"
-)
+add_points_qq(q, M, pw = 1, max_pt_sz = 2, colA = "skyblue", colB = "skyblue3")
 }
 \arguments{
 \item{q}{a point set defining egg laying sites}

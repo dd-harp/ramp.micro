@@ -7,3 +7,44 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r}
+library(ramp.micro)
+```
+
+## Define Point Sets 
+
+```{r}
+set.seed(24328)
+bb = unif_xy(256, -17, 17) 
+qq = unif_xy(289, -17, 17) 
+ss = unif_xy(225, -17, 17) 
+```
+
+
+## Define Kernel Shapes 
+
+```{r}
+kFb = make_kF_exp(k=2, s=1, gamma=1.5)
+kFq = make_kF_exp(k=2, s=2, gamma=2)
+kFs = make_kF_exp(k=3, s=2, gamma=2)
+```
+
+## Setup BQ
+
+```{r}
+opts_d = list(kFb = kFb, kFq = kFq)
+model = setup_model(bb, qq, dispersal_opts=opts_d)
+```
+
+```{r}
+names(model)
+```
+
+
+## Setup BQS
+
+```{r}
+opts_d = list(kFb = kFb, kFq = kFq, kFs=kFs)
+model = setup_model(bb, qq, ss, dispersal_opts=opts_d)
+```

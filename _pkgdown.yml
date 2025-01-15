@@ -11,6 +11,10 @@ navbar:
       href: articles/kernels.html
     - text: Models
       href: articles/models.html
+    - text: Modularity
+      href: articles/modularity.html
+    - text: Traps
+      href: articles/models.html
     - text: Simulation
       href: articles/simulation.html
   - text: Adults
@@ -111,11 +115,20 @@ reference:
   desc: |
      Plot the single bout dispersal matrices
   contents:
+  - plot_Psi_bb
+  - plot_Psi_bq
+  - plot_Psi_bs
+  - plot_Psi_qb
+  - plot_Psi_qq
+  - plot_Psi_qs
+  - plot_Psi_sb
+  - plot_Psi_sq
+  - plot_Psi_ss
   - plot_Psi
   - plot_Psi.BQ
-  - plot_Psi_BQ
+  - plot_Psi_BQmod
   - plot_Psi.BQS
-  - plot_Psi_BQS
+  - plot_Psi_BQSmod
 - subtitle: Make K
   desc: |
      Generate matrices describing feeding or egg laying within a single feeding cycle
