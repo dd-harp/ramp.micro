@@ -31,7 +31,7 @@ Psi_qq = make_Psi_xx(qq, kFq)
 
 ## ----fig.height=8, fig.width=8------------------------------------------------
 par(mfcol = c(2,2), mar = c(1,2,1,2))
-plot_Psi_BQ(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq)
+plot_Psi_BQmod(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq)
 
 ## -----------------------------------------------------------------------------
 opts_d = list(kFb = kFb, kFq = kFq)
@@ -48,9 +48,6 @@ names(model$Lpar)
 
 ## -----------------------------------------------------------------------------
 model <- SIM(model)
-
-## ----eval=F, echo=F-----------------------------------------------------------
-#  devtools::load_all()
 
 ## ----fig.height=6, fig.width=6, echo=F----------------------------------------
 par(mar = c(1,1,1,1))

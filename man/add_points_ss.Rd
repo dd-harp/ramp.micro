@@ -9,8 +9,8 @@ add_points_ss(
   M,
   pw = 1,
   max_pt_sz = 2,
-  colA = "#8bc74266",
-  colB = "#8bc742CC"
+  colA = "olivedrab2",
+  colB = "olivedrab3"
 )
 }
 \arguments{

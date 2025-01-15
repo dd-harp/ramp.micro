@@ -4,7 +4,7 @@
 \alias{add_points_s}
 \title{Add sugar feeding sites to a frame}
 \usage{
-add_points_s(s, wts = 1, pw = 1, max_pt_sz = 1, clr = "#ff4800CC")
+add_points_s(s, wts = 1, pw = 1, max_pt_sz = 1, clr = "olivedrab2")
 }
 \arguments{
 \item{s}{a point set defining sugar feeding sites}

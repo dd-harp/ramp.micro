@@ -1,12 +1,41 @@
-# ramp.micro <br><br> **Mo**squito **Tr**ansmitted **P**athogen <br> **Micro**-simulation with Behavioral States 
+# **`ramp.micro`** 
+
+# Microsimulation for Mosquito Ecology  & Pathogen Transmission
+
+This software was developed to lower the costs of building and analyzing micro-simulation models for mosquito ecology and for mosquito-borne pathogen transmission dynamics and control.
+It is a GitHub R Package that can be installed using `devtools` by running this code from an R prompt:
+
+```
+library(devtools)
+devtools::install_github("dd-harp/ramp.micro")
+```
+
+After it has been installed, it can be loaded in the normal way: 
+
+```
+library(ramp.micro)
+```
+
+*** 
+
+![**Figure 1:** In microsimulation models, mosquitoes are in behavioral states (*e.g.* egg laying, *L,* or blood feeding, *F*) and move among points where the required resources are found (*e.g.* aquatic habitats, $\left\{l \right\},$ or blood feeding sites, $\left\{b \right\}$). This diagram was modified from Perkins TA, *et al.* 2013.^[Perkins TA, Scott TW, Le Menach A, Smith DL (2013). Heterogeneity, mixing, and the spatial scales of mosquito-borne pathogen transmission. PLoS Comput Biol 9:e1003327, https://doi.org/10.1371/journal.pcbi.1003540]](./vignettes/DynamicsOnPoints.png)
+
+*** 
 
 
-Mosquito movement plays an important role in malaria transmission dynamics and vector control. This software was developed to explore mosquito population dispersal, the spatial dynamics of mosquito populations, and malaria transmission dynamics on *point sets,* which we call *micro-simulation.*
-The idea of micro-simulation was described by the late Richard Carter (Carter, 2002)^[Carter R (2002) Spatial simulation of malaria transmission and its control by malaria transmission blocking vaccination. International Journal for Parasitology 32: 1617–1624. doi:10.1016/S0020-7519(02)00190-X].  
+## Microsimulation & Behavioral States 
 
-This software implements *behavioral state models,* which are a natural complement to micro-simulation. The basic premise is that mosquitoes are typically *searching* for a resource, not wandering around aimlessly. 
-Over their lives, mosquito behaviors are determined by a physiological state and its associated behavioral algorithm(s). 
-The search algorithms have evolved to accomplish a task that increases a mosquito's fitness. To survive and lay eggs, mosquitoes must find resources: mates, vertebrate hosts to blood feed, aquatic habitats to lay eggs, and sugar sources for energy. Other states could include a resting period, such as the post-prandial rest to concentrate a blood meal. 
+This software was developed to explore mosquito population dispersal, the spatial dynamics of mosquito populations, and malaria transmission dynamics on *point sets,* which we call *micro-simulation.*
+The idea of micro-simulation was first described for malaria by the late Richard Carter (Carter, 2002)^[Carter R (2002) Spatial simulation of malaria transmission and its control by malaria transmission blocking vaccination. International Journal for Parasitology 32: 1617–1624. doi:10.1016/S0020-7519(02)00190-X]. 
+
+This software also implements several *behavioral state models* for mosquitoes, which are a natural complement to micro-simulation. 
+The basic premise of is that mosquitoes are in a physiological state that triggers behaviors, including behavioral algorithms to *search* for resources. 
+The search algorithms have evolved to accomplish tasks, and they may have evolved to increase a mosquito's fitness in context. 
+To survive and lay eggs, mosquitoes must find resources and accomplish several tasks: find mates; find and blood feed on vertebrate hosts; find aquatic habitats and lay eggs; and find and feed on sugar sources for energy. 
+Other states could include a resting period, such as the post-prandial rest to concentrate a blood meal. 
+The mosquito is, meanwhile, responding to avoiding hazards by responding to environmental cues such as wind, temperature, and humidity. 
+
+In these models, 
 Behavioral state models for mosquitoes are a type of compartmental model where mosquito populations are sub-divided by their physiological / behavioral states, and changes in behavioral states can occur as a result of successfully blood feeding, egg laying, sugar feeding, mating, and resting. 
 These behavioral states are different than the Ross-Macdonald model's states that represent infection status for parasite transmission dynamics: uninfected, infected but not yet infective, and infective. By considering *both* the physiological/behavioral state and infection states, it might be possible to understand how local features of malaria transmission could be the result mosquito behavioral ecology and the heterogeneous distribution of resources, an idea pioneered by Arnaud Le Menach, *et al.* (2005)^[Le Menach A, McKenzie FE, Flahault A, Smith DL (2005) The unexpected importance of mosquito oviposition behaviour for malaria: Non-productive larval habitats can be sources for malaria transmission. Malar J. 4: 23, doi:10.1186/1475-2875-4-23].
 
@@ -18,7 +47,8 @@ called MBITES (Mosquito Bout-based and Individual-based Transmission Ecology Sim
 was developed by Sean L Wu, *et al.* (2020)^[Wu SL, *et al.*, (2020). Vector bionomics and vectorial capacity as emergent properties of mosquito behaviors and ecology. PLoS Comput Biol 16:e1007446, doi:10.1371/journal.pcbi.1007446]. 
 This list of papers is by no means exhaustive, and a systematic review of such models is needed.
 
-*** 
+## Complexity 
+
 
 These behavioral state models are designed to be highly mimetic. 
 While searching, mosquitoes move around until they find a resource and accomplish the task(s).
@@ -40,4 +70,3 @@ The software has a modular design, and there are plans to integrate some of this
 
 ***
 
-![**Figure 1:** In microsimulation models, mosquitoes move among point sets. Blood feeding on hosts occurs at a fixed set of locations. Also see Perkins, *et al.* (2013). This figure illustrates some of the key elements: a set of points where mosquitoes feed, *{f},*  and habitats where they lay eggs *{l}*. Dispersal among those point sets is determined by two matrices, one that describes dispersal to blood feed, $F$, and another to lay eggs, $L$. The framework also describes exposure to infection by a human population.](./vignettes/DynamicsOnPoints.png)

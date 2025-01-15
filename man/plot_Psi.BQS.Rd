@@ -12,15 +12,6 @@
   arw_lng = 0.05,
   lwd = 2
 )
-
-\method{plot_Psi}{BQS}(
-  model,
-  max_pt_sz = 2,
-  min_edge_frac = 0.01,
-  r = 0.01,
-  arw_lng = 0.05,
-  lwd = 2
-)
 }
 \arguments{
 \item{model}{a model defined as a compound [list]}
@@ -37,11 +28,7 @@
 }
 \value{
 the model, a compound [list]
-
-the model, a compound [list]
 }
 \description{
-Visualize the one-bout dispersal matrices for a BQS model
-
 Visualize the one-bout dispersal matrices for a BQS model
 }

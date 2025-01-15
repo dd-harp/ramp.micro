@@ -160,7 +160,7 @@ add_points_b = function(b, wts=1, pw=1, max_pt_sz=1, clr="#fe5f55CC"){
 #'
 #' @return invisible(NULL)
 #' @export
-add_points_q = function(q, wts=1, pw=1, max_pt_sz=1, clr="#4361eeCC"){
+add_points_q = function(q, wts=1, pw=1, max_pt_sz=1, clr="skyblue"){
   graphics::points(q, col=clr, pch=19, cex=max_pt_sz*wts^pw/max(wts^pw))
   return(invisible())
 }
@@ -175,7 +175,7 @@ add_points_q = function(q, wts=1, pw=1, max_pt_sz=1, clr="#4361eeCC"){
 #'
 #' @return invisible(NULL)
 #' @export
-add_points_s = function(s, wts=1, pw=1, max_pt_sz=1, clr="#ff4800CC"){
+add_points_s = function(s, wts=1, pw=1, max_pt_sz=1, clr="olivedrab2"){
   graphics::points(s, col=clr, pch=17, cex=max_pt_sz*wts^pw/max(wts^pw))
   return(invisible())
 }
@@ -209,7 +209,7 @@ add_points_bb = function(b, M, pw=1, max_pt_sz=2, colA="#cc444b66", colB="#cc444
 #'
 #' @return invisible(NULL)
 #' @export
-add_points_qq = function(q, M, pw=1, max_pt_sz=2, colA="#4e148c66", colB="#4e148cCC"){
+add_points_qq = function(q, M, pw=1, max_pt_sz=2, colA="skyblue", colB="skyblue3"){
   add_points_q(q, as.vector(rowSums(M)), pw, max_pt_sz, colA)
   diag(M) <- 0
   add_points_q(q, as.vector(rowSums(M)), pw, max_pt_sz, colB)
@@ -227,7 +227,7 @@ add_points_qq = function(q, M, pw=1, max_pt_sz=2, colA="#4e148c66", colB="#4e148
 #'
 #' @return invisible(NULL)
 #' @export
-add_points_ss = function(s, M, pw=1, max_pt_sz=2, colA="#8bc74266", colB="#8bc742CC"){
+add_points_ss = function(s, M, pw=1, max_pt_sz=2, colA="olivedrab2", colB="olivedrab3"){
   add_points_s(s, as.vector(rowSums(M)), pw, max_pt_sz, colA)
   diag(M) <- 0
   add_points_s(s, as.vector(rowSums(M)), pw, max_pt_sz, colB)
