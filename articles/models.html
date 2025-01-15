@@ -35,6 +35,8 @@
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
+    <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
   </ul>
 </li>
@@ -85,8 +87,44 @@
 
     
     
-
-  </main>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dd-harp.github.io/ramp.micro/">ramp.micro</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="define-point-sets">Define Point Sets<a class="anchor" aria-label="anchor" href="#define-point-sets"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">24328</span><span class="op">)</span></span>
+<span><span class="va">bb</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">256</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span>
+<span><span class="va">qq</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">289</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span>
+<span><span class="va">ss</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">225</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="define-kernel-shapes">Define Kernel Shapes<a class="anchor" aria-label="anchor" href="#define-kernel-shapes"></a>
+</h2>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">kFb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">1</span>, gamma<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></span>
+<span><span class="va">kFq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">kFs</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">3</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="setup-bq">Setup BQ<a class="anchor" aria-label="anchor" href="#setup-bq"></a>
+</h2>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">opts_d</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>kFb <span class="op">=</span> <span class="va">kFb</span>, kFq <span class="op">=</span> <span class="va">kFq</span><span class="op">)</span></span>
+<span><span class="va">model</span> <span class="op">=</span> <span class="fu"><a href="../reference/setup_model.html">setup_model</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, dispersal_opts<span class="op">=</span><span class="va">opts_d</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## [1] "b"     "q"     "nb"    "nq"    "Mpar"  "Mvars" "terms" "Lpar"  "Lvars"</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="setup-bqs">Setup BQS<a class="anchor" aria-label="anchor" href="#setup-bqs"></a>
+</h2>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">opts_d</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>kFb <span class="op">=</span> <span class="va">kFb</span>, kFq <span class="op">=</span> <span class="va">kFq</span>, kFs<span class="op">=</span><span class="va">kFs</span><span class="op">)</span></span>
+<span><span class="va">model</span> <span class="op">=</span> <span class="fu"><a href="../reference/setup_model.html">setup_model</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">ss</span>, dispersal_opts<span class="op">=</span><span class="va">opts_d</span><span class="op">)</span></span></code></pre></div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 

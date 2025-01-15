@@ -35,6 +35,8 @@
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
+    <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
   </ul>
 </li>
@@ -160,7 +162,7 @@ dispersal among those point sets:</p>
 <span><span class="va">Psi_qq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xx.html">make_Psi_xx</a></span><span class="op">(</span><span class="va">qq</span>, <span class="va">kFq</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/plot_Psi_BQ.html">plot_Psi_BQ</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_bb</span>, <span class="va">Psi_qb</span>, <span class="va">Psi_bq</span>, <span class="va">Psi_qq</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/plot_Psi_BQmod.html">plot_Psi_BQmod</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_bb</span>, <span class="va">Psi_qb</span>, <span class="va">Psi_bq</span>, <span class="va">Psi_qq</span><span class="op">)</span></span></code></pre></div>
 <p><img src="simulation_files/figure-html/unnamed-chunk-7-1.png" width="768"></p>
 </div>
 <div class="section level3">
@@ -199,7 +201,7 @@ habitats and blood feeding sites that are all alike in every way except
 location. Here, the size of each point scales with the density of the
 adult, female mosquito population at that point (red = blood feeding,
 blue = egg laying).</p>
-<p><img src="simulation_files/figure-html/unnamed-chunk-14-1.png" width="576"></p>
+<p><img src="simulation_files/figure-html/unnamed-chunk-13-1.png" width="576"></p>
 </div>
 </div>
 

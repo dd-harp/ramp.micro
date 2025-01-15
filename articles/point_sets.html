@@ -35,6 +35,8 @@
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
+    <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
   </ul>
 </li>
@@ -89,40 +91,56 @@
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>In <code>ramp.micro</code>, resource point sets are stored in two
-columns, and there are utilities for creating point sets for toy models.
-This is a quick guide.</p>
+<p>Models in <code>ramp.micro</code> are developed around point sets
+describing the locations of resources. Point sets are passed to
+functions that set up models. For these purposes, the point sets are
+stored in two columns as a pair of named vectors.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span></span>
+<span><span class="va">y</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span></span>
+<span><span class="va">xy0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span> </span>
+<span><span class="va">xy0</span></span></code></pre></div>
+<pre><code><span><span class="co">##      x y</span></span>
+<span><span class="co">## [1,] 1 0</span></span>
+<span><span class="co">## [2,] 0 1</span></span>
+<span><span class="co">## [3,] 1 1</span></span>
+<span><span class="co">## [4,] 0 0</span></span></code></pre>
+<p>Note that the points are returned as a pair of named vectors – the
+first column is named <code>x</code> and the next one <code>y</code></p>
+<p>To develop code and facilitate methods development, we developed
+several utilities for creating point sets.</p>
 </div>
 <div class="section level2">
 <h2 id="uniform">Uniform<a class="anchor" aria-label="anchor" href="#uniform"></a>
 </h2>
-<p><code>unif_xy(n, mn, mx)</code> generates random uniform point sets
-on a box:</p>
+<p>The function <code>unif_xy(n, mn, mx)</code> generates random uniform
+point sets within a square bounding box:</p>
 <ul>
 <li><p><code>mn</code>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt; x &lt;</annotation></semantics></math><code>mx</code></p></li>
 <li><p><code>mn</code>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mi>y</mi><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt; y &lt;</annotation></semantics></math><code>mx</code></p></li>
 </ul>
-<p>The points are returned as a pair of named vectors – the first column
-is named <code>x</code> and the next one <code>y</code></p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">150</span>, <span class="op">-</span><span class="fl">10</span>, <span class="fl">10</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">p1</span>, <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##              x         y</span></span>
-<span><span class="co">## [1,] -8.384997  3.996587</span></span>
-<span><span class="co">## [2,]  6.686661 -5.599993</span></span>
-<span><span class="co">## [3,]  2.015218  4.559819</span></span>
-<span><span class="co">## [4,] -6.855831 -5.658311</span></span></code></pre>
-<p>Note that <code>p1</code> is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>150</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">150 \times 2</annotation></semantics></math></p>
+<p>This creates a set of 150 points that are uniformly, randomly
+distributed in a 10 unit box:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 150   2</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">xy1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">xy1</span>, <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##              x        y</span></span>
+<span><span class="co">## [1,] 0.8075014 4.611865</span></span>
+<span><span class="co">## [2,] 8.3433304 3.152418</span></span>
+<span><span class="co">## [3,] 6.0076089 1.746759</span></span>
+<span><span class="co">## [4,] 1.5720844 5.315735</span></span></code></pre>
+<p>Note that <code>xy1</code> is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>150</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">150 \times 2</annotation></semantics></math></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">xy1</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## [1] 50  2</span></span></code></pre>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, bty <span class="op">=</span> <span class="st">"o"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span></code></pre></div>
-<p><img src="point_sets_files/figure-html/unnamed-chunk-4-1.png" width="480"></p>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">xy1</span><span class="op">)</span></span></code></pre></div>
+<p><img src="point_sets_files/figure-html/unnamed-chunk-5-1.png" width="480"></p>
 </div>
 <div class="section level2">
 <h2 id="lattice">Lattice<a class="anchor" aria-label="anchor" href="#lattice"></a>
@@ -136,14 +154,14 @@ lattice inside a box:</p>
 <li><p><code>mn</code>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mi>y</mi><mo>&lt;</mo></mrow><annotation encoding="application/x-tex">&lt; y &lt;</annotation></semantics></math><code>mx</code></p></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lattice.html">lattice</a></span><span class="op">(</span><span class="fl">17</span>, <span class="op">-</span><span class="fl">8</span>, <span class="fl">8</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/lattice.html">lattice</a></span><span class="op">(</span><span class="fl">7</span>, <span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, bty <span class="op">=</span> <span class="st">"o"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span></code></pre></div>
-<p><img src="point_sets_files/figure-html/unnamed-chunk-5-1.png" width="480"></p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<p><img src="point_sets_files/figure-html/unnamed-chunk-6-1.png" width="480"></p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 289   2</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 49  2</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="clusters">Clusters<a class="anchor" aria-label="anchor" href="#clusters"></a>
@@ -153,13 +171,13 @@ lattice inside a box:</p>
 points (mean = <code>nc</code>) around a set of seeds. The distance from
 the center of each seed is a normal variate with variance
 <code>vr.</code></p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">seeds</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">23</span>, <span class="op">-</span><span class="fl">20</span>, <span class="fl">20</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">seeds</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">23</span>, <span class="fl">0</span>, <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/clusters_xy.html">clusters_xy</a></span><span class="op">(</span><span class="va">seeds</span>, <span class="fl">8</span>, <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, bty <span class="op">=</span> <span class="st">"o"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">p3</span><span class="op">)</span></span></code></pre></div>
-<p><img src="point_sets_files/figure-html/unnamed-chunk-8-1.png" width="480"></p>
+<p><img src="point_sets_files/figure-html/unnamed-chunk-9-1.png" width="480"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

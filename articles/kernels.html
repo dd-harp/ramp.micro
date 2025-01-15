@@ -35,6 +35,8 @@
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
+    <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
   </ul>
 </li>
@@ -93,19 +95,167 @@ Matrices</h3>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">24328</span><span class="op">)</span></span>
-<span><span class="va">bb</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">256</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span>
-<span><span class="va">qq</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">289</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span></code></pre></div>
+<span><span class="va">bb</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">96</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span>
+<span><span class="va">qq</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">89</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span>
+<span><span class="va">ss</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">72</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="kernel-shapes">Kernel Shapes<a class="anchor" aria-label="anchor" href="#kernel-shapes"></a>
+</h2>
+<p>We use functions to generate the probability of finding a point as a
+function of its distance and context. Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><annotation encoding="application/x-tex">d_{i,j}</annotation></semantics></math>
+denote the distance from point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>.
+A scalar
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ω</mi><mi>j</mi></msub><annotation encoding="application/x-tex">\omega_j</annotation></semantics></math>
+is a linear weight on each destination making it more or less attractive
+from every distance.</p>
+<p>We define some function,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mi>w</mi></msub><annotation encoding="application/x-tex">F_w</annotation></semantics></math>
+that assigns a weight to every potential destination by distance. These
+weights are used to compute dispersal matrices (see below).</p>
 <div class="section level3">
-<h3 id="dispersal">Dispersal<a class="anchor" aria-label="anchor" href="#dispersal"></a>
+<h3 id="exponential">Exponential<a class="anchor" aria-label="anchor" href="#exponential"></a>
 </h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mi>j</mi><mo>→</mo><mi>i</mi></mrow></msub><mo>=</mo><msub><mi>F</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>ω</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>k</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><msub><mi>d</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mi>s</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>γ</mi></msup></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\begin{equation}
+w_{j\rightarrow i} = F_w (d_{i,j}) = \omega_j \left(e^{-k \left( \frac{d_{i,j}}{s}\right)^\gamma} \right). 
+\end{equation}</annotation></semantics></math></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">kFb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">1</span>, gamma<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></span>
-<span><span class="va">kFq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">kFq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">kFs</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">3</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dd</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">5</span>, by <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFb</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"darkred"</span>, xlab <span class="op">=</span> <span class="st">"Distance"</span>, ylab <span class="op">=</span> <span class="st">"Weight"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFq</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"darkblue"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFq</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"darkblue"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFs</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"olivedrab4"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="kernels_files/figure-html/unnamed-chunk-4-1.png" width="576"></p>
+</div>
+<div class="section level3">
+<h3 id="power-law">Power Law<a class="anchor" aria-label="anchor" href="#power-law"></a>
+</h3>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mi>j</mi><mo>→</mo><mi>i</mi></mrow></msub><mo>=</mo><msub><mi>F</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>ω</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>ϵ</mi><mrow><mi>s</mi><mo>+</mo><msub><mi>d</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\begin{equation}
+w_{j\rightarrow i} = F_w (d_{i,j}) = \omega_j \left(\frac{\epsilon}{s+d_{i,j}} \right). 
+\end{equation}</annotation></semantics></math></p>
+</div>
+<div class="section level3">
+<h3 id="mixture">Mixture<a class="anchor" aria-label="anchor" href="#mixture"></a>
+</h3>
+<p>The next function the sum of the two previous functions, where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϵ</mi><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math>
+is the <em>weight</em> on each one of the functions.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mi>j</mi><mo>→</mo><mi>i</mi></mrow></msub><mo>=</mo><msub><mi>F</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>ω</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>ϵ</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mrow><mo>−</mo><mi>k</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><msub><mi>d</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mi>s</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>γ</mi></msup></mrow></msup><mo>+</mo><mfrac><mi>ϵ</mi><mrow><mi>s</mi><mo>+</mo><msub><mi>d</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\begin{equation}
+w_{j\rightarrow i} = F_w (d_{i,j}) = \omega_j \left((1-\epsilon) e^{-k \left( \frac{d_{i,j}}{s}\right)^\gamma} + \frac{\epsilon}{s+d_{i,j}} \right). 
+\end{equation}</annotation></semantics></math></p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="dispersal-matrices">Dispersal Matrices<a class="anchor" aria-label="anchor" href="#dispersal-matrices"></a>
+</h2>
+<p>Movement among point sets is modeled using matrices that describe
+where mosquitoes end up after dispersing in a single time step. The
+proportion moving from a point in one set to another, from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">{</mo><mi>x</mi><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">x\in \left\{ x \right\}</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">{</mo><mi>y</mi><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">y \in \left\{ y \right\}</annotation></semantics></math>,
+is described by a matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Ψ</mi><mrow><mi>y</mi><mo>←</mo><mi>x</mi></mrow></msub><annotation encoding="application/x-tex">\Psi_{y\leftarrow x}</annotation></semantics></math>
+or equivalently
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Ψ</mi><mrow><mi>y</mi><mi>x</mi></mrow></msub><annotation encoding="application/x-tex">\Psi_{yx}</annotation></semantics></math>.
+Similarly, the proportion moving from a point in one set to a point in
+the other is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Ψ</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub><annotation encoding="application/x-tex">\Psi_{xx}</annotation></semantics></math>.</p>
+<p>In translating distances into a probability mass function using the
+kernel shapes, we let</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>F</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">w_{i,j} = F_w(d_{i,j})</annotation></semantics></math>
+These weights are normalized and translated into proportions: the
+proportion arriving at each point in a destination set index by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+from a source set indexed by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+is normalized across all destinations from each starting point:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Ψ</mi><mrow><mi>j</mi><mo>,</mo><mi>i</mi></mrow></msub><mo>∈</mo><mi>Ψ</mi><mo>=</mo><mfrac><msub><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mrow><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\begin{equation}
+\Psi_{j,i} \in \Psi = \frac{w_{i,j}} {\sum_i  w_{i,j}}
+\end{equation}</annotation></semantics></math></p>
+<p>Note that in the simulation models, these matrices describe the
+destinations for surviving mosquitoes, so we constrain the formulas such
+that each column sums to one. Mortality associated with dispersing is
+associated with the source points.</p>
+<div class="section level3">
+<h3 id="blood-feeding">Blood Feeding<a class="anchor" aria-label="anchor" href="#blood-feeding"></a>
+</h3>
+<p>After emerging or after blood feeding, mosquitoes move from aquatic
+habitats to blood feed.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Psi_bq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">qq</span>, <span class="va">bb</span>, <span class="va">kFb</span>, w<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_Psi_BQ.html">plot_Psi_bq</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_bq</span><span class="op">)</span></span></code></pre></div>
+<p><img src="kernels_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
+<p>If they are unsuccessful, they will try to blood feed again. In the
+visualization, asymmetries arise because of the distribution of other
+points:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+are close, and both are further away from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
+so mosquitoes will tend to go back and forth between
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+and away from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">c.</annotation></semantics></math>
+The asymmetry is plotted by letting the colored portion of the arrow
+<em>start</em></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Psi_bb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xx.html">make_Psi_xx</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">kFb</span>, w<span class="op">=</span><span class="fl">1</span>, stay<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_Psi_bb.html">plot_Psi_bb</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_bb</span><span class="op">)</span></span></code></pre></div>
+<p><img src="kernels_files/figure-html/unnamed-chunk-6-1.png" width="672"></p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Psi_bs</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">ss</span>, <span class="va">bb</span>, <span class="va">kFb</span>, w<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_Psi_bs.html">plot_Psi_bs</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">ss</span>, <span class="va">Psi_bs</span><span class="op">)</span></span></code></pre></div>
+<p><img src="kernels_files/figure-html/unnamed-chunk-7-1.png" width="672"></p>
+</div>
+<div class="section level3">
+<h3 id="egg-laying">Egg Laying<a class="anchor" aria-label="anchor" href="#egg-laying"></a>
+</h3>
+<p>After blood feeding, mosquitoes move from blood feeding sites to
+aquatic habitats.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Psi_qb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">kFb</span>, w<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_Psi_qb.html">plot_Psi_qb</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_qb</span><span class="op">)</span></span></code></pre></div>
+<p><img src="kernels_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
+<p>If they fail, mosquitoes will move again.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Psi_qq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xx.html">make_Psi_xx</a></span><span class="op">(</span><span class="va">qq</span>, <span class="va">kFq</span>, w<span class="op">=</span><span class="fl">1</span>, stay<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_Psi_qq.html">plot_Psi_qq</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_qq</span><span class="op">)</span></span></code></pre></div>
+<p><img src="kernels_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
+</div>
+<div class="section level3">
+<h3 id="sugar-feeding">Sugar Feeding<a class="anchor" aria-label="anchor" href="#sugar-feeding"></a>
+</h3>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Psi_sb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">ss</span>, <span class="va">kFs</span>, w<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_Psi_sb.html">plot_Psi_sb</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">ss</span>, <span class="va">Psi_sb</span><span class="op">)</span></span></code></pre></div>
+<p><img src="kernels_files/figure-html/unnamed-chunk-10-1.png" width="672"></p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Psi_sq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">qq</span>, <span class="va">ss</span>, <span class="va">kFs</span>, w<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_Psi_sq.html">plot_Psi_sq</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">ss</span>, <span class="va">Psi_sq</span><span class="op">)</span></span></code></pre></div>
+<p><img src="kernels_files/figure-html/unnamed-chunk-11-1.png" width="672"></p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Psi_ss</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xx.html">make_Psi_xx</a></span><span class="op">(</span><span class="va">ss</span>, <span class="va">kFs</span>, w<span class="op">=</span><span class="fl">1</span>, stay<span class="op">=</span><span class="fl">0.05</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_Psi_ss.html">plot_Psi_ss</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">ss</span>, <span class="va">Psi_ss</span><span class="op">)</span></span></code></pre></div>
+<p><img src="kernels_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
