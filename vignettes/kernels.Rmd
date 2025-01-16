@@ -30,13 +30,13 @@ We define some function, $F_w$ that assigns a weight to every potential destinat
 ### Exponential 
 
 \begin{equation}
-w_{j\rightarrow i} = F_w (d_{i,j}) = \omega_j \left(e^{-k \left( \frac{d_{i,j}}{s}\right)^\gamma} \right). 
+w_{j\rightarrow i} = F_w (d_{i,j}) = \omega_j e^{-k \left( \frac{d_{i,j}}{s}\right)^\gamma}. 
 \end{equation} 
 
 ```{r}
 kFb = make_kF_exp(k=2, s=1, gamma=1.5)
 kFq = make_kF_exp(k=2, s=2, gamma=2)
-kFs = make_kF_exp(k=3, s=2, gamma=2)
+kFs = make_kF_exp(k=0.5, s=0.5, gamma=3)
 ```
 
 
@@ -50,7 +50,7 @@ lines(dd, kFs(dd), type = "l", col = "olivedrab4")
 ### Power Law 
 
 \begin{equation}
-w_{j\rightarrow i} = F_w (d_{i,j}) = \omega_j \left(\frac{\epsilon}{s+d_{i,j}} \right). 
+w_{j\rightarrow i} = F_w (d_{i,j}) =  \frac{\omega_j}{s+d_{i,j}}. 
 \end{equation} 
 
 ### Mixture 

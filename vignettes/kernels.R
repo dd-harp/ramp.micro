@@ -10,7 +10,7 @@ ss = unif_xy(72, -17, 17)
 ## -----------------------------------------------------------------------------
 kFb = make_kF_exp(k=2, s=1, gamma=1.5)
 kFq = make_kF_exp(k=2, s=2, gamma=2)
-kFs = make_kF_exp(k=3, s=2, gamma=2)
+kFs = make_kF_exp(k=0.5, s=0.5, gamma=3)
 
 ## ----fig.height=4, fig.width=6------------------------------------------------
 dd = seq(0, 5, by = 0.01)
