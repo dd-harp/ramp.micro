@@ -55,8 +55,8 @@ home:
 reference:
 - title: Point Sets
   desc: |
-    Utilities for generating and visualizing resource point sets
-- subtitle: Make Point Sets
+    Functions that generate and visualize resource point sets
+- subtitle: Generate Point Sets
   desc: |
     Utilities to generate point sets
   contents:
@@ -64,24 +64,7 @@ reference:
   - lattice
   - clusters_xy
   - clusters_nm
-- subtitle: Visualize Point Sets
-  desc: |
-    Utilities to visualize point sets
-  contents:
-  - plot_points
-  - plot_points.BQ
-  - plot_points.BQS
-  - plot_points_bq
-  - plot_points_bqs
-  - frame_bq
-  - frame_bqs
-  - add_points_b
-  - add_points_bb
-  - add_points_q
-  - add_points_qq
-  - add_points_s
-  - add_points_ss
-- title: Dispersal and Demographic Matrices
+- title: Search & Dispersal
   desc: |
     Utilities for dispersal and demographic matrices
 - subtitle: Kernels
@@ -97,38 +80,23 @@ reference:
   contents:
   - make_Psi_xy
   - make_Psi_xx
-- subtitle: Visualize a Dispersal matrix
+- title: Simulation
   desc: |
-     Visualize a generic dispersal matrix
+    Utilities for setting up Models
   contents:
-  - plot_matrix_xy
-  - plot_matrix_xx
-  - add_arrows_xy
-  - add_arrows_xx
-  - add_one_arrow
-  - add_nth_arrow_xy
-  - add_nth_arrow_xx
-  - add_nth_segment
-  - add_bent_arrows_xy
-  - add_bent_arrows_xx
-- subtitle: Plot Psi
+  - SIM
+  - steady_state
+  - setup_model
+  - make_movie
+  - make_movie.BQ
+  - make_movie.BQS
+  - basic_analysis
+  - makeKGV
+  - make_model_squareLattice
+  - make_model_unif
+- title: Analyzing Dispersal
   desc: |
-     Plot the single bout dispersal matrices
-  contents:
-  - plot_Psi_bb
-  - plot_Psi_bq
-  - plot_Psi_bs
-  - plot_Psi_qb
-  - plot_Psi_qq
-  - plot_Psi_qs
-  - plot_Psi_sb
-  - plot_Psi_sq
-  - plot_Psi_ss
-  - plot_Psi
-  - plot_Psi.BQ
-  - plot_Psi_BQmod
-  - plot_Psi.BQS
-  - plot_Psi_BQSmod
+    Utilities for analyzing movement
 - subtitle: Make K
   desc: |
      Generate matrices describing feeding or egg laying within a single feeding cycle
@@ -145,10 +113,10 @@ reference:
   desc: |
      Plot matrices describing feeding or egg laying within a single feeding cycle
   contents:
-  - plot_Kbb
-  - plot_Kqq
   - plot_Kbq
   - plot_Kqb
+  - plot_Kbb
+  - plot_Kqq
 - subtitle: Egg Laying
   desc: |
      Methods to compute and visualize egg dispersal across a mosquito generation
@@ -248,20 +216,6 @@ reference:
   - compute_diffs_L.basicL
   - setup_aquatic_model.basicL
   - setup_aquatic_model_basicL
-- title: Simulation
-  desc: |
-    Methods to set up and simulate models
-  contents:
-  - SIM
-  - steady_state
-  - setup_model
-  - make_movie
-  - make_movie.BQ
-  - make_movie.BQS
-  - basic_analysis
-  - makeKGV
-  - make_model_squareLattice
-  - make_model_unif
 - title: Network Analysis
   desc: |
     Methods to set up and analyze communities
@@ -280,3 +234,55 @@ reference:
   - make_tiles
   - make_tiles.BQ
   - make_tiles.BQS
+- title: Visualization
+  desc: |
+    Methods to visualize objects
+- subtitle: Visualize Point Sets
+  desc: |
+    Utilities to visualize point sets
+  contents:
+  - plot_points
+  - plot_points.BQ
+  - plot_points.BQS
+  - plot_points_bq
+  - plot_points_bqs
+  - frame_bq
+  - frame_bqs
+  - add_points_b
+  - add_points_bb
+  - add_points_q
+  - add_points_qq
+  - add_points_s
+  - add_points_ss
+- subtitle: Plot Dispersal Matrices
+  desc: |
+     Visualize a generic dispersal matrix
+  contents:
+  - plot_matrix_xy
+  - plot_matrix_xx
+  - add_arrows_xy
+  - add_arrows_xx
+  - add_one_arrow
+  - add_nth_arrow_xy
+  - add_nth_arrow_xx
+  - add_nth_segment
+  - add_bent_arrows_xy
+  - add_bent_arrows_xx
+- subtitle: Plot Psi
+  desc: |
+     Plot the single bout dispersal matrices
+  contents:
+  - plot_Psi_bb
+  - plot_Psi_bq
+  - plot_Psi_bs
+  - plot_Psi_qb
+  - plot_Psi_qq
+  - plot_Psi_qs
+  - plot_Psi_sb
+  - plot_Psi_sq
+  - plot_Psi_ss
+  - plot_Psi
+  - plot_Psi.BQ
+  - plot_Psi_BQmod
+  - plot_Psi.BQS
+  - plot_Psi_BQSmod
