@@ -34,7 +34,7 @@ save_states_M.BQ = function(t, model){
   return(model)
 }
 
-#' The some of squared differences between two sets of variables
+#' The sum of squared differences between two sets of variables
 #'
 #' @inheritParams compute_diffs_M
 #'

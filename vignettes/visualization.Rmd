@@ -1,0 +1,9 @@
+---
+title: "Visualization"
+subtitle: "Plotting Outputs"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Visualization}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---

@@ -8,9 +8,11 @@ setup_model(
   b,
   q,
   s = c(),
+  kFb,
+  kFq,
+  kFs = NULL,
   Mname = "BQ",
   Lname = "basicL",
-  dispersal_opts = list(),
   bionomic_opts = list(),
   aquatic_opts = list(),
   M0_opts = list(),
@@ -23,13 +25,17 @@ setup_model(
 
 \item{q}{a point set defining egg laying sites}
 
-\item{s}{a point set defining sugar feeding sites}
+\item{s}{a point set defining sugar feeding sites, with a default null value}
+
+\item{kFb}{a kernel shape for blood searching}
+
+\item{kFq}{a kernal shape for aquatic habitat searching}
+
+\item{kFs}{a kernel shape for sugar site searching}
 
 \item{Mname}{the adult model name}
 
 \item{Lname}{the aquatic model name}
-
-\item{dispersal_opts}{a [list] to overwrite defaults}
 
 \item{bionomic_opts}{a [list] to overwrite defaults}
 
@@ -40,6 +46,8 @@ setup_model(
 \item{L0_opts}{options to overwrite defaults}
 
 \item{eip}{the extrinsic incubation period}
+
+\item{dispersal_opts}{a list with at most three elements naming the kernel shapes: *kFb* for blood searching, *kFq* for aquatic habitats,  and *kFs* for sugar searching}
 }
 \value{
 a [list] defining a BQ-class adult model

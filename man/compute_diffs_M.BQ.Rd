@@ -2,7 +2,7 @@
 % Please edit documentation in R/adult-BQ.R
 \name{compute_diffs_M.BQ}
 \alias{compute_diffs_M.BQ}
-\title{The some of squared differences between two sets of variables}
+\title{The sum of squared differences between two sets of variables}
 \usage{
 \method{compute_diffs_M}{BQ}(Mvars1, Mvars2)
 }
@@ -15,5 +15,5 @@
 a [numeric] value, the sum of squared differences
 }
 \description{
-The some of squared differences between two sets of variables
+The sum of squared differences between two sets of variables
 }

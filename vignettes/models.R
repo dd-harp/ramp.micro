@@ -8,18 +8,44 @@ qq = unif_xy(289, -17, 17)
 ss = unif_xy(225, -17, 17) 
 
 ## -----------------------------------------------------------------------------
-kFb = make_kF_exp(k=2, s=1, gamma=1.5)
-kFq = make_kF_exp(k=2, s=2, gamma=2)
-kFs = make_kF_exp(k=3, s=2, gamma=2)
+ker_b = make_kF_exp(k=2, s=1, gamma=1.5)
+ker_q = make_kF_exp(k=2, s=2, gamma=2)
+ker_s = make_kF_exp(k=3, s=2, gamma=2)
 
 ## -----------------------------------------------------------------------------
-opts_d = list(kFb = kFb, kFq = kFq)
-model = setup_model(bb, qq, dispersal_opts=opts_d)
+bq_dispersal = list(kFb = ker_b, kFq = ker_q)
+bqs_dispersal = list(kFb = ker_b, kFq = ker_q, kFs=ker_s)
+
+## ----eval=F-------------------------------------------------------------------
+#  ?setup_bionomics_BQ
+
+## ----eval=F-------------------------------------------------------------------
+#  ?setup_bionomics_BQS
 
 ## -----------------------------------------------------------------------------
-names(model)
+adult_opts1 = list(pB = rbeta(256, 96, 4)) 
 
 ## -----------------------------------------------------------------------------
-opts_d = list(kFb = kFb, kFq = kFq, kFs=kFs)
-model = setup_model(bb, qq, ss, dispersal_opts=opts_d)
+adult_opts2 = list(pB = rbeta(256, 96, 4), eip=12) 
+
+## ----eval=F-------------------------------------------------------------------
+#  ?setup_aquatic_model_basicL
+
+## ----eval=F-------------------------------------------------------------------
+#  ?init_adult_model_BQ
+
+## ----eval=F-------------------------------------------------------------------
+#  ?init_adult_model_BQS
+
+## ----eval=F-------------------------------------------------------------------
+#  ?init_aquatic_model_basicL
+
+## ----eval=F-------------------------------------------------------------------
+#  ?setup_model
+
+## -----------------------------------------------------------------------------
+bq_mod1 = setup_model(b=bb, q=qq, kFb=ker_b, kFq=ker_q, bionomic_opts = adult_opts1)
+
+## -----------------------------------------------------------------------------
+bqs_mod1 = setup_model(b=bb, q=qq, s=ss, kFb = ker_b, kFq = ker_q, kFs = ker_s, bionomic_opts = adult_opts2)
 

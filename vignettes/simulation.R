@@ -3,7 +3,7 @@ library(viridisLite)
 library(knitr)
 library(viridis)
 library(ramp.micro)
-#devtools::load_all()
+devtools::load_all()
 
 ## -----------------------------------------------------------------------------
 set.seed(24328)
@@ -34,8 +34,7 @@ par(mfcol = c(2,2), mar = c(1,2,1,2))
 plot_Psi_BQmod(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq)
 
 ## -----------------------------------------------------------------------------
-opts_d = list(kFb = kFb, kFq = kFq)
-model = setup_model(bb, qq, dispersal_opts=opts_d)
+model = setup_model(bb, qq, kFb = kFb, kFq = kFq)
 
 ## -----------------------------------------------------------------------------
 names(model)

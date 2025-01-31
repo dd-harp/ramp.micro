@@ -282,7 +282,7 @@ plot_Kqq = function(model, max_pt_sz=2,
     add_arrows_xx(q, Psi_qq, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, arw_clr=arw_clr, seg_clr=seg_clr)
     add_points_b(b, max_pt_sz=0.7, clr=clr_b)
-    add_points_qq(q, Kqq, max_pt_sz=max_pt_sz2, colA=arw_clr, colB=clr_q)
+    add_points_qq(q, Kqq, max_pt_sz=max_pt_sz, colA=arw_clr, colB=clr_q)
   }))
   return(invisible())
 }

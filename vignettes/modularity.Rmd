@@ -43,12 +43,13 @@ To develop a modular simulation framework, each dynamical component defines a co
 
 + `init_adult_model` is a wrapper that calls `init_adult_model_*` 
 
-
-
-
 ### Modules
 
-There are currently two 
+There are currently two modules for the adult component: 
+
++ **BQ** and 
+
++ **BQS** 
 
 ## **L** Component
 
