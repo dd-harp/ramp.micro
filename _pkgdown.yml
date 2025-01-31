@@ -3,7 +3,7 @@ template:
   bootstrap: 5
 navbar:
   left:
-  - text: Methods
+  - text: Setup
     menu:
     - text: Point Sets
       href: articles/point_sets.html
@@ -11,12 +11,14 @@ navbar:
       href: articles/kernels.html
     - text: Models
       href: articles/models.html
+    - text: Simulation
+      href: articles/simulation.html
+    - text: Visualization
+      href: articles/visualization.html
     - text: Modularity
       href: articles/modularity.html
     - text: Traps
       href: articles/models.html
-    - text: Simulation
-      href: articles/simulation.html
   - text: Adults
     menu:
     - text: Adult Mosquitoes - BQ

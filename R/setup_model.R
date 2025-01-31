@@ -3,10 +3,13 @@
 #'
 #' @param b a point set defining blood feeding sites
 #' @param q a point set defining egg laying sites
-#' @param s a point set defining sugar feeding sites
+#' @param s a point set defining sugar feeding sites, with a default null value
+#' @param kFb a kernel shape for blood searching
+#' @param kFq a kernal shape for aquatic habitat searching
+#' @param kFs a kernel shape for sugar site searching
 #' @param Mname the adult model name
 #' @param Lname the aquatic model name
-#' @param dispersal_opts a [list] to overwrite defaults
+#' @param dispersal_opts a list with at most three elements naming the kernel shapes: *kFb* for blood searching, *kFq* for aquatic habitats,  and *kFs* for sugar searching
 #' @param bionomic_opts a [list] to overwrite defaults
 #' @param aquatic_opts a [list] to overwrite defaults
 #' @param M0_opts options to overwrite defaults
@@ -15,9 +18,8 @@
 #'
 #' @return a [list] defining a BQ-class adult model
 #' @export
-setup_model = function(b, q, s=c(),
+setup_model = function(b, q, s=c(), kFb, kFq, kFs = NULL,
                        Mname="BQ", Lname="basicL",
-                       dispersal_opts = list(),
                        bionomic_opts = list(),
                        aquatic_opts = list(),
                        M0_opts = list(),
@@ -34,6 +36,8 @@ setup_model = function(b, q, s=c(),
   model$nq = length(q[,1])
   if(!is.null(s)) model$ns = length(s[,1])
 
+  dispersal_opts = list(kFb=kFb, kFq=kFq)
+  if(!is.null(kFs)) dispersal_opts$kFs = kFs
 
   Mpar = list()
   class(Mpar) <- Mname

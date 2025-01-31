@@ -12,7 +12,7 @@ library(viridisLite)
 library(knitr)
 library(viridis)
 library(ramp.micro)
-#devtools::load_all()
+devtools::load_all()
 ```
 
 ## Introduction
@@ -78,8 +78,7 @@ To simulate mosquito population dynamics, we need to set up an object that store
 
 
 ```{r}
-opts_d = list(kFb = kFb, kFq = kFq)
-model = setup_model(bb, qq, dispersal_opts=opts_d)
+model = setup_model(bb, qq, kFb = kFb, kFq = kFq)
 ```
 
 ```{r}

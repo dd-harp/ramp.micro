@@ -39,6 +39,107 @@ ul.task-list{list-style: none;}
 
 
 
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -240,7 +341,127 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ramp.micro)</span></code></pre></div>
+<div id="setup-overview" class="section level2">
+<h2>Setup Overview</h2>
+<p><strong><code>ramp.micro</code></strong> has made it easy to set up
+models for simulation and analysis. To set up a model:</p>
+<ol style="list-style-type: decimal">
+<li><p>Define Point Sets (Also, see <a href="point_sets.html">Point
+Sets</a>)</p></li>
+<li><p>Define Kernel Shapes (Also, see <a href="kernels.html">Kernels</a>)</p></li>
+<li><p>Define Parameters. Since <strong><code>ramp.micro</code></strong>
+is modular, this must be done for each one of the components:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Define a module for the Adult component</p></li>
+<li><p>Define a module for the Aquatic component</p></li>
+</ol></li>
+<li><p>Set Initial Conditions. This must be done for each one of the
+components. The same algorithms can be called to <em>reset</em> the
+initial conditions:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Set initial conditions for the variables for the Adult
+component</p></li>
+<li><p>Set initial conditions for the variables for the Aquatic
+component</p></li>
+</ol></li>
+<li><p>Call Setup</p></li>
+<li><p>Saving Models</p></li>
+</ol>
+</div>
+<div id="define-point-sets" class="section level2">
+<h2>1. Define Point Sets</h2>
+<p>First, we define three point sets:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">24328</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>bb <span class="ot">=</span> <span class="fu">unif_xy</span>(<span class="dv">256</span>, <span class="sc">-</span><span class="dv">17</span>, <span class="dv">17</span>) </span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>qq <span class="ot">=</span> <span class="fu">unif_xy</span>(<span class="dv">289</span>, <span class="sc">-</span><span class="dv">17</span>, <span class="dv">17</span>) </span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>ss <span class="ot">=</span> <span class="fu">unif_xy</span>(<span class="dv">225</span>, <span class="sc">-</span><span class="dv">17</span>, <span class="dv">17</span>) </span></code></pre></div>
+</div>
+<div id="define-kernel-shapes" class="section level2">
+<h2>2. Define Kernel Shapes</h2>
+<p>Next, we define the shapes to weight points by distance:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>ker_b <span class="ot">=</span> <span class="fu">make_kF_exp</span>(<span class="at">k=</span><span class="dv">2</span>, <span class="at">s=</span><span class="dv">1</span>, <span class="at">gamma=</span><span class="fl">1.5</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>ker_q <span class="ot">=</span> <span class="fu">make_kF_exp</span>(<span class="at">k=</span><span class="dv">2</span>, <span class="at">s=</span><span class="dv">2</span>, <span class="at">gamma=</span><span class="dv">2</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>ker_s <span class="ot">=</span> <span class="fu">make_kF_exp</span>(<span class="at">k=</span><span class="dv">3</span>, <span class="at">s=</span><span class="dv">2</span>, <span class="at">gamma=</span><span class="dv">2</span>)</span></code></pre></div>
+<p>We pass these as named lists:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>bq_dispersal <span class="ot">=</span> <span class="fu">list</span>(<span class="at">kFb =</span> ker_b, <span class="at">kFq =</span> ker_q)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>bqs_dispersal <span class="ot">=</span> <span class="fu">list</span>(<span class="at">kFb =</span> ker_b, <span class="at">kFq =</span> ker_q, <span class="at">kFs=</span>ker_s)</span></code></pre></div>
+</div>
+<div id="define-parameters" class="section level2">
+<h2>3. Define Parameters</h2>
+<p>The models define default parameter values that can be overwritten by
+passing alternative values by name. The convention of setting up models
+by passing named lists makes it makes it easy to get started, and it
+provides a template that illustrates how to <em>modify</em> the
+parameters, but using the default values can become a trap for lazy
+analysts.</p>
+<div id="a.-adult-parameters" class="section level3">
+<h3>a. Adult Parameters</h3>
+<p>To see the options for each model, look at the documentation. For the
+<strong><code>BQ</code></strong> module:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>?setup_bionomics_BQ</span></code></pre></div>
+<p>For the <strong><code>BQS</code></strong> module:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>?setup_bionomics_BQS</span></code></pre></div>
+<p>For example, if we wanted to assign random variates drawn from a
+<code>beta</code> distribution to describes survival at sites with a
+mean of 96%, we would pass the values by name in a list:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>adult_opts1 <span class="ot">=</span> <span class="fu">list</span>(<span class="at">pB =</span> <span class="fu">rbeta</span>(<span class="dv">256</span>, <span class="dv">96</span>, <span class="dv">4</span>)) </span></code></pre></div>
+<p>This is used in the examples below.</p>
+<p>Later, when we analyze <em>potential</em> transmission, we will need
+to define the extrinsic incubation period, <code>eip.</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>adult_opts2 <span class="ot">=</span> <span class="fu">list</span>(<span class="at">pB =</span> <span class="fu">rbeta</span>(<span class="dv">256</span>, <span class="dv">96</span>, <span class="dv">4</span>), <span class="at">eip=</span><span class="dv">12</span>) </span></code></pre></div>
+</div>
+<div id="b.-aquatic-parameters" class="section level3">
+<h3>b. Aquatic Parameters</h3>
+<p>Similarly, to set up parameters for the aquatic habitats, we can set
+any of the parameters from the command line. For the <code>basicL</code>
+module:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>?setup_aquatic_model_basicL</span></code></pre></div>
+</div>
+</div>
+<div id="initial-conditions" class="section level2">
+<h2>4. Initial Conditions</h2>
+<p>To simulate any dynamic model, we must set the initial conditions.
+Once again, this is done separately for the two components.</p>
+<div id="a.-adult-model" class="section level3">
+<h3>a. Adult Model</h3>
+<p>The current state of the system is stored in
+<code>model$Mvars.</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>?init_adult_model_BQ</span></code></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>?init_adult_model_BQS</span></code></pre></div>
+</div>
+<div id="b.-aquatic-model" class="section level3">
+<h3>b. Aquatic Model</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>?init_aquatic_model_basicL</span></code></pre></div>
+</div>
+</div>
+<div id="setup" class="section level2">
+<h2>5. Setup</h2>
+<p>The <em>setup</em> functions are designed to create a model object
+that is ready for simulation and analysis. Documentation for the
+function <code>setup_model</code> explains what it is looking for.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>?setup_model</span></code></pre></div>
+<div id="setup-bq" class="section level3">
+<h3>Setup BQ</h3>
+<p>To set up <code>BQ,</code> we set <code>Mname = &quot;BQ&quot;.</code> We must
+pass the point sets <code>bb</code> and <code>qq</code> and functions
+that compute kernel weights by distance: <code>kFb</code> and
+<code>kFq</code> and <code>kFs.</code></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>bq_mod1 <span class="ot">=</span> <span class="fu">setup_model</span>(<span class="at">b=</span>bb, <span class="at">q=</span>qq, <span class="at">kFb=</span>ker_b, <span class="at">kFq=</span>ker_q, <span class="at">bionomic_opts =</span> adult_opts1)</span></code></pre></div>
+</div>
+<div id="setup-bqs" class="section level3">
+<h3>Setup BQS</h3>
+<p>To set up <code>BQS,</code> we set <code>Mname = &quot;BQS&quot;.</code> We
+must pass the point sets <code>bb</code> and <code>qq</code> and
+<code>ss</code> and functions that compute kernel weights by distance:
+<code>kFb</code> and <code>kFq</code> and <code>kFs.</code></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>bqs_mod1 <span class="ot">=</span> <span class="fu">setup_model</span>(<span class="at">b=</span>bb, <span class="at">q=</span>qq, <span class="at">s=</span>ss, <span class="at">kFb =</span> ker_b, <span class="at">kFq =</span> ker_q, <span class="at">kFs =</span> ker_s, <span class="at">bionomic_opts =</span> adult_opts2)</span></code></pre></div>
+</div>
+</div>
+<div id="saving-models" class="section level2">
+<h2>6. Saving Models</h2>
+</div>
 
 
 
