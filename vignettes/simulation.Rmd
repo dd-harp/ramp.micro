@@ -12,7 +12,7 @@ library(viridisLite)
 library(knitr)
 library(viridis)
 library(ramp.micro)
-devtools::load_all()
+#devtools::load_all()
 ```
 
 ## Introduction
