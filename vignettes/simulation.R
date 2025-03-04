@@ -48,9 +48,12 @@ names(model$Lpar)
 ## -----------------------------------------------------------------------------
 model <- SIM(model)
 
-## ----fig.height=6, fig.width=6, echo=F----------------------------------------
+## ----fig.height=6, fig.width=6------------------------------------------------
 par(mar = c(1,1,1,1))
-plot_points(model, bwts = model$states$M$B_t[[201]], qwts= model$states$M$B_t[[201]], max_pt_sz=2)
+plot_points(model, 
+            bwts=model$states$M$B_t[[201]], 
+            qwts= model$states$M$B_t[[201]], 
+            max_pt_sz=2)
 
 ## ----eval=F, echo=F-----------------------------------------------------------
 #  model1 <- model

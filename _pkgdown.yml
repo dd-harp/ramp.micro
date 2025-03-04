@@ -3,7 +3,7 @@ template:
   bootstrap: 5
 navbar:
   left:
-  - text: Setup
+  - text: Getting Started
     menu:
     - text: Point Sets
       href: articles/point_sets.html

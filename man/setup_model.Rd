@@ -46,8 +46,6 @@ setup_model(
 \item{L0_opts}{options to overwrite defaults}
 
 \item{eip}{the extrinsic incubation period}
-
-\item{dispersal_opts}{a list with at most three elements naming the kernel shapes: *kFb* for blood searching, *kFq* for aquatic habitats,  and *kFs* for sugar searching}
 }
 \value{
 a [list] defining a BQ-class adult model

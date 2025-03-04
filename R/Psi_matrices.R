@@ -212,7 +212,7 @@ plot_Psi_bb = function(b, q, Psi_bb,
 plot_Psi_bq = function(b,q, Psi_bq,
                        max_pt_sz=2, min_edge_frac = 0.01,
                        r=.01, arw_lng=0.05, lwd=2){
-  frame_bq(b, q, mtl = expression(Psi[b %<-% q]))
+  frame_bq(b, q, mtl = expression(Psi * scriptstyle(b %<-% q)))
   add_points_q(q, max_pt_sz = 0.6)
   add_arrows_xy(q, b, Psi_bq, min_edge_frac=min_edge_frac,
                 r=r, arw_lng=arw_lng, lwd=lwd, clr="tomato")
@@ -237,7 +237,7 @@ plot_Psi_bq = function(b,q, Psi_bq,
 plot_Psi_bs = function(b, q, s, Psi_bs,
                        max_pt_sz=2, min_edge_frac = 0.01,
                        r=.01, arw_lng=0.05, lwd=2){
-  frame_bqs(b, q, s, mtl = expression(Psi[b %<-% s]))
+  frame_bqs(b, q, s, mtl = expression(Psi*scriptstyle(b %<-% s)))
   add_points_s(s, max_pt_sz = 0.6)
   add_arrows_xy(s, b, Psi_bs, min_edge_frac=min_edge_frac,
                 r=r, arw_lng=arw_lng, lwd=lwd, clr= "tomato")
@@ -263,7 +263,7 @@ plot_Psi_qb = function(b, q, Psi_qb,
                        r=.01, arw_lng=0.05, lwd=2){
 
   ## b to q
-  frame_bq(b, q, mtl = expression(Psi[q %<-% b]))
+  frame_bq(b, q, mtl = expression(Psi*scriptstyle(q %<-% b)))
   add_points_b(b, max_pt_sz=0.6)
   add_arrows_xy(b, q, Psi_qb, min_edge_frac=min_edge_frac,
                 r=r, arw_lng=arw_lng, lwd=lwd, clr = "skyblue")
@@ -289,7 +289,7 @@ plot_Psi_qq = function(b, q, Psi_qq,
                        max_pt_sz=2, min_edge_frac = 0.01,
                        r=.01, arw_lng=0.05, lwd=2){
   ##q to q
-  frame_bq(b, q, mtl = expression(Psi[q %<-% q]))
+  frame_bq(b, q, mtl = expression(Psi*scriptstyle(q %<-% q)))
   add_arrows_xx(q, Psi_qq, min_edge_frac=min_edge_frac,
                 r=r, arw_lng=arw_lng, lwd=lwd, arw_clr="skyblue")
   add_points_qq(q, Psi_qq, max_pt_sz=max_pt_sz)
@@ -315,7 +315,7 @@ plot_Psi_qs = function(b, q, s, Psi_qs,
                        max_pt_sz=2, min_edge_frac = 0.01,
                        r=.01, arw_lng=0.05, lwd=2){
 
-  frame_bqs(b, q, s, mtl = expression(Psi[q %<-% s]))
+  frame_bqs(b, q, s, mtl = expression(Psi*scriptstyle(q %<-% s)))
   add_points_s(s, max_pt_sz=0.6)
   add_arrows_xy(s, q, Psi_qs, min_edge_frac=min_edge_frac,
                 r=r, arw_lng=arw_lng, lwd=lwd, clr = "skyblue")
@@ -342,7 +342,7 @@ plot_Psi_sb = function(b, q, s, Psi_sb,
                        max_pt_sz=2, min_edge_frac = 0.01,
                        r=.01, arw_lng=0.05, lwd=2){
 
-  frame_bqs(b, q, s, mtl = expression(Psi[s %<-% b]))
+  frame_bqs(b, q, s, mtl = expression(Psi*scriptstyle(s %<-% b)))
   add_points_b(b, max_pt_sz=0.6)
   add_arrows_xy(b, s, Psi_sb, min_edge_frac=min_edge_frac,
                 r=r, arw_lng=arw_lng, lwd=lwd, clr = "olivedrab1")
@@ -368,7 +368,7 @@ plot_Psi_sq = function(b, q, s, Psi_sq,
                        max_pt_sz=2, min_edge_frac = 0.01,
                        r=.01, arw_lng=0.05, lwd=2){
 
-  frame_bqs(b, q, s, mtl = expression(Psi[s %<-% q]))
+  frame_bqs(b, q, s, mtl = expression(Psi*scriptstyle(s %<-% q)))
   add_points_q(q, max_pt_sz=0.6)
   add_arrows_xy(q, s, Psi_sq, min_edge_frac=min_edge_frac,
                 r=r, arw_lng=arw_lng, lwd=lwd, clr = "olivedrab1")
@@ -395,7 +395,7 @@ plot_Psi_ss = function(b, q, s, Psi_ss,
                        max_pt_sz=2, min_edge_frac = 0.01,
                        r=.01, arw_lng=0.05, lwd=2){
   ##s to s
-  frame_bqs(b, q, s, mtl = expression(Psi[s %<-% s]))
+  frame_bqs(b, q, s, mtl = expression(Psi*scriptstyle(s %<-% s)))
   add_arrows_xx(s, Psi_ss, min_edge_frac=min_edge_frac,
                 r=r, arw_lng=arw_lng, lwd=lwd, arw_clr="olivedrab1")
   add_points_ss(s, Psi_ss, max_pt_sz=max_pt_sz)
