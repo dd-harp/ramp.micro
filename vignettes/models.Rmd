@@ -153,5 +153,21 @@ To set up `BQS,`  we set `Mname = "BQS".` We must pass the point sets `bb` and `
 bqs_mod1 = setup_model(b=bb, q=qq, s=ss, kFb = ker_b, kFq = ker_q, kFs = ker_s, bionomic_opts = adult_opts2)
 ```
 
-## 6. Saving Models
+## 6. Saving & Loading Models
 
+```{r}
+save(bq_mod1, file = "bq_mod1.rda")
+save(bqs_mod1, file = "bqs_mod1.rda")
+```
+
+```{r}
+rm("bq_mod1")
+exists("bq_mod1")
+```
+
+
+
+```{r}
+load("bq_mod1.rda")
+exists("bq_mod1")
+```

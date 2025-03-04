@@ -9,7 +9,6 @@
 #' @param kFs a kernel shape for sugar site searching
 #' @param Mname the adult model name
 #' @param Lname the aquatic model name
-#' @param dispersal_opts a list with at most three elements naming the kernel shapes: *kFb* for blood searching, *kFq* for aquatic habitats,  and *kFs* for sugar searching
 #' @param bionomic_opts a [list] to overwrite defaults
 #' @param aquatic_opts a [list] to overwrite defaults
 #' @param M0_opts options to overwrite defaults

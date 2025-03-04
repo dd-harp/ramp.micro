@@ -12,7 +12,6 @@ library(viridisLite)
 library(knitr)
 library(viridis)
 library(ramp.micro)
-#devtools::load_all()
 ```
 
 ## Introduction
@@ -101,12 +100,16 @@ We can solve the model and produce output by calling the function `SIM`
 model <- SIM(model)
 ```
 
+By default, the model runs for 200 time steps, and with initial conditions, there are 201 sets of outputs for each variable. 
 
 The population densities are highly heterogeneous, even though the habitats and blood feeding sites that are all alike in every way except location. Here, the size of each point scales with the density of the adult, female mosquito population at that point (red = blood feeding, blue = egg laying). 
 
-```{r, fig.height=6, fig.width=6, echo=F}
+```{r, fig.height=6, fig.width=6}
 par(mar = c(1,1,1,1))
-plot_points(model, bwts = model$states$M$B_t[[201]], qwts= model$states$M$B_t[[201]], max_pt_sz=2)
+plot_points(model, 
+            bwts=model$states$M$B_t[[201]], 
+            qwts= model$states$M$B_t[[201]], 
+            max_pt_sz=2)
 ```
 
 ```{r, eval=F, echo=F}

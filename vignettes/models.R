@@ -49,3 +49,15 @@ bq_mod1 = setup_model(b=bb, q=qq, kFb=ker_b, kFq=ker_q, bionomic_opts = adult_op
 ## -----------------------------------------------------------------------------
 bqs_mod1 = setup_model(b=bb, q=qq, s=ss, kFb = ker_b, kFq = ker_q, kFs = ker_s, bionomic_opts = adult_opts2)
 
+## -----------------------------------------------------------------------------
+save(bq_mod1, file = "bq_mod1.rda")
+save(bqs_mod1, file = "bqs_mod1.rda")
+
+## -----------------------------------------------------------------------------
+rm("bq_mod1")
+exists("bq_mod1")
+
+## -----------------------------------------------------------------------------
+load("bq_mod1.rda")
+exists("bq_mod1")
+
