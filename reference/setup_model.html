@@ -16,13 +16,14 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-methods" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Methods</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-methods"><li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-setup" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Setup</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-setup"><li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
+    <li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
     <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
-    <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
   </ul></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-adults" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Adults</button>
@@ -63,9 +64,11 @@
 <span>  <span class="va">b</span>,</span>
 <span>  <span class="va">q</span>,</span>
 <span>  s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="va">kFb</span>,</span>
+<span>  <span class="va">kFq</span>,</span>
+<span>  kFs <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  Mname <span class="op">=</span> <span class="st">"BQ"</span>,</span>
 <span>  Lname <span class="op">=</span> <span class="st">"basicL"</span>,</span>
-<span>  dispersal_opts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  bionomic_opts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  aquatic_opts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  M0_opts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -87,7 +90,19 @@
 
 
 <dt id="arg-s">s<a class="anchor" aria-label="anchor" href="#arg-s"></a></dt>
-<dd><p>a point set defining sugar feeding sites</p></dd>
+<dd><p>a point set defining sugar feeding sites, with a default null value</p></dd>
+
+
+<dt id="arg-kfb">kFb<a class="anchor" aria-label="anchor" href="#arg-kfb"></a></dt>
+<dd><p>a kernel shape for blood searching</p></dd>
+
+
+<dt id="arg-kfq">kFq<a class="anchor" aria-label="anchor" href="#arg-kfq"></a></dt>
+<dd><p>a kernal shape for aquatic habitat searching</p></dd>
+
+
+<dt id="arg-kfs">kFs<a class="anchor" aria-label="anchor" href="#arg-kfs"></a></dt>
+<dd><p>a kernel shape for sugar site searching</p></dd>
 
 
 <dt id="arg-mname">Mname<a class="anchor" aria-label="anchor" href="#arg-mname"></a></dt>
@@ -96,10 +111,6 @@
 
 <dt id="arg-lname">Lname<a class="anchor" aria-label="anchor" href="#arg-lname"></a></dt>
 <dd><p>the aquatic model name</p></dd>
-
-
-<dt id="arg-dispersal-opts">dispersal_opts<a class="anchor" aria-label="anchor" href="#arg-dispersal-opts"></a></dt>
-<dd><p>a [list] to overwrite defaults</p></dd>
 
 
 <dt id="arg-bionomic-opts">bionomic_opts<a class="anchor" aria-label="anchor" href="#arg-bionomic-opts"></a></dt>
@@ -120,6 +131,10 @@
 
 <dt id="arg-eip">eip<a class="anchor" aria-label="anchor" href="#arg-eip"></a></dt>
 <dd><p>the extrinsic incubation period</p></dd>
+
+
+<dt id="arg-dispersal-opts">dispersal_opts<a class="anchor" aria-label="anchor" href="#arg-dispersal-opts"></a></dt>
+<dd><p>a list with at most three elements naming the kernel shapes: *kFb* for blood searching, *kFq* for aquatic habitats,  and *kFs* for sugar searching</p></dd>
 
 </dl></div>
     <div class="section level2">

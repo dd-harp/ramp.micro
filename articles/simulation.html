@@ -30,14 +30,15 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="active nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-methods" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Methods</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-methods">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-setup" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Setup</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-setup">
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
+    <li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
     <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
-    <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -175,8 +176,7 @@ values. To streamline the process, we developed a function called
 <code>setup_model</code> that accepts some basic arguments and that
 returns a fully defined model:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">opts_d</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>kFb <span class="op">=</span> <span class="va">kFb</span>, kFq <span class="op">=</span> <span class="va">kFq</span><span class="op">)</span></span>
-<span><span class="va">model</span> <span class="op">=</span> <span class="fu"><a href="../reference/setup_model.html">setup_model</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, dispersal_opts<span class="op">=</span><span class="va">opts_d</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">model</span> <span class="op">=</span> <span class="fu"><a href="../reference/setup_model.html">setup_model</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, kFb <span class="op">=</span> <span class="va">kFb</span>, kFq <span class="op">=</span> <span class="va">kFq</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] "b"     "q"     "nb"    "nq"    "Mpar"  "Mvars" "terms" "Lpar"  "Lvars"</span></span></code></pre>

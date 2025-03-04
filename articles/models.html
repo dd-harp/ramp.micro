@@ -30,14 +30,15 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="active nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-methods" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Methods</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-methods">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-setup" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Setup</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-setup">
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
+    <li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
     <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
-    <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -90,8 +91,41 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dd-harp.github.io/ramp.micro/">ramp.micro</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
-<h2 id="define-point-sets">Define Point Sets<a class="anchor" aria-label="anchor" href="#define-point-sets"></a>
+<h2 id="setup-overview">Setup Overview<a class="anchor" aria-label="anchor" href="#setup-overview"></a>
 </h2>
+<p><strong><code>ramp.micro</code></strong> has made it easy to set up
+models for simulation and analysis. To set up a model:</p>
+<ol style="list-style-type: decimal">
+<li><p>Define Point Sets (Also, see <a href="point_sets.html">Point
+Sets</a>)</p></li>
+<li><p>Define Kernel Shapes (Also, see <a href="kernels.html">Kernels</a>)</p></li>
+<li>
+<p>Define Parameters. Since <strong><code>ramp.micro</code></strong>
+is modular, this must be done for each one of the components:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Define a module for the Adult component</p></li>
+<li><p>Define a module for the Aquatic component</p></li>
+</ol>
+</li>
+<li>
+<p>Set Initial Conditions. This must be done for each one of the
+components. The same algorithms can be called to <em>reset</em> the
+initial conditions:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Set initial conditions for the variables for the Adult
+component</p></li>
+<li><p>Set initial conditions for the variables for the Aquatic
+component</p></li>
+</ol>
+</li>
+<li><p>Call Setup</p></li>
+<li><p>Saving Models</p></li>
+</ol>
+</div>
+<div class="section level2">
+<h2 id="define-point-sets">1. Define Point Sets<a class="anchor" aria-label="anchor" href="#define-point-sets"></a>
+</h2>
+<p>First, we define three point sets:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">24328</span><span class="op">)</span></span>
 <span><span class="va">bb</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">256</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span>
@@ -99,29 +133,113 @@
 <span><span class="va">ss</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">225</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="define-kernel-shapes">Define Kernel Shapes<a class="anchor" aria-label="anchor" href="#define-kernel-shapes"></a>
+<h2 id="define-kernel-shapes">2. Define Kernel Shapes<a class="anchor" aria-label="anchor" href="#define-kernel-shapes"></a>
 </h2>
+<p>Next, we define the shapes to weight points by distance:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">kFb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">1</span>, gamma<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></span>
-<span><span class="va">kFq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">kFs</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">3</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="setup-bq">Setup BQ<a class="anchor" aria-label="anchor" href="#setup-bq"></a>
-</h2>
+<code class="sourceCode R"><span><span class="va">ker_b</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">1</span>, gamma<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></span>
+<span><span class="va">ker_q</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">ker_s</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">3</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<p>We pass these as named lists:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">opts_d</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>kFb <span class="op">=</span> <span class="va">kFb</span>, kFq <span class="op">=</span> <span class="va">kFq</span><span class="op">)</span></span>
-<span><span class="va">model</span> <span class="op">=</span> <span class="fu"><a href="../reference/setup_model.html">setup_model</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, dispersal_opts<span class="op">=</span><span class="va">opts_d</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "b"     "q"     "nb"    "nq"    "Mpar"  "Mvars" "terms" "Lpar"  "Lvars"</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">bq_dispersal</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>kFb <span class="op">=</span> <span class="va">ker_b</span>, kFq <span class="op">=</span> <span class="va">ker_q</span><span class="op">)</span></span>
+<span><span class="va">bqs_dispersal</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>kFb <span class="op">=</span> <span class="va">ker_b</span>, kFq <span class="op">=</span> <span class="va">ker_q</span>, kFs<span class="op">=</span><span class="va">ker_s</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="setup-bqs">Setup BQS<a class="anchor" aria-label="anchor" href="#setup-bqs"></a>
+<h2 id="define-parameters">3. Define Parameters<a class="anchor" aria-label="anchor" href="#define-parameters"></a>
 </h2>
+<p>The models define default parameter values that can be overwritten by
+passing alternative values by name. The convention of setting up models
+by passing named lists makes it makes it easy to get started, and it
+provides a template that illustrates how to <em>modify</em> the
+parameters, but using the default values can become a trap for lazy
+analysts.</p>
+<div class="section level3">
+<h3 id="a--adult-parameters">a. Adult Parameters<a class="anchor" aria-label="anchor" href="#a--adult-parameters"></a>
+</h3>
+<p>To see the options for each model, look at the documentation. For the
+<strong><code>BQ</code></strong> module:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">setup_bionomics_BQ</span></span></code></pre></div>
+<p>For the <strong><code>BQS</code></strong> module:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">setup_bionomics_BQS</span></span></code></pre></div>
+<p>For example, if we wanted to assign random variates drawn from a
+<code>beta</code> distribution to describes survival at sites with a
+mean of 96%, we would pass the values by name in a list:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">opts_d</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>kFb <span class="op">=</span> <span class="va">kFb</span>, kFq <span class="op">=</span> <span class="va">kFq</span>, kFs<span class="op">=</span><span class="va">kFs</span><span class="op">)</span></span>
-<span><span class="va">model</span> <span class="op">=</span> <span class="fu"><a href="../reference/setup_model.html">setup_model</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">ss</span>, dispersal_opts<span class="op">=</span><span class="va">opts_d</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">adult_opts1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html" class="external-link">rbeta</a></span><span class="op">(</span><span class="fl">256</span>, <span class="fl">96</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+<p>This is used in the examples below.</p>
+<p>Later, when we analyze <em>potential</em> transmission, we will need
+to define the extrinsic incubation period, <code>eip.</code></p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">adult_opts2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html" class="external-link">rbeta</a></span><span class="op">(</span><span class="fl">256</span>, <span class="fl">96</span>, <span class="fl">4</span><span class="op">)</span>, eip<span class="op">=</span><span class="fl">12</span><span class="op">)</span> </span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="b--aquatic-parameters">b. Aquatic Parameters<a class="anchor" aria-label="anchor" href="#b--aquatic-parameters"></a>
+</h3>
+<p>Similarly, to set up parameters for the aquatic habitats, we can set
+any of the parameters from the command line. For the <code>basicL</code>
+module:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">setup_aquatic_model_basicL</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="initial-conditions">4. Initial Conditions<a class="anchor" aria-label="anchor" href="#initial-conditions"></a>
+</h2>
+<p>To simulate any dynamic model, we must set the initial conditions.
+Once again, this is done separately for the two components.</p>
+<div class="section level3">
+<h3 id="a--adult-model">a. Adult Model<a class="anchor" aria-label="anchor" href="#a--adult-model"></a>
+</h3>
+<p>The current state of the system is stored in
+<code>model$Mvars.</code></p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">init_adult_model_BQ</span></span></code></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">init_adult_model_BQS</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="b--aquatic-model">b. Aquatic Model<a class="anchor" aria-label="anchor" href="#b--aquatic-model"></a>
+</h3>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">init_aquatic_model_basicL</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="setup">5. Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
+</h2>
+<p>The <em>setup</em> functions are designed to create a model object
+that is ready for simulation and analysis. Documentation for the
+function <code>setup_model</code> explains what it is looking for.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">setup_model</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="setup-bq">Setup BQ<a class="anchor" aria-label="anchor" href="#setup-bq"></a>
+</h3>
+<p>To set up <code>BQ,</code> we set <code>Mname = "BQ".</code> We must
+pass the point sets <code>bb</code> and <code>qq</code> and functions
+that compute kernel weights by distance: <code>kFb</code> and
+<code>kFq</code> and <code>kFs.</code></p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">bq_mod1</span> <span class="op">=</span> <span class="fu"><a href="../reference/setup_model.html">setup_model</a></span><span class="op">(</span>b<span class="op">=</span><span class="va">bb</span>, q<span class="op">=</span><span class="va">qq</span>, kFb<span class="op">=</span><span class="va">ker_b</span>, kFq<span class="op">=</span><span class="va">ker_q</span>, bionomic_opts <span class="op">=</span> <span class="va">adult_opts1</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="setup-bqs">Setup BQS<a class="anchor" aria-label="anchor" href="#setup-bqs"></a>
+</h3>
+<p>To set up <code>BQS,</code> we set <code>Mname = "BQS".</code> We
+must pass the point sets <code>bb</code> and <code>qq</code> and
+<code>ss</code> and functions that compute kernel weights by distance:
+<code>kFb</code> and <code>kFq</code> and <code>kFs.</code></p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">bqs_mod1</span> <span class="op">=</span> <span class="fu"><a href="../reference/setup_model.html">setup_model</a></span><span class="op">(</span>b<span class="op">=</span><span class="va">bb</span>, q<span class="op">=</span><span class="va">qq</span>, s<span class="op">=</span><span class="va">ss</span>, kFb <span class="op">=</span> <span class="va">ker_b</span>, kFq <span class="op">=</span> <span class="va">ker_q</span>, kFs <span class="op">=</span> <span class="va">ker_s</span>, bionomic_opts <span class="op">=</span> <span class="va">adult_opts2</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="saving-models">6. Saving Models<a class="anchor" aria-label="anchor" href="#saving-models"></a>
+</h2>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

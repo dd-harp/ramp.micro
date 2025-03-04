@@ -30,14 +30,15 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-methods" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Methods</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-methods">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-setup" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Setup</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-setup">
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
+    <li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
     <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
-    <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -134,8 +135,8 @@ denote net dispersal to lay eggs after.</p>
 movement through blood feeding and egg laying, even in models with sugar
 feeding. With sugar feeding, a mosquito that has laid eggs blood feed
 before laying again. A mosquito may fail to lay eggs and switch to sugar
-feeding, and then blood feed again before successfully laying eggs
-(Fig~). We can compute the matrices
+feeding, and then blood feed again before successfully laying eggs (see
+Figure 1). We can compute the matrices
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mrow><mi>b</mi><mo>←</mo><mi>q</mi></mrow></msub><annotation encoding="application/x-tex">K_{b\leftarrow q}</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mrow><mi>q</mi><mo>←</mo><mi>b</mi></mrow></msub><annotation encoding="application/x-tex">K_{q \leftarrow b}</annotation></semantics></math>
@@ -143,11 +144,16 @@ accounting for the fact that a mosquito may sugar feed – possibly
 multiple times – before ending in the other state. Under the assumptions
 of this model, there may be some gonotrophic disassociation; a mosquito
 will always blood feed after sugar feeding, even if it was searching for
-aquatic habitat before the transition (Fig.~). In such cases,
+aquatic habitat before the transition (see Figure). In such cases,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mrow><mi>b</mi><mo>←</mo><mi>b</mi></mrow></msub><annotation encoding="application/x-tex">K_{b\leftarrow b}</annotation></semantics></math>
 is the interval between blood meals with or without an egg batch, but
 because of the delay for parasite development, we must take even greater
 care in quantifying parasite dispersal by mosquitoes (see below).</p>
+<div class="float">
+<img src="BQS.png" alt="Figure 1: State transitions for the BQS model"><div class="figcaption">
+<strong>Figure 1:</strong> State transitions for
+the <code>BQS</code> model</div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="movement-through-the-feeding-cycle">Movement Through the Feeding Cycle<a class="anchor" aria-label="anchor" href="#movement-through-the-feeding-cycle"></a>
@@ -175,8 +181,9 @@ respective point sets:</p>
 \end{array} \right] 
 \label{KbbKqq} 
 \end{equation}</annotation></semantics></math></p>
-<p>The matrix $K_{b b} = K_{b q}K_{q b} $ describes movement from haunts
-to haunts, and
+<p>The matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mrow><mi>b</mi><mo>←</mo><mi>b</mi></mrow></msub><mo>=</mo><msub><mi>K</mi><mrow><mi>b</mi><mo>←</mo><mi>q</mi></mrow></msub><mo>⋅</mo><msub><mi>K</mi><mrow><mi>q</mi><mo>←</mo><mi>b</mi></mrow></msub></mrow><annotation encoding="application/x-tex">K_{b \leftarrow b} = K_{b \leftarrow q}\cdot K_{q \leftarrow b}</annotation></semantics></math>
+describes movement from haunts to haunts, and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mrow><mi>q</mi><mo>←</mo><mi>q</mi></mrow></msub><mo>=</mo><msub><mi>K</mi><mrow><mi>q</mi><mo>←</mo><mi>b</mi></mrow></msub><mo>⋅</mo><msub><mi>K</mi><mrow><mi>b</mi><mo>←</mo><mi>q</mi></mrow></msub></mrow><annotation encoding="application/x-tex">K_{q \leftarrow q}= K_{q \leftarrow b}\cdot K_{b \leftarrow q}</annotation></semantics></math>
 describes movement from habitats to habitats.</p>
 <p><strong>Kxx</strong></p>
@@ -189,16 +196,18 @@ natal site. Net lifetime dispersal of eggs from natal aquatic habitats
 is summed over all gonotrophic cycles,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
 until a mosquito has died. The expected number of eggs laid per emerging
-adult female at each site can be computed as: %
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>o</mi><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mo accent="false">∞</mo></munderover><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mrow><mi>q</mi><mo>←</mo><mi>q</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>i</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">\begin{equation}
+adult female at each site can be computed as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>o</mi><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mo accent="false">∞</mo></munderover><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mrow><mi>q</mi><mo>←</mo><mi>q</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>i</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">\begin{equation}
  G = o \sum_{i=1}^\infty \left(K_{q\leftarrow q}\right)^i.
-\end{equation}</annotation></semantics></math> % The quantity
+\end{equation}</annotation></semantics></math></p>
+<p>The quantity
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math>
 is mosquito lifetime egg dispersal kernel for a cohort. We also define
-net egg dispersal by the population at its steady state %
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>⋅</mo><mtext mathvariant="normal">diag</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>Q</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\begin{equation}
+net egg dispersal by the population at its steady state</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>⋅</mo><mtext mathvariant="normal">diag</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>Q</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\begin{equation}
 G \cdot \mbox{diag}\left(\bar Q \right),
-\end{equation}</annotation></semantics></math> % where
+\end{equation}</annotation></semantics></math></p>
+<p>where
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>Q</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar Q</annotation></semantics></math>
 is the steady state density of adult female mosquitoes at
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">{</mo><mi>q</mi><mo stretchy="true" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\left\{q\right\}</annotation></semantics></math>.</p>
@@ -230,10 +239,11 @@ we use the model to compute
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mi>t</mi></msub><annotation encoding="application/x-tex">B_t</annotation></semantics></math>
 for a cohort of mosquitoes, and we define
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
-as %
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mi>τ</mi></mrow><mo accent="false">∞</mo></munderover><mtext mathvariant="normal">diag</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>ψ</mi><msub><mi>B</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\begin{equation}
+as</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mi>τ</mi></mrow><mo accent="false">∞</mo></munderover><mtext mathvariant="normal">diag</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>ψ</mi><msub><mi>B</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\begin{equation}
 V = \sum_{t=\tau}^\infty  \mbox{diag} \left(\psi B_t \right).
-\end{equation}</annotation></semantics></math> % While
+\end{equation}</annotation></semantics></math></p>
+<p>While
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
 defines parasite dispersal by a cohort of mosquitoes, weighted evenly by
 point, we can also weight parasite dispersal by the steady state

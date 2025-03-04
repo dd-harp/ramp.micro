@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Modularity • ramp.micro</title>
+<title>Visualization • ramp.micro</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Modularity">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Visualization">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -78,81 +78,18 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Modularity</h1>
+      <h1>Visualization</h1>
+            <h3 data-toc-skip class="subtitle">Plotting Outputs</h3>
             
       
 
-      <div class="d-none name"><code>modularity.Rmd</code></div>
+      <div class="d-none name"><code>visualization.Rmd</code></div>
     </div>
 
     
     
-<p>This software has a modular design with two components. Modularity in
-the design is implemented using one of R’s basic basic object oriented
-methods, the <code>S3 Class.</code></p>
-<p>In a nutshell, there are two dynamical components:</p>
-<ul>
-<li><p>The <strong>M</strong> component describes adult mosquito
-population dynamics</p></li>
-<li><p>The <strong>L</strong> component describes aquatic mosquito
-population dynamics</p></li>
-</ul>
-<p>To develop a modular simulation framework, each dynamical component
-defines a common set of functions that are called. Each module in the
-class defines its own <code>S3</code> method.</p>
-<div class="section level2">
-<h2 id="m-component">
-<strong>M</strong> Component<a class="anchor" aria-label="anchor" href="#m-component"></a>
-</h2>
-<div class="section level3">
-<h3 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a>
-</h3>
-<ul>
-<li>
-<p><code>setup_adult_model</code></p>
-<ul>
-<li><p><code>make_Psi_*</code></p></li>
-<li><p><code>setup_dispersal_*</code></p></li>
-<li><p><code>setup_bionomics_*</code></p></li>
-<li><p><code>make_demography_*</code></p></li>
-</ul>
-</li>
-<li><p><code>save_states_M</code></p></li>
-<li><p><code>compute_diffs_M</code></p></li>
-<li><p><code>init_states_M</code></p></li>
-<li><p><code>init_adult_model</code> is a wrapper that calls
-<code>init_adult_model_*</code></p></li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="modules">Modules<a class="anchor" aria-label="anchor" href="#modules"></a>
-</h3>
-<p>There are currently two modules for the adult component:</p>
-<ul>
-<li><p><strong>BQ</strong> and</p></li>
-<li><p><strong>BQS</strong></p></li>
-</ul>
-</div>
-</div>
-<div class="section level2">
-<h2 id="l-component">
-<strong>L</strong> Component<a class="anchor" aria-label="anchor" href="#l-component"></a>
-</h2>
-<div class="section level3">
-<h3 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
-</h3>
-</div>
-<div class="section level3">
-<h3 id="methods-1">Methods<a class="anchor" aria-label="anchor" href="#methods-1"></a>
-</h3>
-</div>
-<div class="section level3">
-<h3 id="modules-1">Modules<a class="anchor" aria-label="anchor" href="#modules-1"></a>
-</h3>
-</div>
-</div>
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
-    </nav></aside>
+
+  </main>
 </div>
 
 
