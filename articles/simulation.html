@@ -30,8 +30,8 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="active nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-setup" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Setup</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-setup">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-getting-started" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Getting Started</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-getting-started">
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
     <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
@@ -196,11 +196,19 @@ returns a fully defined model:</p>
 <code>SIM</code></p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/SIM.html">SIM</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
+<p>By default, the model runs for 200 time steps, and with initial
+conditions, there are 201 sets of outputs for each variable.</p>
 <p>The population densities are highly heterogeneous, even though the
 habitats and blood feeding sites that are all alike in every way except
 location. Here, the size of each point scales with the density of the
 adult, female mosquito population at that point (red = blood feeding,
 blue = egg laying).</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_points.html">plot_points</a></span><span class="op">(</span><span class="va">model</span>, </span>
+<span>            bwts<span class="op">=</span><span class="va">model</span><span class="op">$</span><span class="va">states</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">B_t</span><span class="op">[[</span><span class="fl">201</span><span class="op">]</span><span class="op">]</span>, </span>
+<span>            qwts<span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">states</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">B_t</span><span class="op">[[</span><span class="fl">201</span><span class="op">]</span><span class="op">]</span>, </span>
+<span>            max_pt_sz<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="simulation_files/figure-html/unnamed-chunk-13-1.png" width="576"></p>
 </div>
 </div>
