@@ -3,6 +3,8 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/articles/BQ.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/articles/BQS.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/articles/L.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/articles/adult.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/articles/aquatic.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/articles/basic_dispersal.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/articles/community.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/articles/dispersal.html</loc></url>
@@ -61,8 +63,8 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/edgeSubset_fracMass.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/frame_bq.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/frame_bqs.html</loc></url>
-<url><loc>https://dd-harp.github.io/ramp.micro/reference/getM_i.html</loc></url>
-<url><loc>https://dd-harp.github.io/ramp.micro/reference/getNet_i.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/get_matrix.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/get_net.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/index.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model.BQ.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model.BQS.html</loc></url>
@@ -91,10 +93,15 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_BQS.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_xx.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_Psi_xy.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_all_graphs.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_all_graphs.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_all_graphs.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_all_graphs_common.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hull_i.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hulls.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_demography_BQ.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_demography_BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_graph_obj.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_kF_exp.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_kF_mix.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_kF_pwr.html</loc></url>
@@ -106,6 +113,7 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_tiles.BQ.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_tiles.BQS.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_tiles.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/net2meta.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plotDDcmf.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plotDDpmf.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kbb.html</loc></url>
@@ -133,6 +141,7 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_VV.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_matrix_xx.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_matrix_xy.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_meta.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.BQ.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.BQS.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.html</loc></url>

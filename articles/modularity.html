@@ -29,29 +29,24 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="active nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-getting-started" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Getting Started</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-getting-started">
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-intro" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Intro</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-intro">
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
-    <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/adult.html">Adult Mosquito Models</a></li>
+    <li><a class="dropdown-item" href="../articles/aquatic.html">Aquatic Mosquito Models</a></li>
+    <li><a class="dropdown-item" href="../articles/models.html">Setting Up Models</a></li>
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
     <li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
-    <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
-    <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-adults" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Adults</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-adults">
-<li><a class="dropdown-item" href="../articles/BQ.html">Adult Mosquitoes - BQ</a></li>
-    <li><a class="dropdown-item" href="../articles/BQS.html">Adult Mosquitoes - BQS</a></li>
-  </ul>
-</li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-immature" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Immature</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-immature">
-<li><a class="dropdown-item" href="../articles/L.html">Immature Mosquitoes - L</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-modules" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Modules</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-modules">
+<li><a class="dropdown-item" href="../articles/BQ.html">Adult Mosquito - BQ Model</a></li>
+    <li><a class="dropdown-item" href="../articles/BQS.html">Adult Mosquito - BQS Model</a></li>
+    <li><a class="dropdown-item" href="../articles/L.html">Basic Competition - L</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -101,40 +96,6 @@ population dynamics</p></li>
 defines a common set of functions that are called. Each module in the
 class defines its own <code>S3</code> method.</p>
 <div class="section level2">
-<h2 id="m-component">
-<strong>M</strong> Component<a class="anchor" aria-label="anchor" href="#m-component"></a>
-</h2>
-<div class="section level3">
-<h3 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a>
-</h3>
-<ul>
-<li>
-<p><code>setup_adult_model</code></p>
-<ul>
-<li><p><code>make_Psi_*</code></p></li>
-<li><p><code>setup_dispersal_*</code></p></li>
-<li><p><code>setup_bionomics_*</code></p></li>
-<li><p><code>make_demography_*</code></p></li>
-</ul>
-</li>
-<li><p><code>save_states_M</code></p></li>
-<li><p><code>compute_diffs_M</code></p></li>
-<li><p><code>init_states_M</code></p></li>
-<li><p><code>init_adult_model</code> is a wrapper that calls
-<code>init_adult_model_*</code></p></li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="modules">Modules<a class="anchor" aria-label="anchor" href="#modules"></a>
-</h3>
-<p>There are currently two modules for the adult component:</p>
-<ul>
-<li><p><strong>BQ</strong> and</p></li>
-<li><p><strong>BQS</strong></p></li>
-</ul>
-</div>
-</div>
-<div class="section level2">
 <h2 id="l-component">
 <strong>L</strong> Component<a class="anchor" aria-label="anchor" href="#l-component"></a>
 </h2>
@@ -143,11 +104,11 @@ class defines its own <code>S3</code> method.</p>
 </h3>
 </div>
 <div class="section level3">
-<h3 id="methods-1">Methods<a class="anchor" aria-label="anchor" href="#methods-1"></a>
+<h3 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a>
 </h3>
 </div>
 <div class="section level3">
-<h3 id="modules-1">Modules<a class="anchor" aria-label="anchor" href="#modules-1"></a>
+<h3 id="modules">Modules<a class="anchor" aria-label="anchor" href="#modules"></a>
 </h3>
 </div>
 </div>

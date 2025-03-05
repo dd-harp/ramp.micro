@@ -30,28 +30,23 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="active nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-getting-started" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Getting Started</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-getting-started">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-intro" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Intro</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-intro">
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
-    <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/adult.html">Adult Mosquito Models</a></li>
+    <li><a class="dropdown-item" href="../articles/aquatic.html">Aquatic Mosquito Models</a></li>
+    <li><a class="dropdown-item" href="../articles/models.html">Setting Up Models</a></li>
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
     <li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
-    <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
-    <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-adults" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Adults</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-adults">
-<li><a class="dropdown-item" href="../articles/BQ.html">Adult Mosquitoes - BQ</a></li>
-    <li><a class="dropdown-item" href="../articles/BQS.html">Adult Mosquitoes - BQS</a></li>
-  </ul>
-</li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-immature" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Immature</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-immature">
-<li><a class="dropdown-item" href="../articles/L.html">Immature Mosquitoes - L</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-modules" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Modules</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-modules">
+<li><a class="dropdown-item" href="../articles/BQ.html">Adult Mosquito - BQ Model</a></li>
+    <li><a class="dropdown-item" href="../articles/BQS.html">Adult Mosquito - BQS Model</a></li>
+    <li><a class="dropdown-item" href="../articles/L.html">Basic Competition - L</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -210,6 +205,19 @@ blue = egg laying).</p>
 <span>            qwts<span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">states</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">B_t</span><span class="op">[[</span><span class="fl">201</span><span class="op">]</span><span class="op">]</span>, </span>
 <span>            max_pt_sz<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="simulation_files/figure-html/unnamed-chunk-13-1.png" width="576"></p>
+</div>
+<div class="section level3">
+<h3 id="steady-states">Steady States<a class="anchor" aria-label="anchor" href="#steady-states"></a>
+</h3>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/steady_state.html">steady_state</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_points.html">plot_points</a></span><span class="op">(</span><span class="va">model</span>, </span>
+<span>            bwts<span class="op">=</span><span class="va">model</span><span class="op">$</span><span class="va">steady</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">B</span>,</span>
+<span>            qwts<span class="op">=</span><span class="va">model</span><span class="op">$</span><span class="va">steady</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">Q</span>,</span>
+<span>            max_pt_sz<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<p><img src="simulation_files/figure-html/unnamed-chunk-15-1.png" width="576"></p>
 </div>
 </div>
 

@@ -16,23 +16,20 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-getting-started" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Getting Started</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-getting-started"><li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-intro" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Intro</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-intro"><li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
-    <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/adult.html">Adult Mosquito Models</a></li>
+    <li><a class="dropdown-item" href="../articles/aquatic.html">Aquatic Mosquito Models</a></li>
+    <li><a class="dropdown-item" href="../articles/models.html">Setting Up Models</a></li>
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
     <li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
-    <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
-    <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
   </ul></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-adults" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Adults</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-adults"><li><a class="dropdown-item" href="../articles/BQ.html">Adult Mosquitoes - BQ</a></li>
-    <li><a class="dropdown-item" href="../articles/BQS.html">Adult Mosquitoes - BQS</a></li>
-  </ul></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-immature" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Immature</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-immature"><li><a class="dropdown-item" href="../articles/L.html">Immature Mosquitoes - L</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-modules" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Modules</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-modules"><li><a class="dropdown-item" href="../articles/BQ.html">Adult Mosquito - BQ Model</a></li>
+    <li><a class="dropdown-item" href="../articles/BQS.html">Adult Mosquito - BQS Model</a></li>
+    <li><a class="dropdown-item" href="../articles/L.html">Basic Competition - L</a></li>
   </ul></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
@@ -60,19 +57,15 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compute_diffs_L</span><span class="op">(</span><span class="va">Lvars1</span>, <span class="va">Lvars2</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compute_diffs_L</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-lvars-">Lvars1<a class="anchor" aria-label="anchor" href="#arg-lvars-"></a></dt>
-<dd><p>variables describing adult mosquitoes, set 1</p></dd>
-
-
-<dt id="arg-lvars-">Lvars2<a class="anchor" aria-label="anchor" href="#arg-lvars-"></a></dt>
-<dd><p>variables describing adult mosquitoes, set 2</p></dd>
+<dl><dt id="arg-model">model<a class="anchor" aria-label="anchor" href="#arg-model"></a></dt>
+<dd><p>a model</p></dd>
 
 </dl></div>
     <div class="section level2">

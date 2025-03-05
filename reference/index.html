@@ -16,23 +16,20 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-getting-started" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Getting Started</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-getting-started"><li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-intro" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Intro</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-intro"><li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
-    <li><a class="dropdown-item" href="../articles/models.html">Models</a></li>
+    <li><a class="dropdown-item" href="../articles/adult.html">Adult Mosquito Models</a></li>
+    <li><a class="dropdown-item" href="../articles/aquatic.html">Aquatic Mosquito Models</a></li>
+    <li><a class="dropdown-item" href="../articles/models.html">Setting Up Models</a></li>
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
     <li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
-    <li><a class="dropdown-item" href="../articles/modularity.html">Modularity</a></li>
-    <li><a class="dropdown-item" href="../articles/models.html">Traps</a></li>
   </ul></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-adults" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Adults</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-adults"><li><a class="dropdown-item" href="../articles/BQ.html">Adult Mosquitoes - BQ</a></li>
-    <li><a class="dropdown-item" href="../articles/BQS.html">Adult Mosquitoes - BQS</a></li>
-  </ul></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-immature" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Immature</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-immature"><li><a class="dropdown-item" href="../articles/L.html">Immature Mosquitoes - L</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-modules" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Modules</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-modules"><li><a class="dropdown-item" href="../articles/BQ.html">Adult Mosquito - BQ Model</a></li>
+    <li><a class="dropdown-item" href="../articles/BQS.html">Adult Mosquito - BQS Model</a></li>
+    <li><a class="dropdown-item" href="../articles/L.html">Basic Competition - L</a></li>
   </ul></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
@@ -453,13 +450,13 @@
         <dd>Subset Edges</dd>
       </dl><dl><dt>
 
-          <code><a href="getM_i.html">getM_i()</a></code>
+          <code><a href="get_matrix.html">get_matrix()</a></code>
 
         </dt>
         <dd>Choose one of the matrices describing movement</dd>
       </dl><dl><dt>
 
-          <code><a href="getNet_i.html">getNet_i()</a></code>
+          <code><a href="get_net.html">get_net()</a></code>
 
         </dt>
         <dd>Choose one of the networks describing dispersion</dd>
@@ -1130,6 +1127,70 @@
 
         </dt>
         <dd>Visualize the one-bout dispersal matrices for a BQS model</dd>
+      </dl></div><div class="section level2">
+      <h2 id="graphs">Graphs<a class="anchor" aria-label="anchor" href="#graphs"></a></h2>
+
+      <div class="section-desc"><p>Make Graphs</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="make_graph_obj.html">make_graph_obj()</a></code>
+
+        </dt>
+        <dd>Make graph object</dd>
+      </dl><dl><dt>
+
+          <code><a href="make_all_graphs.html">make_all_graphs()</a></code>
+
+        </dt>
+        <dd>Make graphs</dd>
+      </dl><dl><dt>
+
+          <code><a href="make_all_graphs_common.html">make_all_graphs_common()</a></code>
+
+        </dt>
+        <dd>Make all of the graphs</dd>
+      </dl><dl><dt>
+
+          <code><a href="make_all_graphs.BQ.html">make_all_graphs(<i>&lt;BQ&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Make graphs for a BQ model</dd>
+      </dl><dl><dt>
+
+          <code><a href="make_all_graphs.BQS.html">make_all_graphs(<i>&lt;BQS&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Make graphs for a BQS model</dd>
+      </dl></div><div class="section level2">
+      <h2 id="metapopulations">Metapopulations<a class="anchor" aria-label="anchor" href="#metapopulations"></a></h2>
+
+      <div class="section-desc"><p>Metapopulations</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="net2meta.html">net2meta()</a></code>
+
+        </dt>
+        <dd>Use communities to define patches</dd>
+      </dl><dl><dt>
+
+          <code><a href="plot_meta.html">plot_meta()</a></code>
+
+        </dt>
+        <dd>Visualize the metapopulation approximation</dd>
       </dl></div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
