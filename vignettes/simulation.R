@@ -23,14 +23,14 @@ plot(dd, kFb(dd), type = "l", col = "darkred", xlab = "Distance", ylab = "Weight
 lines(dd, kFq(dd), type = "l", col = "darkblue")
 
 ## -----------------------------------------------------------------------------
-Psi_bb = make_Psi_xx(bb, kFb)
+Psi_bb = make_Psi_xx(bb, kFb, stay=0.5)
 Psi_qb = make_Psi_xy(bb, qq, kFq)
 Psi_bq = make_Psi_xy(qq, bb, kFb)
-Psi_qq = make_Psi_xx(qq, kFq)
+Psi_qq = make_Psi_xx(qq, kFq, stay=0.5)
 
 ## ----fig.height=8, fig.width=8------------------------------------------------
 par(mfcol = c(2,2), mar = c(1,2,1,2))
-plot_Psi_BQmod(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq)
+plot_all_Psi_BQ(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq, r=0.5, max_pt_sz=1.5)
 
 ## -----------------------------------------------------------------------------
 model = setup_model(bb, qq, kFb = kFb, kFq = kFq)

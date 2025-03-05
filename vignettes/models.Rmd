@@ -1,9 +1,9 @@
 ---
-title: "Models"
-subtitle: "Setting Up Models"
+title: "Building a Model"
+subtitle: "A Step-by-Step Guide"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Models}
+  %\VignetteIndexEntry{Building a Model}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,29 +16,43 @@ library(ramp.micro)
 
 **`ramp.micro`** has made it easy to set up models for simulation and analysis. To set up a model: 
 
-1. Define Point Sets (Also, see [Point Sets](point_sets.html))
+1. Choose the **Modules** (*eg,* `BQ` vs. `BQS` for adult mosquitoes) 
 
-2. Define Kernel Shapes (Also, see [Kernels](kernels.html)) 
+2. Create point sets 
 
-3. Define Parameters. Since **`ramp.micro`** is modular, this must be done for each one of the components: 
+3. Define dispersal kernels 
 
-    a. Define a module for the Adult component 
-    
-    b. Define a module for the Aquatic component 
+4. Set parameter values for the **Modules** 
 
-4. Set Initial Conditions. This must be done for each one of the components. The same algorithms can be called to *reset* the initial conditions: 
+5. Set initial conditions. 
 
-    a. Set initial conditions for the variables for the Adult component 
-    
-    b. Set initial conditions for the variables for the Aquatic component 
+6. Call `setup_model` 
 
-5. Call Setup     
+7. Simulate / Analyze
 
-6. Saving Models
+8. Saving Models
    
-## 1. Define Point Sets 
+## 1. Choose the Modules
 
-First, we define three point sets: 
+The first step is to determine which module / model family you want to use for the adult and aquatic components.
+
+**Adult Ecology**
+
++ `BQ` requires two point sets, $\left\{b\right\}$ and $\left\{q\right\}$ and four dispersal kernels
+
++ `BQS` requires two point sets, $\left\{b\right\}$ and $\left\{q\right\}$ and $\left\{s\right\}$ and nine dispersal kernels
+
+**Aquatic Ecology**
+
+At the present time, `basicL` is the only module for aquatic ecology, but other modules are planned. 
+
+
+
+## 2. Define Point Sets 
+
+**`ramp.micro`** accepts any set of $x,y$ coordinates a user has created.  
+
+Here, we use a **`ramp.micro`** function `unif_xy` to set up 3 sets of points drawn from a random uniform distribution: 
 
 ```{r}
 set.seed(24328)
@@ -47,7 +61,15 @@ qq = unif_xy(289, -17, 17)
 ss = unif_xy(225, -17, 17) 
 ```
 
-## 2. Define Kernel Shapes 
+By convention, each point set is a set of $x,y$ coordinates, and the object is pair of named vectors. To see, we take a peak at $\left\{b\right\}$: 
+
+```{r}
+head(bb,3)
+```
+
+*See the vignette on [Point Sets](point_sets.html)* 
+
+## 3. Define Kernel Shapes 
 
 Next, we define the shapes to weight points by distance:
 
@@ -57,18 +79,22 @@ ker_q = make_kF_exp(k=2, s=2, gamma=2)
 ker_s = make_kF_exp(k=3, s=2, gamma=2)
 ```
 
+Another option is a parameter that determines the fraction of mosquitoes that would stay at a point, called `stayB` and `stayQ` and `stayS` that are set to $0$ if unspecified. If specified, they should be configured by passing either a scalar or a list of values the same length as the number of points.  
+
 We pass these as named lists: 
 
 ```{r}
-bq_dispersal = list(kFb = ker_b, kFq = ker_q)
+bq_dispersal = list(kFb = ker_b, kFq = ker_q, stayB=0.5, stayQ=0.5)
 bqs_dispersal = list(kFb = ker_b, kFq = ker_q, kFs=ker_s)
 ```
 
-## 3. Define Parameters
+*Also, see the vignette on [Kernels](kernels.html)* 
+
+## 4. Define Parameters
 
 The models define default parameter values that can be overwritten by passing alternative values by name. The convention of setting up models by passing named lists makes it makes it easy to get started, and it provides a template that illustrates how to *modify* the parameters, but using the default values can become a trap for lazy analysts. 
 
-### a. Adult Parameters
+### a. Adult Bionomics 
 
 To see the options for each model, look at the documentation. For the **`BQ`** module:
 
@@ -104,11 +130,11 @@ Similarly, to set up parameters for the aquatic habitats, we can set any of the 
 ?setup_aquatic_model_basicL
 ```
 
-## 4. Initial Conditions 
+## 5. Initial Conditions 
 
 To simulate any dynamic model, we must set the initial conditions. Once again, this is done separately for the two components.  
 
-### a. Adult Model 
+### a. Adult Variables 
 
 The current state of the system is stored in `model$Mvars.` 
 
@@ -123,13 +149,13 @@ or
 ```
 
 
-### b. Aquatic Model 
+### b. Aquatic Variables 
 
 ```{r, eval=F}
 ?init_aquatic_model_basicL
 ```
 
-## 5. Setup 
+## 6. Setup 
 
 The *setup* functions are designed to create a model object that is ready for simulation and analysis. Documentation for the function `setup_model` explains what it is looking for.  
 
@@ -142,7 +168,9 @@ The *setup* functions are designed to create a model object that is ready for si
 To set up `BQ,`  we set `Mname = "BQ".` We must pass the point sets `bb` and `qq` and functions that compute kernel weights by distance: `kFb` and `kFq` and `kFs.` 
 
 ```{r}
-bq_mod1 = setup_model(b=bb, q=qq, kFb=ker_b, kFq=ker_q, bionomic_opts = adult_opts1)
+bq_mod1 = setup_model(b=bb, q=qq, 
+                      kFb=ker_b, kFq=ker_q, 
+                      bionomic_opts = adult_opts1)
 ```
 
 ### Setup BQS
@@ -150,10 +178,17 @@ bq_mod1 = setup_model(b=bb, q=qq, kFb=ker_b, kFq=ker_q, bionomic_opts = adult_op
 To set up `BQS,`  we set `Mname = "BQS".` We must pass the point sets `bb` and `qq` and `ss` and functions that compute kernel weights by distance: `kFb` and `kFq` and `kFs.` 
 
 ```{r}
-bqs_mod1 = setup_model(b=bb, q=qq, s=ss, kFb = ker_b, kFq = ker_q, kFs = ker_s, bionomic_opts = adult_opts2)
+bqs_mod1 = setup_model(b=bb, q=qq, s=ss, 
+                       kFb = ker_b, kFq = ker_q, kFs = ker_s, 
+                       Mname = "BQS", 
+                       bionomic_opts = adult_opts2)
 ```
 
-## 6. Saving & Loading Models
+## 7. Simulate / Analyze 
+
+
+
+## 8. Saving & Loading Models
 
 ```{r}
 save(bq_mod1, file = "bq_mod1.rda")

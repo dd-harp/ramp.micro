@@ -36,7 +36,7 @@ make_graph_obj = function(M, type ="b", tag = ""){
 #'
 #' @returns a ramp.micro model object
 #' @export
-make_all_graphs_common = function(model){with(model,{
+make_common_graphs = function(model){with(model,{
   model$graphs <- list()
   model$graphs$Kbb_net <- make_graph_obj(KGV$Kbb, "b", expression(K*scriptstyle(b%->%b)))
   model$graphs$Kqq_net <- make_graph_obj(KGV$Kqq, "q", expression(K*scriptstyle(q%->%q)))
@@ -70,7 +70,7 @@ make_all_graphs = function(model){UseMethod("make_all_graphs",model)}
 #' @returns a ramp.micro model object
 #' @export
 make_all_graphs.BQ = function(model){
-  model = make_all_graphs_common(model)
+  model = make_common_graphs(model)
   BQ <- with(model$steady$M, diag(as.vector(c(B, Q))))
   bigMM <- model$Mpar$bigM %*% BQ
   model$Mpar$bigMM <- bigMM
@@ -88,7 +88,7 @@ make_all_graphs.BQ = function(model){
 #' @returns a ramp.micro model object
 #' @export
 make_all_graphs.BQS = function(model){
-  model = make_all_graphs_common(model)
+  model = make_common_graphs(model)
   BQS <- with(model$steady$M, diag(as.vector(c(B, Q, S))))
   bigMM <- model$Mpar$bigM %*% BQS
   model$Mpar$bigMM <- bigMM

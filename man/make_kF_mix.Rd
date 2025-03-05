@@ -4,14 +4,16 @@
 \alias{make_kF_mix}
 \title{Make an power function that combines an exponential and power function}
 \usage{
-make_kF_mix(p = 0.001, k = 1, s = 2, gamma = 1, delta = 1)
+make_kF_mix(p = 0.001, k = 1, s1 = 1, s2 = 1, gamma = 1, delta = 1)
 }
 \arguments{
 \item{p}{the weight on the power function}
 
 \item{k}{decay by distance}
 
-\item{s}{a scale parameter}
+\item{s1}{a scale parameter}
+
+\item{s2}{a scale parameter}
 
 \item{gamma}{a shape parameter}
 

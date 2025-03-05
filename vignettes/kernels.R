@@ -18,6 +18,17 @@ plot(dd, kFb(dd), type = "l", col = "darkred", xlab = "Distance", ylab = "Weight
 lines(dd, kFq(dd), type = "l", col = "darkblue")
 lines(dd, kFs(dd), type = "l", col = "olivedrab4")
 
+## -----------------------------------------------------------------------------
+kFb1 = make_kF_pwr(s=10, delta=1)
+kFq1 = make_kF_pwr(s=1, delta=3)
+kFs1 = make_kF_pwr(s=0.01, delta=2)
+
+## ----fig.height=4, fig.width=6------------------------------------------------
+dd = seq(0, 5, by = 0.01)
+plot(dd, kFb1(dd), type = "l", col = "darkred", xlab = "Distance", ylab = "Weight", ylim = c(0,1))
+lines(dd, kFq1(dd), type = "l", col = "darkblue")
+lines(dd, kFs1(dd), type = "l", col = "olivedrab4")
+
 ## ----fig.height=7, fig.width=7------------------------------------------------
 par(mar = c(1,1,2,2))
 Psi_bq = make_Psi_xy(qq, bb, kFb, w=1)

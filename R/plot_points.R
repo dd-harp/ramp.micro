@@ -192,9 +192,11 @@ add_points_s = function(s, wts=1, pw=1, max_pt_sz=1, clr="olivedrab2"){
 #' @return invisible(NULL)
 #' @export
 add_points_bb = function(b, M, pw=1, max_pt_sz=2, colA="#cc444b66", colB="#cc444bCC"){
-  add_points_b(b, as.vector(rowSums(M)), pw, max_pt_sz, colA)
+  wts1 <- as.vector(rowSums(M))
+  add_points_b(b, wts1, pw, max_pt_sz, colA)
   diag(M) <- 0
-  add_points_b(b, as.vector(rowSums(M)), pw, max_pt_sz, colB)
+  wts2 <- as.vector(rowSums(M))
+  add_points_b(b, wts2, pw, max_pt_sz*max(wts2)/max(wts1), colB)
   return(invisible())
 }
 
@@ -210,9 +212,11 @@ add_points_bb = function(b, M, pw=1, max_pt_sz=2, colA="#cc444b66", colB="#cc444
 #' @return invisible(NULL)
 #' @export
 add_points_qq = function(q, M, pw=1, max_pt_sz=2, colA="skyblue", colB="skyblue3"){
-  add_points_q(q, as.vector(rowSums(M)), pw, max_pt_sz, colA)
+  wts1 <- as.vector(rowSums(M))
+  add_points_q(q, wts1, pw, max_pt_sz, colA)
   diag(M) <- 0
-  add_points_q(q, as.vector(rowSums(M)), pw, max_pt_sz, colB)
+  wts2 <- as.vector(rowSums(M))
+  add_points_q(q, wts2, pw, max_pt_sz*max(wts2)/max(wts1), colB)
   return(invisible())
 }
 
