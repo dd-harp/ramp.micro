@@ -252,43 +252,15 @@ population dynamics</p></li>
 <p>To develop a modular simulation framework, each dynamical component
 defines a common set of functions that are called. Each module in the
 class defines its own <code>S3</code> method.</p>
-<div id="m-component" class="section level2">
-<h2><strong>M</strong> Component</h2>
-<div id="methods" class="section level3">
-<h3>Methods</h3>
-<ul>
-<li><p><code>setup_adult_model</code></p>
-<ul>
-<li><p><code>make_Psi_*</code></p></li>
-<li><p><code>setup_dispersal_*</code></p></li>
-<li><p><code>setup_bionomics_*</code></p></li>
-<li><p><code>make_demography_*</code></p></li>
-</ul></li>
-<li><p><code>save_states_M</code></p></li>
-<li><p><code>compute_diffs_M</code></p></li>
-<li><p><code>init_states_M</code></p></li>
-<li><p><code>init_adult_model</code> is a wrapper that calls
-<code>init_adult_model_*</code></p></li>
-</ul>
-</div>
-<div id="modules" class="section level3">
-<h3>Modules</h3>
-<p>There are currently two modules for the adult component:</p>
-<ul>
-<li><p><strong>BQ</strong> and</p></li>
-<li><p><strong>BQS</strong></p></li>
-</ul>
-</div>
-</div>
 <div id="l-component" class="section level2">
 <h2><strong>L</strong> Component</h2>
 <div id="setup" class="section level3">
 <h3>Setup</h3>
 </div>
-<div id="methods-1" class="section level3">
+<div id="methods" class="section level3">
 <h3>Methods</h3>
 </div>
-<div id="modules-1" class="section level3">
+<div id="modules" class="section level3">
 <h3>Modules</h3>
 </div>
 </div>

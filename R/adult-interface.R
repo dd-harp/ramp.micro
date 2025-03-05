@@ -44,13 +44,12 @@ init_adult_model = function(model, M0_opts){
 
 #' The some of squared differences between two sets of variables
 #'
-#' @param Mvars1 variables describing adult mosquitoes, set 1
-#' @param Mvars2 variables describing adult mosquitoes, set 2
+#' @param model a model
 #'
 #' @return a [numeric] value, the sum of squared differences
 #' @export
-compute_diffs_M = function(Mvars1, Mvars2){
-  UseMethod("compute_diffs_M", Mvars1)
+compute_diffs_M = function(model){
+  UseMethod("compute_diffs_M", model$Mpar)
 }
 
 #' Setup an adult model

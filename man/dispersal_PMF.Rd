@@ -7,7 +7,7 @@
 dispersal_PMF(xy, M)
 }
 \arguments{
-\item{xy}{a set of point locations}
+\item{xy}{locations of a set of points}
 
 \item{M}{a dispersal matrix}
 }

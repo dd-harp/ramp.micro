@@ -40,6 +40,7 @@ steady_state = function(model, burn=500, Tx=50, tol=.001){
   steady=list()
   steady$M = model$Mvars
   steady$L = model$Lvars
+  model$steady = steady
 
   err=10*tol
   while(err>tol){
@@ -47,10 +48,11 @@ steady_state = function(model, burn=500, Tx=50, tol=.001){
       model = adult_dynamics(t, model)
       model = aquatic_dynamics(t, model)
     }
-    err = compute_diffs_M(model$Mvars, steady$M)
-    err = err + compute_diffs_L(model$Lvars, steady$L)
-    steady$M = model$Mvars
-    steady$L = model$Lvars
+
+    err = compute_diffs_M(model)
+    err = err + compute_diffs_L(model)
+    model$steady$M = model$Mvars
+    model$steady$L = model$Lvars
   }
 
   model$steady = steady

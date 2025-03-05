@@ -38,4 +38,4 @@ The number of adult females emerging each day is half the mosquitoes who both su
 \label{eq_Lambdat}
 \end{equation}
 
-While this model is adequate for the needs of this study, the model may not robustly capture some relevant features of mosquito ecology or larval source management, such as when larval population structure and delays are important. The software, \verb1ramp.micro1, includes alternative models with stage structure. 
+While this model is adequate for the needs of this study, the model may not robustly capture some relevant features of mosquito ecology or larval source management, such as when larval population structure and delays are important. 

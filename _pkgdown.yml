@@ -3,31 +3,29 @@ template:
   bootstrap: 5
 navbar:
   left:
-  - text: Getting Started
+  - text: Intro
     menu:
     - text: Point Sets
       href: articles/point_sets.html
     - text: Kernels
       href: articles/kernels.html
-    - text: Models
+    - text: Adult Mosquito Models
+      href: articles/adult.html
+    - text: Aquatic Mosquito Models
+      href: articles/aquatic.html
+    - text: Setting Up Models
       href: articles/models.html
     - text: Simulation
       href: articles/simulation.html
     - text: Visualization
       href: articles/visualization.html
-    - text: Modularity
-      href: articles/modularity.html
-    - text: Traps
-      href: articles/models.html
-  - text: Adults
+  - text: Modules
     menu:
-    - text: Adult Mosquitoes - BQ
+    - text: Adult Mosquito - BQ Model
       href: articles/BQ.html
-    - text: Adult Mosquitoes - BQS
+    - text: Adult Mosquito - BQS Model
       href: articles/BQS.html
-  - text: Immature
-    menu:
-    - text: Immature Mosquitoes - L
+    - text: Basic Competition - L
       href: articles/L.html
   - text: Articles
     menu:
@@ -147,8 +145,8 @@ reference:
   - cutoffValue
   - edgeSubset_fracMass
   - edgeSubset
-  - getM_i
-  - getNet_i
+  - get_matrix
+  - get_net
 - subtitle: Compute distances dispersed
   desc: |
      Methods to compute the PMF and CMF for distances dispersed
@@ -288,3 +286,18 @@ reference:
   - plot_Psi_BQmod
   - plot_Psi.BQS
   - plot_Psi_BQSmod
+- title: Graphs
+  desc: |
+     Make Graphs
+  contents:
+  - make_graph_obj
+  - make_all_graphs
+  - make_all_graphs_common
+  - make_all_graphs.BQ
+  - make_all_graphs.BQS
+- title: Metapopulations
+  desc: |
+     Metapopulations
+  contents:
+  - net2meta
+  - plot_meta

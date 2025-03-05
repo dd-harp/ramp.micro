@@ -21,35 +21,7 @@ In a nutshell, there are two dynamical components:
 
 To develop a modular simulation framework, each dynamical component defines a common set of functions that are called. Each module in the class defines its own `S3` method. 
 
-## **M** Component
 
-### Methods 
-
-+ `setup_adult_model` 
-
-    + `make_Psi_*` 
-
-    + `setup_dispersal_*` 
-
-    + `setup_bionomics_*` 
-
-    + `make_demography_*` 
-    
-+ `save_states_M` 
-
-+ `compute_diffs_M` 
-
-+ `init_states_M` 
-
-+ `init_adult_model` is a wrapper that calls `init_adult_model_*` 
-
-### Modules
-
-There are currently two modules for the adult component: 
-
-+ **BQ** and 
-
-+ **BQS** 
 
 ## **L** Component
 

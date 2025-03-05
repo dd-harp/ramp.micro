@@ -3,7 +3,6 @@ library(viridisLite)
 library(knitr)
 library(viridis)
 library(ramp.micro)
-devtools::load_all()
 
 ## -----------------------------------------------------------------------------
 set.seed(24328)
@@ -55,8 +54,13 @@ plot_points(model,
             qwts= model$states$M$B_t[[201]], 
             max_pt_sz=2)
 
-## ----eval=F, echo=F-----------------------------------------------------------
-#  model1 <- model
-#  model1$Lpar$xi = .1
-#  model1 <- SIM(model1)
+## -----------------------------------------------------------------------------
+model <- steady_state(model)
+
+## ----fig.height=6, fig.width=6------------------------------------------------
+par(mar = c(1,1,1,1))
+plot_points(model, 
+            bwts=model$steady$M$B,
+            qwts=model$steady$M$Q,
+            max_pt_sz=2)
 

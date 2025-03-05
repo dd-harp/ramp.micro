@@ -4,12 +4,10 @@
 \alias{compute_diffs_L}
 \title{The some of squared differences between two sets of variables}
 \usage{
-compute_diffs_L(Lvars1, Lvars2)
+compute_diffs_L(model)
 }
 \arguments{
-\item{Lvars1}{variables describing adult mosquitoes, set 1}
-
-\item{Lvars2}{variables describing adult mosquitoes, set 2}
+\item{model}{a model}
 }
 \value{
 a [numeric] value, the sum of squared differences

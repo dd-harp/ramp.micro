@@ -58,10 +58,10 @@ save_states_L.basicL = function(t, model){
 #'
 #' @return a [numeric] value, the sum of squared differences
 #' @export
-compute_diffs_L.basicL = function(Lvars1, Lvars2){
-  dfs = sum((Lvars1$L - Lvars2$L)^2)
+compute_diffs_L.basicL = function(model){with(model,{
+  dfs = sum((Lvars$L - steady$L$L)^2)
   return (dfs)
-}
+})}
 
 #' Save the state variables in a vector
 #'

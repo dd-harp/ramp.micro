@@ -4,12 +4,10 @@
 \alias{compute_diffs_M.BQ}
 \title{The sum of squared differences between two sets of variables}
 \usage{
-\method{compute_diffs_M}{BQ}(Mvars1, Mvars2)
+\method{compute_diffs_M}{BQ}(model)
 }
 \arguments{
-\item{Mvars1}{variables describing adult mosquitoes, set 1}
-
-\item{Mvars2}{variables describing adult mosquitoes, set 2}
+\item{model}{a model}
 }
 \value{
 a [numeric] value, the sum of squared differences

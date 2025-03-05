@@ -28,7 +28,7 @@ compute_G.BQ = function(model, Tmax=50){with(model, with(Mpar,{
     G = G + eggs
     B = Bt; Q=Qt
   }
-  model$G = G
+  model$KGV$G = G
   return(model)
 }))}
 
@@ -52,7 +52,7 @@ compute_G.BQS = function(model, Tmax=50){with(model, with(Mpar,{
     G = G + eggs
     B = Bt; Q=Qt; S=St
   }
-  model$Mpar$G = G
+  model$KGV$G = G
   return(model)
 }))}
 
@@ -64,7 +64,7 @@ compute_G.BQS = function(model, Tmax=50){with(model, with(Mpar,{
 #' @export
 compute_GG = function(model){with(model,{
   if(!exists("model$steady$Q")) model = steady_state(model)
-  model$GG = with(model,Mpar$G %*% diag(as.vector(steady$Q)))
+  model$KGV$GG = with(model,Mpar$G %*% diag(as.vector(steady$M$Q)))
   return(model)
 })}
 
@@ -92,9 +92,9 @@ plot_dispersal_G = function(model,
     par(mar=c(2,2,2,2))
     frame_bq(b, q, mtl = "Lifetime Egg Dispersal, per Mosquito")
     add_points_b(b, max_pt_sz = mx_pt_sz_b)
-    add_arrows_xx(q, G, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
+    add_arrows_xx(q, KGV$G, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
                   lamp=lamp, arw_clr=arw_clr, seg_clr=seg_clr)
-    add_points_qq(q, G, max_pt_sz = mx_pt_sz_q)
+    add_points_qq(q, KGV$G, max_pt_sz = mx_pt_sz_q)
   }))
   return(invisible())
 }
@@ -122,9 +122,9 @@ plot_dispersal_GG = function(model,
     par(mar=c(2,2,2,2))
     frame_bq(b, q, mtl = "Lifetime Egg Dispersal, Population")
     add_points_b(b, max_pt_sz = mx_pt_sz_b)
-    add_arrows_xx(q, GG, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
+    add_arrows_xx(q, KGV$GG, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
                   lamp=lamp, arw_clr=arw_clr, seg_clr=seg_clr)
-    add_points_qq(q, GG, max_pt_sz = mx_pt_sz_q)
+    add_points_qq(q, KGV$GG, max_pt_sz = mx_pt_sz_q)
   }))
   return(invisible())
 }

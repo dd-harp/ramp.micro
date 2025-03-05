@@ -34,7 +34,7 @@ compute_V.BQ = function(model, Tmax=100){with(model, with(Mpar,{
     Qt = Mqb %*% B + Mqq %*% Q
     B=Bt; Q=Qt
   }
-  model$Mpar$V = Vt
+  model$KGV$V = Vt
   return(model)
 }))}
 
@@ -65,7 +65,7 @@ compute_V.BQS = function(model, Tmax=100){with(model, with(Mpar,{
     St = Msb %*% B + Msq %*% Q + Mss%*%S
     B=Bt; Q=Qt
   }
-  model$Mpar$V = Vt
+  model$KGV$V = Vt
   return(model)
 }))}
 
@@ -77,7 +77,7 @@ compute_V.BQS = function(model, Tmax=100){with(model, with(Mpar,{
 #' @export
 compute_VC = function(model){with(model,{
   if(!exists("model$steady$B")) model = steady_state(model)
-  model$VC = with(model, Mpar$V %*% diag(as.vector(steady$B)))
+  model$VC = with(model, Mpar$V %*% diag(as.vector(steady$M$B)))
   return(model)
 })}
 
@@ -105,9 +105,9 @@ plot_dispersal_V = function(model,
     par(mar=c(2,2,2,2))
     frame_bq(b, q, mtl = "Potential Parasite Dispersal, per Mosquito")
     add_points_q(q, max_pt_sz = max_pt_sz_q)
-    add_arrows_xx(b, V, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
+    add_arrows_xx(b, KGV$V, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
                   lamp=lamp, arw_clr=arw_clr, seg_clr=seg_clr)
-    add_points_bb(b, V, max_pt_sz = max_pt_sz_b)
+    add_points_bb(b, KGV$V, max_pt_sz = max_pt_sz_b)
   }))
   return(invisible())
 }
@@ -135,9 +135,9 @@ plot_dispersal_VV = function(model,
     par(mar=c(2,2,2,2))
     frame_bq(b, q, mtl = "Potential Parasite Dispersal, Population")
     add_points_q(q, max_pt_sz = max_pt_sz_q)
-    add_arrows_xx(b, VV, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
+    add_arrows_xx(b, KGV$VC, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
                   lamp=lamp, arw_clr=arw_clr, seg_clr=seg_clr)
-    add_points_bb(b, VV, max_pt_sz = max_pt_sz_b)
+    add_points_bb(b, KGV$VC, max_pt_sz = max_pt_sz_b)
   }))
   return(invisible())
 }

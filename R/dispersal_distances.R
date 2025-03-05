@@ -1,7 +1,7 @@
 
 #' Compute distances dispersed
 #'
-#' @param xy a set of point locations
+#' @param xy locations of a set of points
 #' @param M a dispersal matrix
 #'
 #' @return a [list] with the PMF, CMF, mean distance dispersed, and the distance matrix
