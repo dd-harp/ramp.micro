@@ -8,11 +8,12 @@ setup_model(
   b,
   q,
   s = c(),
-  kFb,
-  kFq,
+  kFb = NULL,
+  kFq = NULL,
   kFs = NULL,
   Mname = "BQ",
   Lname = "basicL",
+  dispersal_opts = list(),
   bionomic_opts = list(),
   aquatic_opts = list(),
   M0_opts = list(),
@@ -36,6 +37,8 @@ setup_model(
 \item{Mname}{the adult model name}
 
 \item{Lname}{the aquatic model name}
+
+\item{dispersal_opts}{a [list] to}
 
 \item{bionomic_opts}{a [list] to overwrite defaults}
 

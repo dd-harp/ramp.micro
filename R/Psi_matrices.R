@@ -53,9 +53,9 @@ make_Psi_xx = function(S, kF=make_kF_exp(), w=1, stay=0){
 #'
 #' @return the model, a compound [list]
 #' @export
-plot_Psi = function(model, max_pt_sz=2,
+plot_all_Psi = function(model, max_pt_sz=2,
                     min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2){
-  UseMethod("plot_Psi", model)
+  UseMethod("plot_all_Psi", model$Mpar)
 }
 
 #' Visualize the one-bout dispersal matrices for a BQ model
@@ -69,11 +69,12 @@ plot_Psi = function(model, max_pt_sz=2,
 #'
 #' @return the model, a compound [list]
 #' @export
-plot_Psi.BQ = function(model, max_pt_sz=2,
+plot_all_Psi.BQ = function(model, max_pt_sz=2,
                        min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2){
-  with(model,{plot_Psi_BQmod(b,q,Psi_bb, Psi_qb, Psi_bq, Psi_qq,
+  with(model,with(Mpar,{plot_Psi_BQ(b,q,Psi_bb, Psi_qb, Psi_bq, Psi_qq,
                           max_pt_sz=max_pt_sz, min_edge_frac=min_edge_frac,
-                          r=r, arw_lng=arw_lng, lwd=lwd)})}
+                          r=r, arw_lng=arw_lng, lwd=lwd)}))}
+
 
 
 #' Visualize the one-bout dispersal matrices for a BQ model
@@ -92,7 +93,7 @@ plot_Psi.BQ = function(model, max_pt_sz=2,
 #'
 #' @return no visible return value
 #' @export
-plot_Psi_BQmod = function(b, q,
+plot_all_Psi_BQ = function(b, q,
                        Psi_bb, Psi_qb,
                        Psi_bq, Psi_qq,
                        max_pt_sz=2, min_edge_frac = 0.01,
@@ -118,15 +119,15 @@ plot_Psi_BQmod = function(b, q,
 #'
 #' @return the model, a compound [list]
 #' @export
-plot_Psi.BQS = function(model,max_pt_sz=2,
+plot_all_Psi.BQS = function(model,max_pt_sz=2,
                         min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2){
-  with(model,{plot_Psi_BQSmod(b,q,s,
+  with(model,with(Mpar,{plot_Psi_BQS(b,q,s,
                            Psi_bb, Psi_qb, Psi_sb,
                            Psi_bq, Psi_qq, Psi_sq,
                            Psi_bs, Psi_qs, Psi_ss,
                            max_pt_sz=max_pt_sz, min_edge_frac=min_edge_frac,
                            r=r, arw_lng=arw_lng, lwd=lwd)
-  })}
+  }))}
 
 
 #' Visualize the one-bout dispersal matrices for a BQS model
@@ -151,7 +152,7 @@ plot_Psi.BQS = function(model,max_pt_sz=2,
 #'
 #' @return no visible return value
 #' @export
-plot_Psi_BQSmod = function(b,q,s,
+plot_all_Psi_BQS = function(b,q,s,
                         Psi_bb, Psi_qb, Psi_sb,
                         Psi_bq, Psi_qq, Psi_sq,
                         Psi_bs, Psi_qs, Psi_ss,
@@ -186,7 +187,7 @@ plot_Psi_BQSmod = function(b,q,s,
 #' @export
 plot_Psi_bb = function(b, q, Psi_bb,
                        max_pt_sz=2, min_edge_frac = 0.01,
-                       r=.01, arw_lng=0.05, lwd=2){
+                       r=.02, arw_lng=0.05, lwd=2){
 
   ## b to b
   frame_bq(b,q, mtl=expression(Psi[b %<-% b]))
@@ -213,9 +214,9 @@ plot_Psi_bq = function(b,q, Psi_bq,
                        max_pt_sz=2, min_edge_frac = 0.01,
                        r=.01, arw_lng=0.05, lwd=2){
   frame_bq(b, q, mtl = expression(Psi * scriptstyle(b %<-% q)))
-  add_points_q(q, max_pt_sz = 0.6)
   add_arrows_xy(q, b, Psi_bq, min_edge_frac=min_edge_frac,
                 r=r, arw_lng=arw_lng, lwd=lwd, clr="tomato")
+  add_points_q(q, max_pt_sz = 0.3)
   add_points_b(b, rowSums(Psi_bq), max_pt_sz = max_pt_sz)
   return(invisible())
 }
@@ -264,9 +265,9 @@ plot_Psi_qb = function(b, q, Psi_qb,
 
   ## b to q
   frame_bq(b, q, mtl = expression(Psi*scriptstyle(q %<-% b)))
-  add_points_b(b, max_pt_sz=0.6)
   add_arrows_xy(b, q, Psi_qb, min_edge_frac=min_edge_frac,
                 r=r, arw_lng=arw_lng, lwd=lwd, clr = "skyblue")
+  add_points_b(b, max_pt_sz=0.3)
   add_points_q(q, rowSums(Psi_qb), max_pt_sz=max_pt_sz)
   return(invisible())
 }

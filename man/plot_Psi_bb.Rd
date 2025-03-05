@@ -10,7 +10,7 @@ plot_Psi_bb(
   Psi_bb,
   max_pt_sz = 2,
   min_edge_frac = 0.01,
-  r = 0.01,
+  r = 0.02,
   arw_lng = 0.05,
   lwd = 2
 )

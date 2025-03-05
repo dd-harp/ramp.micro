@@ -126,7 +126,7 @@ setup_dispersal_BQS = function(model, opts = list(),
     model$Mpar$setup$ws = ws
     model$Mpar$setup$stayB=stayB
     model$Mpar$setup$stayQ=stayQ
-    model$Ppar$setup$stayS=stayS
+    model$Mpar$setup$stayS=stayS
     model = make_Psi_BQS(model)
     return(model)
   })})
@@ -214,7 +214,7 @@ make_demography_BQS = function(model){
     model$Mpar$Msq = Psi_sq %*% diag(pQ*(sigf*psiQ + sigq*(1-psiQ)), nq)
     # from s
     model$Mpar$Mbs = Psi_bs %*% diag(pS*psiS, ns)
-    model$Mpar$Mqs = 0*t(Msq)
+    model$Mpar$Mqs = 0*t(model$Mpar$Msq)
     model$Mpar$Mss = Psi_ss %*% diag(pS*(1-psiS), ns)
     # recently emerged adults
     model$Mpar$Mbl = Psi_bq %*% diag(pQ*(1-sigL), nq)

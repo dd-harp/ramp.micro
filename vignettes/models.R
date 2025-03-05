@@ -8,12 +8,15 @@ qq = unif_xy(289, -17, 17)
 ss = unif_xy(225, -17, 17) 
 
 ## -----------------------------------------------------------------------------
+head(bb,3)
+
+## -----------------------------------------------------------------------------
 ker_b = make_kF_exp(k=2, s=1, gamma=1.5)
 ker_q = make_kF_exp(k=2, s=2, gamma=2)
 ker_s = make_kF_exp(k=3, s=2, gamma=2)
 
 ## -----------------------------------------------------------------------------
-bq_dispersal = list(kFb = ker_b, kFq = ker_q)
+bq_dispersal = list(kFb = ker_b, kFq = ker_q, stayB=0.5, stayQ=0.5)
 bqs_dispersal = list(kFb = ker_b, kFq = ker_q, kFs=ker_s)
 
 ## ----eval=F-------------------------------------------------------------------
@@ -44,10 +47,15 @@ adult_opts2 = list(pB = rbeta(256, 96, 4), eip=12)
 #  ?setup_model
 
 ## -----------------------------------------------------------------------------
-bq_mod1 = setup_model(b=bb, q=qq, kFb=ker_b, kFq=ker_q, bionomic_opts = adult_opts1)
+bq_mod1 = setup_model(b=bb, q=qq, 
+                      kFb=ker_b, kFq=ker_q, 
+                      bionomic_opts = adult_opts1)
 
 ## -----------------------------------------------------------------------------
-bqs_mod1 = setup_model(b=bb, q=qq, s=ss, kFb = ker_b, kFq = ker_q, kFs = ker_s, bionomic_opts = adult_opts2)
+bqs_mod1 = setup_model(b=bb, q=qq, s=ss, 
+                       kFb = ker_b, kFq = ker_q, kFs = ker_s, 
+                       Mname = "BQS", 
+                       bionomic_opts = adult_opts2)
 
 ## -----------------------------------------------------------------------------
 save(bq_mod1, file = "bq_mod1.rda")
