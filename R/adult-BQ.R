@@ -40,10 +40,10 @@ save_states_M.BQ = function(t, model){
 #'
 #' @return a [numeric] value, the sum of squared differences
 #' @export
-compute_diffs_M.BQ = function(Mvars1, Mvars2){
-  dfs = sum((Mvars1$B - Mvars2$B)^2) + sum((Mvars1$Q - Mvars2$Q)^2)
+compute_diffs_M.BQ = function(model){with(model,{
+  dfs = sum((Mvars$B - steady$M$B)^2) + sum((Mvars$Q - steady$M$Q)^2)
   return (dfs)
-}
+})}
 
 #' Save the state variables in a vector
 #'

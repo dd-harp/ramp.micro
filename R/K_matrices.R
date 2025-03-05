@@ -28,7 +28,7 @@ make_Kbq = function(model, Tmax){
 #' @return the model, a compound [list]
 #' @export
 make_Kbb = function(model){
-  model$Mpar$Kbb = with(model$Mpar, Kqb %*% Kbq)
+  model$KGV$Kbb = with(model$KGV, Kqb %*% Kbq)
   return(model)
 }
 
@@ -39,7 +39,7 @@ make_Kbb = function(model){
 #' @return the model, a compound [list]
 #' @export
 make_Kqq = function(model){
-  model$Mpar$Kqq = with(model$Mpar, Kbq %*% Kqb)
+  model$KGV$Kqq = with(model$KGV, Kbq %*% Kqb)
   return(model)
 }
 
@@ -59,7 +59,7 @@ make_Kbq.BQ = function(model, Tmax=100){with(model, with(Mpar,{
     Kbq = Kbq + diag(pB*psiB, nb) %*% Psi_bb %*% Bt
     Bt = diag(pB*(1-psiB), nb) %*% Psi_bb %*% Bt
   }
-  model$Mpar$Kbq = Kbq
+  model$KGV$Kbq = Kbq
   return(model)
 }))}
 
@@ -79,7 +79,7 @@ make_Kqb.BQ = function(model, Tmax=100){with(model, with(Mpar,{
     Kqb = Kqb + diag(pQ*psiQ, nq) %*% Psi_qq %*% Qt
     Qt =diag(pQ*(1-psiQ), nq) %*% Psi_qq %*%Qt
   }
-  model$Mpar$Kqb = Kqb
+  model$KGV$Kqb = Kqb
   return(model)
 }))}
 
@@ -122,7 +122,7 @@ make_Kqb.BQS = function(model, Tmax=200){with(model,with(Mpar,{
   for(i in 1:Tmax) Kt = M%*%Kt
   Kt[-c(1:(nb+nq+ns)),]
 
-  model$Mpar$Kqb = Kt[nb+nq+ns+c(1:nb),]
+  model$KGV$Kqb = Kt[nb+nq+ns+c(1:nb),]
   return(model)
 }))}
 
@@ -163,7 +163,7 @@ make_Kbq.BQS = function(model, Tmax = 200){with(model,with(Mpar,{
   Kt = rbind(0*Mbb, Cno, 0*Mbs, Cyes)
   for(i in 1:Tmax) Kt = M%*%Kt
   Kt[-c(1:(nb+nq+ns)),]
-  model$Mpar$Kbq = Kt[nb+nq+ns+c(1:nq),]
+  model$KGV$Kbq = Kt[nb+nq+ns+c(1:nq),]
   return(model)
 }))}
 
@@ -187,12 +187,12 @@ plot_Kqb = function(model, max_pt_sz=2,
                     min_edge_frac=0.01, r=0.02, arw_lng=0.002, lwd=2,
                     clr_K="#4361eeCC", clr_b='red', clr_q ='darkblue'){
   with(model,with(Mpar,{
-    frame_bq(b, q, mtl = expression(K[q%<-%b]))
+    frame_bq(b, q, mtl = expression(K*scriptstyle(q%<-%b)))
     if(exists("s")) add_points_s(s, max_pt_sz=0.5)
-    add_arrows_xy(b, q, Kqb, min_edge_frac=min_edge_frac,
+    add_arrows_xy(b, q, KGV$Kqb, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, clr=clr_K)
     add_points_b(b, clr=clr_b, max_pt_sz=0.7)
-    add_points_qq(q, Kqb, max_pt_sz=max_pt_sz, colA=clr_q)
+    add_points_qq(q, KGV$Kqb, max_pt_sz=max_pt_sz, colA=clr_q)
   }))
   return(invisible())
 }
@@ -215,13 +215,13 @@ plot_Kbq = function(model, max_pt_sz=2,
                     min_edge_frac=0.01, r=0.02, arw_lng=0.002, lwd=2,
                     clr_K="#fe5f55CC", clr_b='darkred', clr_q="#858ae399"){
   with(model,with(Mpar,{
-    frame_bq(b, q, mtl = expression(K[b%<-%q]))
+    frame_bq(b, q, mtl = expression(K*scriptstyle(b%<-%q)))
     if(exists("s")) add_points_s(s, max_pt_sz=0.5)
-    add_arrows_xy(q, b, Kbq, min_edge_frac=min_edge_frac,
+    add_arrows_xy(q, b, KGV$Kbq, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, clr=clr_K)
     with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.7))
     add_points_q(q, max_pt_sz=0.7, clr=clr_q)
-    add_points_bb(b, Kbq, max_pt_sz=max_pt_sz, colB=clr_b)
+    add_points_bb(b, KGV$Kbq, max_pt_sz=max_pt_sz, colB=clr_b)
   }))
   return(invisible())
 }
@@ -247,12 +247,12 @@ plot_Kbb = function(model, max_pt_sz=2,
 ){
   with(model,with(Mpar,
        {
-         frame_bq(b, q, mtl = expression(K[b %<-%b]))
-         add_arrows_xx(b, Psi_bb, min_edge_frac=min_edge_frac,
+         frame_bq(b, q, mtl = expression(K*scriptstyle(b %<-%b)))
+         add_arrows_xx(b, KGV$Kbb, min_edge_frac=min_edge_frac,
                        r=r, arw_lng=arw_lng, lwd=lwd, arw_clr=arw_clr, seg_clr=seg_clr)
          with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.7))
          add_points_q(q, max_pt_sz=0.7, clr=clr_q)
-         add_points_bb(b, Kbb, max_pt_sz=max_pt_sz, colA=arw_clr, colB=clr_b)
+         add_points_bb(b, KGV$Kbb, max_pt_sz=max_pt_sz, colA=arw_clr, colB=clr_b)
        }))
   return(invisible())
 }
@@ -277,12 +277,12 @@ plot_Kqq = function(model, max_pt_sz=2,
                     arw_clr = "#abc4ff55", seg_clr ='#00000022',
                     clr_q="#858ae399", clr_b="#cc444bCC"){
   with(model,with(Mpar,{
-    frame_bq(b, q, mtl = expression(K[q %<-%q]))
+    frame_bq(b, q, mtl = expression(K*scriptstyle(q %<-%q)))
     with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.7))
-    add_arrows_xx(q, Psi_qq, min_edge_frac=min_edge_frac,
+    add_arrows_xx(q, KGV$Kqq, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, arw_clr=arw_clr, seg_clr=seg_clr)
     add_points_b(b, max_pt_sz=0.7, clr=clr_b)
-    add_points_qq(q, Kqq, max_pt_sz=max_pt_sz, colA=arw_clr, colB=clr_q)
+    add_points_qq(q, KGV$Kqq, max_pt_sz=max_pt_sz, colA=arw_clr, colB=clr_q)
   }))
   return(invisible())
 }

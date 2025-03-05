@@ -75,7 +75,7 @@ basic_analysis = function(model, burn=200, Tx=50, tol =1e-3, Tmax=200){
   model = steady_state(model, burn, Tx, tol)
   model = makeKGV(model, Tmax)
   model = make_tiles(model)
-  #model = make_all_graphs(model)
+  model = make_all_graphs(model)
   return(model)
 }
 
@@ -87,6 +87,7 @@ basic_analysis = function(model, burn=200, Tx=50, tol =1e-3, Tmax=200){
 #' @return the model, a compound [list]
 #' @export
 makeKGV = function(model, Tmax=200){
+  model$KGV <- list()
   model = make_Kbq(model, Tmax)
   model = make_Kqb(model, Tmax)
   model = make_Kbb(model)

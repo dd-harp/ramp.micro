@@ -34,13 +34,12 @@ save_states_L=function(t, model){
 
 #' The some of squared differences between two sets of variables
 #'
-#' @param Lvars1 variables describing adult mosquitoes, set 1
-#' @param Lvars2 variables describing adult mosquitoes, set 2
+#' @param model a model
 #'
 #' @return a [numeric] value, the sum of squared differences
 #' @export
-compute_diffs_L = function(Lvars1, Lvars2){
-  UseMethod("compute_diffs_L", Lvars1)
+compute_diffs_L = function(model){
+  UseMethod("compute_diffs_L", model$Lpar)
 }
 
 #' Initialize the Lstates
