@@ -34,9 +34,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-intro">
 <li><a class="dropdown-item" href="../articles/point_sets.html">Point Sets</a></li>
     <li><a class="dropdown-item" href="../articles/kernels.html">Kernels</a></li>
-    <li><a class="dropdown-item" href="../articles/adult.html">Adult Mosquito Models</a></li>
-    <li><a class="dropdown-item" href="../articles/aquatic.html">Aquatic Mosquito Models</a></li>
-    <li><a class="dropdown-item" href="../articles/models.html">Setting Up Models</a></li>
+    <li><a class="dropdown-item" href="../articles/models.html">Building a Model</a></li>
     <li><a class="dropdown-item" href="../articles/simulation.html">Simulation</a></li>
     <li><a class="dropdown-item" href="../articles/visualization.html">Visualization</a></li>
   </ul>
@@ -54,6 +52,8 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/dispersal.html">Mosquito Dispersal</a></li>
     <li><a class="dropdown-item" href="../articles/community.html">Communitites</a></li>
+    <li><a class="dropdown-item" href="../articles/adult.html">Modularity - Adult Mosquito Models</a></li>
+    <li><a class="dropdown-item" href="../articles/aquatic.html">Modularity - Aquatic Mosquito Models</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Functions</a></li>
@@ -92,10 +92,10 @@
 <code class="sourceCode R"><span><span class="va">dd</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">5</span>, by <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span></span>
 <span><span class="va">k1</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_mix.html">make_kF_mix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">1.5</span><span class="op">)</span></span>
 <span><span class="va">k2</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_mix.html">make_kF_mix</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">2</span>, <span class="fl">1</span>, delta<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></span>
-<span><span class="va">k3</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_mix.html">make_kF_mix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">1</span>, s<span class="op">=</span><span class="fl">.5</span><span class="op">)</span></span>
-<span><span class="va">k4</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_mix.html">make_kF_mix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">1</span>, s<span class="op">=</span><span class="fl">.5</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">k5</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_mix.html">make_kF_mix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">1</span>, s<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">k6</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_mix.html">make_kF_mix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">1</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">k3</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_mix.html">make_kF_mix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">1</span>, s1<span class="op">=</span><span class="fl">.5</span><span class="op">)</span></span>
+<span><span class="va">k4</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_mix.html">make_kF_mix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">1</span>, s1<span class="op">=</span><span class="fl">.5</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">k5</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_mix.html">make_kF_mix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">1</span>, s1<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">k6</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_mix.html">make_kF_mix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, <span class="fl">1</span>, s1<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">k1</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, xlab <span class="op">=</span> <span class="st">"Distance"</span>, ylab <span class="op">=</span> <span class="st">"Weight"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">k2</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">k3</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"violet"</span><span class="op">)</span></span>

@@ -96,7 +96,7 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_all_graphs.BQ.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_all_graphs.BQS.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_all_graphs.html</loc></url>
-<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_all_graphs_common.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_common_graphs.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hull_i.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hulls.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_demography_BQ.html</loc></url>
@@ -120,12 +120,7 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kbq.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kqb.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Kqq.html</loc></url>
-<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi.BQ.html</loc></url>
-<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi.BQS.html</loc></url>
-<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_BQ.html</loc></url>
-<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_BQSmod.html</loc></url>
-<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_BQmod.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_bb.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_bs.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_qb.html</loc></url>
@@ -134,6 +129,11 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_sb.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_sq.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_Psi_ss.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_all_Psi.BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_all_Psi.BQS.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_all_Psi.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_all_Psi_BQ.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_all_Psi_BQS.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_convex_hulls.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_G.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_dispersal_GG.html</loc></url>
