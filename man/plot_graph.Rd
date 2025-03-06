@@ -9,8 +9,9 @@ plot_graph(
   net,
   cut = NULL,
   alg = "wt",
-  f_color = turbo,
+  f_color = viridis::turbo,
   min_edge_frac = 0.01,
+  cx = 2,
   pw = 1,
   mtl = "",
   stretch = 0.1,
@@ -32,6 +33,8 @@ plot_graph(
 
 \item{min_edge_frac}{the fraction of the mass to plot}
 
+\item{cx}{cex for plotting points}
+
 \item{pw}{power relationship for scaling point size: pw=1 is linear}
 
 \item{mtl}{a plot title}
@@ -43,8 +46,6 @@ plot_graph(
 \item{arw_lng}{the arrow length}
 
 \item{lwd}{scale the line width}
-
-\item{cx}{cex for plotting points}
 }
 \value{
 invisible(NULL)

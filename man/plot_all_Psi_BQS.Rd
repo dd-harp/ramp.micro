@@ -19,7 +19,6 @@ plot_all_Psi_BQS(
   Psi_ss,
   cx_D = 2,
   cx_S = 0.3,
-  cx = 2,
   min_edge_frac = 0.01,
   r = 0.01,
   arw_lng = 0.05,

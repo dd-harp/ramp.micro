@@ -133,7 +133,7 @@ reference:
   - make_kF_exp
   - make_kF_pwr
   - make_kF_mix
-- subtitle: Dispersal Matrcies (Psi)
+- subtitle: Dispersal Matrices (Psi)
   desc: |
      Generate the single bout dispersal matrices
   contents:
@@ -303,21 +303,15 @@ reference:
 - subtitle: Visualize Networks
   desc: |
     Methods to set up and analyze communities
-- subtitle: Convex Hulls
-  desc: |
-    Methods to compute and visualize convex hulls around communities
-  contents:
+  - plot_graph
   - plot_convex_hulls
   - add_convex_hulls
-  - mod_convex_hulls
-  - mod_convex_hulls.i
   - stretch_convex_hull
 - subtitle: Visualize Metapopulation
   desc: |
      Metapopulations
   contents:
   - plot_patches
-  - plot_graph
 - title: Utilites
   desc: |
      Methods to help streamline matrix visualization
