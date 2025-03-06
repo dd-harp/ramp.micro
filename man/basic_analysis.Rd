@@ -15,7 +15,7 @@ basic_analysis(model, burn = 200, Tx = 50, tol = 0.001, Tmax = 200)
 
 \item{tol}{tolerance for [steady_state]}
 
-\item{Tmax}{runtime for [makeKGV]}
+\item{Tmax}{runtime for [compute_KGV]}
 }
 \value{
 model, a compound [list]

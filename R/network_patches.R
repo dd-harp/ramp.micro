@@ -7,7 +7,7 @@
 #' @importFrom igraph membership cut_at
 #' @returns a ramp.micro model object
 #' @export
-net2meta =function(model, i, cut=NULL){
+net2patches =function(model, i, cut=NULL){
   net = get_net(model, i)
   clusters = net$clusters_walktrap
   if(net$type == "b") xy = model$b
@@ -40,11 +40,11 @@ net2meta =function(model, i, cut=NULL){
   pop1 = pop
   diag(pop1)<-0
   p.connect = pop1%*% diag(1/colSums(pop))
-  model$meta = list(pop=pop, self=self, p.self=p.self, p.connect=p.connect, connect=pop1, centers=cntr)
+  model$patches = list(pop=pop, self=self, p.self=p.self, p.connect=p.connect, connect=pop1, centers=cntr)
   return(model)
 }
 
-#' Visualize the metapopulation approximation
+#' Visualize the patchespopulation approximation
 #'
 #' @param model a ramp.micro model object
 #' @param i the graph
@@ -55,15 +55,15 @@ net2meta =function(model, i, cut=NULL){
 #'
 #' @returns invisible(NULL)
 #' @export
-plot_meta = function(model, i, cut=NULL, lwd=2, bbend=3, mtl = NULL){
+plot_patches = function(model, i, cut=NULL, lwd=2, bbend=3, mtl = NULL){
   net = get_net(model, i)
-  model = net2meta(model, i, cut)
-  n = dim(model$meta$centers)[1]
+  model = net2patches(model, i, cut)
+  n = dim(model$patches$centers)[1]
   clrs = viridis::turbo(n)[sample(1:n)]
   with(model, frame_bq(b,q, mtl))
-  graphics::points(model$meta$centers, col = clrs)
+  graphics::points(model$patches$centers, col = clrs)
   net <- make_convex_hulls(model, net, cut, f_color = viridis::turbo)
   plot_convex_hulls(net, lwd=lwd)
-  with(model, add_bent_arrows_xx(meta$centers, meta$p.connect, bbend=bbend, clr=clrs))
+  with(model, add_bent_arrows_xx(patches$centers, patches$p.connect, bbend=bbend, clr=clrs))
   return(invisible())
 }

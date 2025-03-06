@@ -2,7 +2,7 @@
 % Please edit documentation in R/adult-BQS.R
 \name{compute_diffs_M.BQS}
 \alias{compute_diffs_M.BQS}
-\title{The some of squared differences between two sets of variables}
+\title{The sum of squared differences between the state and putative steady state}
 \usage{
 \method{compute_diffs_M}{BQS}(model)
 }
@@ -13,5 +13,5 @@
 a [numeric] value, the sum of squared differences
 }
 \description{
-The some of squared differences between two sets of variables
+The sum of squared differences between the state and putative steady state
 }

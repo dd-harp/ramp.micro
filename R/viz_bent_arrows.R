@@ -52,9 +52,9 @@ add_bent_arrows_xx = function(xy, M, mnwd=0.05, bbend=1, adj=2, endd=0.75, clr =
       if (M[j,i]> mnwd*max(M)){
         fac = M[j,i]*adj
         diagram::curvedarrow(xy[i,], xy[j,],
-                    segment=c(0.1, endd), lwd=fac, curve = 0.01*bbend,
-                    arr.pos=endd, arr.length=0.15*fac, arr.width=0.1*fac,
-                    arr.type="curved", arr.col = clr, lcol = clr[i])
+                             segment=c(0.1, endd), lwd=fac, curve = 0.01*bbend,
+                             arr.pos=endd, arr.length=0.15*fac, arr.width=0.1*fac,
+                             arr.type="curved", arr.col = clr, lcol = clr[i])
       }
   return(invisible())
 }

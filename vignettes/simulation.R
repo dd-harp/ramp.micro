@@ -4,6 +4,9 @@ library(knitr)
 library(viridis)
 library(ramp.micro)
 
+## ----echo=F-------------------------------------------------------------------
+#devtools::load_all()
+
 ## -----------------------------------------------------------------------------
 set.seed(24328)
 bb = unif_xy(256, -17, 17) 
@@ -30,7 +33,7 @@ Psi_qq = make_Psi_xx(qq, kFq, stay=0.5)
 
 ## ----fig.height=8, fig.width=8------------------------------------------------
 par(mfcol = c(2,2), mar = c(1,2,1,2))
-plot_all_Psi_BQ(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq, r=0.5, max_pt_sz=1.5)
+plot_all_Psi_BQ(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq, r=0.5, cx_D=1.5, cx_S=0.5)
 
 ## -----------------------------------------------------------------------------
 model = setup_model(bb, qq, kFb = kFb, kFq = kFq)
@@ -50,9 +53,9 @@ model <- SIM(model)
 ## ----fig.height=6, fig.width=6------------------------------------------------
 par(mar = c(1,1,1,1))
 plot_points(model, 
-            bwts=model$states$M$B_t[[201]], 
-            qwts= model$states$M$B_t[[201]], 
-            max_pt_sz=2)
+            wts_b = model$states$M$B_t[[60]], 
+            wts_q = model$states$M$B_t[[60]], 
+            cx_b=2, cx_q=2)
 
 ## -----------------------------------------------------------------------------
 model <- steady_state(model)
@@ -60,7 +63,7 @@ model <- steady_state(model)
 ## ----fig.height=6, fig.width=6------------------------------------------------
 par(mar = c(1,1,1,1))
 plot_points(model, 
-            bwts=model$steady$M$B,
-            qwts=model$steady$M$Q,
-            max_pt_sz=2)
+            wts_b=model$steady$M$B,
+            wts_q=model$steady$M$Q,
+            cx_b=2, cx_q=2)
 

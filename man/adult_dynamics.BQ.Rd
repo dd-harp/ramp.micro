@@ -2,7 +2,7 @@
 % Please edit documentation in R/adult-BQ.R
 \name{adult_dynamics.BQ}
 \alias{adult_dynamics.BQ}
-\title{Simulate adult dynamics for the `BQ` model}
+\title{Update States for the `BQ` model}
 \usage{
 \method{adult_dynamics}{BQ}(t, model)
 }
@@ -15,5 +15,5 @@
 model, a compound [list]
 }
 \description{
-Simulate adult dynamics for the `BQ` model
+Update States for the `BQ` model
 }

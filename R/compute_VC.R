@@ -85,8 +85,8 @@ compute_VC = function(model){with(model,{
 #' Visualize lifetime transmission from a site, per mosquito
 #'
 #' @param model a compound [list] defining a model
-#' @param max_pt_sz_b the maximum cex for blood feeding sites
-#' @param max_pt_sz_q the maximum cex for egg laying sites
+#' @param cx_b the maximum cex for blood feeding sites
+#' @param cx_q the maximum cex for egg laying sites
 #' @param min_edge_frac the fraction of the mass to plot
 #' @param r the radius of a ring around destination points
 #' @param arw_lng the arrow length
@@ -98,16 +98,16 @@ compute_VC = function(model){with(model,{
 #' @return invisible(NULL)
 #' @export
 plot_dispersal_V = function(model,
-                            max_pt_sz_b = 2, max_pt_sz_q = 0.3,
+                            cx_b = 2, cx_q = 0.3,
                             min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2, lamp=1,
                             arw_clr="darkolivegreen4", seg_clr="orangered3"){
   with(model,with(Mpar,{
     par(mar=c(2,2,2,2))
     frame_bq(b, q, mtl = "Potential Parasite Dispersal, per Mosquito")
-    add_points_q(q, max_pt_sz = max_pt_sz_q)
+    add_points_q(q, cx_q = cx_q)
     add_arrows_xx(b, KGV$V, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
                   lamp=lamp, arw_clr=arw_clr, seg_clr=seg_clr)
-    add_points_bb(b, KGV$V, max_pt_sz = max_pt_sz_b)
+    add_points_bb(b, KGV$V, cx_b = cx_b)
   }))
   return(invisible())
 }
@@ -115,8 +115,8 @@ plot_dispersal_V = function(model,
 #' Visualize lifetime transmission from a site by mosquito populations
 #'
 #' @param model a compound [list] defining a model
-#' @param max_pt_sz_b the maximum cex for blood feeding sites
-#' @param max_pt_sz_q the maximum cex for egg laying sites
+#' @param cx_b the maximum cex for blood feeding sites
+#' @param cx_q the maximum cex for egg laying sites
 #' @param min_edge_frac the fraction of the mass to plot
 #' @param r the radius of a ring around destination points
 #' @param arw_lng the arrow length
@@ -128,15 +128,15 @@ plot_dispersal_V = function(model,
 #' @return invisible(NULL)
 #' @export
 plot_dispersal_VV = function(model,
-                             max_pt_sz_b = 2.5, max_pt_sz_q = 0.3,
+                             cx_b = 2.5, cx_q = 0.3,
                              min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2, lamp=1,
                              arw_clr="springgreen4", seg_clr="firebrick3"){
   with(model,with(Mpar,{
     frame_bq(b, q, mtl = "Potential Parasite Dispersal, Population")
     add_arrows_xx(b, KGV$VC, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
                   lamp=lamp, arw_clr=arw_clr, seg_clr=seg_clr)
-    add_points_q(q, max_pt_sz = max_pt_sz_q)
-    add_points_bb(b, KGV$VC, max_pt_sz = max_pt_sz_b)
+    add_points_q(q, cx_q = cx_q)
+    add_points_bb(b, KGV$VC, cx_b = cx_b)
   }))
   return(invisible())
 }
