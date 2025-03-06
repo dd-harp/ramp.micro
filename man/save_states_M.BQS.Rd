@@ -2,7 +2,7 @@
 % Please edit documentation in R/adult-BQS.R
 \name{save_states_M.BQS}
 \alias{save_states_M.BQS}
-\title{Save the state variables in a vector}
+\title{Store the state variables for the BQS model}
 \usage{
 \method{save_states_M}{BQS}(t, model)
 }
@@ -15,5 +15,5 @@
 a [list] with the most recent states
 }
 \description{
-Save the state variables in a vector
+Store the state variables for the BQS model
 }

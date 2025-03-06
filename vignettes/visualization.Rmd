@@ -8,4 +8,24 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r}
+library(ramp.micro)
+```
+
 ## 
+
+```{r}
+load("bq_mod1.rda")
+load("bqs_mod1.rda")
+```
+
+## Plot Points
+
+```{r, fig.height=4, fig.width=8}
+par(mfrow = c(1,2), mar = c(1,1,1,1))
+plot_points(bq_mod1)
+plot_points(bqs_mod1)
+```
+## Dispersal 
+
+

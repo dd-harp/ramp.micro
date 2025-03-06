@@ -72,8 +72,8 @@ compute_GG = function(model){with(model,{
 #' Plot lifetime egg dispersal, per mosquito
 #'
 #' @param model a model defined as a compound [list]
-#' @param mx_pt_sz_b the maximum cex for blood feeding sites
-#' @param mx_pt_sz_q the maximum cex for egg laying sites
+#' @param cx_b the maximum cex for blood feeding sites
+#' @param cx_q the maximum cex for egg laying sites
 #' @param min_edge_frac the fraction of the mass to plot
 #' @param r the radius of a ring around destination points
 #' @param arw_lng the arrow length
@@ -85,16 +85,16 @@ compute_GG = function(model){with(model,{
 #' @return invisible(NULL)
 #' @export
 plot_dispersal_G = function(model,
-                            mx_pt_sz_b = 0.3, mx_pt_sz_q = 2,
+                            cx_b = 0.3, cx_q = 2,
                             min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2, lamp=1,
                             seg_clr="lightblue", arw_clr="salmon"){
   with(model,with(Mpar,{
     par(mar=c(2,2,2,2))
     frame_bq(b, q, mtl = "Lifetime Egg Dispersal, per Mosquito")
-    add_points_b(b, max_pt_sz = mx_pt_sz_b)
+    add_points_b(b, cx_b = cx_b)
     add_arrows_xx(q, KGV$G, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
                   lamp=lamp, arw_clr=arw_clr, seg_clr=seg_clr)
-    add_points_qq(q, KGV$G, max_pt_sz = mx_pt_sz_q)
+    add_points_qq(q, KGV$G, cx_q = cx_q)
   }))
   return(invisible())
 }
@@ -102,8 +102,8 @@ plot_dispersal_G = function(model,
 #' Plot lifetime egg dispersal by a mosquito population
 #'
 #' @param model a model defined as a compound [list]
-#' @param mx_pt_sz_b the maximum cex for blood feeding sites
-#' @param mx_pt_sz_q the maximum cex for egg laying sites
+#' @param cx_b the maximum cex for blood feeding sites
+#' @param cx_q the maximum cex for egg laying sites
 #' @param min_edge_frac the fraction of the mass to plot
 #' @param r the radius of a ring around destination points
 #' @param arw_lng the arrow length
@@ -115,15 +115,15 @@ plot_dispersal_G = function(model,
 #' @return invisible(NULL)
 #' @export
 plot_dispersal_GG = function(model,
-                             mx_pt_sz_b = 0.3, mx_pt_sz_q = 2.5,
+                             cx_b = 0.3, cx_q = 2.5,
                              min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2, lamp=1,
                              seg_clr="steelblue", arw_clr="chocolate"){
   with(model,with(Mpar,{
     frame_bq(b, q, mtl = "Lifetime Egg Dispersal, Population")
     add_arrows_xx(q, KGV$GG, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
                   lamp=lamp, arw_clr=arw_clr, seg_clr=seg_clr)
-    add_points_b(b, max_pt_sz = mx_pt_sz_b)
-    add_points_qq(q, KGV$GG, max_pt_sz = mx_pt_sz_q)
+    add_points_b(b, cx_b = cx_b)
+    add_points_qq(q, KGV$GG, cx_q = cx_q)
   }))
   return(invisible())
 }

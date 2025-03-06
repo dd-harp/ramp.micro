@@ -53,107 +53,6 @@ home:
         title: Changelog
         text: <a href="news/index.html">News</a>
 reference:
-- title: Point Sets
-  desc: |
-    Functions that generate and visualize resource point sets
-- subtitle: Generate Point Sets
-  desc: |
-    Utilities to generate point sets
-  contents:
-  - unif_xy
-  - lattice
-  - clusters_xy
-  - clusters_nm
-- title: Search & Dispersal
-  desc: |
-    Utilities for dispersal and demographic matrices
-- subtitle: Kernels
-  desc: |
-     Functions to compute search weights by distance
-  contents:
-  - make_kF_exp
-  - make_kF_pwr
-  - make_kF_mix
-- subtitle: Make Psi
-  desc: |
-     Generate the single bout dispersal matrices
-  contents:
-  - make_Psi_xy
-  - make_Psi_xx
-- title: Simulation
-  desc: |
-    Utilities for setting up Models
-  contents:
-  - SIM
-  - steady_state
-  - setup_model
-  - make_movie
-  - make_movie.BQ
-  - make_movie.BQS
-  - basic_analysis
-  - makeKGV
-  - make_model_squareLattice
-  - make_model_unif
-- title: Analyzing Dispersal
-  desc: |
-    Utilities for analyzing movement
-- subtitle: Make K
-  desc: |
-     Generate matrices describing feeding or egg laying within a single feeding cycle
-  contents:
-  - make_Kqb
-  - make_Kqb.BQ
-  - make_Kqb.BQS
-  - make_Kbq
-  - make_Kbq.BQ
-  - make_Kbq.BQS
-  - make_Kbb
-  - make_Kqq
-- subtitle: Plot K
-  desc: |
-     Plot matrices describing feeding or egg laying within a single feeding cycle
-  contents:
-  - plot_Kbq
-  - plot_Kqb
-  - plot_Kbb
-  - plot_Kqq
-- subtitle: Egg Laying
-  desc: |
-     Methods to compute and visualize egg dispersal across a mosquito generation
-  contents:
-  - compute_G
-  - compute_G.BQ
-  - compute_G.BQS
-  - compute_GG
-  - plot_dispersal_G
-  - plot_dispersal_GG
-- subtitle: Parasite transmission potential
-  desc: |
-     Methods to compute and visualize parasite transmission potential
-  contents:
-  - compute_V
-  - compute_V.BQ
-  - compute_V.BQS
-  - compute_VC
-  - plot_dispersal_V
-  - plot_dispersal_VV
-- subtitle: Utilites for matrices
-  desc: |
-     Methods to help streamline matrix visualization
-  contents:
-  - decompM
-  - cutoffValue
-  - edgeSubset_fracMass
-  - edgeSubset
-  - get_matrix
-  - get_net
-- subtitle: Compute distances dispersed
-  desc: |
-     Methods to compute the PMF and CMF for distances dispersed
-  contents:
-  - dispersal_PMF
-  - plotDDpmf
-  - plotDDcmf
 - title: Adult Mosquito Models
   desc: |
     Methods to set up and compute adult mosquito models
@@ -216,17 +115,97 @@ reference:
   - compute_diffs_L.basicL
   - setup_aquatic_model.basicL
   - setup_aquatic_model_basicL
+- title: Setup
+  desc: |
+    Functions
+- subtitle: Point Sets
+  desc: |
+    Utilities to generate point sets
+  contents:
+  - unif_xy
+  - lattice
+  - clusters_xy
+  - clusters_nm
+- subtitle: Kernels
+  desc: |
+     Functions to compute search weights by distance
+  contents:
+  - make_kF_exp
+  - make_kF_pwr
+  - make_kF_mix
+- subtitle: Dispersal Matrcies (Psi)
+  desc: |
+     Generate the single bout dispersal matrices
+  contents:
+  - make_Psi_xy
+  - make_Psi_xx
+- subtitle: Setup Model
+  desc: |
+    Utilities for setting up Models
+  contents:
+  - setup_model
+  - make_model_squareLattice
+  - make_model_unif
+- title: Simulation
+  desc: |
+    Utilities for setting up Models
+  contents:
+  - SIM
+  - steady_state
+- title: Analysis of Dispersal
+  desc: |
+    Utilities for analyzing movement
+  contents:
+  - dispersal_PMF
+  - compute_KGV
+  - basic_analysis
+- subtitle: Compute K Matrices
+  desc: |
+     Generate matrices describing feeding or egg laying within a single feeding cycle
+  contents:
+  - compute_Kqb
+  - compute_Kqb.BQ
+  - compute_Kqb.BQS
+  - compute_Kbq
+  - compute_Kbq.BQ
+  - compute_Kbq.BQS
+  - compute_Kbb
+  - compute_Kqq
+- subtitle: Compute Dispersal of Eggs
+  desc: |
+     Compute matrices describing net dispersal of Eggs
+  contents:
+  - compute_G
+  - compute_G.BQ
+  - compute_G.BQS
+  - compute_GG
+- subtitle: Compute Potential Transmission
+  desc: |
+     Compute matrices describing net dispersal of Eggs
+  contents:
+  - compute_V
+  - compute_V.BQ
+  - compute_V.BQS
+  - compute_VC
+- subtitle: Compute Distances Dispersed
+  desc: |
+     Methods to compute the PMF and CMF for distances dispersed
+  contents:
+  - plotDDpmf
+  - plotDDcmf
 - title: Network Analysis
   desc: |
     Methods to set up and analyze communities
-- subtitle: Convex Hulls
+- subtitle: Graphs
   desc: |
-    Methods to compute and visualize convex hulls around communities
+     Make Graphs
   contents:
-  - make_convex_hulls
-  - make_convex_hull_i
-  - plot_convex_hulls
-  - stretch_convex_hull
+  - make_graph_obj
+  - make_common_graphs
+  - make_all_graphs
+  - make_all_graphs.BQ
+  - make_all_graphs.BQS
+  - net2patches
 - subtitle: Tesselate
   desc: |
     Methods to compute and visualize using Delauney / Dirichlet methods
@@ -234,9 +213,15 @@ reference:
   - make_tiles
   - make_tiles.BQ
   - make_tiles.BQS
+- subtitle: Convex Hulls
+  desc: |
+    Methods to compute and visualize convex hulls around communities
+  contents:
+  - make_convex_hulls
+  - make_convex_hull_i
 - title: Visualization
   desc: |
-    Methods to visualize objects
+     Visualization
 - subtitle: Visualize Point Sets
   desc: |
     Utilities to visualize point sets
@@ -249,12 +234,14 @@ reference:
   - frame_bq
   - frame_bqs
   - add_points_b
+  - outline_points_b
   - add_points_bb
   - add_points_q
+  - outline_points_q
   - add_points_qq
   - add_points_s
   - add_points_ss
-- subtitle: Plot Dispersal Matrices
+- subtitle: Visualize Matrices
   desc: |
      Visualize a generic dispersal matrix
   contents:
@@ -268,7 +255,14 @@ reference:
   - add_nth_segment
   - add_bent_arrows_xy
   - add_bent_arrows_xx
-- subtitle: Plot Psi
+- subtitle: Visualize Populations
+  desc: |
+     Visualize Mosquito Populations
+  contents:
+  - make_movie
+  - make_movie.BQ
+  - make_movie.BQS
+- subtitle: Visualize Psi Matrices
   desc: |
      Plot the single bout dispersal matrices
   contents:
@@ -286,18 +280,51 @@ reference:
   - plot_all_Psi_BQ
   - plot_all_Psi.BQS
   - plot_all_Psi_BQS
-- title: Graphs
+- subtitle: Visualize K Matrices
   desc: |
-     Make Graphs
+     Plot matrices describing feeding or egg laying within a single feeding cycle
   contents:
-  - make_graph_obj
-  - make_common_graphs
-  - make_all_graphs
-  - make_all_graphs.BQ
-  - make_all_graphs.BQS
-- title: Metapopulations
+  - plot_Kbq
+  - plot_Kqb
+  - plot_Kbb
+  - plot_Kqq
+- subtitle: Visualize Egg Dispersal
+  desc: |
+     Methods to compute and visualize egg dispersal across a mosquito generation
+  contents:
+  - plot_dispersal_G
+  - plot_dispersal_GG
+- subtitle: Visualize Transmission Potential
+  desc: |
+     Methods to compute and visualize parasite transmission potential
+  contents:
+  - plot_dispersal_V
+  - plot_dispersal_VV
+- subtitle: Visualize Networks
+  desc: |
+    Methods to set up and analyze communities
+- subtitle: Convex Hulls
+  desc: |
+    Methods to compute and visualize convex hulls around communities
+  contents:
+  - plot_convex_hulls
+  - add_convex_hulls
+  - mod_convex_hulls
+  - mod_convex_hulls.i
+  - stretch_convex_hull
+- subtitle: Visualize Metapopulation
   desc: |
      Metapopulations
   contents:
-  - net2meta
-  - plot_meta
+  - plot_patches
+  - plot_graph
+- title: Utilites
+  desc: |
+     Methods to help streamline matrix visualization
+  contents:
+  - decompM
+  - cutoffValue
+  - edgeSubset_fracMass
+  - edgeSubset
+  - get_matrix
+  - get_net

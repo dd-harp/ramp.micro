@@ -71,13 +71,13 @@ setup_model = function(b, q, s=c(),
 #' @param burn the burn argument for [steady_state]
 #' @param Tx block size argument for [steady_state]
 #' @param tol tolerance for [steady_state]
-#' @param Tmax runtime for [makeKGV]
+#' @param Tmax runtime for [compute_KGV]
 #'
 #' @return model, a compound [list]
 #' @export
 basic_analysis = function(model, burn=200, Tx=50, tol =1e-3, Tmax=200){
   model = steady_state(model, burn, Tx, tol)
-  model = makeKGV(model, Tmax)
+  model = compute_KGV(model, Tmax)
   model = make_tiles(model)
   model = make_all_graphs(model)
   return(model)
@@ -90,12 +90,12 @@ basic_analysis = function(model, burn=200, Tx=50, tol =1e-3, Tmax=200){
 #'
 #' @return the model, a compound [list]
 #' @export
-makeKGV = function(model, Tmax=200){
+compute_KGV= function(model, Tmax=200){
   model$KGV <- list()
-  model = make_Kbq(model, Tmax)
-  model = make_Kqb(model, Tmax)
-  model = make_Kbb(model)
-  model = make_Kqq(model)
+  model = compute_Kbq(model, Tmax)
+  model = compute_Kqb(model, Tmax)
+  model = compute_Kbb(model)
+  model = compute_Kqq(model)
   model = compute_G(model, Tmax)
   model = compute_GG(model)
   model = compute_V(model, Tmax)

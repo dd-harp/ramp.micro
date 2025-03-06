@@ -2,7 +2,7 @@
 % Please edit documentation in R/adult-BQS.R
 \name{adult_dynamics.BQS}
 \alias{adult_dynamics.BQS}
-\title{Simulate adult dynamics for the `BQ` model: one time step}
+\title{Update States for the `BQS` model: one time step}
 \usage{
 \method{adult_dynamics}{BQS}(t, model)
 }
@@ -15,5 +15,5 @@
 model, a compound [list]
 }
 \description{
-Simulate adult dynamics for the `BQ` model: one time step
+Update States for the `BQS` model: one time step
 }

@@ -14,6 +14,10 @@ library(viridis)
 library(ramp.micro)
 ```
 
+```{r, echo=F}
+#devtools::load_all()
+```
+
 ## Introduction
 
 If we want to target vector interventions for malaria spatially, fine-grained spatial simulations can be useful. Fine-grained models can be difficult to formulate and implement, but they make it possible to conduct thought experiments to test ideas about mosquito populations, such as the robustness of metrics we use to measure mosquito populations, spatial targeting, and spatial aspects of vector control coverage and effect sizes. 
@@ -66,7 +70,7 @@ Psi_qq = make_Psi_xx(qq, kFq, stay=0.5)
 
 ```{r, fig.height=8, fig.width=8}
 par(mfcol = c(2,2), mar = c(1,2,1,2))
-plot_all_Psi_BQ(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq, r=0.5, max_pt_sz=1.5)
+plot_all_Psi_BQ(bb, qq, Psi_bb, Psi_qb, Psi_bq, Psi_qq, r=0.5, cx_D=1.5, cx_S=0.5)
 ```
 
 
@@ -107,9 +111,9 @@ The population densities are highly heterogeneous, even though the habitats and 
 ```{r, fig.height=6, fig.width=6}
 par(mar = c(1,1,1,1))
 plot_points(model, 
-            bwts=model$states$M$B_t[[201]], 
-            qwts= model$states$M$B_t[[201]], 
-            max_pt_sz=2)
+            wts_b = model$states$M$B_t[[60]], 
+            wts_q = model$states$M$B_t[[60]], 
+            cx_b=2, cx_q=2)
 ```
 
 ### Steady States
@@ -123,7 +127,7 @@ model <- steady_state(model)
 ```{r, fig.height=6, fig.width=6}
 par(mar = c(1,1,1,1))
 plot_points(model, 
-            bwts=model$steady$M$B,
-            qwts=model$steady$M$Q,
-            max_pt_sz=2)
+            wts_b=model$steady$M$B,
+            wts_q=model$steady$M$Q,
+            cx_b=2, cx_q=2)
 ```

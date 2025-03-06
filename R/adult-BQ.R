@@ -1,5 +1,5 @@
 
-#' Simulate adult dynamics for the `BQ` model
+#' Update States for the `BQ` model
 #'
 #' @inheritParams adult_dynamics
 #'
@@ -184,12 +184,12 @@ make_demography_BQ = function(model){
     model$Mpar$Mbl = Psi_bq %*% diag(pQ, nq)
     # the "hardened adult" mosquito population dispersal matrix
     model$Mpar$bigM = with(model$Mpar,
-      rbind(
-        cbind(Mbb, Mbq),
-        cbind(Mqb, Mqq))
-      )
+                           rbind(
+                             cbind(Mbb, Mbq),
+                             cbind(Mqb, Mqq))
+    )
     return(model)
-})})})}
+  })})})}
 
 #' Setup a BQ model for adult mosquitoes
 #'

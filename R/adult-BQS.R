@@ -1,4 +1,4 @@
-#' Simulate adult dynamics for the `BQ` model: one time step
+#' Update States for the `BQS` model: one time step
 #'
 #' @param t the current time
 #' @param model a model defined as a compound [list]
@@ -22,7 +22,7 @@ adult_dynamics.BQS = function(t, model){
   })})
 }
 
-#' Save the state variables in a vector
+#' Store the state variables for the BQS model
 #'
 #' @param t the current time
 #' @param model a model defined as a compound [list]
@@ -37,7 +37,7 @@ save_states_M.BQS = function(t, model){
   return(model)
 }
 
-#' The some of squared differences between two sets of variables
+#' The sum of squared differences between the state and putative steady state
 #'
 #' @inheritParams compute_diffs_M
 #'
