@@ -13,7 +13,7 @@
 #'
 #' @return invisible(NULL)
 #' @export
-add_arrows_xy = function(xy_launch, xy_land, M, min_edge_frac=0.95,
+add_arrows_xy = function(xy_launch, xy_land, M, min_edge_frac=0.01,
                          r=0, arw_lng=0.1, lwd=2, lamp=1, clr="darkgreen"){
   n1 = dim(xy_launch)[1]
   n2 = dim(xy_land)[1]
@@ -40,7 +40,7 @@ add_arrows_xy = function(xy_launch, xy_land, M, min_edge_frac=0.95,
 #'
 #' @return invisible(NULL)
 #' @export
-add_arrows_xx = function(xy, M, min_edge_frac=.99, r=0, arw_lng=.1, lwd=5, lamp=1,
+add_arrows_xx = function(xy, M, min_edge_frac=.01, r=0, arw_lng=.1, lwd=5, lamp=1,
                          arw_clr = "darkgreen", seg_clr= "#CCCCCC"){
   Mtot = M + t(M)
   Mfrac = M/Mtot

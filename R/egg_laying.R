@@ -64,7 +64,7 @@ compute_G.BQS = function(model, Tmax=50){with(model, with(Mpar,{
 #' @export
 compute_GG = function(model){with(model,{
   if(!exists("model$steady$Q")) model = steady_state(model)
-  model$KGV$GG = with(model,Mpar$G %*% diag(as.vector(steady$M$Q)))
+  model$KGV$GG = with(model,KGV$G %*% diag(as.vector(steady$M$Q)))
   return(model)
 })}
 
@@ -85,7 +85,7 @@ compute_GG = function(model){with(model,{
 #' @return invisible(NULL)
 #' @export
 plot_dispersal_G = function(model,
-                            mx_pt_sz_b = 0.7, mx_pt_sz_q = 2,
+                            mx_pt_sz_b = 0.3, mx_pt_sz_q = 2,
                             min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2, lamp=1,
                             seg_clr="lightblue", arw_clr="salmon"){
   with(model,with(Mpar,{
@@ -115,15 +115,14 @@ plot_dispersal_G = function(model,
 #' @return invisible(NULL)
 #' @export
 plot_dispersal_GG = function(model,
-                             mx_pt_sz_b = 0.7, mx_pt_sz_q = 2,
+                             mx_pt_sz_b = 0.3, mx_pt_sz_q = 2.5,
                              min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2, lamp=1,
                              seg_clr="steelblue", arw_clr="chocolate"){
   with(model,with(Mpar,{
-    par(mar=c(2,2,2,2))
     frame_bq(b, q, mtl = "Lifetime Egg Dispersal, Population")
-    add_points_b(b, max_pt_sz = mx_pt_sz_b)
     add_arrows_xx(q, KGV$GG, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
                   lamp=lamp, arw_clr=arw_clr, seg_clr=seg_clr)
+    add_points_b(b, max_pt_sz = mx_pt_sz_b)
     add_points_qq(q, KGV$GG, max_pt_sz = mx_pt_sz_q)
   }))
   return(invisible())

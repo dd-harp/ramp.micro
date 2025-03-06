@@ -63,12 +63,12 @@ edgeSubset = function(M, min_edge_frac=0.01){
 #' 5. V; 6. VV;
 #' 7. M; 8. MM;
 #'
-#' @param i an index for the type of model
 #' @param model a model defined as a compound [list]
+#' @param i an index for the type of model
 #'
 #' @return a dispersion matrix
 #' @export
-get_matrix = function(i, model){
+get_matrix = function(model, i){
   if(i==1) M = model$KGV$Kbb
   if(i==2) M = model$KGV$Kqq
   if(i==3) M = model$KGV$G

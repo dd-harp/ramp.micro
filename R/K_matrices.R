@@ -28,7 +28,7 @@ make_Kbq = function(model, Tmax){
 #' @return the model, a compound [list]
 #' @export
 make_Kbb = function(model){
-  model$KGV$Kbb = with(model$KGV, Kqb %*% Kbq)
+  model$KGV$Kbb = with(model$KGV, Kbq %*% Kqb)
   return(model)
 }
 
@@ -39,7 +39,7 @@ make_Kbb = function(model){
 #' @return the model, a compound [list]
 #' @export
 make_Kqq = function(model){
-  model$KGV$Kqq = with(model$KGV, Kbq %*% Kqb)
+  model$KGV$Kqq = with(model$KGV, Kqb %*% Kbq)
   return(model)
 }
 
@@ -188,10 +188,10 @@ plot_Kqb = function(model, max_pt_sz=2,
                     clr_K="#4361eeCC", clr_b='red', clr_q ='darkblue'){
   with(model,with(Mpar,{
     frame_bq(b, q, mtl = expression(K*scriptstyle(q%<-%b)))
-    if(exists("s")) add_points_s(s, max_pt_sz=0.5)
     add_arrows_xy(b, q, KGV$Kqb, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, clr=clr_K)
-    add_points_b(b, clr=clr_b, max_pt_sz=0.7)
+    with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.3))
+    add_points_b(b, clr=clr_b, max_pt_sz=0.3)
     add_points_qq(q, KGV$Kqb, max_pt_sz=max_pt_sz, colA=clr_q)
   }))
   return(invisible())
@@ -216,11 +216,10 @@ plot_Kbq = function(model, max_pt_sz=2,
                     clr_K="#fe5f55CC", clr_b='darkred', clr_q="#858ae399"){
   with(model,with(Mpar,{
     frame_bq(b, q, mtl = expression(K*scriptstyle(b%<-%q)))
-    if(exists("s")) add_points_s(s, max_pt_sz=0.5)
     add_arrows_xy(q, b, KGV$Kbq, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, clr=clr_K)
-    with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.7))
-    add_points_q(q, max_pt_sz=0.7, clr=clr_q)
+    with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.3))
+    add_points_q(q, max_pt_sz=0.3, clr=clr_q)
     add_points_bb(b, KGV$Kbq, max_pt_sz=max_pt_sz, colB=clr_b)
   }))
   return(invisible())
@@ -250,8 +249,8 @@ plot_Kbb = function(model, max_pt_sz=2,
          frame_bq(b, q, mtl = expression(K*scriptstyle(b %<-%b)))
          add_arrows_xx(b, KGV$Kbb, min_edge_frac=min_edge_frac,
                        r=r, arw_lng=arw_lng, lwd=lwd, arw_clr=arw_clr, seg_clr=seg_clr)
-         with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.7))
-         add_points_q(q, max_pt_sz=0.7, clr=clr_q)
+         with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.3))
+         add_points_q(q, max_pt_sz=0.3, clr=clr_q)
          add_points_bb(b, KGV$Kbb, max_pt_sz=max_pt_sz, colA=arw_clr, colB=clr_b)
        }))
   return(invisible())
@@ -278,10 +277,10 @@ plot_Kqq = function(model, max_pt_sz=2,
                     clr_q="#858ae399", clr_b="#cc444bCC"){
   with(model,with(Mpar,{
     frame_bq(b, q, mtl = expression(K*scriptstyle(q %<-%q)))
-    with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.7))
     add_arrows_xx(q, KGV$Kqq, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, arw_clr=arw_clr, seg_clr=seg_clr)
-    add_points_b(b, max_pt_sz=0.7, clr=clr_b)
+    with(model, if(exists("s")) add_points_s(s, max_pt_sz=0.7))
+    add_points_b(b, max_pt_sz=0.3, clr=clr_b)
     add_points_qq(q, KGV$Kqq, max_pt_sz=max_pt_sz, colA=arw_clr, colB=clr_q)
   }))
   return(invisible())
