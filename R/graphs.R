@@ -57,9 +57,7 @@ make_common_graphs = function(model){with(model,{
 #'
 #' @returns a ramp.micro model object
 #' @export
-make_all_graphs = function(model){
-  UseMethod("make_all_graphs",model$Mpar)
-}
+make_all_graphs = function(model){UseMethod("make_all_graphs",model)}
 
 
 #' Make graphs for a BQ model

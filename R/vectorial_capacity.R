@@ -77,7 +77,7 @@ compute_V.BQS = function(model, Tmax=100){with(model, with(Mpar,{
 #' @export
 compute_VC = function(model){with(model,{
   if(!exists("model$steady$B")) model = steady_state(model)
-  model$KGV$VC = with(model, KGV$V %*% diag(as.vector(steady$M$B)))
+  model$VC = with(model, Mpar$V %*% diag(as.vector(steady$M$B)))
   return(model)
 })}
 
@@ -98,7 +98,7 @@ compute_VC = function(model){with(model,{
 #' @return invisible(NULL)
 #' @export
 plot_dispersal_V = function(model,
-                            max_pt_sz_b = 2, max_pt_sz_q = 0.3,
+                            max_pt_sz_b = 0.7, max_pt_sz_q = 2,
                             min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2, lamp=1,
                             arw_clr="darkolivegreen4", seg_clr="orangered3"){
   with(model,with(Mpar,{
@@ -128,14 +128,15 @@ plot_dispersal_V = function(model,
 #' @return invisible(NULL)
 #' @export
 plot_dispersal_VV = function(model,
-                             max_pt_sz_b = 2.5, max_pt_sz_q = 0.3,
+                             max_pt_sz_b = 0.7, max_pt_sz_q = 2,
                              min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2, lamp=1,
                              arw_clr="springgreen4", seg_clr="firebrick3"){
   with(model,with(Mpar,{
+    par(mar=c(2,2,2,2))
     frame_bq(b, q, mtl = "Potential Parasite Dispersal, Population")
+    add_points_q(q, max_pt_sz = max_pt_sz_q)
     add_arrows_xx(b, KGV$VC, min_edge_frac=min_edge_frac, r=r, arw_lng=arw_lng, lwd=lwd,
                   lamp=lamp, arw_clr=arw_clr, seg_clr=seg_clr)
-    add_points_q(q, max_pt_sz = max_pt_sz_q)
     add_points_bb(b, KGV$VC, max_pt_sz = max_pt_sz_b)
   }))
   return(invisible())

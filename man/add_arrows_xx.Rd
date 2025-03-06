@@ -7,7 +7,7 @@
 add_arrows_xx(
   xy,
   M,
-  min_edge_frac = 0.01,
+  min_edge_frac = 0.99,
   r = 0,
   arw_lng = 0.1,
   lwd = 5,

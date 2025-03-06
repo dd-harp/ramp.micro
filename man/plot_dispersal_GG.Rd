@@ -6,8 +6,8 @@
 \usage{
 plot_dispersal_GG(
   model,
-  mx_pt_sz_b = 0.3,
-  mx_pt_sz_q = 2.5,
+  mx_pt_sz_b = 0.7,
+  mx_pt_sz_q = 2,
   min_edge_frac = 0.01,
   r = 0.01,
   arw_lng = 0.05,

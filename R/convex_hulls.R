@@ -65,7 +65,7 @@ plot_convex_hulls = function(net, stretch=1.1, lwd=2){
   n = length(net$convex_hulls)
   for(i in 1:n){
     with(net$convex_hulls[[i]],{
-      sxy = stretch_convex_hull(xy, stretch)
+      sxy = stretchHull(xy, stretch)
       polygon(sxy[,1], sxy[,2], border=clr, lwd=lwd)
     })
   }

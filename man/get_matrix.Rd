@@ -4,12 +4,12 @@
 \alias{get_matrix}
 \title{Choose one of the matrices describing movement}
 \usage{
-get_matrix(model, i)
+get_matrix(i, model)
 }
 \arguments{
-\item{model}{a model defined as a compound [list]}
-
 \item{i}{an index for the type of model}
+
+\item{model}{a model defined as a compound [list]}
 }
 \value{
 a dispersion matrix

@@ -6,8 +6,8 @@
 \usage{
 plot_dispersal_VV(
   model,
-  max_pt_sz_b = 2.5,
-  max_pt_sz_q = 0.3,
+  max_pt_sz_b = 0.7,
+  max_pt_sz_q = 2,
   min_edge_frac = 0.01,
   r = 0.01,
   arw_lng = 0.05,
