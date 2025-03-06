@@ -71,7 +71,7 @@ plot_all_Psi = function(model, max_pt_sz=2,
 #' @export
 plot_all_Psi.BQ = function(model, max_pt_sz=2,
                        min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2){
-  with(model,with(Mpar,{plot_Psi_BQ(b,q,Psi_bb, Psi_qb, Psi_bq, Psi_qq,
+  with(model,with(Mpar,{plot_all_Psi_BQ(b,q,Psi_bb, Psi_qb, Psi_bq, Psi_qq,
                           max_pt_sz=max_pt_sz, min_edge_frac=min_edge_frac,
                           r=r, arw_lng=arw_lng, lwd=lwd)}))}
 
@@ -121,7 +121,7 @@ plot_all_Psi_BQ = function(b, q,
 #' @export
 plot_all_Psi.BQS = function(model,max_pt_sz=2,
                         min_edge_frac = 0.01, r=.01, arw_lng=0.05, lwd=2){
-  with(model,with(Mpar,{plot_Psi_BQS(b,q,s,
+  with(model,with(Mpar,{plot_all_Psi_BQS(b,q,s,
                            Psi_bb, Psi_qb, Psi_sb,
                            Psi_bq, Psi_qq, Psi_sq,
                            Psi_bs, Psi_qs, Psi_ss,

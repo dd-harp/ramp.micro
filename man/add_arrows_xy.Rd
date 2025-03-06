@@ -8,7 +8,7 @@ add_arrows_xy(
   xy_launch,
   xy_land,
   M,
-  min_edge_frac = 0.95,
+  min_edge_frac = 0.01,
   r = 0,
   arw_lng = 0.1,
   lwd = 2,
