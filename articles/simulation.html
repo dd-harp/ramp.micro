@@ -138,7 +138,7 @@ dispersal among those point sets:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_points_bq.html">plot_points_bq</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span><span class="op">)</span></span></code></pre></div>
-<p><img src="simulation_files/figure-html/unnamed-chunk-3-1.png" width="576"></p>
+<p><img src="simulation_files/figure-html/unnamed-chunk-4-1.png" width="576"></p>
 </div>
 <div class="section level3">
 <h3 id="dispersal">Dispersal<a class="anchor" aria-label="anchor" href="#dispersal"></a>
@@ -150,7 +150,7 @@ dispersal among those point sets:</p>
 <code class="sourceCode R"><span><span class="va">dd</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">5</span>, by <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFb</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"darkred"</span>, xlab <span class="op">=</span> <span class="st">"Distance"</span>, ylab <span class="op">=</span> <span class="st">"Weight"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFq</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"darkblue"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="simulation_files/figure-html/unnamed-chunk-5-1.png" width="576"></p>
+<p><img src="simulation_files/figure-html/unnamed-chunk-6-1.png" width="576"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Psi_bb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xx.html">make_Psi_xx</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">kFb</span>, stay<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span>
 <span><span class="va">Psi_qb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">kFq</span><span class="op">)</span></span>
@@ -158,8 +158,8 @@ dispersal among those point sets:</p>
 <span><span class="va">Psi_qq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xx.html">make_Psi_xx</a></span><span class="op">(</span><span class="va">qq</span>, <span class="va">kFq</span>, stay<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/plot_all_Psi_BQ.html">plot_all_Psi_BQ</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_bb</span>, <span class="va">Psi_qb</span>, <span class="va">Psi_bq</span>, <span class="va">Psi_qq</span>, r<span class="op">=</span><span class="fl">0.5</span>, max_pt_sz<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></span></code></pre></div>
-<p><img src="simulation_files/figure-html/unnamed-chunk-7-1.png" width="768"></p>
+<span><span class="fu"><a href="../reference/plot_all_Psi_BQ.html">plot_all_Psi_BQ</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_bb</span>, <span class="va">Psi_qb</span>, <span class="va">Psi_bq</span>, <span class="va">Psi_qq</span>, r<span class="op">=</span><span class="fl">0.5</span>, cx_D<span class="op">=</span><span class="fl">1.5</span>, cx_S<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
+<p><img src="simulation_files/figure-html/unnamed-chunk-8-1.png" width="768"></p>
 </div>
 <div class="section level3">
 <h3 id="setting-up-a-model">Setting up a model<a class="anchor" aria-label="anchor" href="#setting-up-a-model"></a>
@@ -201,10 +201,10 @@ blue = egg laying).</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_points.html">plot_points</a></span><span class="op">(</span><span class="va">model</span>, </span>
-<span>            bwts<span class="op">=</span><span class="va">model</span><span class="op">$</span><span class="va">states</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">B_t</span><span class="op">[[</span><span class="fl">201</span><span class="op">]</span><span class="op">]</span>, </span>
-<span>            qwts<span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">states</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">B_t</span><span class="op">[[</span><span class="fl">201</span><span class="op">]</span><span class="op">]</span>, </span>
-<span>            max_pt_sz<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<p><img src="simulation_files/figure-html/unnamed-chunk-13-1.png" width="576"></p>
+<span>            wts_b <span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">states</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">B_t</span><span class="op">[[</span><span class="fl">60</span><span class="op">]</span><span class="op">]</span>, </span>
+<span>            wts_q <span class="op">=</span> <span class="va">model</span><span class="op">$</span><span class="va">states</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">B_t</span><span class="op">[[</span><span class="fl">60</span><span class="op">]</span><span class="op">]</span>, </span>
+<span>            cx_b<span class="op">=</span><span class="fl">2</span>, cx_q<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<p><img src="simulation_files/figure-html/unnamed-chunk-14-1.png" width="576"></p>
 </div>
 <div class="section level3">
 <h3 id="steady-states">Steady States<a class="anchor" aria-label="anchor" href="#steady-states"></a>
@@ -214,10 +214,10 @@ blue = egg laying).</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_points.html">plot_points</a></span><span class="op">(</span><span class="va">model</span>, </span>
-<span>            bwts<span class="op">=</span><span class="va">model</span><span class="op">$</span><span class="va">steady</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">B</span>,</span>
-<span>            qwts<span class="op">=</span><span class="va">model</span><span class="op">$</span><span class="va">steady</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">Q</span>,</span>
-<span>            max_pt_sz<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<p><img src="simulation_files/figure-html/unnamed-chunk-15-1.png" width="576"></p>
+<span>            wts_b<span class="op">=</span><span class="va">model</span><span class="op">$</span><span class="va">steady</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">B</span>,</span>
+<span>            wts_q<span class="op">=</span><span class="va">model</span><span class="op">$</span><span class="va">steady</span><span class="op">$</span><span class="va">M</span><span class="op">$</span><span class="va">Q</span>,</span>
+<span>            cx_b<span class="op">=</span><span class="fl">2</span>, cx_q<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<p><img src="simulation_files/figure-html/unnamed-chunk-16-1.png" width="576"></p>
 </div>
 </div>
 
