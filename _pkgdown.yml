@@ -303,6 +303,7 @@ reference:
 - subtitle: Visualize Networks
   desc: |
     Methods to set up and analyze communities
+  contents:
   - plot_graph
   - plot_convex_hulls
   - add_convex_hulls
