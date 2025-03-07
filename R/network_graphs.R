@@ -118,8 +118,9 @@ make_all_graphs.BQS = function(model){
 #' @return invisible(NULL)
 #' @export
 plot_graph = function(model, net, cut=NULL, alg="wt",
-                      f_color = turbo,
-                      min_edge_frac = 0.01, pw=1, mtl = "",
+                      f_color = viridis::turbo,
+                      min_edge_frac = 0.01, cx=2,
+                      pw=1, mtl = "",
                       stretch=0.1,
                       r=.02, arw_lng=0.05, lwd=2){with(model,{
   if(alg == "wt") clusters = net$walktrap_clusters

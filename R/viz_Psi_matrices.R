@@ -122,7 +122,7 @@ plot_all_Psi_BQS = function(b,q,s,
                         Psi_bq, Psi_qq, Psi_sq,
                         Psi_bs, Psi_qs, Psi_ss,
                         cx_D=2, cx_S=0.3,
-                        cx=2, min_edge_frac = 0.01,
+                        min_edge_frac = 0.01,
                         r=.01, arw_lng=0.05, lwd=2){
   graphics::par(mfcol = c(3,3), mar = c(2,2,2,2))
 
