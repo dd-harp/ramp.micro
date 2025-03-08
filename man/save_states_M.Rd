@@ -2,7 +2,7 @@
 % Please edit documentation in R/adult-interface.R
 \name{save_states_M}
 \alias{save_states_M}
-\title{Save state variables}
+\title{Store State Variables for an Adult Mosquito Model}
 \usage{
 save_states_M(t, model)
 }
@@ -15,5 +15,5 @@ save_states_M(t, model)
 the model, a compound [list]
 }
 \description{
-Save state variables
+Store State Variables for an Adult Mosquito Model
 }

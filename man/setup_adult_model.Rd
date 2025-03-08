@@ -2,7 +2,7 @@
 % Please edit documentation in R/adult-interface.R
 \name{setup_adult_model}
 \alias{setup_adult_model}
-\title{Setup an adult model}
+\title{Setup Adult Mosquito Module}
 \usage{
 setup_adult_model(
   model,
@@ -33,5 +33,5 @@ setup_adult_model(
 a [list] defining an adult model
 }
 \description{
-Setup an adult model
+Setup Adult Mosquito Module
 }

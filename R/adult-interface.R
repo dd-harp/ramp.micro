@@ -1,4 +1,4 @@
-#' Adult dynamics
+#' Update States for an Adult Mosquito Model
 #'
 #' @param model a model defined as a compound [list]
 #'
@@ -9,7 +9,7 @@ adult_dynamics = function(t, model){
   UseMethod("adult_dynamics", model$Mpar)
 }
 
-#' Save state variables
+#' Store State Variables for an Adult Mosquito Model
 #'
 #' @param t the current time
 #' @param model a model defined as a compound [list]
@@ -31,7 +31,7 @@ init_states_M = function(model){
 }
 
 
-#' Set initial values for
+#' Set Initial Values for **M** Module
 #'
 #' @param model a model defined as a compound [list]
 #' @param M0_opts a list of options to overwrite defaults
@@ -52,7 +52,7 @@ compute_diffs_M = function(model){
   UseMethod("compute_diffs_M", model$Mpar)
 }
 
-#' Setup an adult model
+#' Setup Adult Mosquito Module
 #'
 #' @param model a model defined as a compound [list]
 #' @param b a point set defining blood feeding sites

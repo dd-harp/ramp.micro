@@ -22,7 +22,7 @@ plot_Kqb = function(model, cx_b=0.3, cx_q=2,
     frame_bq(b, q, mtl = expression(K*scriptstyle(q%<-%b)))
     add_arrows_xy(b, q, KGV$Kqb, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, clr=clr_K)
-    with(model, if(exists("s")) add_points_s(s, cx_s=cx_q))
+    with(model, if(exists("s")) add_points_s(s, cx_s=cx_b))
     add_points_b(b, clr_b=clr_b, cx_b=cx_b)
     add_points_qq(q, KGV$Kqb, cx_q=cx_q, clr_qA=clr_q)
   }))
@@ -106,7 +106,7 @@ plot_Kbb = function(model,  cx_b=2, cx_q=0.3,
 #'
 #' @return invisible(NULL)
 #' @export
-plot_Kqq = function(model, cx_b=2, cx_q=0.3,
+plot_Kqq = function(model, cx_b=0.03, cx_q=2,
                     min_edge_frac=0.01, r=0.02, arw_lng=0.002, lwd=2,
                     arw_clr = "#abc4ff55", seg_clr ='#00000022',
                     clr_q="#858ae399", clr_b="#cc444bCC"){
@@ -114,7 +114,7 @@ plot_Kqq = function(model, cx_b=2, cx_q=0.3,
     frame_bq(b, q, mtl = expression(K*scriptstyle(q %<-%q)))
     add_arrows_xx(q, KGV$Kqq, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, arw_clr=arw_clr, seg_clr=seg_clr)
-    with(model, if(exists("s")) add_points_s(s, cx_s = cx_q))
+    with(model, if(exists("s")) add_points_s(s, cx_s = cx_b))
     add_points_b(b, cx_b = cx_b, clr_b=clr_b)
     add_points_qq(q, KGV$Kqq, cx_q=cx_q, clr_qA=arw_clr, clr_qB=clr_q)
   }))

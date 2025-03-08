@@ -2,7 +2,7 @@
 % Please edit documentation in R/adult-interface.R
 \name{adult_dynamics}
 \alias{adult_dynamics}
-\title{Adult dynamics}
+\title{Update States for an Adult Mosquito Model}
 \usage{
 adult_dynamics(t, model)
 }
@@ -15,5 +15,5 @@ adult_dynamics(t, model)
 the model, a compound [list]
 }
 \description{
-Adult dynamics
+Update States for an Adult Mosquito Model
 }

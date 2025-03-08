@@ -6,8 +6,8 @@
 \usage{
 plot_Kqq(
   model,
-  cx_b = 2,
-  cx_q = 0.3,
+  cx_b = 0.03,
+  cx_q = 2,
   min_edge_frac = 0.01,
   r = 0.02,
   arw_lng = 0.002,
