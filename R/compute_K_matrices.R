@@ -10,48 +10,6 @@ compute_Kqb = function(model, Tmax){
   UseMethod("compute_Kqb", model$Mpar)
 }
 
-#' Compute dispersal to lay eggs within one feeding cycle
-#'
-#' @param model a model defined as a compound [list]
-#' @param Tmax the number of time steps
-#'
-#' @return the model, a compound [list]
-#' @export
-compute_Kqb.BQS = function(model, Tmax=200){with(model,with(Mpar,{
-  nb = dim(Psi_bb)[2]
-  nq = dim(Psi_qq)[2]
-  ns = dim(Psi_ss)[2]
-
-  Mbb = pB*(1-sigb)*(1-psiB)*Psi_bb
-  success = pB*(1-sigb)*psiB*Psi_bb
-  Mbq = pB*psiB*Psi_bq
-  Mbs = pB*sigb*psiB*Psi_bs
-  Mqb = pQ*(1-sigf)*psiQ*Psi_qb
-  Mqq = pQ*(1-sigq)*(1-psiQ)*Psi_qq
-  Mqs = pQ*(sigf*psiQ + sigq*(1-psiQ))*Psi_qs
-  Msb = pS*psiS*Psi_sb
-  Msq = 0*t(Mqs)
-  Mss = (1-psiS)*Psi_ss
-
-  M1 = cbind(Mbb, Mqb, Msb, 0*Mbb)
-  M2 = cbind(0*Mbq, Mqq, Msq, 0*Mbq)
-  M3 = cbind(Mbs, Mqs, Mss, 0*Mbs)
-  M4 = cbind(success, 0*Mqb, 0*Msb, diag(1,nb))
-  M = rbind(M1, M2, M3, M4)
-
-  cohort = Psi_qb%*%diag(pQ,nq)
-  Cyes = diag(psiB, nb)%*%cohort
-  Cno = diag(1-psiB, nb)%*%cohort
-
-  Kt = rbind(Cno, 0*Mqq, 0*Mqs, Cyes)
-
-  for(i in 1:Tmax) Kt = M%*%Kt
-  Kt[-c(1:(nb+nq+ns)),]
-
-  model$KGV$Kqb = Kt[nb+nq+ns+c(1:nb),]
-  return(model)
-}))}
-
 #' Compute net dispersal matrix to blood feed within one feeding cycle
 #'
 #' @param model a model defined as a compound [list]
@@ -60,16 +18,97 @@ compute_Kqb.BQS = function(model, Tmax=200){with(model,with(Mpar,{
 #' @return the model, a compound [list]
 #' @export
 compute_Kqb.BQ = function(model, Tmax=100){with(model, with(Mpar,{
+
   cohort = Psi_qb %*% diag(pB, nb)
-  Kqb = diag(psiQ, nq) %*% cohort  # Success
-  Qt = diag(1-psiQ, nq) %*% cohort # Failure
+
+  notpsiQ = diag(1-psiQ, nq)
+  psiQ = diag(psiQ, nq)
+  pQ = diag(pQ, nq)
+
+  Kbq = 0*cohort  # Success
+  Bt = cohort # Failure
+
+  Kqb = psiQ %*% cohort  # Success
+  Qt = notpsiQ %*% cohort # Failure
   for(i in 1:Tmax){
-    Kqb = Kqb + diag(pQ*psiQ, nq) %*% Psi_qq %*% Qt
-    Qt =diag(pQ*(1-psiQ), nq) %*% Psi_qq %*%Qt
+    Kqb = Kqb + psiQ %*% Qt
+    Qt = Psi_qq %*% pQ %*% notpsiQ %*% Qt
   }
   model$KGV$Kqb = Kqb
   return(model)
 }))}
+
+
+#' Compute dispersal to lay eggs within one feeding cycle
+#'
+#' @param model a model defined as a compound [list]
+#' @param Tmax the number of time steps
+#'
+#' @return the model, a compound [list]
+#' @export
+compute_Kqb.BQS = function(model, Tmax=200){with(model,with(Mpar,{
+
+  nb = dim(b)[1]
+  nq = dim(q)[1]
+  ns = dim(s)[1]
+
+  sigF = diag(sigf, nq)
+  nsigF = diag(1-sigf, nq)
+  npsiB = diag(1-psiB, nb)
+  psiB = diag(psiB, nb)
+  pB = diag(pB, nb)
+  nsigB = diag(1-sigb, nb)
+  sigB = diag(sigb, nb)
+
+  npsiQ = diag(1-psiQ, nq)
+  psiQ = diag(psiQ, nq)
+  pQ = diag(pQ, nq)
+  nsigQ = diag(1-sigq, nq)
+  sigQ = diag(sigq, nq)
+
+  npsiS = diag(1-psiS, ns)
+  psiS = diag(psiS, ns)
+  pS = diag(pS, ns)
+
+  Mbb = Psi_bb %*% nsigB %*% pB %*% npsiB
+  Mbq = 0*Psi_bq
+  trap = psiQ
+  Mbs = Psi_bs %*% psiS %*% pS
+
+  Mqb = Psi_qb %*% psiB %*% pB
+  Mqq = Psi_qq %*% nsigQ %*% pQ %*% npsiQ
+  Mqs = 0*t(Psi_sq)
+
+  Msb = Psi_sb %*% sigB %*% pB %*% npsiB
+  Msq = Psi_sq %*% sigQ %*% pQ %*% npsiQ
+  Mss = Psi_ss %*% npsiS %*% pS
+
+  M1 = cbind(Mbb, Mbq, Mbs, 0*Mbq)
+  M2 = cbind(Mqb, Mqq, Mqs, 0*Mqq)
+  M3 = cbind(Msb, Msq, Mss, 0*Msq)
+  M4 = cbind(0*Mqb, trap, 0*Mqs, diag(1,nq))
+  M = rbind(M1, M2, M3, M4)
+
+  B0 = pB
+  Q0 = 0*(Psi_qb %*% pB)
+  S0 = 0*(Psi_sb %*% pB)
+  T0 = 0*Q0
+
+  nix = nb + nq + ns + c(1:nq)
+  BSQT = rbind(B0, S0, Q0, T0)
+
+  looking = 1
+  while(looking > 1e-6){
+    BSQT = M%*%BSQT
+    looking = sum(BSQT[-nix,-nix])
+  }
+
+  nix = 1:(nb+nq+ns)
+  Kqb = BSQT[-nix,]
+  model$KGV$Kqb = Kqb
+  return(model)
+}))}
+
 
 #' Compute dispersal matrix to blood feed within one feeding cycle
 #'
@@ -90,13 +129,18 @@ compute_Kbq = function(model, Tmax){
 #' @return the model, a compound [list]
 #' @export
 compute_Kbq.BQ = function(model, Tmax=100){with(model, with(Mpar,{
+
+  notpsiB = diag(1-psiB, nb)
+  psiB = diag(psiB, nb)
+  pB = diag(pB, nb)
+
   cohort = Psi_bq %*% diag(pQ, nq)
-  Kbq = diag(psiB, nb) %*% cohort  # Success
-  Bt = diag(1-psiB, nb) %*% cohort # Failure
+  Kbq = 0*cohort  # Success
+  Bt = cohort # Failure
 
   for(i in 1:Tmax){
-    Kbq = Kbq + diag(pB*psiB, nb) %*% Psi_bb %*% Bt
-    Bt = diag(pB*(1-psiB), nb) %*% Psi_bb %*% Bt
+    Kbq = Kbq + psiB %*% Bt
+    Bt = Psi_bb %*% pB %*% notpsiB %*% Bt
   }
   model$KGV$Kbq = Kbq
   return(model)
@@ -116,31 +160,43 @@ compute_Kbq.BQS = function(model, Tmax = 200){with(model,with(Mpar,{
   nq = dim(q)[1]
   ns = dim(s)[1]
 
-  Mbb = pB*(1-sigb)*(1-psiB)*Psi_bb
-  success = pB*(1-sigb)*psiB*Psi_bb
-  Mbq = pB*psiB*Psi_bq
-  Mbs = pB*sigb*psiB*Psi_bs
-  Mqb = pQ*(1-sigf)*psiQ*Psi_qb
-  Mqq = pQ*(1-sigq)*(1-psiQ)*Psi_qq
-  Mqs = pQ*(sigf*psiQ + sigq*(1-psiQ))*Psi_qs
-  Msb = pS*psiS*Psi_sb
-  Msq = 0*t(Mqs)
-  Mss = (1-psiS)*Psi_ss
+  sigF = diag(sigf, nq)
+  nsigF = diag(1-sigf, nq)
+  npsiB = diag(1-psiB, nb)
+  psiB = diag(psiB, nb)
+  pB = diag(pB, nb)
+  nsigB = diag(1-sigb, nb)
+  sigB = diag(sigb, nb)
+  npsiS = diag(1-psiS, ns)
+  psiS = diag(psiS, ns)
+  pS = diag(pS, ns)
 
-  M1 = cbind(Mbb, 0*Mqb, Msb, 0*Mqb)
-  M2 = cbind(Mbq, Mqq, Msq, 0*Mqq)
-  M3 = cbind(Mbs, Mqs, Mss, 0*Mqs)
-  M4 = cbind(success, diag(1,nq), 0*Msq, diag(1,nq))
-  M = rbind(M1, M2, M3, M4)
+  cohort = diag(pQ,nq)
+  B = Psi_bq %*% nsigF %*% diag(pQ,nq)
+  S = Psi_sq %*% sigF %*% diag(pQ,nq)
 
-  cohort = Psi_bq%*%diag(pB,nb)
-  Cyes = diag(psiQ, nq)%*%cohort
-  Cno = diag(1-psiQ, nq)%*%cohort
+  Mbb = Psi_bb %*% nsigB %*% pB %*% npsiB
+  trap = psiB
+  Msb = Psi_sb %*% sigB %*% pB %*% npsiB
+  Mbs = Psi_bs %*% pS %*% psiS
+  Mss = Psi_ss %*% pS %*% npsiS
 
-  Kt = rbind(0*Mbb, Cno, 0*Mbs, Cyes)
-  for(i in 1:Tmax) Kt = M%*%Kt
-  Kt[-c(1:(nb+nq+ns)),]
-  model$KGV$Kbq = Kt[nb+nq+ns+c(1:nq),]
+  M1 = cbind(Mbb, Mbs, 0*Mbb)
+  M2 = cbind(Msb, Mss, 0*Msb)
+  M3 = cbind(trap, 0*Psi_bs, diag(1,nb))
+  M = rbind(M1, M2, M3)
+
+  nix = nb + ns + c(1:nb)
+  TBS = rbind(B, S, 0*B)
+
+  looking = 1
+  while(looking > 1e-6) {
+    TBS = M%*%TBS
+    looking = sum(TBS[-nix,-nix])
+  }
+  nix = 1:(nb+ns)
+  Kbq = TBS[-nix,]
+  model$KGV$Kbq = Kbq
   return(model)
 }))}
 

@@ -7,7 +7,7 @@
 #' @export
 adult_dynamics.BQS = function(t, model){
   with(model,{
-    with(c(Mpars, Mvars, terms), {
+    with(c(Mpar, Mvars, terms), {
       eggs_t = ova*psiQ*Q
       # compute variables
       B_t = Mbb %*% B + Mbq %*% Q + Mbs %*% S + Mbl %*% Lambda
@@ -89,10 +89,10 @@ init_adult_model.BQS = function(model, M0_opts){
 #' @return model, a compound [list]
 #' @export
 init_adult_model_BQS = function(model, opts=list(), B0=10, Q0=10, S0=10){with(opts,{
-  model$Mvars$B = c(B0, model$nb, 1)
-  model$Mvars$Q = c(Q0, model$nq, 1)
-  model$Mvars$S = c(S0, model$ns, 1)
-  model$Mvars$eggs = c(0, model$nq, 1)
+  model$Mvars$B = rep(B0, model$nb)[1:model$nb]
+  model$Mvars$Q = rep(Q0, model$nq)[1:model$nq]
+  model$Mvars$S = rep(S0, model$ns)[1:model$ns]
+  model$Mvars$eggs = rep(0, model$nq)[1:model$nq]
   return(model)
 })}
 
@@ -181,17 +181,17 @@ setup_bionomics_BQS = function(model, opts=list(),
                                sigb=0.1, sigq=0.1, sigf=0.1,
                                sigL=0.1, ova=20){
   with(opts,{
-    model$Mpar$setup$pB = pB
-    model$Mpar$setup$pQ = pQ
-    model$Mpar$setup$pS = pS
-    model$Mpar$setup$psiB = psiB
-    model$Mpar$setup$psiQ = psiQ
-    model$Mpar$setup$psiS = psiS
-    model$Mpar$setup$sigb = sigb
-    model$Mpar$setup$sigq = sigq
-    model$Mpar$setup$sigf = sigf
-    model$Mpar$setup$sigL = sigL
-    model$Mpar$setup$ova = ova
+    model$Mpar$pB = pB
+    model$Mpar$pQ = pQ
+    model$Mpar$pS = pS
+    model$Mpar$psiB = psiB
+    model$Mpar$psiQ = psiQ
+    model$Mpar$psiS = psiS
+    model$Mpar$sigb = sigb
+    model$Mpar$sigq = sigq
+    model$Mpar$sigf = sigf
+    model$Mpar$sigL = sigL
+    model$Mpar$ova = ova
   return(model)
 })}
 

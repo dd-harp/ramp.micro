@@ -2,7 +2,7 @@
 % Please edit documentation in R/adult-interface.R
 \name{init_adult_model}
 \alias{init_adult_model}
-\title{Set initial values for}
+\title{Set Initial Values for **M** Module}
 \usage{
 init_adult_model(model, M0_opts)
 }
@@ -15,5 +15,5 @@ init_adult_model(model, M0_opts)
 the model, a compound [list]
 }
 \description{
-Set initial values for
+Set Initial Values for **M** Module
 }

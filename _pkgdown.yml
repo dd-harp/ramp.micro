@@ -27,6 +27,8 @@ navbar:
     menu:
     - text: Mosquito Dispersal
       href: articles/dispersal.html
+    - text: Trap Algorithm
+      href: articles/trap.html
     - text: Communitites
       href: articles/community.html
     - text: Modularity - Adult Mosquito Models
@@ -240,6 +242,7 @@ reference:
   - outline_points_q
   - add_points_qq
   - add_points_s
+  - outline_points_s
   - add_points_ss
 - subtitle: Visualize Matrices
   desc: |
