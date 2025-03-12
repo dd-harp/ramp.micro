@@ -7,8 +7,9 @@
 plot_patches(
   model,
   i,
-  f_color = viridis::turbo,
   cut = NULL,
+  f_color = viridis::turbo,
+  stretch = 0.1,
   lwd = 2,
   bbend = 3,
   mtl = NULL
@@ -19,9 +20,11 @@ plot_patches(
 
 \item{i}{the graph}
 
+\item{cut}{a cutat argument, the # of communities}
+
 \item{f_color}{a function that returns a list of colors (e.g. viridis::turbo)}
 
-\item{cut}{a cutat argument, the # of communities}
+\item{stretch}{make the hull slightly larger or slightly smaller}
 
 \item{lwd}{a plotting argument}
 
@@ -30,7 +33,7 @@ plot_patches(
 \item{mtl}{a title for the graph}
 }
 \value{
-invisible(NULL)
+a ramp.micro model object
 }
 \description{
 Visualize the patchespopulation approximation

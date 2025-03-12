@@ -221,6 +221,9 @@ reference:
   contents:
   - make_convex_hulls
   - make_convex_hull_i
+  - mod_convex_hulls
+  - mod_convex_hulls.i
+  - make_convex_hull_xy
 - title: Visualization
   desc: |
      Visualization
@@ -311,6 +314,9 @@ reference:
   - plot_convex_hulls
   - add_convex_hulls
   - stretch_convex_hull
+  - add_hulls
+  - plot_meta
+  - plot_subgraph
 - subtitle: Visualize Metapopulation
   desc: |
      Metapopulations

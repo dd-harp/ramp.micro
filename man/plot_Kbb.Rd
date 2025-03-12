@@ -15,7 +15,7 @@ plot_Kbb(
   arw_clr = "#e2739655",
   seg_clr = "#00000022",
   clr_b = "#cc444bCC",
-  clr_q = "#858ae399"
+  clr_q = "#4361eeCC"
 )
 }
 \arguments{

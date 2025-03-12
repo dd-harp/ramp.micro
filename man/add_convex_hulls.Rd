@@ -4,7 +4,7 @@
 \alias{add_convex_hulls}
 \title{Add convex hulls around the points in a community}
 \usage{
-add_convex_hulls(memix, xy, clrs, stretch = 0.1, lwd = 2)
+add_convex_hulls(memix, xy, clrs, stretch = 0.1, lwd = 2, llty = 1)
 }
 \arguments{
 \item{memix}{the membership index}
@@ -16,6 +16,8 @@ add_convex_hulls(memix, xy, clrs, stretch = 0.1, lwd = 2)
 \item{stretch}{a stretch factor for the hulls}
 
 \item{lwd}{the line width for plotting}
+
+\item{llty}{the line type}
 }
 \value{
 invisible(NULL)

@@ -14,7 +14,7 @@ plot_Kbq(
   lwd = 2,
   clr_K = "#fe5f55CC",
   clr_b = "darkred",
-  clr_q = "#858ae399"
+  clr_q = "#4361eeCC"
 )
 }
 \arguments{
