@@ -19,7 +19,7 @@ plot_Kqb = function(model, cx_b=0.3, cx_q=2,
                     min_edge_frac=0.01, r=0.02, arw_lng=0.002, lwd=2,
                     clr_K="#4361eeCC", clr_b='red', clr_q ='darkblue'){
   with(model,with(Mpar,{
-    frame_bq(b, q, mtl = expression(K*scriptstyle(q%<-%b)))
+    frame_bq(b, q)
     add_arrows_xy(b, q, KGV$Kqb, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, clr=clr_K)
     with(model, if(exists("s")) add_points_s(s, cx_s=cx_b))
@@ -46,9 +46,9 @@ plot_Kqb = function(model, cx_b=0.3, cx_q=2,
 #' @export
 plot_Kbq = function(model, cx_b=2, cx_q=0.3,
                     min_edge_frac=0.01, r=0.02, arw_lng=0.002, lwd=2,
-                    clr_K="#fe5f55CC", clr_b='darkred', clr_q="#858ae399"){
+                    clr_K="#fe5f55CC", clr_b='darkred', clr_q="#4361eeCC"){
   with(model,with(Mpar,{
-    frame_bq(b, q, mtl = expression(K*scriptstyle(b%<-%q)))
+    frame_bq(b, q)
     add_arrows_xy(q, b, KGV$Kbq, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, clr=clr_K)
     with(model, if(exists("s")) add_points_s(s, cx_s=cx_q))
@@ -76,11 +76,11 @@ plot_Kbq = function(model, cx_b=2, cx_q=0.3,
 plot_Kbb = function(model,  cx_b=2, cx_q=0.3,
                     min_edge_frac=0.01, r=0.02, arw_lng=0.002, lwd=2,
                     arw_clr ="#e2739655", seg_clr = '#00000022',
-                    clr_b ="#cc444bCC", clr_q ="#858ae399"
+                    clr_b ="#cc444bCC", clr_q ="#4361eeCC"
 ){
   with(model,with(Mpar,
        {
-         frame_bq(b, q, mtl = expression(K*scriptstyle(b %<-%b)))
+         frame_bq(b, q)
          add_arrows_xx(b, KGV$Kbb, min_edge_frac=min_edge_frac,
                        r=r, arw_lng=arw_lng, lwd=lwd, arw_clr=arw_clr, seg_clr=seg_clr)
          with(model, if(exists("s")) add_points_s(s, cx_s=cx_q))
@@ -101,22 +101,24 @@ plot_Kbb = function(model,  cx_b=2, cx_q=0.3,
 #' @param lwd scale the line width
 #' @param arw_clr the color to draw the arrow (asymetric part)
 #' @param seg_clr the color to draw the segment (symmetric part)
-#' @param clr_q color for egg laying sites
+#' @param clr_qA color for egg laying sites
+#' @param clr_qB color for egg laying sites
 #' @param clr_b color for blood feeding sites
 #'
 #' @return invisible(NULL)
 #' @export
 plot_Kqq = function(model, cx_b=0.03, cx_q=2,
                     min_edge_frac=0.01, r=0.02, arw_lng=0.002, lwd=2,
-                    arw_clr = "#abc4ff55", seg_clr ='#00000022',
-                    clr_q="#858ae399", clr_b="#cc444bCC"){
+                    arw_clr = "#4361eeCC",
+                    clr_qA= "#abc4ff55", seg_clr ='#00000022',
+                    clr_qB="#858ae399", clr_b="#cc444bCC"){
   with(model,with(Mpar,{
-    frame_bq(b, q, mtl = expression(K*scriptstyle(q %<-%q)))
+    frame_bq(b, q)
     add_arrows_xx(q, KGV$Kqq, min_edge_frac=min_edge_frac,
                   r=r, arw_lng=arw_lng, lwd=lwd, arw_clr=arw_clr, seg_clr=seg_clr)
     with(model, if(exists("s")) add_points_s(s, cx_s = cx_b))
     add_points_b(b, cx_b = cx_b, clr_b=clr_b)
-    add_points_qq(q, KGV$Kqq, cx_q=cx_q, clr_qA=arw_clr, clr_qB=clr_q)
+    add_points_qq(q, KGV$Kqq, cx_q=cx_q, clr_qA=clr_qA, clr_qB=clr_qB)
   }))
   return(invisible())
 }

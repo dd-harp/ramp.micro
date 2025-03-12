@@ -12,9 +12,10 @@ plot_Kqq(
   r = 0.02,
   arw_lng = 0.002,
   lwd = 2,
-  arw_clr = "#abc4ff55",
+  arw_clr = "#4361eeCC",
+  clr_qA = "#abc4ff55",
   seg_clr = "#00000022",
-  clr_q = "#858ae399",
+  clr_qB = "#858ae399",
   clr_b = "#cc444bCC"
 )
 }
@@ -35,9 +36,11 @@ plot_Kqq(
 
 \item{arw_clr}{the color to draw the arrow (asymetric part)}
 
+\item{clr_qA}{color for egg laying sites}
+
 \item{seg_clr}{the color to draw the segment (symmetric part)}
 
-\item{clr_q}{color for egg laying sites}
+\item{clr_qB}{color for egg laying sites}
 
 \item{clr_b}{color for blood feeding sites}
 }

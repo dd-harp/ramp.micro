@@ -6,7 +6,7 @@
 \usage{
 plot_graph(
   model,
-  net,
+  graph,
   cut = NULL,
   alg = "wt",
   f_color = viridis::turbo,
@@ -22,8 +22,6 @@ plot_graph(
 }
 \arguments{
 \item{model}{a `ramp.micro` model object}
-
-\item{net}{a network object}
 
 \item{cut}{optional arguent for cut_at}
 
@@ -46,6 +44,8 @@ plot_graph(
 \item{arw_lng}{the arrow length}
 
 \item{lwd}{scale the line width}
+
+\item{graphs}{a graphswork object}
 }
 \value{
 invisible(NULL)

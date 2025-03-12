@@ -58,6 +58,12 @@ bqs_mod1 = setup_model(b=bb, q=qq, s=ss,
                        bionomic_opts = adult_opts2)
 
 ## -----------------------------------------------------------------------------
+bq_mod1 <- basic_analysis(bq_mod1)
+
+## -----------------------------------------------------------------------------
+bqs_mod1 <- basic_analysis(bqs_mod1)
+
+## -----------------------------------------------------------------------------
 save(bq_mod1, file = "bq_mod1.rda")
 save(bqs_mod1, file = "bqs_mod1.rda")
 

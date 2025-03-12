@@ -149,8 +149,8 @@ make_Psi_BQS = function(model){
     model$Mpar$Psi_qq = make_Psi_xx(q, kFq, wq, stayQ)
     model$Mpar$Psi_sq = make_Psi_xy(q, s, kFs, ws)
     #from s
-    model$Mpar$Psi_bs = make_Psi_xy(s, b, kFs, wb)
-    model$Mpar$Psi_qs = make_Psi_xy(s, q, kFs, wq)
+    model$Mpar$Psi_bs = make_Psi_xy(s, b, kFb, wb)
+    model$Mpar$Psi_qs = make_Psi_xy(s, q, kFq, wq)
     model$Mpar$Psi_ss = make_Psi_xx(s, kFs, ws, stayS)
 
     return(model)

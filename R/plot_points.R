@@ -266,7 +266,7 @@ add_points_s = function(s, wts_s=1, cx_s=1, clr_s="olivedrab2", pw=1){
 #' @return invisible(NULL)
 #' @export
 outline_points_s = function(s, wts_s=1, cx_s=1, clr_s="black", pw=1){
-  graphics::points(s, col=clr_s, pch=1, cex=cx_s*wts_s^pw/max(wts_s^pw))
+  graphics::points(s, col=clr_s, pch=2, cex=cx_s*wts_s^pw/max(wts_s^pw))
   return(invisible())
 }
 
