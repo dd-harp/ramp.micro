@@ -10,7 +10,7 @@ add_bent_arrows_xy(
   M,
   mnwd = 0.05,
   bbend = 0,
-  endd = 0.75,
+  endd = 0.6,
   adj = 2,
   clr = "red"
 )
