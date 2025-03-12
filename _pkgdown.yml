@@ -221,8 +221,6 @@ reference:
   contents:
   - make_convex_hulls
   - make_convex_hull_i
-  - mod_convex_hulls
-  - mod_convex_hulls.i
   - make_convex_hull_xy
 - title: Visualization
   desc: |
@@ -331,4 +329,4 @@ reference:
   - edgeSubset_fracMass
   - edgeSubset
   - get_matrix
-  - get_net
+  - get_graph
