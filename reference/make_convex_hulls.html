@@ -58,7 +58,13 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">make_convex_hulls</span><span class="op">(</span><span class="va">model</span>, <span class="va">net</span>, cut <span class="op">=</span> <span class="cn">NULL</span>, f_color <span class="op">=</span> <span class="fu">viridis</span><span class="fu">::</span><span class="va"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">turbo</a></span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">make_convex_hulls</span><span class="op">(</span></span>
+<span>  <span class="va">model</span>,</span>
+<span>  <span class="va">graph</span>,</span>
+<span>  cut <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  clrs <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  f_color <span class="op">=</span> <span class="fu">viridis</span><span class="fu">::</span><span class="va"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">turbo</a></span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,12 +75,16 @@
 <dd><p>a model defined as a compound [list]</p></dd>
 
 
-<dt id="arg-net">net<a class="anchor" aria-label="anchor" href="#arg-net"></a></dt>
-<dd><p>a network object</p></dd>
+<dt id="arg-graph">graph<a class="anchor" aria-label="anchor" href="#arg-graph"></a></dt>
+<dd><p>a graphwork object</p></dd>
 
 
 <dt id="arg-cut">cut<a class="anchor" aria-label="anchor" href="#arg-cut"></a></dt>
 <dd><p>if !null, the number of communities for igraph::cut_at</p></dd>
+
+
+<dt id="arg-clrs">clrs<a class="anchor" aria-label="anchor" href="#arg-clrs"></a></dt>
+<dd><p>a set of colors</p></dd>
 
 
 <dt id="arg-f-color">f_color<a class="anchor" aria-label="anchor" href="#arg-f-color"></a></dt>
@@ -83,7 +93,7 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>the network object with convex hulls attached</p>
+    <p>the graphwork object with convex hulls attached</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

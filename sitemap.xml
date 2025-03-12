@@ -27,6 +27,7 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/add_bent_arrows_xx.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/add_bent_arrows_xy.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/add_convex_hulls.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/add_hulls.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/add_nth_arrow_xx.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/add_nth_arrow_xy.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/add_nth_segment.html</loc></url>
@@ -74,8 +75,8 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/edgeSubset_fracMass.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/frame_bq.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/frame_bqs.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/get_graph.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/get_matrix.html</loc></url>
-<url><loc>https://dd-harp.github.io/ramp.micro/reference/get_net.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/index.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model.BQ.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/init_adult_model.BQS.html</loc></url>
@@ -100,6 +101,7 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_all_graphs.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_common_graphs.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hull_i.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hull_xy.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_convex_hulls.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_demography_BQ.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/make_demography_BQS.html</loc></url>
@@ -147,12 +149,14 @@
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_graph.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_matrix_xx.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_matrix_xy.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_meta.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_patches.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.BQ.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.BQS.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points_bq.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_points_bqs.html</loc></url>
+<url><loc>https://dd-harp.github.io/ramp.micro/reference/plot_subgraph.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/save_states_L.basicL.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/save_states_L.html</loc></url>
 <url><loc>https://dd-harp.github.io/ramp.micro/reference/save_states_M.BQ.html</loc></url>

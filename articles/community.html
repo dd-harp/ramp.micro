@@ -84,8 +84,65 @@
 
     
     
-
-  </main>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dd-harp.github.io/ramp.micro/">ramp.micro</a></span><span class="op">)</span> </span></code></pre></div>
+<p>The matrices describing movement are complex object that we can
+analyze using methods from network analysis. An R package called
+<em>igraph</em> was developed for this, and there are many other
+packages that can do this. To take advantage of this functionality, we
+must first re-encode the graphs in a form. Most of the methods are
+developed to analyze simple graphs:</p>
+<div class="section level2">
+<h2 id="graphs">Graphs<a class="anchor" aria-label="anchor" href="#graphs"></a>
+</h2>
+<ul>
+<li>
+<p><strong><code>ramp.micro</code></strong> includes a function
+called <code>make_all_graphs</code> that creates a graph object for each
+one of the movement matrices.</p>
+<ul>
+<li><p><strong><code>ramp.micro</code></strong> ::
+<code>make_graph_obj(M)</code> is the function that creates and analyzes
+an adjacency matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+as a graph:</p></li>
+<li><p><strong><code>igraph</code></strong> ::
+<code>graph_from_adjacency_matrix(M)-&gt; G</code> returns a graph
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math>
+that can be analyzed</p></li>
+<li><p><strong><code>igraph</code></strong> ::
+<code>clusters_walktrap(G)</code> returns an analysis of the community
+structure using the walktrap algorithm</p></li>
+<li><p><strong><code>igraph</code></strong> ::
+<code>clusters_greedy(M %*% t(M))-&gt; C</code> returns an analysis of
+the community structure of the symmetric weighted graph</p></li>
+</ul>
+</li>
+</ul>
+<p>These graph objects are all attached by name to
+<code>model$graphs.</code> Note that these analysis are all run by
+calling <strong><code>ramp.micro</code></strong> ::
+<code>basic_analysis</code></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">24328</span><span class="op">)</span></span>
+<span><span class="va">bb</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">256</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span>
+<span><span class="va">qq</span> <span class="op">=</span> <span class="fu"><a href="../reference/unif_xy.html">unif_xy</a></span><span class="op">(</span><span class="fl">289</span>, <span class="op">-</span><span class="fl">17</span>, <span class="fl">17</span><span class="op">)</span> </span>
+<span><span class="va">ker_b</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">1</span>, gamma<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></span>
+<span><span class="va">ker_q</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_kF_exp.html">make_kF_exp</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">2</span>, s<span class="op">=</span><span class="fl">2</span>, gamma<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">dispO</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>kFb<span class="op">=</span><span class="va">ker_b</span>, kFq <span class="op">=</span><span class="va">ker_q</span><span class="op">)</span></span>
+<span><span class="va">bq_mod1</span> <span class="op">=</span> <span class="fu"><a href="../reference/setup_model.html">setup_model</a></span><span class="op">(</span>b<span class="op">=</span><span class="va">bb</span>, q<span class="op">=</span><span class="va">qq</span>, dispersal_opts <span class="op">=</span> <span class="va">dispO</span><span class="op">)</span> </span>
+<span><span class="va">bq_mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/basic_analysis.html">basic_analysis</a></span><span class="op">(</span><span class="va">bq_mod1</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">4</span><span class="op">)</span>, mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_subgraph.html">plot_subgraph</a></span><span class="op">(</span><span class="va">bq_mod1</span>, <span class="va">bq_mod1</span><span class="op">$</span><span class="va">graphs</span><span class="op">$</span><span class="va">GG_graph</span>, stretch<span class="op">=</span><span class="fl">0.1</span>, min_edge_frac<span class="op">=</span><span class="fl">0.1</span>, cut<span class="op">=</span><span class="fl">15</span>, mtl <span class="op">=</span> <span class="st">"Egg Dispersal"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">bq_mod1</span>, <span class="fu"><a href="../reference/frame_bq.html">frame_bq</a></span><span class="op">(</span><span class="va">b</span>,<span class="va">q</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/add_hulls.html">add_hulls</a></span><span class="op">(</span><span class="va">bq_mod1</span>, <span class="va">bq_mod1</span><span class="op">$</span><span class="va">graphs</span><span class="op">$</span><span class="va">GG_graph</span>, stretch<span class="op">=</span><span class="op">-</span><span class="fl">0.01</span>, min_edge_frac<span class="op">=</span><span class="fl">0.1</span>, cut<span class="op">=</span><span class="fl">15</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/add_hulls.html">add_hulls</a></span><span class="op">(</span><span class="va">bq_mod1</span>, <span class="va">bq_mod1</span><span class="op">$</span><span class="va">graphs</span><span class="op">$</span><span class="va">VC_graph</span>, stretch<span class="op">=</span><span class="op">-</span><span class="fl">0.01</span>, min_edge_frac<span class="op">=</span><span class="fl">0.1</span>, cut<span class="op">=</span><span class="fl">15</span>,<span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_subgraph.html">plot_subgraph</a></span><span class="op">(</span><span class="va">bq_mod1</span>, <span class="va">bq_mod1</span><span class="op">$</span><span class="va">graphs</span><span class="op">$</span><span class="va">VC_graph</span>, stretch<span class="op">=</span><span class="fl">0.1</span>, min_edge_frac<span class="op">=</span><span class="fl">0.1</span>, cut<span class="op">=</span><span class="fl">15</span>, mtl <span class="op">=</span> <span class="st">"Potential Transmission"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="community_files/figure-html/unnamed-chunk-3-1.png" width="1152"></p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 

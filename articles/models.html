@@ -276,18 +276,22 @@ must pass the point sets <code>bb</code> and <code>qq</code> and
 <div class="section level2">
 <h2 id="simulate-analyze">7. Simulate / Analyze<a class="anchor" aria-label="anchor" href="#simulate-analyze"></a>
 </h2>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">bq_mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/basic_analysis.html">basic_analysis</a></span><span class="op">(</span><span class="va">bq_mod1</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">bqs_mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/basic_analysis.html">basic_analysis</a></span><span class="op">(</span><span class="va">bqs_mod1</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="saving-loading-models">8. Saving &amp; Loading Models<a class="anchor" aria-label="anchor" href="#saving-loading-models"></a>
 </h2>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">bq_mod1</span>, file <span class="op">=</span> <span class="st">"bq_mod1.rda"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">bqs_mod1</span>, file <span class="op">=</span> <span class="st">"bqs_mod1.rda"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html" class="external-link">rm</a></span><span class="op">(</span><span class="st">"bq_mod1"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/exists.html" class="external-link">exists</a></span><span class="op">(</span><span class="st">"bq_mod1"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] FALSE</span></span></code></pre>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html" class="external-link">load</a></span><span class="op">(</span><span class="st">"bq_mod1.rda"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/exists.html" class="external-link">exists</a></span><span class="op">(</span><span class="st">"bq_mod1"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] TRUE</span></span></code></pre>

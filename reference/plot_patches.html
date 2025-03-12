@@ -58,7 +58,16 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plot_patches</span><span class="op">(</span><span class="va">model</span>, <span class="va">i</span>, cut <span class="op">=</span> <span class="cn">NULL</span>, lwd <span class="op">=</span> <span class="fl">2</span>, bbend <span class="op">=</span> <span class="fl">3</span>, mtl <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plot_patches</span><span class="op">(</span></span>
+<span>  <span class="va">model</span>,</span>
+<span>  <span class="va">i</span>,</span>
+<span>  cut <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  f_color <span class="op">=</span> <span class="fu">viridis</span><span class="fu">::</span><span class="va"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">turbo</a></span>,</span>
+<span>  stretch <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  bbend <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  mtl <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -77,6 +86,14 @@
 <dd><p>a cutat argument, the # of communities</p></dd>
 
 
+<dt id="arg-f-color">f_color<a class="anchor" aria-label="anchor" href="#arg-f-color"></a></dt>
+<dd><p>a function that returns a list of colors (e.g. viridis::turbo)</p></dd>
+
+
+<dt id="arg-stretch">stretch<a class="anchor" aria-label="anchor" href="#arg-stretch"></a></dt>
+<dd><p>make the hull slightly larger or slightly smaller</p></dd>
+
+
 <dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
 <dd><p>a plotting argument</p></dd>
 
@@ -91,7 +108,7 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>invisible(NULL)</p>
+    <p>a ramp.micro model object</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
