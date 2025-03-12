@@ -42,7 +42,7 @@ steady_state = function(model, burn=500, Tx=50, tol=.001){
   steady$L = model$Lvars
   model$steady = steady
 
-  err=10*tol
+  err=1
   while(err>tol){
     for(t in 1:Tx){
       model = adult_dynamics(t, model)

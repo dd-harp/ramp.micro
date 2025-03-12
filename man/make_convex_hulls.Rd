@@ -4,7 +4,13 @@
 \alias{make_convex_hulls}
 \title{Make a set of convex hulls to visualize the community}
 \usage{
-make_convex_hulls(model, net, cut = NULL, f_color = viridis::turbo)
+make_convex_hulls(
+  model,
+  net,
+  cut = NULL,
+  clrs = NULL,
+  f_color = viridis::turbo
+)
 }
 \arguments{
 \item{model}{a model defined as a compound [list]}
@@ -12,6 +18,8 @@ make_convex_hulls(model, net, cut = NULL, f_color = viridis::turbo)
 \item{net}{a network object}
 
 \item{cut}{if !null, the number of communities for igraph::cut_at}
+
+\item{clrs}{a set of colors}
 
 \item{f_color}{a function that returns a list of colors (e.g. viridis::turbo)}
 }

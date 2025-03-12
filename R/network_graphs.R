@@ -38,13 +38,13 @@ make_graph_obj = function(M, type ="b", tag = ""){
 #' @export
 make_common_graphs = function(model){with(model,{
   model$graphs <- list()
-  model$graphs$Kbb_net <- make_graph_obj(KGV$Kbb, "b", expression(K*scriptstyle(b%->%b)))
-  model$graphs$Kqq_net <- make_graph_obj(KGV$Kqq, "q", expression(K*scriptstyle(q%->%q)))
-  model$graphs$G_net   <- make_graph_obj(KGV$G,"q", "G")
-  model$graphs$GG_net  <- make_graph_obj(KGV$GG,"q", "GG")
-  model$graphs$V_net   <- make_graph_obj(KGV$V,"b", "V")
-  model$graphs$VC_net  <- make_graph_obj(KGV$VC,"b", "VV")
-  model$graphs$M_net   <- make_graph_obj(Mpar$bigM,"bq", "M")
+  model$graphs$Kbb_graph <- make_graph_obj(KGV$Kbb, "b", expression(K*scriptstyle(b%->%b)))
+  model$graphs$Kqq_graph <- make_graph_obj(KGV$Kqq, "q", expression(K*scriptstyle(q%->%q)))
+  model$graphs$G_graph   <- make_graph_obj(KGV$G,"q", "G")
+  model$graphs$GG_graph  <- make_graph_obj(KGV$GG,"q", "GG")
+  model$graphs$V_graph   <- make_graph_obj(KGV$V,"b", "V")
+  model$graphs$VC_graph  <- make_graph_obj(KGV$VC,"b", "VV")
+  model$graphs$M_graph   <- make_graph_obj(Mpar$bigM,"bq", "M")
   return(model)
 })}
 
@@ -76,7 +76,7 @@ make_all_graphs.BQ = function(model){
   BQ <- with(model$steady$M, diag(as.vector(c(B, Q))))
   bigMM <- model$Mpar$bigM %*% BQ
   model$Mpar$bigMM <- bigMM
-  model$graphs$MM_net <-  make_graph_obj(bigMM,"bq", "MM")
+  model$graphs$MM_graphs <-  make_graph_obj(bigMM,"bq", "MM")
   return(model)
 }
 
@@ -94,7 +94,7 @@ make_all_graphs.BQS = function(model){
   BQS <- with(model$steady$M, diag(as.vector(c(B, Q, S))))
   bigMM <- model$Mpar$bigM %*% BQS
   model$Mpar$bigMM <- bigMM
-  model$graphs$MM_net  <- make_graph_obj(bigMM, "bqs", "MM")
+  model$graphs$MM_graphs  <- make_graph_obj(bigMM, "bqs", "MM")
   return(model)
 }
 
@@ -102,7 +102,7 @@ make_all_graphs.BQS = function(model){
 #' Plot the ouptuts of a graph using
 #'
 #' @param model a `ramp.micro` model object
-#' @param net a network object
+#' @param graphs a graphswork object
 #' @param cut optional arguent for cut_at
 #' @param alg walktrap = "wt" or greedy = "gr"
 #' @param f_color a function that returns a list of colors (e.g. viridis::turbo)
@@ -117,14 +117,14 @@ make_all_graphs.BQS = function(model){
 #'
 #' @return invisible(NULL)
 #' @export
-plot_graph = function(model, net, cut=NULL, alg="wt",
+plot_graph = function(model, graph, cut=NULL, alg="wt",
                       f_color = viridis::turbo,
                       min_edge_frac = 0.01, cx=2,
                       pw=1, mtl = "",
                       stretch=0.1,
                       r=.02, arw_lng=0.05, lwd=2){with(model,{
-  if(alg == "wt") clusters = net$walktrap_clusters
-  if(alg == "gr") clusters = net$greedy_clusters
+  if(alg == "wt") clusters = graph$walktrap_clusters
+  if(alg == "gr") clusters = graph$greedy_clusters
   memix = if(is.null(cut)){
     membership(clusters)
   } else {
@@ -133,23 +133,134 @@ plot_graph = function(model, net, cut=NULL, alg="wt",
   nC = max(memix)
   clrs = f_color(nC)
   frame_bq(b,q,mtl)
-  if(net$type == "b"){
+  if(graph$type == "b"){
     xy = b
-    add_arrows_xx(b, net$M, arw_clr = clrs[memix], min_edge_frac=min_edge_frac)
-    add_points_b(b, wts_b=rowSums(net$M), clr=clrs[memix], cx_b=cx, pw=pw)
+    add_arrows_xx(b, graph$M, arw_clr = clrs[memix], min_edge_frac=min_edge_frac)
+    add_points_b(b, wts_b=rowSums(graph$M), clr=clrs[memix], cx_b=cx, pw=pw)
   }
-  if(net$type == "q"){
+  if(graph$type == "q"){
     xy = q
-    add_arrows_xx(q, net$M, arw_clr = clrs[memix], min_edge_frac=min_edge_frac)
-    add_points_q(q, rowSums(net$M), clr=clrs[memix], cx_q=cx, pw=pw)
+    add_arrows_xx(q, graph$M, arw_clr = clrs[memix], min_edge_frac=min_edge_frac)
+    add_points_q(q, rowSums(graph$M), clr=clrs[memix], cx_q=cx, pw=pw)
   }
-  if(net$type == "q"){
+  if(graph$type == "bq"){
     xy = rbind(b,q)
-    add_arrows_xx(xy, net$M, arw_clr = clrs[memix], min_edge_frac=min_edge_frac)
-    wts = rowSums(net$M)
+    add_arrows_xx(xy, graph$M, arw_clr = clrs[memix], min_edge_frac=min_edge_frac)
+    wts = rowSums(graph$M)
     add_points_b(b, wts[1:nb], clr=clrs[memix[1:nb]], cx_b=cx, pw=pw)
     add_points_q(q, wts[nb+1:nq], clr=clrs[memix[nb+1:nq]], cx_q=cx, pw=pw)
   }
-  add_convex_hulls(memix, xy, clrs, stretch, lwd)
+#  add_convex_hulls(memix, xy, clrs, stretch, lwd)
+  return(invisible())
+})}
+
+#' Plot the ouptuts of a graph using
+#'
+#' @param model a `ramp.micro` model object
+#' @param graphs a graphswork object
+#' @param cut optional arguent for cut_at
+#' @param alg walktrap = "wt" or greedy = "gr"
+#' @param f_color a function that returns a list of colors (e.g. viridis::turbo)
+#' @param min_edge_frac the fraction of the mass to plot
+#' @param cx cex for plotting points
+#' @param pw power relationship for scaling point size: pw=1 is linear
+#' @param mtl a plot title
+#' @param stretch make the hull slightly larger or slightly smaller
+#' @param r the radius of a ring around destination points
+#' @param arw_lng the arrow length
+#' @param lwd scale the line width
+#'
+#' @return invisible(NULL)
+#' @export
+plot_subgraph = function(model, graph, cut=NULL, alg="wt",
+                      f_color = viridis::turbo,
+                      min_edge_frac = 0.01, cx=2,
+                      pw=1, mtl = "",
+                      stretch=0.1,
+                      r=.02, arw_lng=0.05, lwd=2){with(model,{
+  if(alg == "wt") clusters = graph$walktrap_clusters
+  if(alg == "gr") clusters = graph$greedy_clusters
+  memix = if(is.null(cut)){
+    membership(clusters)
+  } else {
+    cut_at(clusters, cut)
+  }
+  nC = max(memix)
+  clrs = f_color(nC)
+  frame_bq(b,q,mtl)
+  for(i in 1:nC){
+    mx <- max(rowSums(graph$M))
+    ix = which(memix == i)
+    M = graph$M[ix,][,ix]
+    sx <- max(rowSums(M))
+    if(graph$type == "b"){
+      add_arrows_xx(b[ix,], M, arw_clr = clrs[i], lwd=lwd*sx/mx, min_edge_frac=min_edge_frac)
+      add_points_b(b[ix,], wts_b=rowSums(M), clr=clrs[i], cx_b=cx*sx/mx, pw=pw)
+      sxy = make_convex_hull_xy(b[ix,])
+      sxy = stretch_convex_hull(sxy, 1+stretch)
+      #graphics::polygon(sxy[,1], sxy[,2], border=clrs[i], lwd=lwd)
+    }
+    if(graph$type == "q"){
+      add_arrows_xx(q[ix,], M, arw_clr = clrs[i], lwd=lwd*sx/mx, min_edge_frac=min_edge_frac)
+      add_points_q(q[ix,], wts_q=rowSums(M), clr=clrs[i], cx_q=cx*sx/mx, pw=pw)
+      sxy = make_convex_hull_xy(q[ix,])
+      sxy = stretch_convex_hull(sxy, 1+stretch)
+      #graphics::polygon(sxy[,1], sxy[,2], border=clrs[i], lwd=lwd)
+    }
+  }
+  return(invisible())
+                      })}
+
+#' Plot the ouptuts of a graph using
+#'
+#' @param model a `ramp.micro` model object
+#' @param graphs a graphswork object
+#' @param cut optional arguent for cut_at
+#' @param alg walktrap = "wt" or greedy = "gr"
+#' @param f_color a function that returns a list of colors (e.g. viridis::turbo)
+#' @param min_edge_frac the fraction of the mass to plot
+#' @param cx cex for plotting points
+#' @param pw power relationship for scaling point size: pw=1 is linear
+#' @param mtl a plot title
+#' @param stretch make the hull slightly larger or slightly smaller
+#' @param r the radius of a ring around destination points
+#' @param arw_lng the arrow length
+#' @param lwd scale the line width
+#' @param lty the line tupe
+#'
+#' @return invisible(NULL)
+#' @export
+add_hulls = function(model, graph, cut=NULL, alg="wt",
+                      f_color = viridis::turbo,
+                      min_edge_frac = 0.01, cx=2,
+                      pw=1, mtl = "",
+                      stretch=0.1,
+                      r=.02, arw_lng=0.05,
+                      lwd=2, lty=1){with(model,{
+  if(alg == "wt") clusters = graph$walktrap_clusters
+  if(alg == "gr") clusters = graph$greedy_clusters
+  memix = if(is.null(cut)){
+    membership(clusters)
+  } else {
+    cut_at(clusters, cut)
+  }
+  nC = max(memix)
+  clrs = f_color(nC)
+  for(i in 1:nC){
+    mx <- max(rowSums(graph$M))
+    ix = which(memix == i)
+    M = graph$M[ix,][,ix]
+    sx <- max(rowSums(M))
+    if(graph$type == "b"){
+      sxy = make_convex_hull_xy(b[ix,])
+      sxy = stretch_convex_hull(sxy, 1+stretch)
+      graphics::polygon(sxy[,1], sxy[,2], border=clrs[i], lwd=lwd, lty=lty)
+    }
+    if(graph$type == "q"){
+      sxy = make_convex_hull_xy(q[ix,])
+      sxy = stretch_convex_hull(sxy, 1+stretch)
+      graphics::polygon(sxy[,1], sxy[,2], border=clrs[i], lwd=lwd, lty=lty)
+    }
+  }
   return(invisible())
 })}

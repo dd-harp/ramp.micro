@@ -186,6 +186,13 @@ bqs_mod1 = setup_model(b=bb, q=qq, s=ss,
 
 ## 7. Simulate / Analyze 
 
+```{r}
+bq_mod1 <- basic_analysis(bq_mod1)
+```
+
+```{r}
+bqs_mod1 <- basic_analysis(bqs_mod1)
+```
 
 
 ## 8. Saving & Loading Models

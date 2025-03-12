@@ -4,12 +4,22 @@
 \alias{plot_patches}
 \title{Visualize the patchespopulation approximation}
 \usage{
-plot_patches(model, i, cut = NULL, lwd = 2, bbend = 3, mtl = NULL)
+plot_patches(
+  model,
+  i,
+  f_color = viridis::turbo,
+  cut = NULL,
+  lwd = 2,
+  bbend = 3,
+  mtl = NULL
+)
 }
 \arguments{
 \item{model}{a ramp.micro model object}
 
 \item{i}{the graph}
+
+\item{f_color}{a function that returns a list of colors (e.g. viridis::turbo)}
 
 \item{cut}{a cutat argument, the # of communities}
 
