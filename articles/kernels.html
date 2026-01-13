@@ -130,7 +130,7 @@ w_{j\rightarrow i} = F_w (d_{i,j}) = \omega_j e^{-k \left( \frac{d_{i,j}}{s}\rig
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFb</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"darkred"</span>, xlab <span class="op">=</span> <span class="st">"Distance"</span>, ylab <span class="op">=</span> <span class="st">"Weight"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFq</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"darkblue"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFs</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"olivedrab4"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="kernels_files/figure-html/unnamed-chunk-4-1.png" width="576"></p>
+<p><img src="kernels_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="576"></p>
 </div>
 <div class="section level3">
 <h3 id="power-law">Power Law<a class="anchor" aria-label="anchor" href="#power-law"></a>
@@ -149,7 +149,7 @@ w_{j\rightarrow i} = F_w (d_{i,j}) =  \frac{\omega_j}{(s+d_{i,j})^\delta}.
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFb1</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"darkred"</span>, xlab <span class="op">=</span> <span class="st">"Distance"</span>, ylab <span class="op">=</span> <span class="st">"Weight"</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFq1</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"darkblue"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">dd</span>, <span class="fu">kFs1</span><span class="op">(</span><span class="va">dd</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"olivedrab4"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="kernels_files/figure-html/unnamed-chunk-6-1.png" width="576"></p>
+<p><img src="kernels_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="576"></p>
 </div>
 <div class="section level3">
 <h3 id="mixture">Mixture<a class="anchor" aria-label="anchor" href="#mixture"></a>
@@ -203,7 +203,7 @@ habitats to blood feed.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Psi_bq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">qq</span>, <span class="va">bb</span>, <span class="va">kFb</span>, w<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_Psi_BQ.html">plot_Psi_bq</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_bq</span><span class="op">)</span></span></code></pre></div>
-<p><img src="kernels_files/figure-html/unnamed-chunk-7-1.png" width="672"></p>
+<p><img src="kernels_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="" width="672"></p>
 <p>If they are unsuccessful, they will try to blood feed again. In the
 visualization, asymmetries arise because of the distribution of other
 points:
@@ -224,12 +224,12 @@ The asymmetry is plotted by letting the colored portion of the arrow
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Psi_bb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xx.html">make_Psi_xx</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">kFb</span>, w<span class="op">=</span><span class="fl">1</span>, stay<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_Psi_bb.html">plot_Psi_bb</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_bb</span><span class="op">)</span></span></code></pre></div>
-<p><img src="kernels_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
+<p><img src="kernels_files/figure-html/unnamed-chunk-8-1.png" class="r-plt" alt="" width="672"></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Psi_bs</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">ss</span>, <span class="va">bb</span>, <span class="va">kFb</span>, w<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_Psi_bs.html">plot_Psi_bs</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">ss</span>, <span class="va">Psi_bs</span><span class="op">)</span></span></code></pre></div>
-<p><img src="kernels_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
+<p><img src="kernels_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" alt="" width="672"></p>
 </div>
 <div class="section level3">
 <h3 id="egg-laying">Egg Laying<a class="anchor" aria-label="anchor" href="#egg-laying"></a>
@@ -240,13 +240,13 @@ aquatic habitats.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Psi_qb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">kFb</span>, w<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_Psi_qb.html">plot_Psi_qb</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_qb</span><span class="op">)</span></span></code></pre></div>
-<p><img src="kernels_files/figure-html/unnamed-chunk-10-1.png" width="672"></p>
+<p><img src="kernels_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" alt="" width="672"></p>
 <p>If they fail, mosquitoes will move again.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Psi_qq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xx.html">make_Psi_xx</a></span><span class="op">(</span><span class="va">qq</span>, <span class="va">kFq</span>, w<span class="op">=</span><span class="fl">1</span>, stay<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_Psi_qq.html">plot_Psi_qq</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">Psi_qq</span><span class="op">)</span></span></code></pre></div>
-<p><img src="kernels_files/figure-html/unnamed-chunk-11-1.png" width="672"></p>
+<p><img src="kernels_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" alt="" width="672"></p>
 </div>
 <div class="section level3">
 <h3 id="sugar-feeding">Sugar Feeding<a class="anchor" aria-label="anchor" href="#sugar-feeding"></a>
@@ -255,17 +255,17 @@ aquatic habitats.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Psi_sb</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">ss</span>, <span class="va">kFs</span>, w<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_Psi_sb.html">plot_Psi_sb</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">ss</span>, <span class="va">Psi_sb</span><span class="op">)</span></span></code></pre></div>
-<p><img src="kernels_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
+<p><img src="kernels_files/figure-html/unnamed-chunk-12-1.png" class="r-plt" alt="" width="672"></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Psi_sq</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xy.html">make_Psi_xy</a></span><span class="op">(</span><span class="va">qq</span>, <span class="va">ss</span>, <span class="va">kFs</span>, w<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_Psi_sq.html">plot_Psi_sq</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">ss</span>, <span class="va">Psi_sq</span><span class="op">)</span></span></code></pre></div>
-<p><img src="kernels_files/figure-html/unnamed-chunk-13-1.png" width="672"></p>
+<p><img src="kernels_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" alt="" width="672"></p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Psi_ss</span> <span class="op">=</span> <span class="fu"><a href="../reference/make_Psi_xx.html">make_Psi_xx</a></span><span class="op">(</span><span class="va">ss</span>, <span class="va">kFs</span>, w<span class="op">=</span><span class="fl">1</span>, stay<span class="op">=</span><span class="fl">0.05</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_Psi_ss.html">plot_Psi_ss</a></span><span class="op">(</span><span class="va">bb</span>, <span class="va">qq</span>, <span class="va">ss</span>, <span class="va">Psi_ss</span><span class="op">)</span></span></code></pre></div>
-<p><img src="kernels_files/figure-html/unnamed-chunk-14-1.png" width="672"></p>
+<p><img src="kernels_files/figure-html/unnamed-chunk-14-1.png" class="r-plt" alt="" width="672"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -279,7 +279,7 @@ aquatic habitats.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

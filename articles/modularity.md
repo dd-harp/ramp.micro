@@ -1,0 +1,23 @@
+# Modularity
+
+This software has a modular design with two components. Modularity in
+the design is implemented using one of R’s basic basic object oriented
+methods, the `S3 Class.`
+
+In a nutshell, there are two dynamical components:
+
+- The **M** component describes adult mosquito population dynamics
+
+- The **L** component describes aquatic mosquito population dynamics
+
+To develop a modular simulation framework, each dynamical component
+defines a common set of functions that are called. Each module in the
+class defines its own `S3` method.
+
+## **L** Component
+
+### Setup
+
+### Methods
+
+### Modules

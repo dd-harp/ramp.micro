@@ -172,7 +172,7 @@ plot dispersal from
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>v</mi></msub><annotation encoding="application/x-tex">P_v</annotation></semantics></math>
 to
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>w</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">P_w.</annotation></semantics></math></p>
-<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-5-1.png" width="768"></p>
+<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="768"></p>
 </div>
 <div class="section level2">
 <h2 id="movement">Movement<a class="anchor" aria-label="anchor" href="#movement"></a>
@@ -188,7 +188,7 @@ can be found by summing the rows of the dispersal matrix,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">M_wv</span><span class="op">)</span>, xlab <span class="op">=</span> <span class="st">"Mosquito Density at Destination"</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">M</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">j</span>,<span class="va">i</span><span class="op">)</span><span class="op">]</span>, <span class="va">i</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-6-1.png" width="480"></p>
+<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="480"></p>
 <p>The matrix
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
 has
@@ -206,7 +206,7 @@ the elements fractions are very small.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log10</a></span><span class="op">(</span><span class="va">M_wv</span><span class="op">)</span>, <span class="fl">40</span>, xaxt <span class="op">=</span> <span class="st">"n"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/axis.html" class="external-link">axis</a></span><span class="op">(</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">5</span><span class="op">:</span><span class="op">-</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="op">-</span><span class="fl">5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="op">-</span><span class="fl">4</span><span class="op">)</span>, <span class="st">"0.001"</span>, <span class="st">"0.01"</span>, <span class="st">"0.1"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/segments.html" class="external-link">segments</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">0</span>, <span class="op">-</span><span class="fl">2</span>, <span class="fl">50</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-7-1.png" width="480"></p>
+<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="" width="480"></p>
 <p>In the following, we draw an arrow from the points in the starting
 set
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>v</mi></msub><annotation encoding="application/x-tex">P_v</annotation></semantics></math>,
@@ -216,7 +216,7 @@ lightblue). On the left, all the edges were plotted, but on the right,
 edges were plotted only if the destination got more than 1% of the
 dispersing mosquitoes. We vary the size of the destination point to be
 the density of mosquitoes arriving:</p>
-<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-8-1.png" width="768"></p>
+<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-8-1.png" class="r-plt" alt="" width="768"></p>
 <p>In the top, we plot all the dispersal fractions for all the points in
 order, and we added a dark blue dot at the point where we stopped
 plotting.</p>
@@ -235,7 +235,7 @@ dark red dot in the bottom).</p>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ecdf</span>, type <span class="op">=</span> <span class="st">"l"</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, xlab <span class="op">=</span> <span class="st">""</span>, ylab <span class="op">=</span> <span class="st">"eCMF"</span><span class="op">)</span></span>
 <span><span class="va">ix2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">ecdf</span> <span class="op">&gt;</span><span class="fl">0.9</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">ix2</span>, <span class="va">ecdf</span><span class="op">[</span><span class="va">ix2</span><span class="op">]</span>, pch<span class="op">=</span><span class="fl">19</span>, col <span class="op">=</span> <span class="st">"darkred"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-9-1.png" width="480"></p>
+<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" alt="" width="480"></p>
 </div>
 <div class="section level2">
 <h2 id="self">Self<a class="anchor" aria-label="anchor" href="#self"></a>
@@ -243,7 +243,7 @@ dark red dot in the bottom).</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Mvv</span> <span class="op">=</span> <span class="va">M_vw</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">M_wv</span></span>
 <span><span class="va">Mww</span> <span class="op">=</span> <span class="va">M_wv</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">M_vw</span></span></code></pre></div>
-<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-11-1.png" width="768"></p>
+<p><img src="visualizing_dispersal_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" alt="" width="768"></p>
 </div>
 <div class="section level2">
 <h2 id="plot-size">Plot Size<a class="anchor" aria-label="anchor" href="#plot-size"></a>
@@ -338,7 +338,7 @@ the edges of habitats?</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

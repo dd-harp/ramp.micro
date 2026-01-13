@@ -1,0 +1,242 @@
+# Building a Model
+
+``` r
+library(ramp.micro)
+```
+
+## Setup Overview
+
+**`ramp.micro`** has made it easy to set up models for simulation and
+analysis. To set up a model:
+
+1.  Choose the **Modules** (*eg,* `BQ` vs. `BQS` for adult mosquitoes)
+
+2.  Create point sets
+
+3.  Define dispersal kernels
+
+4.  Set parameter values for the **Modules**
+
+5.  Set initial conditions.
+
+6.  Call `setup_model`
+
+7.  Simulate / Analyze
+
+8.  Saving Models
+
+## 1. Choose the Modules
+
+The first step is to determine which module / model family you want to
+use for the adult and aquatic components.
+
+**Adult Ecology**
+
+- `BQ` requires two point sets, $\left\{ b \right\}$ and
+  $\left\{ q \right\}$ and four dispersal kernels
+
+- `BQS` requires two point sets, $\left\{ b \right\}$ and
+  $\left\{ q \right\}$ and $\left\{ s \right\}$ and nine dispersal
+  kernels
+
+**Aquatic Ecology**
+
+At the present time, `basicL` is the only module for aquatic ecology,
+but other modules are planned.
+
+## 2. Define Point Sets
+
+**`ramp.micro`** accepts any set of $x,y$ coordinates a user has
+created.
+
+Here, we use a **`ramp.micro`** function `unif_xy` to set up 3 sets of
+points drawn from a random uniform distribution:
+
+``` r
+set.seed(24328)
+bb = unif_xy(256, -17, 17) 
+qq = unif_xy(289, -17, 17) 
+ss = unif_xy(225, -17, 17) 
+```
+
+By convention, each point set is a set of $x,y$ coordinates, and the
+object is pair of named vectors. To see, we take a peak at
+$\left\{ b \right\}$:
+
+``` r
+head(bb,3)
+```
+
+    ##              x         y
+    ## [1,]  -6.35458  3.973335
+    ## [2,]  14.18602 -5.047586
+    ## [3,] -13.90561  7.208547
+
+*See the vignette on [Point
+Sets](https://dd-harp.github.io/ramp.micro/articles/point_sets.md)*
+
+## 3. Define Kernel Shapes
+
+Next, we define the shapes to weight points by distance:
+
+``` r
+ker_b = make_kF_exp(k=2, s=1, gamma=1.5)
+ker_q = make_kF_exp(k=2, s=2, gamma=2)
+ker_s = make_kF_exp(k=3, s=2, gamma=2)
+```
+
+Another option is a parameter that determines the fraction of mosquitoes
+that would stay at a point, called `stayB` and `stayQ` and `stayS` that
+are set to $0$ if unspecified. If specified, they should be configured
+by passing either a scalar or a list of values the same length as the
+number of points.
+
+We pass these as named lists:
+
+``` r
+bq_dispersal = list(kFb = ker_b, kFq = ker_q, stayB=0.5, stayQ=0.5)
+bqs_dispersal = list(kFb = ker_b, kFq = ker_q, kFs=ker_s)
+```
+
+*Also, see the vignette on
+[Kernels](https://dd-harp.github.io/ramp.micro/articles/kernels.md)*
+
+## 4. Define Parameters
+
+The models define default parameter values that can be overwritten by
+passing alternative values by name. The convention of setting up models
+by passing named lists makes it makes it easy to get started, and it
+provides a template that illustrates how to *modify* the parameters, but
+using the default values can become a trap for lazy analysts.
+
+### a. Adult Bionomics
+
+To see the options for each model, look at the documentation. For the
+**`BQ`** module:
+
+``` r
+?setup_bionomics_BQ
+```
+
+For the **`BQS`** module:
+
+``` r
+?setup_bionomics_BQS
+```
+
+For example, if we wanted to assign random variates drawn from a `beta`
+distribution to describes survival at sites with a mean of 96%, we would
+pass the values by name in a list:
+
+``` r
+adult_opts1 = list(pB = rbeta(256, 96, 4)) 
+```
+
+This is used in the examples below.
+
+Later, when we analyze *potential* transmission, we will need to define
+the extrinsic incubation period, `eip.`
+
+``` r
+adult_opts2 = list(pB = rbeta(256, 96, 4), eip=12) 
+```
+
+### b. Aquatic Parameters
+
+Similarly, to set up parameters for the aquatic habitats, we can set any
+of the parameters from the command line. For the `basicL` module:
+
+``` r
+?setup_aquatic_model_basicL
+```
+
+## 5. Initial Conditions
+
+To simulate any dynamic model, we must set the initial conditions. Once
+again, this is done separately for the two components.
+
+### a. Adult Variables
+
+The current state of the system is stored in `model$Mvars.`
+
+``` r
+?init_adult_model_BQ
+```
+
+or
+
+``` r
+?init_adult_model_BQS
+```
+
+### b. Aquatic Variables
+
+``` r
+?init_aquatic_model_basicL
+```
+
+## 6. Setup
+
+The *setup* functions are designed to create a model object that is
+ready for simulation and analysis. Documentation for the function
+`setup_model` explains what it is looking for.
+
+``` r
+?setup_model
+```
+
+### Setup BQ
+
+To set up `BQ,` we set `Mname = "BQ".` We must pass the point sets `bb`
+and `qq` and functions that compute kernel weights by distance: `kFb`
+and `kFq` and `kFs.`
+
+``` r
+bq_mod1 = setup_model(b=bb, q=qq, 
+                      kFb=ker_b, kFq=ker_q, 
+                      bionomic_opts = adult_opts1)
+```
+
+### Setup BQS
+
+To set up `BQS,` we set `Mname = "BQS".` We must pass the point sets
+`bb` and `qq` and `ss` and functions that compute kernel weights by
+distance: `kFb` and `kFq` and `kFs.`
+
+``` r
+bqs_mod1 = setup_model(b=bb, q=qq, s=ss, 
+                       kFb = ker_b, kFq = ker_q, kFs = ker_s, 
+                       Mname = "BQS", 
+                       bionomic_opts = adult_opts2)
+```
+
+## 7. Simulate / Analyze
+
+``` r
+bq_mod1 <- basic_analysis(bq_mod1)
+```
+
+``` r
+bqs_mod1 <- basic_analysis(bqs_mod1)
+```
+
+## 8. Saving & Loading Models
+
+``` r
+save(bq_mod1, file = "bq_mod1.rda")
+save(bqs_mod1, file = "bqs_mod1.rda")
+```
+
+``` r
+rm("bq_mod1")
+exists("bq_mod1")
+```
+
+    ## [1] FALSE
+
+``` r
+load("bq_mod1.rda")
+exists("bq_mod1")
+```
+
+    ## [1] TRUE
