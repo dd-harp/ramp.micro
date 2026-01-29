@@ -23,6 +23,8 @@ plot_subgraph(
 \arguments{
 \item{model}{a `ramp.micro` model object}
 
+\item{graph}{a graphswork object}
+
 \item{cut}{optional arguent for cut_at}
 
 \item{alg}{walktrap = "wt" or greedy = "gr"}
@@ -44,8 +46,6 @@ plot_subgraph(
 \item{arw_lng}{the arrow length}
 
 \item{lwd}{scale the line width}
-
-\item{graphs}{a graphswork object}
 }
 \value{
 invisible(NULL)

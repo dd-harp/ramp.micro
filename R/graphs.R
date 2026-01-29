@@ -183,7 +183,7 @@ plot_graph = function(model, graph, cut=NULL, alg="wt",
 #' Plot the ouptuts of a graph using
 #'
 #' @param model a `ramp.micro` model object
-#' @param graphs a graphswork object
+#' @param graph a graphswork object
 #' @param cut optional arguent for cut_at
 #' @param alg walktrap = "wt" or greedy = "gr"
 #' @param f_color a function that returns a list of colors (e.g. viridis::turbo)

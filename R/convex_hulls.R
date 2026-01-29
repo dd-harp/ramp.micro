@@ -72,7 +72,7 @@ make_convex_hulls = function(model, graph, cut=NULL, clrs=NULL, f_color = viridi
 #' @export
 make_convex_hull_i = function(i, memix, xy){
   ix = which(memix == i)
-  return(make_convex_hull(xy[ix,]))
+  return(make_convex_hull_xy(xy[ix,]))
 }
 
 #' Make the convex hull for the i^th community
